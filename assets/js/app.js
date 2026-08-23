@@ -75,19 +75,37 @@ function parseNumber(v) {
   return Number(String(v ?? '').replace(/[^\d]/g, '')) || 0;
 }
 
+function getStoredStock(resource) {
+  const legacyResources = {
+    'hero-specific-shards': 'hero-shards',
+    'ur-omni-shards': 'ur-shards',
+    'ssr-omni-shards': 'ssr-shards',
+    'sr-omni-shards': 'sr-shards'
+  };
+  try {
+    const value = localStorage.getItem(`lat-stock-${resource}`);
+    if (value !== null) return value;
+    const legacyResource = legacyResources[resource];
+    const legacyValue = legacyResource ? localStorage.getItem(`lat-stock-${legacyResource}`) : null;
+    if (legacyValue !== null) localStorage.setItem(`lat-stock-${resource}`, legacyValue);
+    return legacyValue;
+  } catch (error) {
+    return null;
+  }
+}
+
+function setStoredStock(resource, value) {
+  try {
+    localStorage.setItem(`lat-stock-${resource}`, value);
+  } catch (error) {}
+}
+
 function bindPersistentStocks(fields) {
   Object.entries(fields).forEach(([id, resource]) => {
     const input = $('#' + id);
-    const key = `lat-stock-${resource}`;
-    try {
-      const savedValue = localStorage.getItem(key);
-      if (savedValue !== null) input.value = savedValue;
-    } catch (error) {}
-    input.addEventListener('input', () => {
-      try {
-        localStorage.setItem(key, input.value);
-      } catch (error) {}
-    });
+    const savedValue = getStoredStock(resource);
+    if (savedValue !== null) input.value = savedValue;
+    input.addEventListener('input', () => setStoredStock(resource, input.value));
   });
 }
 
@@ -198,12 +216,11 @@ function renderStocksPage(t) {
  <section class="panel">
   <div class="form-grid">
    <label><span>${translate('antitoxin')}</span><input id="stock-antitoxin" inputmode="numeric" value="0"></label>
-   <label><span>${translate('hero_shards')}</span><input id="stock-hero-shards" inputmode="numeric" value="0"></label>
    <label><span>${translate('skill_badges')}</span><input id="stock-skill-badges" inputmode="numeric" value="0"></label>
    <label><span>${translate('recruits')}</span><input id="stock-recruitments" inputmode="numeric" value="0"></label>
-   <label><span>${translate('ur_shards')}</span><input id="stock-ur-shards" inputmode="numeric" value="0"></label>
-   <label><span>${translate('ssr_shards')}</span><input id="stock-ssr-shards" inputmode="numeric" value="0"></label>
-   <label><span>${translate('sr_shards')}</span><input id="stock-sr-shards" inputmode="numeric" value="0"></label>
+   <label><span>${translate('ur_omni_shards')}</span><input id="stock-ur-omni-shards" inputmode="numeric" value="0"></label>
+   <label><span>${translate('ssr_omni_shards')}</span><input id="stock-ssr-omni-shards" inputmode="numeric" value="0"></label>
+   <label><span>${translate('sr_omni_shards')}</span><input id="stock-sr-omni-shards" inputmode="numeric" value="0"></label>
    <label><span>${translate('raven_fruit')}</span><input id="stock-raven-fruit" inputmode="numeric" value="0"></label>
    <label><span>${translate('raven_essence')}</span><input id="stock-raven-essence" inputmode="numeric" value="0"></label>
   </div>
@@ -211,12 +228,11 @@ function renderStocksPage(t) {
  </section>`;
   bindPersistentStocks({
     'stock-antitoxin': 'antitoxin',
-    'stock-hero-shards': 'hero-shards',
     'stock-skill-badges': 'skill-badges',
     'stock-recruitments': 'recruitments',
-    'stock-ur-shards': 'ur-shards',
-    'stock-ssr-shards': 'ssr-shards',
-    'stock-sr-shards': 'sr-shards',
+    'stock-ur-omni-shards': 'ur-omni-shards',
+    'stock-ssr-omni-shards': 'ssr-omni-shards',
+    'stock-sr-omni-shards': 'sr-omni-shards',
     'stock-raven-fruit': 'raven-fruit',
     'stock-raven-essence': 'raven-essence'
   });
@@ -296,21 +312,36 @@ function renderShardsPage(t) {
  <div class="calc-grid"><section class="panel"><div class="form-grid">
  <label><span>${translate('stars_current')}</span><select id="star-current">${createStarOptions(0)}</select></label>
  <label><span>${translate('stars_target')}</span><select id="star-target">${createStarOptions(5)}</select></label>
- <label class="full"><span>${translate('stock')}</span><input id="star-stock" inputmode="numeric" value="0"></label>
+ <label class="full"><span>${translate('hero_rarity')}</span><select id="star-rarity"><option value="ur">UR</option><option value="ssr">SSR</option><option value="sr">SR</option></select></label>
+ <label><span>${translate('specific_shards_stock')}</span><input id="star-specific-stock" inputmode="numeric" value="0"></label>
+ <label><span>${translate('omni_shards_stock')}</span><input id="star-omni-stock" inputmode="numeric" value="0"></label>
  </div></section>
- <section class="panel result-panel"><span class="result-label">${translate('shards_required')}</span><strong id="star-total" class="result-main">—</strong><span class="result-unit">${translate('hero_omni')}</span>
+ <section class="panel result-panel"><span class="result-label">${translate('shards_required')}</span><strong id="star-total" class="result-main">—</strong><span class="result-unit">${translate('specific_or_omni_shards')}</span>
  <div class="stat-row"><div class="stat"><span>${translate('missing')}</span><strong id="star-missing">—</strong></div><div class="stat"><span>${translate('duel_points')}</span><strong id="star-points">—</strong></div></div></section></div>`;
+  const loadOmniStock = () => {
+    $('#star-omni-stock').value = getStoredStock(`${$('#star-rarity').value}-omni-shards`) ?? '0';
+  };
   const calculate = () => {
     const a = +$('#star-current').value,
       b = +$('#star-target').value,
-      stock = parseNumber($('#star-stock').value);
+      stock = parseNumber($('#star-specific-stock').value) + parseNumber($('#star-omni-stock').value);
     const total = b > a ? GAME_DATA.stars.filter(s => s.value > a && s.value <= b).reduce((x, s) => x + s.cost, 0) : 0;
+    const pointsByRarity = { ur: GAME_DATA.duel.urShardPoints, ssr: GAME_DATA.duel.ssrShardPoints, sr: GAME_DATA.duel.srShardPoints };
     $('#star-total').textContent = b > a ? formatNumber(total) : '—';
     $('#star-missing').textContent = b > a ? formatNumber(Math.max(0, total - stock)) : '—';
-    $('#star-points').textContent = b > a ? formatNumber(total * GAME_DATA.duel.urShardPoints) : '—'
+    $('#star-points').textContent = b > a ? formatNumber(total * pointsByRarity[$('#star-rarity').value]) : '—'
   };
-  bindPersistentStocks({ 'star-stock': 'hero-shards' });
-  ['star-current', 'star-target', 'star-stock'].forEach(id => $('#' + id).addEventListener('input', calculate));
+  bindPersistentStocks({ 'star-specific-stock': 'hero-specific-shards' });
+  loadOmniStock();
+  $('#star-rarity').addEventListener('input', () => {
+    loadOmniStock();
+    calculate();
+  });
+  $('#star-omni-stock').addEventListener('input', () => {
+    setStoredStock(`${$('#star-rarity').value}-omni-shards`, $('#star-omni-stock').value);
+    calculate();
+  });
+  ['star-current', 'star-target', 'star-specific-stock'].forEach(id => $('#' + id).addEventListener('input', calculate));
   calculate();
 }
 
@@ -321,7 +352,7 @@ function renderSkillsPage(t) {
  <label><span>${translate('skill_current')}</span><select id="skill-current">${createLevelOptions(1,max,1)}</select></label>
  <label><span>${translate('skill_target')}</span><select id="skill-target">${createLevelOptions(1,max,10)}</select></label>
  <label class="full"><span>${translate('stock')}</span><input id="skill-stock" inputmode="numeric" value="0"></label></div></section>
- <section class="panel result-panel"><span class="result-label">${translate('badges_required')}</span><strong id="skill-total" class="result-main">—</strong><span class="result-unit">Skill Badges</span>
+ <section class="panel result-panel"><span class="result-label">${translate('badges_required')}</span><strong id="skill-total" class="result-main">—</strong><span class="result-unit">${translate('skill_badges')}</span>
  <div class="stat-row"><div class="stat"><span>${translate('missing')}</span><strong id="skill-missing">—</strong></div><div class="stat"><span>${translate('duel_points')}</span><strong id="skill-points">—</strong></div></div></section></div>`;
   const calculate = () => {
     const a = +$('#skill-current').value,
@@ -344,9 +375,9 @@ function renderDuelPage(t) {
  <div class="calc-grid"><section class="panel duel-inputs">
   <label><span>${translate('antitoxin')}</span><input id="d-a" inputmode="numeric" value="0"></label>
   <label><span>${translate('recruits')}</span><input id="d-r" inputmode="numeric" value="0"></label>
-  <label><span>${translate('ur_shards')}</span><input id="d-u" inputmode="numeric" value="0"></label>
-  <label><span>${translate('ssr_shards')}</span><input id="d-s" inputmode="numeric" value="0"></label>
-  <label><span>${translate('sr_shards')}</span><input id="d-sr" inputmode="numeric" value="0"></label>
+  <label><span>${translate('ur_omni_shards')}</span><input id="d-u" inputmode="numeric" value="0"></label>
+  <label><span>${translate('ssr_omni_shards')}</span><input id="d-s" inputmode="numeric" value="0"></label>
+  <label><span>${translate('sr_omni_shards')}</span><input id="d-sr" inputmode="numeric" value="0"></label>
   <label><span>${translate('skill_badges')}</span><input id="d-b" inputmode="numeric" value="0"></label>
  </section>
  <section class="panel result-panel"><span class="result-label">${translate('duel_points')}</span><strong class="result-main" id="d-total">0</strong><span class="result-unit">${translate('hero_phase')}</span><div class="stat-row"><div class="stat full"><span>${translate('note_duel')}</span></div></div></section></div>`;
@@ -358,9 +389,9 @@ function renderDuelPage(t) {
   bindPersistentStocks({
     'd-a': 'antitoxin',
     'd-r': 'recruitments',
-    'd-u': 'ur-shards',
-    'd-s': 'ssr-shards',
-    'd-sr': 'sr-shards',
+    'd-u': 'ur-omni-shards',
+    'd-s': 'ssr-omni-shards',
+    'd-sr': 'sr-omni-shards',
     'd-b': 'skill-badges'
   });
   ['d-a', 'd-r', 'd-u', 'd-s', 'd-sr', 'd-b'].forEach(id => $('#' + id).addEventListener('input', calculate));
