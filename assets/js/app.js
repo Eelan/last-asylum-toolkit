@@ -69,6 +69,22 @@ function parseNumber(v) {
   return Number(String(v ?? '').replace(/[^\d]/g, '')) || 0;
 }
 
+function bindPersistentStocks(fields) {
+  Object.entries(fields).forEach(([id, resource]) => {
+    const input = $('#' + id);
+    const key = `lat-stock-${resource}`;
+    try {
+      const savedValue = localStorage.getItem(key);
+      if (savedValue !== null) input.value = savedValue;
+    } catch (error) {}
+    input.addEventListener('input', () => {
+      try {
+        localStorage.setItem(key, input.value);
+      } catch (error) {}
+    });
+  });
+}
+
 function icon(name) {
   return `<i data-lucide="${name}"></i>`;
 }
@@ -160,6 +176,7 @@ function renderAntitoxinPage(t) {
     $('#anti-points').textContent = formatNumber(Math.floor(total / GAME_DATA.duel.antitoxinUnit));
     $('#anti-body').innerHTML = rows;
   };
+  bindPersistentStocks({ 'anti-stock': 'antitoxin' });
   ['anti-current', 'anti-target', 'anti-stock'].forEach(id => $('#' + id).addEventListener('input', calculate));
   $$('[data-range]').forEach(b => b.addEventListener('click', () => {
     const [a, z] = b.dataset.range.split(',');
@@ -225,6 +242,10 @@ function renderRavenPage(t) {
     $('#raven-essence-missing').textContent = formatNumber(Math.max(0, essenceTotal - essenceStock));
     $('#raven-body').innerHTML = rows;
   };
+  bindPersistentStocks({
+    'raven-fruit-stock': 'raven-fruit',
+    'raven-essence-stock': 'raven-essence'
+  });
   ['raven-current', 'raven-target', 'raven-fruit-stock', 'raven-essence-stock'].forEach(id => $('#' + id).addEventListener('input', calculate));
   $$('[data-raven-range]').forEach(button => button.addEventListener('click', () => {
     const [current, target] = button.dataset.ravenRange.split(',');
@@ -253,6 +274,7 @@ function renderShardsPage(t) {
     $('#star-missing').textContent = b > a ? formatNumber(Math.max(0, total - stock)) : '—';
     $('#star-points').textContent = b > a ? formatNumber(total * GAME_DATA.duel.urShardPoints) : '—'
   };
+  bindPersistentStocks({ 'star-stock': 'hero-shards' });
   ['star-current', 'star-target', 'star-stock'].forEach(id => $('#' + id).addEventListener('input', calculate));
   calculate();
 }
@@ -277,6 +299,7 @@ function renderSkillsPage(t) {
     $('#skill-missing').textContent = b > a ? formatNumber(Math.max(0, total - stock)) : '—';
     $('#skill-points').textContent = b > a ? formatNumber(total * GAME_DATA.duel.skillBadgePoints) : '—'
   };
+  bindPersistentStocks({ 'skill-stock': 'skill-badges' });
   ['skill-current', 'skill-target', 'skill-stock'].forEach(id => $('#' + id).addEventListener('input', calculate));
   calculate();
 }
@@ -297,6 +320,14 @@ function renderDuelPage(t) {
     const x = Math.floor(parseNumber($('#d-a').value) / d.antitoxinUnit) + parseNumber($('#d-r').value) * d.recruitPoints + parseNumber($('#d-u').value) * d.urShardPoints + parseNumber($('#d-s').value) * d.ssrShardPoints + parseNumber($('#d-sr').value) * d.srShardPoints + parseNumber($('#d-b').value) * d.skillBadgePoints;
     $('#d-total').textContent = formatNumber(x)
   };
+  bindPersistentStocks({
+    'd-a': 'antitoxin',
+    'd-r': 'recruitments',
+    'd-u': 'ur-shards',
+    'd-s': 'ssr-shards',
+    'd-sr': 'sr-shards',
+    'd-b': 'skill-badges'
+  });
   ['d-a', 'd-r', 'd-u', 'd-s', 'd-sr', 'd-b'].forEach(id => $('#' + id).addEventListener('input', calculate));
   calculate();
 }
