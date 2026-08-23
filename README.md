@@ -40,6 +40,7 @@ Add a new language object and a new language button in `index.html`.
 - `assets/js/app.js`: application bootstrap and routing
 - `assets/js/config/`: tool catalogue and application configuration
 - `assets/js/core/`: shared DOM, translation and storage helpers
+- `assets/js/domain/`: pure game calculations without DOM access
 - `assets/js/pages/`: one renderer and its business logic per tool page
 - `assets/js/data.js`: game progression datasets
 
@@ -47,7 +48,8 @@ The application uses native ES modules and still requires no build step.
 
 ### Code documentation conventions
 
-- Each tool page owns its markup, calculations, event bindings and persistence wiring.
+- Each tool page owns its markup, event bindings and persistence wiring.
+- Pure calculations and game rules live in `assets/js/domain/`.
 - JSDoc comments describe exported functions and non-obvious business rules.
 - `// #region` blocks separate large concerns such as calculation, events and datasets.
 - Straightforward statements are left uncommented to avoid duplicating what the code already says.

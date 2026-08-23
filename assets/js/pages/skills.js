@@ -3,6 +3,7 @@ import { $, createLevelOptions } from '../core/dom.js';
 import { formatNumber, translate } from '../core/i18n.js';
 import { bindPersistentStocks, parseNumber } from '../core/storage.js';
 import { renderPageHeader } from '../core/ui.js';
+import { calculateSkillProgression } from '../domain/skills.js';
 
 export function renderSkillsPage(tool) {
   const maxLevel = Math.max(...Object.keys(GAME_DATA.skills).map(Number));
@@ -18,13 +19,10 @@ export function renderSkillsPage(tool) {
     const current = +$('#skill-current').value;
     const target = +$('#skill-target').value;
     const stock = parseNumber($('#skill-stock').value);
-    let total = 0;
-    if (target > current) {
-      for (let level = current + 1; level <= target; level++) total += GAME_DATA.skills[level] || 0;
-    }
-    $('#skill-total').textContent = target > current ? formatNumber(total) : '—';
-    $('#skill-missing').textContent = target > current ? formatNumber(Math.max(0, total - stock)) : '—';
-    $('#skill-points').textContent = target > current ? formatNumber(total * GAME_DATA.duel.skillBadgePoints) : '—';
+    const result = calculateSkillProgression(current, target, stock);
+    $('#skill-total').textContent = result.valid ? formatNumber(result.required) : '—';
+    $('#skill-missing').textContent = result.valid ? formatNumber(result.missing) : '—';
+    $('#skill-points').textContent = result.valid ? formatNumber(result.duelPoints) : '—';
   };
 
   bindPersistentStocks({ 'skill-stock': 'skill-badges' });

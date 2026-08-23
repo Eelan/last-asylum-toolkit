@@ -1,14 +1,8 @@
-import { GAME_DATA } from '../data.js';
 import { $, $$, createLevelOptions } from '../core/dom.js';
 import { formatNumber, translate } from '../core/i18n.js';
 import { bindPersistentStocks, parseNumber } from '../core/storage.js';
 import { renderPageHeader } from '../core/ui.js';
-
-/** Returns the cost of upgrading from the supplied Corbeau level. */
-function getUpgradeCost(level) {
-  const band = GAME_DATA.raven.find(([from, to]) => level >= from && level <= to);
-  return band ? { fruit: band[2], essence: band[3] } : { fruit: 0, essence: 0 };
-}
+import { calculateRavenProgression } from '../domain/raven.js';
 
 export function renderRavenPage(tool) {
   $('#view').innerHTML = renderPageHeader(tool) + `
@@ -32,25 +26,17 @@ export function renderRavenPage(tool) {
     const target = +$('#raven-target').value;
     const fruitStock = parseNumber($('#raven-fruit-stock').value);
     const essenceStock = parseNumber($('#raven-essence-stock').value);
-    let fruitTotal = 0;
-    let essenceTotal = 0;
-    let rows = '';
-    if (target <= current) {
+    const progression = calculateRavenProgression(current, target);
+    if (!progression.valid) {
       ['raven-fruit-total', 'raven-essence-total', 'raven-fruit-missing', 'raven-essence-missing'].forEach(id => $('#' + id).textContent = '—');
       $('#raven-body').innerHTML = '';
       return;
     }
-    for (let level = current + 1; level <= target; level++) {
-      const cost = getUpgradeCost(level - 1);
-      fruitTotal += cost.fruit;
-      essenceTotal += cost.essence;
-      rows += `<tr><td>${level}</td><td>${formatNumber(cost.fruit)}</td><td>${formatNumber(cost.essence)}</td><td>${formatNumber(fruitTotal)}</td><td>${formatNumber(essenceTotal)}</td></tr>`;
-    }
-    $('#raven-fruit-total').textContent = formatNumber(fruitTotal);
-    $('#raven-essence-total').textContent = formatNumber(essenceTotal);
-    $('#raven-fruit-missing').textContent = formatNumber(Math.max(0, fruitTotal - fruitStock));
-    $('#raven-essence-missing').textContent = formatNumber(Math.max(0, essenceTotal - essenceStock));
-    $('#raven-body').innerHTML = rows;
+    $('#raven-fruit-total').textContent = formatNumber(progression.fruit);
+    $('#raven-essence-total').textContent = formatNumber(progression.essence);
+    $('#raven-fruit-missing').textContent = formatNumber(Math.max(0, progression.fruit - fruitStock));
+    $('#raven-essence-missing').textContent = formatNumber(Math.max(0, progression.essence - essenceStock));
+    $('#raven-body').innerHTML = progression.levels.map(row => `<tr><td>${row.level}</td><td>${formatNumber(row.fruit)}</td><td>${formatNumber(row.essence)}</td><td>${formatNumber(row.fruitCumulative)}</td><td>${formatNumber(row.essenceCumulative)}</td></tr>`).join('');
   };
   // #endregion
 

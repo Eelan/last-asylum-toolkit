@@ -19,12 +19,14 @@ assets/
     ├── i18n.js         # French and English translations
     ├── config/         # Tool catalogue and application configuration
     ├── core/           # Shared DOM, i18n, storage and UI helpers
+    ├── domain/         # Pure game calculations without DOM access
     └── pages/          # One module per tool page
 ```
 
 - Use native ES modules with relative `.js` imports.
 - Keep `app.js` limited to application-level navigation and routing.
-- Put page markup, calculations, event listeners and page-specific persistence in `assets/js/pages/<page>.js`.
+- Put page markup, event listeners and page-specific persistence in `assets/js/pages/<page>.js`.
+- Put game rules and reusable calculations in pure functions under `assets/js/domain/`.
 - Put reusable behavior in `assets/js/core/` only after it is shared by multiple pages.
 - Register visible and planned tools in `assets/js/config/tools.js`.
 - Tools with `ready: false` must remain hidden from navigation and the home dashboard.

@@ -3,6 +3,7 @@ import { $ } from '../core/dom.js';
 import { formatNumber, translate } from '../core/i18n.js';
 import { bindPersistentStocks, getStoredStock, parseNumber, setStoredStock } from '../core/storage.js';
 import { renderPageHeader } from '../core/ui.js';
+import { calculateFragmentUpgrade } from '../domain/fragments.js';
 
 function createStarOptions(selected) {
   return GAME_DATA.stars.map(star => `<option value="${star.value}" ${star.value === selected ? 'selected' : ''}>${star.value.toFixed(1).replace('.0','')} ★</option>`).join('');
@@ -28,12 +29,16 @@ export function renderFragmentsPage(tool) {
   const calculate = () => {
     const current = +$('#star-current').value;
     const target = +$('#star-target').value;
-    const stock = parseNumber($('#star-specific-stock').value) + parseNumber($('#star-omni-stock').value);
-    const total = target > current ? GAME_DATA.stars.filter(star => star.value > current && star.value <= target).reduce((sum, star) => sum + star.cost, 0) : 0;
-    const pointsByRarity = { ur: GAME_DATA.duel.urShardPoints, ssr: GAME_DATA.duel.ssrShardPoints, sr: GAME_DATA.duel.srShardPoints };
-    $('#star-total').textContent = target > current ? formatNumber(total) : '—';
-    $('#star-missing').textContent = target > current ? formatNumber(Math.max(0, total - stock)) : '—';
-    $('#star-points').textContent = target > current ? formatNumber(total * pointsByRarity[$('#star-rarity').value]) : '—';
+    const result = calculateFragmentUpgrade({
+      current,
+      target,
+      rarity: $('#star-rarity').value,
+      specificStock: parseNumber($('#star-specific-stock').value),
+      omniStock: parseNumber($('#star-omni-stock').value)
+    });
+    $('#star-total').textContent = result.valid ? formatNumber(result.required) : '—';
+    $('#star-missing').textContent = result.valid ? formatNumber(result.missing) : '—';
+    $('#star-points').textContent = result.valid ? formatNumber(result.duelPoints) : '—';
   };
 
   // #region Events and persistence

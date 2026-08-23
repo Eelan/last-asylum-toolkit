@@ -1,8 +1,8 @@
-import { GAME_DATA } from '../data.js';
 import { $ } from '../core/dom.js';
 import { formatNumber, translate } from '../core/i18n.js';
 import { bindPersistentStocks, parseNumber } from '../core/storage.js';
 import { renderPageHeader } from '../core/ui.js';
+import { calculateDuelPlan } from '../domain/duel.js';
 
 const DUEL_SETTINGS = {
   'd-target': 'lat-duel-target',
@@ -40,45 +40,29 @@ export function renderDuelPage(tool) {
 
   // #region Planner algorithm
   const calculate = () => {
-    const duel = GAME_DATA.duel;
-    // Order defines the default spending priority. A final pass uses the
-    // smallest remaining point unit to reduce target overshoot.
-    const resources = [
-      { id: 'd-u', label: translate('ur_omni_shards'), points: duel.urShardPoints, unit: 1 },
-      { id: 'd-s', label: translate('ssr_omni_shards'), points: duel.ssrShardPoints, unit: 1 },
-      { id: 'd-r', label: translate('recruits'), points: duel.recruitPoints, unit: 1 },
-      { id: 'd-sr', label: translate('sr_omni_shards'), points: duel.srShardPoints, unit: 1 },
-      { id: 'd-b', label: translate('skill_badges'), points: duel.skillBadgePoints, unit: 1 },
-      { id: 'd-a', label: translate('antitoxin'), points: 1, unit: duel.antitoxinUnit }
-    ].map(resource => ({ ...resource, stock: parseNumber($('#' + resource.id).value), useUnits: 0 }));
-
-    const multiplier = 1 + parseNumber($('#d-bonus').value) / 100;
     const target = parseNumber($('#d-target').value);
-    const availableBasePoints = resources.reduce((sum, resource) => sum + Math.floor(resource.stock / resource.unit) * resource.points, 0);
-    let remainingBasePoints = target > 0 ? Math.ceil(target / multiplier) : 0;
-
-    resources.forEach(resource => {
-      const availableUnits = Math.floor(resource.stock / resource.unit);
-      resource.useUnits = Math.min(availableUnits, Math.floor(remainingBasePoints / resource.points));
-      remainingBasePoints -= resource.useUnits * resource.points;
+    const plan = calculateDuelPlan({
+      target,
+      bonus: parseNumber($('#d-bonus').value),
+      stocks: {
+        antitoxin: parseNumber($('#d-a').value),
+        recruits: parseNumber($('#d-r').value),
+        ur: parseNumber($('#d-u').value),
+        ssr: parseNumber($('#d-s').value),
+        sr: parseNumber($('#d-sr').value),
+        badges: parseNumber($('#d-b').value)
+      }
     });
+    const labels = {
+      ur: translate('ur_omni_shards'), ssr: translate('ssr_omni_shards'),
+      recruits: translate('recruits'), sr: translate('sr_omni_shards'),
+      badges: translate('skill_badges'), antitoxin: translate('antitoxin')
+    };
 
-    if (remainingBasePoints > 0) {
-      const smallestAvailableUnit = [...resources]
-        .filter(resource => resource.useUnits < Math.floor(resource.stock / resource.unit))
-        .sort((a, b) => a.points - b.points)[0];
-      if (smallestAvailableUnit) smallestAvailableUnit.useUnits += 1;
-    }
-
-    const plannedBasePoints = resources.reduce((sum, resource) => sum + resource.useUnits * resource.points, 0);
-    const plannedPoints = Math.floor(plannedBasePoints * multiplier);
-    $('#d-total').textContent = formatNumber(Math.floor(availableBasePoints * multiplier));
+    $('#d-total').textContent = formatNumber(plan.availablePoints);
     $('#d-target-result').textContent = formatNumber(target);
-    $('#d-missing').textContent = formatNumber(target > 0 ? Math.max(0, target - plannedPoints) : 0);
-    $('#d-plan').innerHTML = resources.map(resource => {
-      const use = resource.useUnits * resource.unit;
-      return `<tr><td>${resource.label}</td><td>${formatNumber(resource.stock)}</td><td>${formatNumber(use)}</td><td>${formatNumber(resource.stock - use)}</td><td>${formatNumber(Math.floor(resource.useUnits * resource.points * multiplier))}</td></tr>`;
-    }).join('');
+    $('#d-missing').textContent = formatNumber(plan.missingPoints);
+    $('#d-plan').innerHTML = plan.resources.map(resource => `<tr><td>${labels[resource.key]}</td><td>${formatNumber(resource.stock)}</td><td>${formatNumber(resource.use)}</td><td>${formatNumber(resource.keep)}</td><td>${formatNumber(resource.points)}</td></tr>`).join('');
   };
   // #endregion
 

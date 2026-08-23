@@ -3,6 +3,7 @@ import { $, $$, createLevelOptions } from '../core/dom.js';
 import { formatNumber, translate } from '../core/i18n.js';
 import { bindPersistentStocks, parseNumber } from '../core/storage.js';
 import { renderPageHeader } from '../core/ui.js';
+import { calculateAntitoxinProgression } from '../domain/antitoxin.js';
 
 export function renderAntitoxinPage(tool) {
   const maxLevel = Math.max(...Object.keys(GAME_DATA.antitoxin).map(Number));
@@ -28,22 +29,16 @@ export function renderAntitoxinPage(tool) {
     const current = +$('#anti-current').value;
     const target = +$('#anti-target').value;
     const stock = parseNumber($('#anti-stock').value);
-    let total = 0;
-    let rows = '';
-    if (target <= current) {
+    const progression = calculateAntitoxinProgression(current, target);
+    if (!progression.valid) {
       ['anti-total', 'anti-missing', 'anti-points'].forEach(id => $('#' + id).textContent = '—');
       $('#anti-body').innerHTML = '';
       return;
     }
-    for (let level = current + 1; level <= target; level++) {
-      const cost = GAME_DATA.antitoxin[level] || 0;
-      total += cost;
-      rows += `<tr><td>${level}</td><td>${Math.ceil(level / 5)}</td><td>${formatNumber(cost)}</td><td>${formatNumber(total)}</td></tr>`;
-    }
-    $('#anti-total').textContent = formatNumber(total);
-    $('#anti-missing').textContent = formatNumber(Math.max(0, total - stock));
-    $('#anti-points').textContent = formatNumber(Math.floor(total / GAME_DATA.duel.antitoxinUnit));
-    $('#anti-body').innerHTML = rows;
+    $('#anti-total').textContent = formatNumber(progression.total);
+    $('#anti-missing').textContent = formatNumber(Math.max(0, progression.total - stock));
+    $('#anti-points').textContent = formatNumber(progression.duelPoints);
+    $('#anti-body').innerHTML = progression.levels.map(row => `<tr><td>${row.level}</td><td>${row.sanctuary}</td><td>${formatNumber(row.cost)}</td><td>${formatNumber(row.cumulative)}</td></tr>`).join('');
   };
   // #endregion
 
