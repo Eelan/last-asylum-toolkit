@@ -1,0 +1,50 @@
+import { GAME_DATA } from '../data.js';
+import { $ } from '../core/dom.js';
+import { formatNumber, translate } from '../core/i18n.js';
+import { bindPersistentStocks, getStoredStock, parseNumber, setStoredStock } from '../core/storage.js';
+import { renderPageHeader } from '../core/ui.js';
+
+function createStarOptions(selected) {
+  return GAME_DATA.stars.map(star => `<option value="${star.value}" ${star.value === selected ? 'selected' : ''}>${star.value.toFixed(1).replace('.0','')} ★</option>`).join('');
+}
+
+export function renderFragmentsPage(tool) {
+  $('#view').innerHTML = renderPageHeader(tool) + `
+ <div class="calc-grid"><section class="panel"><div class="form-grid">
+  <label><span>${translate('stars_current')}</span><select id="star-current">${createStarOptions(0)}</select></label>
+  <label><span>${translate('stars_target')}</span><select id="star-target">${createStarOptions(5)}</select></label>
+  <label class="full"><span>${translate('hero_rarity')}</span><select id="star-rarity"><option value="ur">UR</option><option value="ssr">SSR</option><option value="sr">SR</option></select></label>
+  <label><span>${translate('specific_shards_stock')}</span><input id="star-specific-stock" inputmode="numeric" value="0"></label>
+  <label><span>${translate('omni_shards_stock')}</span><input id="star-omni-stock" inputmode="numeric" value="0"></label>
+ </div></section>
+ <section class="panel result-panel"><span class="result-label">${translate('shards_required')}</span><strong id="star-total" class="result-main">—</strong><span class="result-unit">${translate('specific_or_omni_shards')}</span>
+ <div class="stat-row"><div class="stat"><span>${translate('missing')}</span><strong id="star-missing">—</strong></div><div class="stat"><span>${translate('duel_points')}</span><strong id="star-points">—</strong></div></div></section></div>`;
+
+  /** Omni stocks are account-wide and selected dynamically from hero rarity. */
+  const loadOmniStock = () => {
+    $('#star-omni-stock').value = getStoredStock(`${$('#star-rarity').value}-omni-shards`) ?? '0';
+  };
+
+  const calculate = () => {
+    const current = +$('#star-current').value;
+    const target = +$('#star-target').value;
+    const stock = parseNumber($('#star-specific-stock').value) + parseNumber($('#star-omni-stock').value);
+    const total = target > current ? GAME_DATA.stars.filter(star => star.value > current && star.value <= target).reduce((sum, star) => sum + star.cost, 0) : 0;
+    const pointsByRarity = { ur: GAME_DATA.duel.urShardPoints, ssr: GAME_DATA.duel.ssrShardPoints, sr: GAME_DATA.duel.srShardPoints };
+    $('#star-total').textContent = target > current ? formatNumber(total) : '—';
+    $('#star-missing').textContent = target > current ? formatNumber(Math.max(0, total - stock)) : '—';
+    $('#star-points').textContent = target > current ? formatNumber(total * pointsByRarity[$('#star-rarity').value]) : '—';
+  };
+
+  // #region Events and persistence
+  bindPersistentStocks({ 'star-specific-stock': 'hero-specific-shards' });
+  loadOmniStock();
+  $('#star-rarity').addEventListener('input', () => { loadOmniStock(); calculate(); });
+  $('#star-omni-stock').addEventListener('input', () => {
+    setStoredStock(`${$('#star-rarity').value}-omni-shards`, $('#star-omni-stock').value);
+    calculate();
+  });
+  ['star-current', 'star-target', 'star-specific-stock'].forEach(id => $('#' + id).addEventListener('input', calculate));
+  calculate();
+  // #endregion
+}

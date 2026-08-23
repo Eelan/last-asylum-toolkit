@@ -1,4 +1,5 @@
-window.TRANSLATIONS = {
+export const TRANSLATIONS = {
+  // #region French
   "fr": {
     "app": "Last Asylum Toolkit",
     "home": "Accueil",
@@ -89,6 +90,9 @@ window.TRANSLATIONS = {
     "soon": "En préparation",
     "unofficial": "Outil communautaire non officiel."
   },
+  // #endregion
+
+  // #region English
   "en": {
     "app": "Last Asylum Toolkit",
     "home": "Home",
@@ -179,4 +183,5 @@ window.TRANSLATIONS = {
     "soon": "Coming soon",
     "unofficial": "Unofficial community tool."
   }
+  // #endregion
 };

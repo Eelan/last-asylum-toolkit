@@ -1,4 +1,5 @@
-window.GAME_DATA = {
+export const GAME_DATA = {
+  // #region Hero levels and Antitoxin
   "antitoxin": {
     "2": 100,
     "3": 200,
@@ -148,6 +149,10 @@ window.GAME_DATA = {
     "147": 164000000,
     "148": 168000000
   },
+  // #endregion
+
+  // #region Corbeau progression
+  // Rows are [from level, to level, Fruit cost, Essence cost].
   "raven": [
     [1,4,1000,0], [5,5,2250,1], [6,9,1500,0], [10,10,3000,2],
     [11,14,2000,0], [15,15,3750,4], [16,19,3600,0], [20,20,4500,6],
@@ -168,6 +173,9 @@ window.GAME_DATA = {
     [190,199,324000,180], [200,209,360000,200], [210,219,396000,220],
     [220,229,432000,240], [230,239,468000,260], [240,249,504000,280]
   ],
+  // #endregion
+
+  // #region Hero stars and fragments
   "stars": [{
     "value": 0.0,
     "cost": 0
@@ -322,6 +330,9 @@ window.GAME_DATA = {
     "value": 10.0,
     "cost": 60
   }],
+  // #endregion
+
+  // #region Skill Badge costs
   "skills": {
     "2": 50,
     "3": 100,
@@ -345,6 +356,9 @@ window.GAME_DATA = {
     "21": 7900,
     "22": 8900
   },
+  // #endregion
+
+  // #region Alliance Duel base scoring
   "duel": {
     "antitoxinUnit": 660,
     "antitoxinPoints": 1,
@@ -354,4 +368,5 @@ window.GAME_DATA = {
     "srShardPoints": 1000,
     "skillBadgePoints": 10
   }
+  // #endregion
 };
