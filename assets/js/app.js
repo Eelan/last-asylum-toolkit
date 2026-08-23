@@ -1,6 +1,12 @@
 const $ = (s, ctx = document) => ctx.querySelector(s);
 const $$ = (s, ctx = document) => [...ctx.querySelectorAll(s)];
 const TOOLS = [{
+  id: 'stocks',
+  icon: 'package-open',
+  title: 'stocks_title',
+  desc: 'stocks_desc',
+  ready: true
+}, {
   id: 'antitoxin',
   icon: 'biohazard',
   title: 'anti_title',
@@ -187,6 +193,35 @@ function renderAntitoxinPage(t) {
   calculate();
 }
 
+function renderStocksPage(t) {
+  $('#view').innerHTML = renderPageHeader(t) + `
+ <section class="panel">
+  <div class="form-grid">
+   <label><span>${translate('antitoxin')}</span><input id="stock-antitoxin" inputmode="numeric" value="0"></label>
+   <label><span>${translate('hero_shards')}</span><input id="stock-hero-shards" inputmode="numeric" value="0"></label>
+   <label><span>${translate('skill_badges')}</span><input id="stock-skill-badges" inputmode="numeric" value="0"></label>
+   <label><span>${translate('recruits')}</span><input id="stock-recruitments" inputmode="numeric" value="0"></label>
+   <label><span>${translate('ur_shards')}</span><input id="stock-ur-shards" inputmode="numeric" value="0"></label>
+   <label><span>${translate('ssr_shards')}</span><input id="stock-ssr-shards" inputmode="numeric" value="0"></label>
+   <label><span>${translate('sr_shards')}</span><input id="stock-sr-shards" inputmode="numeric" value="0"></label>
+   <label><span>${translate('raven_fruit')}</span><input id="stock-raven-fruit" inputmode="numeric" value="0"></label>
+   <label><span>${translate('raven_essence')}</span><input id="stock-raven-essence" inputmode="numeric" value="0"></label>
+  </div>
+  <p class="form-note">${translate('stocks_saved_automatically')}</p>
+ </section>`;
+  bindPersistentStocks({
+    'stock-antitoxin': 'antitoxin',
+    'stock-hero-shards': 'hero-shards',
+    'stock-skill-badges': 'skill-badges',
+    'stock-recruitments': 'recruitments',
+    'stock-ur-shards': 'ur-shards',
+    'stock-ssr-shards': 'ssr-shards',
+    'stock-sr-shards': 'sr-shards',
+    'stock-raven-fruit': 'raven-fruit',
+    'stock-raven-essence': 'raven-essence'
+  });
+}
+
 function createStarOptions(selected) {
   return GAME_DATA.stars.map(s => `<option value="${s.value}" ${s.value===selected?'selected':''}>${s.value.toFixed(1).replace('.0','')} ★</option>`).join('');
 }
@@ -309,10 +344,10 @@ function renderDuelPage(t) {
  <div class="calc-grid"><section class="panel duel-inputs">
   <label><span>${translate('antitoxin')}</span><input id="d-a" inputmode="numeric" value="0"></label>
   <label><span>${translate('recruits')}</span><input id="d-r" inputmode="numeric" value="0"></label>
-  <label><span>UR Shards</span><input id="d-u" inputmode="numeric" value="0"></label>
-  <label><span>SSR Shards</span><input id="d-s" inputmode="numeric" value="0"></label>
-  <label><span>SR Shards</span><input id="d-sr" inputmode="numeric" value="0"></label>
-  <label><span>Skill Badges</span><input id="d-b" inputmode="numeric" value="0"></label>
+  <label><span>${translate('ur_shards')}</span><input id="d-u" inputmode="numeric" value="0"></label>
+  <label><span>${translate('ssr_shards')}</span><input id="d-s" inputmode="numeric" value="0"></label>
+  <label><span>${translate('sr_shards')}</span><input id="d-sr" inputmode="numeric" value="0"></label>
+  <label><span>${translate('skill_badges')}</span><input id="d-b" inputmode="numeric" value="0"></label>
  </section>
  <section class="panel result-panel"><span class="result-label">${translate('duel_points')}</span><strong class="result-main" id="d-total">0</strong><span class="result-unit">${translate('hero_phase')}</span><div class="stat-row"><div class="stat full"><span>${translate('note_duel')}</span></div></div></section></div>`;
   const calculate = () => {
@@ -358,6 +393,7 @@ function renderRoute() {
     const t = TOOLS.find(x => x.id === id) || TOOLS[0];
     $('#breadcrumb').textContent = translate(t.title);
     if (!t.ready) renderComingSoonPage(t);
+    else if (id === 'stocks') renderStocksPage(t);
     else if (id === 'antitoxin') renderAntitoxinPage(t);
     else if (id === 'shards') renderShardsPage(t);
     else if (id === 'skills') renderSkillsPage(t);
