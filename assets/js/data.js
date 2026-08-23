@@ -151,6 +151,42 @@ export const GAME_DATA = {
   },
   // #endregion
 
+  // #region Sanctuary progression
+  // Rows: [level, power, grain, timber, herb, stars, Antitoxin reward, seconds, prerequisites].
+  "sanctuary": [
+    [1,900,29,29,0,0,5000,2,[]],
+    [2,1600,32,32,0,0,5000,2,[]],
+    [3,2500,983,983,0,17,5000,3,[]],
+    [4,3400,2598,2598,0,19,5000,300,[["lumber_depot",1],["granary",1],["herb_storage",1]]],
+    [5,4400,19730,19730,0,28,80000,658,[["walls",3]]],
+    [6,5300,92710,92710,0,47,80000,2063,[["walls",5]]],
+    [7,6200,235800,235800,0,61,90000,5440,[["training_grounds",4],["alliance_hall",3]]],
+    [8,7000,395600,395600,0,80,130000,10895,[["training_grounds",6],["alliance_hall",5]]],
+    [9,8300,605800,605800,208700,96,210000,15410,[["walls",8],["alliance_hall",7]]],
+    [10,9700,748700,748700,232900,112,330000,20123,[["walls",9],["infirmary",7]]],
+    [11,12000,1853000,1853000,601800,142,504000,26043,[["training_grounds",10],["research_lab",7]]],
+    [12,14900,3104000,3104000,959000,155,799000,33857,[["research_lab",11],["walls",10],["antitoxin_workshop",7]]],
+    [13,17700,3519000,3519000,1082000,173,1290000,44013,[["research_lab",12],["alliance_hall",11],["farm",7]]],
+    [14,21200,4913000,4913000,1645000,193,2260000,57218,[["research_lab",13],["warrior_statue",12],["lumberyard",7]]],
+    [15,25600,6474000,6474000,2290000,201,3720000,80105,[["research_lab",14],["training_grounds",14],["herb_garden",7]]],
+    [16,30900,11900000,11900000,3970000,215,6350000,112146,[["research_lab",15],["warrior_statue",14],["granary",7]]],
+    [17,37400,16670000,16670000,5138000,225,11300000,157004,[["research_lab",16],["barracks",15],["lumber_depot",7]]],
+    [18,45700,28220000,28220000,9329000,231,19500000,219807,[["research_lab",17],["training_grounds",17],["herb_storage",7]]],
+    [19,54900,32710000,32710000,11340000,237,31100000,307728,[["research_lab",18],["warrior_statue",17],["antitoxin_workshop",10]]],
+    [20,67300,60030000,60030000,18410000,247,46200000,430820,[["research_lab",19],["alliance_hall",18],["farm",10]]],
+    [21,81500,85450000,85450000,27640000,254,63500000,577211,[["research_lab",20],["training_grounds",20],["lumberyard",10]]],
+    [22,98300,111200000,111200000,36660000,260,84700000,750375,[["research_lab",21],["warrior_statue",21],["herb_garden",10]]],
+    [23,116700,145200000,145200000,42760000,270,95800000,975487,[["research_lab",22],["infirmary",22],["granary",10]]],
+    [24,137300,171200000,171200000,56250000,282,110000000,1365682,[["research_lab",23],["walls",23],["lumber_depot",10]]],
+    [25,164400,277900000,277900000,97530000,292,122000000,1911955,[["research_lab",24],["training_grounds",24],["herb_storage",10]]],
+    [26,195900,386800000,386800000,123500000,304,125000000,2676737,[["research_lab",25],["warrior_statue",25],["antitoxin_workshop",13]]],
+    [27,232300,548000000,548000000,168600000,314,134000000,3747432,[["research_lab",26],["training_grounds",26],["farm",13]]],
+    [28,275200,731100000,731100000,236500000,326,164000000,5246404,[["research_lab",27],["barracks",27],["lumberyard",13]]],
+    [29,325300,1047000000,1047000000,316400000,326,178000000,6820324,[["research_lab",28],["alliance_hall",28],["herb_garden",13]]],
+    [30,384300,1356000000,1356000000,441300000,326,199000000,8866423,[["research_lab",29],["training_grounds",29],["antitoxin_workshop",15]]]
+  ],
+  // #endregion
+
   // #region Corbeau progression
   // Rows are [from level, to level, Fruit cost, Essence cost].
   "raven": [

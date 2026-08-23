@@ -13,9 +13,11 @@ Static SPA for GitHub Pages. No build step required.
 - Hero Fragment calculator with specific and Omni stocks
 - Badge de Compétence calculator
 - Corbeau calculator (levels 1–250)
+- Sanctuary planner (levels 1–30)
 - Alliance Duel resource planner
 - Weekly Alliance Duel planner
-- Hidden placeholder routes ready for Sanctuary, Gear and Team Builder
+- In-app data provenance and verification dates
+- Hidden placeholder routes ready for Gear and Team Builder
 
 ## Run locally
 

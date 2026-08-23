@@ -11,7 +11,9 @@ export const TOOLS = [{
 }, {
   id: 'week', icon: 'calendar-days', title: 'week_title', desc: 'week_desc', ready: true
 }, {
-  id: 'sanctuary', icon: 'castle', title: 'sanctuary_title', desc: 'sanctuary_desc', ready: false
+  id: 'sources', icon: 'book-open', title: 'sources_title', desc: 'sources_desc', ready: true
+}, {
+  id: 'sanctuary', icon: 'castle', title: 'sanctuary_title', desc: 'sanctuary_desc', ready: true
 }, {
   id: 'gear', icon: 'shield-check', title: 'gear_title', desc: 'gear_desc', ready: false
 }, {

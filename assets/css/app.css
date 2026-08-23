@@ -76,6 +76,7 @@ input:focus,select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(23
 .result-unit{color:var(--muted);font-size:.8rem}
 .stat-row{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:22px}
 .stat{background:rgba(0,0,0,.16);border:1px solid rgba(255,255,255,.05);border-radius:10px;padding:12px}
+.sanctuary-totals{display:grid;grid-template-columns:repeat(5,1fr);gap:9px}
 .stat span{display:block;color:var(--muted);font-size:.7rem}.stat strong{display:block;margin-top:4px;font-size:1.08rem}
 .table-panel{margin-top:16px}
 .table-panel h3{font-size:.9rem;margin:0 0 12px}
@@ -85,7 +86,13 @@ th,td{padding:10px 13px;text-align:right;border-bottom:1px solid rgba(255,255,25
 th:first-child,td:first-child{text-align:left}
 th{background:#0f171b;color:var(--muted);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em}
 tr:last-child td{border-bottom:0}
+.sanctuary-table th:last-child,.sanctuary-table td:last-child{text-align:left;min-width:280px}
 .duel-inputs{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.sources-intro{margin:0 0 18px;color:var(--muted);line-height:1.6}
+.sources-list{display:grid;gap:10px}
+.source-card{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:16px;border:1px solid var(--line);border-radius:13px;background:rgba(0,0,0,.13)}
+.source-card h3{margin:0 0 5px;font-size:.92rem}.source-card p{margin:0;color:var(--muted);font-size:.78rem;line-height:1.5}.source-card span{display:block;margin-top:7px;color:#65747a;font-size:.68rem}
+.source-card a{display:inline-flex;align-items:center;gap:6px;flex:0 0 auto;color:var(--accent);font-size:.75rem;font-weight:800;text-decoration:none}.source-card a:hover{text-decoration:underline}.source-card a svg{width:14px;height:14px}
 .week-list{display:grid;gap:10px}
 .day-row{display:grid;grid-template-columns:100px 1fr 1fr 1fr;gap:12px;align-items:start;padding:16px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(180deg,var(--surface2),var(--surface))}
 .day-row.today{border-color:rgba(230,163,65,.55);box-shadow:0 0 0 2px rgba(230,163,65,.07)}
@@ -97,8 +104,8 @@ tr:last-child td{border-bottom:0}
 @media(max-width:1050px){.tools-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:780px){
  .app-shell{grid-template-columns:1fr}.sidebar{transform:translateX(-100%);transition:.2s ease}.sidebar.open{transform:none}.main-area{grid-column:1}.mobile-menu{display:block}
- .topbar{padding:0 14px}.view{width:min(100% - 22px,1180px);padding-top:24px}.calc-grid{grid-template-columns:1fr}.day-row{grid-template-columns:1fr 1fr}.day-name{grid-column:1/-1}
+ .topbar{padding:0 14px}.view{width:min(100% - 22px,1180px);padding-top:24px}.calc-grid{grid-template-columns:1fr}.sanctuary-totals{grid-template-columns:repeat(2,1fr)}.day-row{grid-template-columns:1fr 1fr}.day-name{grid-column:1/-1}
 }
 @media(max-width:520px){
- .hero-panel{padding:26px 22px}.tools-grid{grid-template-columns:1fr}.form-grid,.duel-inputs,.stat-row{grid-template-columns:1fr}.full{grid-column:auto}.page-head{display:block}.back-link{margin-top:12px}.day-row{grid-template-columns:1fr}.day-name{grid-column:auto}
+ .hero-panel{padding:26px 22px}.tools-grid{grid-template-columns:1fr}.form-grid,.duel-inputs,.stat-row{grid-template-columns:1fr}.full{grid-column:auto}.page-head{display:block}.back-link{margin-top:12px}.source-card{display:block}.source-card a{margin-top:13px}.day-row{grid-template-columns:1fr}.day-name{grid-column:auto}
 }

@@ -6,7 +6,9 @@ import { renderAntitoxinPage } from './pages/antitoxin.js';
 import { renderDuelPage } from './pages/duel.js';
 import { renderFragmentsPage } from './pages/fragments.js';
 import { renderRavenPage } from './pages/raven.js';
+import { renderSanctuaryPage } from './pages/sanctuary.js';
 import { renderSkillsPage } from './pages/skills.js';
+import { renderSourcesPage } from './pages/sources.js';
 import { renderStocksPage } from './pages/stocks.js';
 import { renderWeekPage } from './pages/week.js';
 
@@ -54,7 +56,9 @@ const PAGE_RENDERERS = {
   skills: renderSkillsPage,
   duel: renderDuelPage,
   week: renderWeekPage,
-  raven: renderRavenPage
+  sources: renderSourcesPage,
+  raven: renderRavenPage,
+  sanctuary: renderSanctuaryPage
 };
 
 function renderRoute() {

@@ -12,6 +12,19 @@ export function formatNumber(value) {
   return new Intl.NumberFormat(locale).format(Math.round(value));
 }
 
+/** Formats a duration without displaying empty units. */
+export function formatDuration(totalSeconds) {
+  const units = [
+    ['day_short', 86400], ['hour_short', 3600], ['minute_short', 60], ['second_short', 1]
+  ];
+  let remaining = Math.max(0, Math.floor(totalSeconds));
+  return units.map(([key, size]) => {
+    const value = Math.floor(remaining / size);
+    remaining %= size;
+    return value ? `${value} ${translate(key)}` : '';
+  }).filter(Boolean).join(' ') || `0 ${translate('second_short')}`;
+}
+
 export function setLanguage(language) {
   currentLanguage = language;
   localStorage.setItem('lat-lang', currentLanguage);
