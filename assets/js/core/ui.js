@@ -1,6 +1,27 @@
 import { icon } from './dom.js';
 import { translate } from './i18n.js';
 
+const RESOURCE_ICONS = {
+  antitoxin: 'antitoxin.webp',
+  recruitments: 'recruit-ticket.webp',
+  'skill-badges': 'skill-badge.webp',
+  'ur-omni-shards': 'ur-omni-shard.webp',
+  'ssr-omni-shards': 'ssr-omni-shard.webp',
+  'sr-omni-shards': 'sr-omni-shard.webp'
+};
+
+/** Returns the image path for a stock resource, when custom artwork is available. */
+export function getResourceIcon(resource) {
+  const filename = RESOURCE_ICONS[resource];
+  return filename ? `assets/images/resources/${filename}` : null;
+}
+
+/** Builds a compact resource label, falling back to text when no artwork exists. */
+export function renderResourceLabel(resource, label) {
+  const source = getResourceIcon(resource);
+  return `<span class="resource-label">${source ? `<img src="${source}" alt="">` : ''}<span>${label}</span></span>`;
+}
+
 /** Builds the shared heading displayed above every tool page. */
 export function renderPageHeader(tool) {
   return `<div class="page-head">

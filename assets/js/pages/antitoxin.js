@@ -2,7 +2,7 @@ import { GAME_DATA } from '../data.js';
 import { $, $$, createLevelOptions } from '../core/dom.js';
 import { formatNumber, translate } from '../core/i18n.js';
 import { bindPersistentStocks, parseNumber } from '../core/storage.js';
-import { renderPageHeader } from '../core/ui.js';
+import { renderPageHeader, renderResourceLabel } from '../core/ui.js';
 import { calculateAntitoxinProgression } from '../domain/antitoxin.js';
 
 export function renderAntitoxinPage(tool) {
@@ -13,7 +13,7 @@ export function renderAntitoxinPage(tool) {
    <div class="form-grid">
     <label><span>${translate('current')}</span><select id="anti-current">${createLevelOptions(1,maxLevel,85)}</select></label>
     <label><span>${translate('target')}</span><select id="anti-target">${createLevelOptions(1,maxLevel,90)}</select></label>
-    <label class="full"><span>${translate('stock')}</span><input id="anti-stock" inputmode="numeric" value="0"></label>
+    <label class="full">${renderResourceLabel('antitoxin', translate('stock'))}<input id="anti-stock" inputmode="numeric" value="0"></label>
    </div>
    <div class="quick-actions"><button data-range="80,85">80 → 85</button><button data-range="85,90">85 → 90</button><button data-range="90,95">90 → 95</button><button data-range="95,100">95 → 100</button></div>
   </section>

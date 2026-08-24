@@ -2,7 +2,7 @@ import { GAME_DATA } from '../data.js';
 import { $ } from '../core/dom.js';
 import { formatNumber, translate } from '../core/i18n.js';
 import { bindPersistentStocks, getStoredStock, parseNumber, setStoredStock } from '../core/storage.js';
-import { renderPageHeader } from '../core/ui.js';
+import { getResourceIcon, renderPageHeader, renderResourceLabel } from '../core/ui.js';
 import { calculateFragmentUpgrade } from '../domain/fragments.js';
 
 function createStarOptions(selected) {
@@ -16,14 +16,16 @@ export function renderFragmentsPage(tool) {
   <label><span>${translate('stars_target')}</span><select id="star-target">${createStarOptions(5)}</select></label>
   <label class="full"><span>${translate('hero_rarity')}</span><select id="star-rarity"><option value="ur">UR</option><option value="ssr">SSR</option><option value="sr">SR</option></select></label>
   <label><span>${translate('specific_shards_stock')}</span><input id="star-specific-stock" inputmode="numeric" value="0"></label>
-  <label><span>${translate('omni_shards_stock')}</span><input id="star-omni-stock" inputmode="numeric" value="0"></label>
+  <label>${renderResourceLabel('ur-omni-shards', translate('omni_shards_stock'))}<input id="star-omni-stock" inputmode="numeric" value="0"></label>
  </div></section>
  <section class="panel result-panel"><span class="result-label">${translate('shards_required')}</span><strong id="star-total" class="result-main">—</strong><span class="result-unit">${translate('specific_or_omni_shards')}</span>
  <div class="stat-row"><div class="stat"><span>${translate('missing')}</span><strong id="star-missing">—</strong></div><div class="stat"><span>${translate('duel_points')}</span><strong id="star-points">—</strong></div></div></section></div>`;
 
   /** Omni stocks are account-wide and selected dynamically from hero rarity. */
   const loadOmniStock = () => {
-    $('#star-omni-stock').value = getStoredStock(`${$('#star-rarity').value}-omni-shards`) ?? '0';
+    const resource = `${$('#star-rarity').value}-omni-shards`;
+    $('#star-omni-stock').value = getStoredStock(resource) ?? '0';
+    $('#star-omni-stock').closest('label').querySelector('.resource-label img').src = getResourceIcon(resource);
   };
 
   const calculate = () => {
