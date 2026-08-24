@@ -1,4 +1,4 @@
-import { $, createLevelOptions } from '../core/dom.js';
+import { $ } from '../core/dom.js';
 import { formatDuration, formatNumber, translate } from '../core/i18n.js';
 import { renderPageHeader } from '../core/ui.js';
 import { calculateSanctuaryProgression } from '../domain/sanctuary.js';
@@ -13,10 +13,18 @@ function formatPrerequisites(prerequisites) {
 export function renderSanctuaryPage(tool) {
   $('#view').innerHTML = renderPageHeader(tool) + `
  <div class="calc-grid">
-  <section class="panel"><div class="form-grid">
-   <label><span>${translate('current')}</span><select id="sanctuary-current">${createLevelOptions(1,30,18)}</select></label>
-   <label><span>${translate('target')}</span><select id="sanctuary-target">${createLevelOptions(1,30,20)}</select></label>
-  </div></section>
+  <section class="panel sanctuary-level-picker">
+   <div class="sanctuary-level-values">
+    <div><span>${translate('current')}</span><strong><span>${translate('level_abbr')}</span> <output id="sanctuary-current-value" for="sanctuary-current">18</output></strong></div>
+    <div><span>${translate('target')}</span><strong><span>${translate('level_abbr')}</span> <output id="sanctuary-target-value" for="sanctuary-target">20</output></strong></div>
+   </div>
+   <div class="range-slider" id="sanctuary-range" style="--range-start:58.62%;--range-end:65.52%">
+    <div class="range-slider-track" aria-hidden="true"></div>
+    <input id="sanctuary-current" type="range" min="1" max="30" value="18" aria-label="${translate('current')}">
+    <input id="sanctuary-target" type="range" min="1" max="30" value="20" aria-label="${translate('target')}">
+   </div>
+   <div class="range-slider-bounds"><span>${translate('level_abbr')} 1</span><span>${translate('level_abbr')} 30</span></div>
+  </section>
   <section class="panel result-panel">
    <span class="result-label">${translate('hero_level_cap')}</span><strong class="result-main" id="sanctuary-hero-cap">—</strong>
    <div class="stat-row"><div class="stat"><span>${translate('power_gained')}</span><strong id="sanctuary-power">—</strong></div><div class="stat"><span>${translate('total_time')}</span><strong id="sanctuary-time">—</strong></div></div>
@@ -33,7 +41,28 @@ export function renderSanctuaryPage(tool) {
   <th>${translate('level')}</th><th>${translate('grain')}</th><th>${translate('timber')}</th><th>${translate('herb')}</th><th>${translate('stars')}</th><th>${translate('time')}</th><th>${translate('prerequisites')}</th>
  </tr></thead><tbody id="sanctuary-body"></tbody></table></div><p class="form-note">${translate('sanctuary_source_note')} <a href="https://lastasylumdatabase.com/buildings/sanctuary" target="_blank" rel="noreferrer">Last Asylum Database</a></p></section>`;
 
-  const calculate = () => {
+  const currentInput = $('#sanctuary-current');
+  const targetInput = $('#sanctuary-target');
+
+  const updateRange = changedInput => {
+    if (changedInput === currentInput && +currentInput.value >= +targetInput.value) {
+      currentInput.value = +targetInput.value - 1;
+    }
+    if (changedInput === targetInput && +targetInput.value <= +currentInput.value) {
+      targetInput.value = +currentInput.value + 1;
+    }
+
+    $('#sanctuary-current-value').value = currentInput.value;
+    $('#sanctuary-target-value').value = targetInput.value;
+    const rangeSize = +currentInput.max - +currentInput.min;
+    const start = ((+currentInput.value - +currentInput.min) / rangeSize) * 100;
+    const end = ((+targetInput.value - +targetInput.min) / rangeSize) * 100;
+    $('#sanctuary-range').style.setProperty('--range-start', `${start}%`);
+    $('#sanctuary-range').style.setProperty('--range-end', `${end}%`);
+  };
+
+  const calculate = changedInput => {
+    updateRange(changedInput);
     const result = calculateSanctuaryProgression(+$('#sanctuary-current').value, +$('#sanctuary-target').value);
     if (!result.valid) {
       ['sanctuary-hero-cap', 'sanctuary-power', 'sanctuary-time', 'sanctuary-grain', 'sanctuary-timber', 'sanctuary-herb', 'sanctuary-stars', 'sanctuary-antitoxin'].forEach(id => $('#' + id).textContent = '—');
@@ -53,6 +82,6 @@ export function renderSanctuaryPage(tool) {
     </tr>`).join('');
   };
 
-  ['sanctuary-current', 'sanctuary-target'].forEach(id => $('#' + id).addEventListener('input', calculate));
+  [currentInput, targetInput].forEach(input => input.addEventListener('input', () => calculate(input)));
   calculate();
 }
