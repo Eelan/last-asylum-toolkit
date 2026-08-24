@@ -11,7 +11,7 @@ export function renderRavenPage(tool) {
    <label><span>${translate('current')}</span><select id="raven-current">${createLevelOptions(1,250,1)}</select></label>
    <label><span>${translate('target')}</span><select id="raven-target">${createLevelOptions(1,250,30)}</select></label>
    <label>${renderResourceLabel('raven-fruit', translate('raven_fruit_stock'))}<input id="raven-fruit-stock" inputmode="numeric" value="0"></label>
-   <label><span>${translate('raven_essence_stock')}</span><input id="raven-essence-stock" inputmode="numeric" value="0"></label>
+   <label>${renderResourceLabel('raven-essence', translate('raven_essence_stock'))}<input id="raven-essence-stock" inputmode="numeric" value="0"></label>
   </div><div class="quick-actions"><button data-raven-range="1,30">1 → 30</button><button data-raven-range="30,50">30 → 50</button><button data-raven-range="50,90">50 → 90</button><button data-raven-range="90,110">90 → 110</button></div></section>
   <section class="panel result-panel"><span class="result-label">${translate('required')}</span>
    <div class="stat-row"><div class="stat"><span>${translate('raven_fruit')}</span><strong id="raven-fruit-total">—</strong></div><div class="stat"><span>${translate('raven_essence')}</span><strong id="raven-essence-total">—</strong></div></div>
