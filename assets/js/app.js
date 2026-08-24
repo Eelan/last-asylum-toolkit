@@ -14,11 +14,23 @@ import { renderWeekPage } from './pages/week.js';
 
 // #region Navigation and shared pages
 
+const NAV_CATEGORIES = ['development', 'heroes', 'alliance', 'information'];
+
+function renderNavLink(tool) {
+  return `<a class="nav-link" data-route="${tool.id}" href="#/${tool.id}">${icon(tool.icon)}<span>${translate(tool.title)}</span></a>`;
+}
+
 function renderNav() {
+  const readyTools = TOOLS.filter(tool => tool.ready);
+  const quickAccess = readyTools.filter(tool => tool.category === 'quick_access');
   $('#main-nav').innerHTML = `
   <a class="nav-link" data-route="home" href="#/">${icon('house')}<span>${translate('home')}</span></a>
-  <div class="nav-group-title">${translate('tools')}</div>
-  ${TOOLS.filter(tool => tool.ready).map(tool => `<a class="nav-link" data-route="${tool.id}" href="#/${tool.id}">${icon(tool.icon)}<span>${translate(tool.title)}</span></a>`).join('')}
+  ${quickAccess.map(renderNavLink).join('')}
+  ${NAV_CATEGORIES.map(category => {
+    const categoryTools = readyTools.filter(tool => tool.category === category);
+    if (!categoryTools.length) return '';
+    return `<div class="nav-group-title">${translate(`category_${category}`)}</div>${categoryTools.map(renderNavLink).join('')}`;
+  }).join('')}
  `;
 }
 
