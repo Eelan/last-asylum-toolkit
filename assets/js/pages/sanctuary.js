@@ -15,13 +15,13 @@ export function renderSanctuaryPage(tool) {
  <div class="calc-grid">
   <section class="panel sanctuary-level-picker">
    <div class="sanctuary-level-values">
-    <div><span>${translate('current')}</span><strong><span>${translate('level_abbr')}</span> <output id="sanctuary-current-value" for="sanctuary-current">18</output></strong></div>
-    <div><span>${translate('target')}</span><strong><span>${translate('level_abbr')}</span> <output id="sanctuary-target-value" for="sanctuary-target">20</output></strong></div>
+    <div><span>${translate('current')}</span><strong><span>${translate('level_abbr')}</span> <output id="sanctuary-current-value" for="sanctuary-current">1</output></strong></div>
+    <div><span>${translate('target')}</span><strong><span>${translate('level_abbr')}</span> <output id="sanctuary-target-value" for="sanctuary-target">30</output></strong></div>
    </div>
-   <div class="range-slider" id="sanctuary-range" style="--range-start:58.62%;--range-end:65.52%">
+   <div class="range-slider" id="sanctuary-range" style="--range-start:0%;--range-end:100%">
     <div class="range-slider-track" aria-hidden="true"></div>
-    <input id="sanctuary-current" type="range" min="1" max="30" value="18" aria-label="${translate('current')}">
-    <input id="sanctuary-target" type="range" min="1" max="30" value="20" aria-label="${translate('target')}">
+    <input id="sanctuary-current" type="range" min="1" max="30" value="1" aria-label="${translate('current')}">
+    <input id="sanctuary-target" type="range" min="1" max="30" value="30" aria-label="${translate('target')}">
    </div>
    <div class="range-slider-bounds"><span>${translate('level_abbr')} 1</span><span>${translate('level_abbr')} 30</span></div>
   </section>
