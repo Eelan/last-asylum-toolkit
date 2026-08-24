@@ -14,7 +14,7 @@ export function renderStocksPage(tool) {
    <label>${renderResourceLabel('ur-omni-shards', translate('ur_omni_shards'))}<input id="stock-ur-omni-shards" inputmode="numeric" value="0"></label>
    <label>${renderResourceLabel('ssr-omni-shards', translate('ssr_omni_shards'))}<input id="stock-ssr-omni-shards" inputmode="numeric" value="0"></label>
    <label>${renderResourceLabel('sr-omni-shards', translate('sr_omni_shards'))}<input id="stock-sr-omni-shards" inputmode="numeric" value="0"></label>
-   <label><span>${translate('raven_fruit')}</span><input id="stock-raven-fruit" inputmode="numeric" value="0"></label>
+   <label>${renderResourceLabel('raven-fruit', translate('raven_fruit'))}<input id="stock-raven-fruit" inputmode="numeric" value="0"></label>
    <label><span>${translate('raven_essence')}</span><input id="stock-raven-essence" inputmode="numeric" value="0"></label>
   </div>
   <p class="form-note">${translate('stocks_saved_automatically')}</p>

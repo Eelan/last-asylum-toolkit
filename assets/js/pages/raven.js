@@ -1,7 +1,7 @@
 import { $, $$, createLevelOptions } from '../core/dom.js';
 import { formatNumber, translate } from '../core/i18n.js';
 import { bindPersistentStocks, parseNumber } from '../core/storage.js';
-import { renderPageHeader } from '../core/ui.js';
+import { renderPageHeader, renderResourceLabel } from '../core/ui.js';
 import { calculateRavenProgression } from '../domain/raven.js';
 
 export function renderRavenPage(tool) {
@@ -10,7 +10,7 @@ export function renderRavenPage(tool) {
   <section class="panel"><div class="form-grid">
    <label><span>${translate('current')}</span><select id="raven-current">${createLevelOptions(1,250,1)}</select></label>
    <label><span>${translate('target')}</span><select id="raven-target">${createLevelOptions(1,250,30)}</select></label>
-   <label><span>${translate('raven_fruit_stock')}</span><input id="raven-fruit-stock" inputmode="numeric" value="0"></label>
+   <label>${renderResourceLabel('raven-fruit', translate('raven_fruit_stock'))}<input id="raven-fruit-stock" inputmode="numeric" value="0"></label>
    <label><span>${translate('raven_essence_stock')}</span><input id="raven-essence-stock" inputmode="numeric" value="0"></label>
   </div><div class="quick-actions"><button data-raven-range="1,30">1 → 30</button><button data-raven-range="30,50">30 → 50</button><button data-raven-range="50,90">50 → 90</button><button data-raven-range="90,110">90 → 110</button></div></section>
   <section class="panel result-panel"><span class="result-label">${translate('required')}</span>
