@@ -67,6 +67,40 @@ export const GAME_DATA = {
     "william": { "counters": "warlock", "counteredBy": "ranger", "awakenable": false, "skills": [["Sword Gale", "auto-attack", 1], ["Whirlwind Blade", "ultimate-skill", 5], ["Twin Wind", "active-skill", 10], ["Unyielding", "support-skill", 30]] },
     "zoya": { "counters": "warlock", "counteredBy": "ranger", "awakenable": false, "skills": [["Dagger", "auto-attack", 1], ["Forest Hunter", "ultimate-skill", 5], ["Mountain God Wrath", "active-skill", 10], ["Lady of the Forest", "passive-skill", 20], ["Tenacity", "support-skill", 30]] }
   },
+  // Skill detail tuples encode [damage type or null, maximum level].
+  "heroProfileDetails": {
+    "annie": { "title": "helpful", "skills": [["energy", 40], ["energy", 40], ["energy", 40], [null, 40], [null, 1]] },
+    "arthur": { "title": "diligent", "skills": [["physical", 40], ["physical", 40], [null, 40], [null, 40], [null, 1]] },
+    "ash": { "title": "brave", "skills": [["physical", 40], ["physical", 40], ["physical", 40], [null, 40], [null, 1]] },
+    "bell": { "title": "diligent", "skills": [["physical", 40], [null, 40], [null, 40], [null, 40], [null, 1]] },
+    "bella": { "title": "aloof", "skills": [["physical", 40], ["physical", 40], [null, 40], [null, 40], [null, 1]] },
+    "bestar": { "title": "helpful", "skills": [["physical", 40], ["physical", 40], ["physical", 40], [null, 40], [null, 1]] },
+    "billy": { "title": "helpful", "skills": [["physical", 40], ["physical", 40], ["physical", 40], [null, 40], [null, 1]] },
+    "celia": { "title": "diligent", "skills": [["physical", 40], ["physical", 40], ["physical", 40], [null, 40], [null, 1]] },
+    "claire": { "title": "helpful", "skills": [["physical", 40], ["physical", 40], ["physical", 40], [null, 40], [null, 1]] },
+    "cynthia": { "title": "diligent", "skills": [["energy", 40], ["energy", 40], ["energy", 40], [null, 40], [null, 1]] },
+    "daskal": { "title": "helpful", "skills": [["physical", 40], [null, 40], ["physical", 40], [null, 40], [null, 1]] },
+    "durant": { "title": "steady", "skills": [["physical", 40], ["physical", 40], ["physical", 40], [null, 40]] },
+    "grenwald": { "title": "smart", "skills": [["energy", 40], ["energy", 40], ["energy", 40], [null, 40], [null, 1]] },
+    "griffith": { "title": "diligent", "skills": [["energy", 40], [null, 40], ["energy", 40], [null, 40], [null, 1]] },
+    "harper": { "title": "diligent", "skills": [["energy", 40], [null, 40], [null, 40], [null, 40], [null, 1]] },
+    "hastar": { "title": "diligent", "skills": [["energy", 40], ["energy", 40], ["energy", 40], [null, 40], [null, 1]] },
+    "joker": { "title": "steady", "skills": [["physical", 40], ["physical", 40], ["physical", 40], [null, 40], [null, 1]] },
+    "kafa": { "title": "steady", "skills": [["physical", 40], ["physical", 40], ["physical", 40], [null, 40]] },
+    "kesso": { "title": "diligent", "skills": [["physical", 40], ["physical", 40], ["physical", 40], [null, 40], [null, 1]] },
+    "louis": { "title": "steady", "skills": [["physical", 40], ["physical", 40], [null, 40], [null, 40], [null, 1]] },
+    "lucius": { "title": "helpful", "skills": [["physical", 40], ["physical", 40], ["physical", 40], [null, 40], [null, 1]] },
+    "marlena": { "title": "helpful", "skills": [["energy", 40], ["energy", 40], ["energy", 40], [null, 40], [null, 1]] },
+    "nicole": { "title": "helpful", "skills": [["physical", 40], ["physical", 40], [null, 40], [null, 40], [null, 1]] },
+    "red-lady": { "title": "steady", "skills": [["energy", 40], ["energy", 40], ["energy", 40], [null, 40], [null, 1]] },
+    "robin": { "title": "complacent", "skills": [["physical", 40], ["physical", 40], ["physical", 40], [null, 40]] },
+    "shadow": { "title": "steady", "skills": [["physical", 40], ["physical", 40], ["physical", 40], [null, 40], [null, 1]] },
+    "sivir": { "title": "steady", "skills": [["physical", 40], ["physical", 40], ["physical", 40], [null, 40], [null, 1]] },
+    "stellar": { "title": "helpful", "skills": [["physical", 40], [null, 40], ["physical", 40], [null, 40], [null, 1]] },
+    "ulfrid": { "title": "diligent", "skills": [["physical", 40], ["physical", 40], ["physical", 40], [null, 40], [null, 1]] },
+    "william": { "title": "diligent", "skills": [["physical", 40], ["physical", 40], ["physical", 40], [null, 40]] },
+    "zoya": { "title": "helpful", "skills": [["energy", 40], ["energy", 40], ["energy", 40], [null, 40], [null, 1]] }
+  },
   // #endregion
 
   // #region Hero levels and Antitoxin

@@ -27,12 +27,13 @@ function renderHeroCard(hero, trackedIds) {
 
 function renderHeroProfile(hero, trackedIds) {
   const profile = GAME_DATA.heroProfiles[hero.id];
+  const details = GAME_DATA.heroProfileDetails[hero.id];
   const isTracked = trackedIds.has(hero.id);
   return `<a class="back-link hero-profile-back" href="#/heroes">${icon('arrow-left')} ${translate('heroes_list_title')}</a>
     <section class="panel hero-profile rarity-profile-${hero.rarity}">
       <div class="hero-profile-summary">
         <span class="hero-portrait-shell hero-profile-portrait-shell rarity-frame-${hero.rarity}"><img class="hero-portrait hero-profile-portrait" src="${hero.image}" alt=""></span>
-        <div><span class="rarity-badge rarity-${hero.rarity}">${hero.rarity.toUpperCase()}</span><h2>${hero.name}</h2>
+        <div><span class="rarity-badge rarity-${hero.rarity}">${hero.rarity.toUpperCase()}</span><h2>${hero.name}</h2><p class="hero-profile-title">${translate(`hero_title_${details.title}`)}</p>
           <div class="hero-profile-tags"><span><img src="assets/images/heroes/attributes/camp-${hero.faction}.webp" alt="">${translate(`hero_faction_${hero.faction}`)}</span><span><img src="assets/images/heroes/attributes/role-${hero.role}.webp" alt="">${translate(`hero_role_${hero.role}`)}</span></div>
           <button id="profile-add-hero" class="${isTracked ? 'catalog-added' : 'primary-btn'}" type="button" ${isTracked ? 'disabled' : ''}>${icon(isTracked ? 'check' : 'plus')} ${translate(isTracked ? 'hero_already_added' : 'hero_add_to_mine')}</button>
         </div>
@@ -43,9 +44,14 @@ function renderHeroProfile(hero, trackedIds) {
         <div class="stat"><span>${translate('hero_awakenable')}</span><strong>${translate(profile.awakenable ? 'yes' : 'no')}</strong></div>
         <div class="stat"><span>${translate('hero_max_rank')}</span><strong>50</strong></div>
       </div>
+      <p class="hero-counter-note">${icon('info')} ${translate('hero_counter_rule')}</p>
       <section class="hero-skills"><h3>${translate('hero_skills')}</h3><div class="hero-skills-grid">
-        ${profile.skills.map(([name, type, unlockLevel]) => `<article class="hero-skill"><span class="hero-skill-slot">${icon('sparkles')}</span><div><strong>${name}</strong><span>${translate(`hero_skill_${type.replaceAll('-', '_')}`)}</span><small>${translate('hero_unlock_level')} ${unlockLevel}</small></div></article>`).join('')}
+        ${profile.skills.map(([name, type, unlockLevel], index) => {
+          const [damageType, maxLevel] = details.skills[index];
+          return `<article class="hero-skill"><span class="hero-skill-slot">${icon('sparkles')}</span><div><strong>${name}</strong><span>${translate(`hero_skill_${type.replaceAll('-', '_')}`)}</span><div class="hero-skill-details"><small>${translate('hero_unlock_level')} ${unlockLevel}</small><small>${translate('hero_skill_max_level')} ${maxLevel}</small>${damageType ? `<small>${translate(`hero_damage_${damageType}`)}</small>` : ''}</div></div></article>`;
+        }).join('')}
       </div></section>
+      <a class="hero-profile-source back-link" href="https://lastasylumdatabase.com/heroes/${hero.id}" target="_blank" rel="noreferrer">${icon('external-link')} ${translate('hero_profile_source')}</a>
     </section>`;
 }
 
