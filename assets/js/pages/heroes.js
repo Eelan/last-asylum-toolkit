@@ -18,15 +18,52 @@ function renderHeroCard(hero, trackedIds) {
         </div>
       </div>
     </div>
-    <button class="${isTracked ? 'catalog-added' : 'primary-btn'}" type="button" data-catalog-id="${hero.id}" ${isTracked ? 'disabled' : ''}>
-      ${icon(isTracked ? 'check' : 'plus')} ${translate(isTracked ? 'hero_already_added' : 'hero_add_to_mine')}
-    </button>
+    <div class="catalog-hero-actions">
+      <a class="back-link" href="#/heroes/${hero.id}">${icon('id-card')} ${translate('hero_view_profile')}</a>
+      <button class="${isTracked ? 'catalog-added' : 'primary-btn'}" type="button" data-catalog-id="${hero.id}" ${isTracked ? 'disabled' : ''}>${icon(isTracked ? 'check' : 'plus')} ${translate(isTracked ? 'hero_already_added' : 'hero_add_to_mine')}</button>
+    </div>
   </article>`;
+}
+
+function renderHeroProfile(hero, trackedIds) {
+  const profile = GAME_DATA.heroProfiles[hero.id];
+  const isTracked = trackedIds.has(hero.id);
+  return `<a class="back-link hero-profile-back" href="#/heroes">${icon('arrow-left')} ${translate('heroes_list_title')}</a>
+    <section class="panel hero-profile rarity-profile-${hero.rarity}">
+      <div class="hero-profile-summary">
+        <span class="hero-portrait-shell hero-profile-portrait-shell rarity-frame-${hero.rarity}"><img class="hero-portrait hero-profile-portrait" src="${hero.image}" alt=""></span>
+        <div><span class="rarity-badge rarity-${hero.rarity}">${hero.rarity.toUpperCase()}</span><h2>${hero.name}</h2>
+          <div class="hero-profile-tags"><span><img src="assets/images/heroes/attributes/camp-${hero.faction}.webp" alt="">${translate(`hero_faction_${hero.faction}`)}</span><span><img src="assets/images/heroes/attributes/role-${hero.role}.webp" alt="">${translate(`hero_role_${hero.role}`)}</span></div>
+          <button id="profile-add-hero" class="${isTracked ? 'catalog-added' : 'primary-btn'}" type="button" ${isTracked ? 'disabled' : ''}>${icon(isTracked ? 'check' : 'plus')} ${translate(isTracked ? 'hero_already_added' : 'hero_add_to_mine')}</button>
+        </div>
+      </div>
+      <div class="hero-profile-stats">
+        <div class="stat"><span>${translate('hero_strong_against')}</span><strong>${translate(`hero_faction_${profile.counters}`)}</strong></div>
+        <div class="stat"><span>${translate('hero_weak_against')}</span><strong>${translate(`hero_faction_${profile.counteredBy}`)}</strong></div>
+        <div class="stat"><span>${translate('hero_awakenable')}</span><strong>${translate(profile.awakenable ? 'yes' : 'no')}</strong></div>
+        <div class="stat"><span>${translate('hero_max_rank')}</span><strong>50</strong></div>
+      </div>
+      <section class="hero-skills"><h3>${translate('hero_skills')}</h3><div class="hero-skills-grid">
+        ${profile.skills.map(([name, type, unlockLevel]) => `<article class="hero-skill"><span class="hero-skill-slot">${icon('sparkles')}</span><div><strong>${name}</strong><span>${translate(`hero_skill_${type.replaceAll('-', '_')}`)}</span><small>${translate('hero_unlock_level')} ${unlockLevel}</small></div></article>`).join('')}
+      </div></section>
+    </section>`;
 }
 
 /** Renders the shared hero catalogue and lets players reuse entries in My Heroes. */
 export function renderHeroesPage(tool) {
   const trackedIds = new Set(getTrackedHeroes().map(hero => hero.catalogId).filter(Boolean));
+  const heroId = location.hash.split('/')[2] || '';
+  const selectedHero = GAME_DATA.heroes.find(hero => hero.id === heroId);
+  if (selectedHero) {
+    $('#view').innerHTML = renderPageHeader(tool) + renderHeroProfile(selectedHero, trackedIds);
+    $('#profile-add-hero').addEventListener('click', () => {
+      addCatalogHero(selectedHero);
+      renderHeroesPage(tool);
+    });
+    lucide.createIcons();
+    return;
+  }
+
   $('#view').innerHTML = renderPageHeader(tool) + `
     <section class="panel hero-catalog">
       <div class="catalog-toolbar">
