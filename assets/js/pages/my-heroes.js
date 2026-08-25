@@ -13,11 +13,17 @@ function escapeHtml(value) {
 }
 
 function renderHeroList(heroes, selectedId) {
-  return heroes.map(hero => `
+  return heroes.map(hero => {
+    const catalogHero = GAME_DATA.heroes.find(candidate => candidate.id === hero.catalogId);
+    return `
     <button class="tracked-hero ${hero.id === selectedId ? 'selected' : ''}" type="button" data-hero-id="${escapeHtml(hero.id)}">
-      <span class="tracked-hero-name">${escapeHtml(hero.name) || translate('hero_name')}</span>
+      <span class="tracked-hero-identity">
+        ${catalogHero?.image ? `<img class="tracked-hero-portrait" src="${catalogHero.image}" alt="">` : `<span class="tracked-hero-portrait tracked-hero-placeholder">${icon('user-round')}</span>`}
+        <span class="tracked-hero-name">${escapeHtml(hero.name) || translate('hero_name')}</span>
+      </span>
       <span>${translate('level_abbr')} ${hero.current} → ${hero.target}</span>
-    </button>`).join('');
+    </button>`;
+  }).join('');
 }
 
 function renderHeroDetails(hero, maxLevel) {
@@ -72,6 +78,7 @@ export function renderMyHeroesPage(tool) {
       render();
     }));
 
+    lucide.createIcons();
     if (!selectedHero) return;
     const updateHero = () => {
       selectedHero.name = $('#hero-name').value.trim();
