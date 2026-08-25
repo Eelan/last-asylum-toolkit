@@ -1,52 +1,15 @@
 import { GAME_DATA } from '../data.js';
 import { $, $$, createLevelOptions, icon } from '../core/dom.js';
 import { formatNumber, translate } from '../core/i18n.js';
+import { createTrackedHero, getTrackedHeroes, saveTrackedHeroes } from '../core/heroes.js';
 import { getStoredStock, parseNumber } from '../core/storage.js';
 import { renderPageHeader } from '../core/ui.js';
 import { calculateAntitoxinProgression } from '../domain/antitoxin.js';
-
-const HEROES_STORAGE_KEY = 'lat-my-heroes';
-const DEFAULT_HERO = { name: '', rarity: 'ur', current: 1, target: 1 };
-
-function createHeroId() {
-  return `hero-${Date.now()}-${Math.random().toString(16).slice(2)}`;
-}
 
 function escapeHtml(value) {
   return String(value).replace(/[&<>'"]/g, character => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
   }[character]));
-}
-
-function normalizeLevel(value) {
-  const maxLevel = Math.max(...Object.keys(GAME_DATA.antitoxin).map(Number));
-  return Math.min(maxLevel, Math.max(1, Number(value) || 1));
-}
-
-function normalizeHero(hero) {
-  return {
-    id: String(hero.id),
-    name: String(hero.name || ''),
-    rarity: ['ur', 'ssr', 'sr'].includes(hero.rarity) ? hero.rarity : 'ur',
-    current: normalizeLevel(hero.current),
-    target: normalizeLevel(hero.target)
-  };
-}
-
-/** Reads the locally tracked heroes, discarding malformed saved values. */
-function getTrackedHeroes() {
-  try {
-    const heroes = JSON.parse(localStorage.getItem(HEROES_STORAGE_KEY) || '[]');
-    return Array.isArray(heroes) ? heroes.filter(hero => hero && hero.id).map(normalizeHero) : [];
-  } catch (error) {
-    return [];
-  }
-}
-
-function saveTrackedHeroes(heroes) {
-  try {
-    localStorage.setItem(HEROES_STORAGE_KEY, JSON.stringify(heroes));
-  } catch (error) {}
 }
 
 function renderHeroList(heroes, selectedId) {
@@ -91,13 +54,13 @@ export function renderMyHeroesPage(tool) {
   const render = () => {
     const selectedHero = heroes.find(hero => hero.id === selectedId);
     $('#view').innerHTML = renderPageHeader(tool) + `<div class="heroes-layout">
-      <section class="panel heroes-list"><div class="heroes-list-head"><h3>${translate('my_heroes_title')}</h3><button id="add-hero" class="primary-btn" type="button">${icon('plus')} ${translate('my_heroes_add')}</button></div>
+      <section class="panel heroes-list"><div class="heroes-list-head"><h3>${translate('my_heroes_title')}</h3><div class="heroes-list-actions"><a class="back-link" href="#/heroes">${icon('list')} ${translate('heroes_list_title')}</a><button id="add-hero" class="primary-btn" type="button">${icon('plus')} ${translate('my_heroes_add_custom')}</button></div></div>
       <div id="tracked-heroes">${heroes.length ? renderHeroList(heroes, selectedId) : `<div class="heroes-empty"><strong>${translate('my_heroes_empty')}</strong><p>${translate('my_heroes_empty_hint')}</p></div>`}</div></section>
       ${selectedHero ? renderHeroDetails(selectedHero, maxLevel) : ''}
     </div>`;
 
     $('#add-hero').addEventListener('click', () => {
-      const hero = { id: createHeroId(), ...DEFAULT_HERO };
+      const hero = createTrackedHero();
       heroes.push(hero);
       selectedId = hero.id;
       saveTrackedHeroes(heroes);
@@ -113,6 +76,10 @@ export function renderMyHeroesPage(tool) {
     const updateHero = () => {
       selectedHero.name = $('#hero-name').value.trim();
       selectedHero.rarity = $('#hero-rarity').value;
+      const catalogHero = GAME_DATA.heroes.find(hero => hero.id === selectedHero.catalogId);
+      if (catalogHero && (selectedHero.name !== catalogHero.name || selectedHero.rarity !== catalogHero.rarity)) {
+        selectedHero.catalogId = null;
+      }
       selectedHero.current = +$('#hero-current').value;
       selectedHero.target = +$('#hero-target').value;
       saveTrackedHeroes(heroes);

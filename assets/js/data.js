@@ -1,4 +1,39 @@
 export const GAME_DATA = {
+  // #region Heroes
+  // Stable ids let several tools reference the same hero without coupling saved data to display labels.
+  "heroes": [{ "id": "annie", "name": "Annie", "rarity": "ur" },
+    { "id": "arthur", "name": "Arthur", "rarity": "ur" },
+    { "id": "bell", "name": "Bell", "rarity": "ur" },
+    { "id": "billy", "name": "Billy", "rarity": "ur" },
+    { "id": "cynthia", "name": "Cynthia", "rarity": "ur" },
+    { "id": "daskal", "name": "Daskal", "rarity": "ur" },
+    { "id": "harper", "name": "Harper", "rarity": "ur" },
+    { "id": "joker", "name": "Joker", "rarity": "ur" },
+    { "id": "louis", "name": "Louis", "rarity": "ur" },
+    { "id": "marlena", "name": "Marlena", "rarity": "ur" },
+    { "id": "nicole", "name": "Nicole", "rarity": "ur" },
+    { "id": "red-lady", "name": "Red Lady", "rarity": "ur" },
+    { "id": "shadow", "name": "Shadow", "rarity": "ur" },
+    { "id": "ulfrid", "name": "Ulfrid", "rarity": "ur" },
+    { "id": "zoya", "name": "Zoya", "rarity": "ur" },
+    { "id": "ash", "name": "Ash", "rarity": "ssr" },
+    { "id": "bella", "name": "Bella", "rarity": "ssr" },
+    { "id": "bestar", "name": "Bestar", "rarity": "ssr" },
+    { "id": "celia", "name": "Celia", "rarity": "ssr" },
+    { "id": "claire", "name": "Claire", "rarity": "ssr" },
+    { "id": "grenwald", "name": "Grenwald", "rarity": "ssr" },
+    { "id": "griffith", "name": "Griffith", "rarity": "ssr" },
+    { "id": "hastar", "name": "Hastar", "rarity": "ssr" },
+    { "id": "kesso", "name": "Kesso", "rarity": "ssr" },
+    { "id": "lucius", "name": "Lucius", "rarity": "ssr" },
+    { "id": "sivir", "name": "Sivir", "rarity": "ssr" },
+    { "id": "stellar", "name": "Stellar", "rarity": "ssr" },
+    { "id": "durant", "name": "Durant", "rarity": "sr" },
+    { "id": "kafa", "name": "Kafa", "rarity": "sr" },
+    { "id": "robin", "name": "Robin", "rarity": "sr" },
+    { "id": "william", "name": "William", "rarity": "sr" }],
+  // #endregion
+
   // #region Hero levels and Antitoxin
   "antitoxin": {
     "2": 100,

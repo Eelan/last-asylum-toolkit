@@ -5,6 +5,7 @@ import { renderPageHeader } from './core/ui.js';
 import { renderAntitoxinPage } from './pages/antitoxin.js';
 import { renderDuelPage } from './pages/duel.js';
 import { renderFragmentsPage } from './pages/fragments.js';
+import { renderHeroesPage } from './pages/heroes.js';
 import { renderMyHeroesPage } from './pages/my-heroes.js';
 import { renderRavenPage } from './pages/raven.js';
 import { renderSanctuaryPage } from './pages/sanctuary.js';
@@ -78,6 +79,7 @@ function renderComingSoonPage(tool) {
 /** Page renderers indexed by the route identifiers declared in config/tools.js. */
 const PAGE_RENDERERS = {
   stocks: renderStocksPage,
+  heroes: renderHeroesPage,
   'my-heroes': renderMyHeroesPage,
   antitoxin: renderAntitoxinPage,
   shards: renderFragmentsPage,
