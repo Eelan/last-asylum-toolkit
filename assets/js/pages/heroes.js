@@ -11,7 +11,12 @@ function renderHeroCard(hero, trackedIds) {
       <span class="hero-portrait-shell rarity-frame-${hero.rarity}">
         ${hero.image ? `<img class="hero-portrait" src="${hero.image}" alt="">` : `<span class="hero-portrait hero-portrait-placeholder">${icon('user-round')}</span>`}
       </span>
-      <div><span class="rarity-badge rarity-${hero.rarity}">${hero.rarity.toUpperCase()}</span><h3>${hero.name}</h3></div>
+      <div><span class="rarity-badge rarity-${hero.rarity}">${hero.rarity.toUpperCase()}</span><h3>${hero.name}</h3>
+        <div class="hero-attributes">
+          <img src="assets/images/heroes/attributes/camp-${hero.faction}.webp" alt="${translate(`hero_faction_${hero.faction}`)}" title="${translate('hero_faction')}: ${translate(`hero_faction_${hero.faction}`)}">
+          <img src="assets/images/heroes/attributes/role-${hero.role}.webp" alt="${translate(`hero_role_${hero.role}`)}" title="${translate('hero_role')}: ${translate(`hero_role_${hero.role}`)}">
+        </div>
+      </div>
     </div>
     <button class="${isTracked ? 'catalog-added' : 'primary-btn'}" type="button" data-catalog-id="${hero.id}" ${isTracked ? 'disabled' : ''}>
       ${icon(isTracked ? 'check' : 'plus')} ${translate(isTracked ? 'hero_already_added' : 'hero_add_to_mine')}

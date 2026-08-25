@@ -21,7 +21,9 @@ function renderHeroList(heroes, selectedId) {
         <span class="hero-portrait-shell tracked-hero-portrait-shell rarity-frame-${hero.rarity}">
           ${catalogHero?.image ? `<img class="tracked-hero-portrait" src="${catalogHero.image}" alt="">` : `<span class="tracked-hero-portrait tracked-hero-placeholder">${icon('user-round')}</span>`}
         </span>
-        <span class="tracked-hero-name">${escapeHtml(hero.name) || translate('hero_name')}</span>
+        <span><span class="tracked-hero-name">${escapeHtml(hero.name) || translate('hero_name')}</span>
+          ${catalogHero ? `<span class="tracked-hero-attributes"><img src="assets/images/heroes/attributes/camp-${catalogHero.faction}.webp" alt="${translate(`hero_faction_${catalogHero.faction}`)}" title="${translate('hero_faction')}: ${translate(`hero_faction_${catalogHero.faction}`)}"><img src="assets/images/heroes/attributes/role-${catalogHero.role}.webp" alt="${translate(`hero_role_${catalogHero.role}`)}" title="${translate('hero_role')}: ${translate(`hero_role_${catalogHero.role}`)}"></span>` : ''}
+        </span>
       </span>
       <span>${translate('level_abbr')} ${hero.current} → ${hero.target}</span>
     </button>`;
