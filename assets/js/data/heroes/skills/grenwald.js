@@ -1,0 +1,705 @@
+// Factual skill progression verified against Last Asylum Database on 2026-08-25.
+export default [
+  {
+    "name": "Cast Spell",
+    "unlockLevel": 1,
+    "unlockRank": 0,
+    "maxLevel": 40,
+    "slot": 1,
+    "type": "auto-attack",
+    "damage": "energy",
+    "starTiers": [
+      {
+        "skillStar": 0,
+        "unlockHeroStar": 0,
+        "uniqueEquipmentStar": null,
+        "parameters": [
+          "72.4%"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "parameters": [
+              "72.4%"
+            ]
+          },
+          {
+            "level": 10,
+            "parameters": [
+              "103.5%"
+            ]
+          },
+          {
+            "level": 20,
+            "parameters": [
+              "138%"
+            ]
+          },
+          {
+            "level": 30,
+            "parameters": [
+              "172.5%"
+            ]
+          },
+          {
+            "level": 40,
+            "parameters": [
+              "207%"
+            ]
+          }
+        ]
+      },
+      {
+        "skillStar": 1,
+        "unlockHeroStar": 5,
+        "uniqueEquipmentStar": null,
+        "parameters": [
+          "90.6%"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "parameters": [
+              "90.6%"
+            ]
+          },
+          {
+            "level": 10,
+            "parameters": [
+              "129.4%"
+            ]
+          },
+          {
+            "level": 20,
+            "parameters": [
+              "172.5%"
+            ]
+          },
+          {
+            "level": 30,
+            "parameters": [
+              "215.6%"
+            ]
+          },
+          {
+            "level": 40,
+            "parameters": [
+              "258.7%"
+            ]
+          }
+        ]
+      },
+      {
+        "skillStar": 2,
+        "unlockHeroStar": 25,
+        "uniqueEquipmentStar": null,
+        "parameters": [
+          "115.9%"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "parameters": [
+              "115.9%"
+            ]
+          },
+          {
+            "level": 10,
+            "parameters": [
+              "165.6%"
+            ]
+          },
+          {
+            "level": 20,
+            "parameters": [
+              "220.8%"
+            ]
+          },
+          {
+            "level": 30,
+            "parameters": [
+              "276%"
+            ]
+          },
+          {
+            "level": 40,
+            "parameters": [
+              "331.2%"
+            ]
+          }
+        ]
+      },
+      {
+        "skillStar": 3,
+        "unlockHeroStar": 50,
+        "uniqueEquipmentStar": null,
+        "parameters": [
+          "159.4%"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "parameters": [
+              "159.4%"
+            ]
+          },
+          {
+            "level": 10,
+            "parameters": [
+              "227.7%"
+            ]
+          },
+          {
+            "level": 20,
+            "parameters": [
+              "303.6%"
+            ]
+          },
+          {
+            "level": 30,
+            "parameters": [
+              "379.5%"
+            ]
+          },
+          {
+            "level": 40,
+            "parameters": [
+              "455.4%"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Soul Capture Spell",
+    "unlockLevel": 5,
+    "unlockRank": 0,
+    "maxLevel": 40,
+    "slot": 2,
+    "type": "ultimate-skill",
+    "damage": "energy",
+    "starTiers": [
+      {
+        "skillStar": 0,
+        "unlockHeroStar": 0,
+        "uniqueEquipmentStar": null,
+        "parameters": [
+          "332.9%"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "parameters": [
+              "332.9%"
+            ]
+          },
+          {
+            "level": 10,
+            "parameters": [
+              "475.5%"
+            ]
+          },
+          {
+            "level": 20,
+            "parameters": [
+              "634%"
+            ]
+          },
+          {
+            "level": 30,
+            "parameters": [
+              "792.5%"
+            ]
+          },
+          {
+            "level": 40,
+            "parameters": [
+              "951%"
+            ]
+          }
+        ]
+      },
+      {
+        "skillStar": 1,
+        "unlockHeroStar": 10,
+        "uniqueEquipmentStar": null,
+        "parameters": [
+          "399.4%"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "parameters": [
+              "399.4%"
+            ]
+          },
+          {
+            "level": 10,
+            "parameters": [
+              "570.6%"
+            ]
+          },
+          {
+            "level": 20,
+            "parameters": [
+              "760.8%"
+            ]
+          },
+          {
+            "level": 30,
+            "parameters": [
+              "951%"
+            ]
+          },
+          {
+            "level": 40,
+            "parameters": [
+              "1141.2%"
+            ]
+          }
+        ]
+      },
+      {
+        "skillStar": 2,
+        "unlockHeroStar": 30,
+        "uniqueEquipmentStar": null,
+        "parameters": [
+          "515.9%"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "parameters": [
+              "515.9%"
+            ]
+          },
+          {
+            "level": 10,
+            "parameters": [
+              "737%"
+            ]
+          },
+          {
+            "level": 20,
+            "parameters": [
+              "982.7%"
+            ]
+          },
+          {
+            "level": 30,
+            "parameters": [
+              "1228.4%"
+            ]
+          },
+          {
+            "level": 40,
+            "parameters": [
+              "1474%"
+            ]
+          }
+        ]
+      },
+      {
+        "skillStar": 3,
+        "unlockHeroStar": 50,
+        "uniqueEquipmentStar": null,
+        "parameters": [
+          "715.6%"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "parameters": [
+              "715.6%"
+            ]
+          },
+          {
+            "level": 10,
+            "parameters": [
+              "1022.3%"
+            ]
+          },
+          {
+            "level": 20,
+            "parameters": [
+              "1363.1%"
+            ]
+          },
+          {
+            "level": 30,
+            "parameters": [
+              "1703.9%"
+            ]
+          },
+          {
+            "level": 40,
+            "parameters": [
+              "2044.6%"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Heartbreaker Spell",
+    "unlockLevel": 10,
+    "unlockRank": 0,
+    "maxLevel": 40,
+    "slot": 3,
+    "type": "active-skill",
+    "damage": "energy",
+    "starTiers": [
+      {
+        "skillStar": 0,
+        "unlockHeroStar": 0,
+        "uniqueEquipmentStar": null,
+        "parameters": [
+          "292.9%"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "parameters": [
+              "292.9%"
+            ]
+          },
+          {
+            "level": 10,
+            "parameters": [
+              "418.5%"
+            ]
+          },
+          {
+            "level": 20,
+            "parameters": [
+              "558%"
+            ]
+          },
+          {
+            "level": 30,
+            "parameters": [
+              "697.5%"
+            ]
+          },
+          {
+            "level": 40,
+            "parameters": [
+              "837%"
+            ]
+          }
+        ]
+      },
+      {
+        "skillStar": 1,
+        "unlockHeroStar": 15,
+        "uniqueEquipmentStar": null,
+        "parameters": [
+          "366.2%"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "parameters": [
+              "366.2%"
+            ]
+          },
+          {
+            "level": 10,
+            "parameters": [
+              "523.1%"
+            ]
+          },
+          {
+            "level": 20,
+            "parameters": [
+              "697.5%"
+            ]
+          },
+          {
+            "level": 30,
+            "parameters": [
+              "871.9%"
+            ]
+          },
+          {
+            "level": 40,
+            "parameters": [
+              "1046.3%"
+            ]
+          }
+        ]
+      },
+      {
+        "skillStar": 2,
+        "unlockHeroStar": 35,
+        "uniqueEquipmentStar": null,
+        "parameters": [
+          "468.7%"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "parameters": [
+              "468.7%"
+            ]
+          },
+          {
+            "level": 10,
+            "parameters": [
+              "669.6%"
+            ]
+          },
+          {
+            "level": 20,
+            "parameters": [
+              "892.8%"
+            ]
+          },
+          {
+            "level": 30,
+            "parameters": [
+              "1116%"
+            ]
+          },
+          {
+            "level": 40,
+            "parameters": [
+              "1339.2%"
+            ]
+          }
+        ]
+      },
+      {
+        "skillStar": 3,
+        "unlockHeroStar": 45,
+        "uniqueEquipmentStar": null,
+        "parameters": [
+          "644.5%"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "parameters": [
+              "644.5%"
+            ]
+          },
+          {
+            "level": 10,
+            "parameters": [
+              "920.7%"
+            ]
+          },
+          {
+            "level": 20,
+            "parameters": [
+              "1227.6%"
+            ]
+          },
+          {
+            "level": 30,
+            "parameters": [
+              "1534.5%"
+            ]
+          },
+          {
+            "level": 40,
+            "parameters": [
+              "1841.4%"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Exorcism Spell",
+    "unlockLevel": 20,
+    "unlockRank": 0,
+    "maxLevel": 40,
+    "slot": 4,
+    "type": "passive-skill",
+    "damage": null,
+    "starTiers": [
+      {
+        "skillStar": 0,
+        "unlockHeroStar": 0,
+        "uniqueEquipmentStar": null,
+        "parameters": [
+          "10.2%"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "parameters": [
+              "10.2%"
+            ]
+          },
+          {
+            "level": 10,
+            "parameters": [
+              "12.5%"
+            ]
+          },
+          {
+            "level": 20,
+            "parameters": [
+              "15%"
+            ]
+          },
+          {
+            "level": 30,
+            "parameters": [
+              "17.5%"
+            ]
+          },
+          {
+            "level": 40,
+            "parameters": [
+              "20%"
+            ]
+          }
+        ]
+      },
+      {
+        "skillStar": 1,
+        "unlockHeroStar": 20,
+        "uniqueEquipmentStar": null,
+        "parameters": [
+          "12.2%"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "parameters": [
+              "12.2%"
+            ]
+          },
+          {
+            "level": 10,
+            "parameters": [
+              "14.5%"
+            ]
+          },
+          {
+            "level": 20,
+            "parameters": [
+              "17%"
+            ]
+          },
+          {
+            "level": 30,
+            "parameters": [
+              "19.5%"
+            ]
+          },
+          {
+            "level": 40,
+            "parameters": [
+              "22%"
+            ]
+          }
+        ]
+      },
+      {
+        "skillStar": 2,
+        "unlockHeroStar": 45,
+        "uniqueEquipmentStar": null,
+        "parameters": [
+          "15.2%"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "parameters": [
+              "15.2%"
+            ]
+          },
+          {
+            "level": 10,
+            "parameters": [
+              "17.5%"
+            ]
+          },
+          {
+            "level": 20,
+            "parameters": [
+              "20%"
+            ]
+          },
+          {
+            "level": 30,
+            "parameters": [
+              "22.5%"
+            ]
+          },
+          {
+            "level": 40,
+            "parameters": [
+              "25%"
+            ]
+          }
+        ]
+      },
+      {
+        "skillStar": 3,
+        "unlockHeroStar": 50,
+        "uniqueEquipmentStar": null,
+        "parameters": [
+          "20.2%"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "parameters": [
+              "20.2%"
+            ]
+          },
+          {
+            "level": 10,
+            "parameters": [
+              "22.5%"
+            ]
+          },
+          {
+            "level": 20,
+            "parameters": [
+              "25%"
+            ]
+          },
+          {
+            "level": 30,
+            "parameters": [
+              "27.5%"
+            ]
+          },
+          {
+            "level": 40,
+            "parameters": [
+              "30%"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Tenacity",
+    "unlockLevel": 30,
+    "unlockRank": 40,
+    "maxLevel": 1,
+    "slot": 5,
+    "type": "support-skill",
+    "damage": null,
+    "starTiers": [
+      {
+        "skillStar": 0,
+        "unlockHeroStar": 40,
+        "uniqueEquipmentStar": null,
+        "parameters": [],
+        "levels": []
+      }
+    ]
+  }
+];

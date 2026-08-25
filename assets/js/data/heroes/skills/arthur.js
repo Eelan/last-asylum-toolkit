@@ -1,0 +1,729 @@
+// Factual skill progression verified against Last Asylum Database on 2026-08-25.
+export default [
+  {
+    "name": "Battle Shield",
+    "unlockLevel": 1,
+    "unlockRank": 0,
+    "maxLevel": 40,
+    "slot": 1,
+    "type": "auto-attack",
+    "damage": "physical",
+    "starTiers": [
+      {
+        "skillStar": 0,
+        "unlockHeroStar": 0,
+        "uniqueEquipmentStar": null,
+        "parameters": [
+          "105%"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "parameters": [
+              "105%"
+            ]
+          },
+          {
+            "level": 10,
+            "parameters": [
+              "150%"
+            ]
+          },
+          {
+            "level": 20,
+            "parameters": [
+              "200%"
+            ]
+          },
+          {
+            "level": 30,
+            "parameters": [
+              "250%"
+            ]
+          },
+          {
+            "level": 40,
+            "parameters": [
+              "300%"
+            ]
+          }
+        ]
+      },
+      {
+        "skillStar": 1,
+        "unlockHeroStar": 5,
+        "uniqueEquipmentStar": null,
+        "parameters": [
+          "147%"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "parameters": [
+              "147%"
+            ]
+          },
+          {
+            "level": 10,
+            "parameters": [
+              "210%"
+            ]
+          },
+          {
+            "level": 20,
+            "parameters": [
+              "280%"
+            ]
+          },
+          {
+            "level": 30,
+            "parameters": [
+              "350%"
+            ]
+          },
+          {
+            "level": 40,
+            "parameters": [
+              "420%"
+            ]
+          }
+        ]
+      },
+      {
+        "skillStar": 2,
+        "unlockHeroStar": 25,
+        "uniqueEquipmentStar": null,
+        "parameters": [
+          "210%"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "parameters": [
+              "210%"
+            ]
+          },
+          {
+            "level": 10,
+            "parameters": [
+              "300%"
+            ]
+          },
+          {
+            "level": 20,
+            "parameters": [
+              "400%"
+            ]
+          },
+          {
+            "level": 30,
+            "parameters": [
+              "500%"
+            ]
+          },
+          {
+            "level": 40,
+            "parameters": [
+              "600%"
+            ]
+          }
+        ]
+      },
+      {
+        "skillStar": 3,
+        "unlockHeroStar": 50,
+        "uniqueEquipmentStar": null,
+        "parameters": [
+          "315%"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "parameters": [
+              "315%"
+            ]
+          },
+          {
+            "level": 10,
+            "parameters": [
+              "450%"
+            ]
+          },
+          {
+            "level": 20,
+            "parameters": [
+              "600%"
+            ]
+          },
+          {
+            "level": 30,
+            "parameters": [
+              "750%"
+            ]
+          },
+          {
+            "level": 40,
+            "parameters": [
+              "900%"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Earthshattering",
+    "unlockLevel": 5,
+    "unlockRank": 0,
+    "maxLevel": 40,
+    "slot": 2,
+    "type": "ultimate-skill",
+    "damage": "physical",
+    "starTiers": [
+      {
+        "skillStar": 0,
+        "unlockHeroStar": 0,
+        "uniqueEquipmentStar": null,
+        "parameters": [
+          "591.1%",
+          "10.2%"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "parameters": [
+              "591.1%",
+              "10.2%"
+            ]
+          },
+          {
+            "level": 10,
+            "parameters": [
+              "844.5%",
+              "12.5%"
+            ]
+          },
+          {
+            "level": 20,
+            "parameters": [
+              "1126%",
+              "15%"
+            ]
+          },
+          {
+            "level": 30,
+            "parameters": [
+              "1407.5%",
+              "17.5%"
+            ]
+          },
+          {
+            "level": 40,
+            "parameters": [
+              "1689%",
+              "20%"
+            ]
+          }
+        ]
+      },
+      {
+        "skillStar": 1,
+        "unlockHeroStar": 10,
+        "uniqueEquipmentStar": null,
+        "parameters": [
+          "591.1%",
+          "13.2%"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "parameters": [
+              "591.1%",
+              "13.2%"
+            ]
+          },
+          {
+            "level": 10,
+            "parameters": [
+              "844.5%",
+              "15.5%"
+            ]
+          },
+          {
+            "level": 20,
+            "parameters": [
+              "1126%",
+              "18%"
+            ]
+          },
+          {
+            "level": 30,
+            "parameters": [
+              "1407.5%",
+              "20.5%"
+            ]
+          },
+          {
+            "level": 40,
+            "parameters": [
+              "1689%",
+              "23%"
+            ]
+          }
+        ]
+      },
+      {
+        "skillStar": 2,
+        "unlockHeroStar": 30,
+        "uniqueEquipmentStar": null,
+        "parameters": [
+          "591.1%",
+          "17.8%"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "parameters": [
+              "591.1%",
+              "17.8%"
+            ]
+          },
+          {
+            "level": 10,
+            "parameters": [
+              "844.5%",
+              "20%"
+            ]
+          },
+          {
+            "level": 20,
+            "parameters": [
+              "1126%",
+              "22.5%"
+            ]
+          },
+          {
+            "level": 30,
+            "parameters": [
+              "1407.5%",
+              "25%"
+            ]
+          },
+          {
+            "level": 40,
+            "parameters": [
+              "1689%",
+              "27.5%"
+            ]
+          }
+        ]
+      },
+      {
+        "skillStar": 3,
+        "unlockHeroStar": 50,
+        "uniqueEquipmentStar": null,
+        "parameters": [
+          "591.1%",
+          "25.2%"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "parameters": [
+              "591.1%",
+              "25.2%"
+            ]
+          },
+          {
+            "level": 10,
+            "parameters": [
+              "844.5%",
+              "27.5%"
+            ]
+          },
+          {
+            "level": 20,
+            "parameters": [
+              "1126%",
+              "30%"
+            ]
+          },
+          {
+            "level": 30,
+            "parameters": [
+              "1407.5%",
+              "32.5%"
+            ]
+          },
+          {
+            "level": 40,
+            "parameters": [
+              "1689%",
+              "35%"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Rock Solid",
+    "unlockLevel": 10,
+    "unlockRank": 0,
+    "maxLevel": 40,
+    "slot": 3,
+    "type": "active-skill",
+    "damage": null,
+    "starTiers": [
+      {
+        "skillStar": 0,
+        "unlockHeroStar": 0,
+        "uniqueEquipmentStar": null,
+        "parameters": [
+          "5.2%"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "parameters": [
+              "5.2%"
+            ]
+          },
+          {
+            "level": 10,
+            "parameters": [
+              "7.5%"
+            ]
+          },
+          {
+            "level": 20,
+            "parameters": [
+              "10%"
+            ]
+          },
+          {
+            "level": 30,
+            "parameters": [
+              "12.5%"
+            ]
+          },
+          {
+            "level": 40,
+            "parameters": [
+              "15%"
+            ]
+          }
+        ]
+      },
+      {
+        "skillStar": 1,
+        "unlockHeroStar": 15,
+        "uniqueEquipmentStar": null,
+        "parameters": [
+          "6.3%"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "parameters": [
+              "6.3%"
+            ]
+          },
+          {
+            "level": 10,
+            "parameters": [
+              "9%"
+            ]
+          },
+          {
+            "level": 20,
+            "parameters": [
+              "12%"
+            ]
+          },
+          {
+            "level": 30,
+            "parameters": [
+              "15%"
+            ]
+          },
+          {
+            "level": 40,
+            "parameters": [
+              "18%"
+            ]
+          }
+        ]
+      },
+      {
+        "skillStar": 2,
+        "unlockHeroStar": 35,
+        "uniqueEquipmentStar": null,
+        "parameters": [
+          "7.9%"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "parameters": [
+              "7.9%"
+            ]
+          },
+          {
+            "level": 10,
+            "parameters": [
+              "11.2%"
+            ]
+          },
+          {
+            "level": 20,
+            "parameters": [
+              "15%"
+            ]
+          },
+          {
+            "level": 30,
+            "parameters": [
+              "18.8%"
+            ]
+          },
+          {
+            "level": 40,
+            "parameters": [
+              "22.5%"
+            ]
+          }
+        ]
+      },
+      {
+        "skillStar": 3,
+        "unlockHeroStar": 45,
+        "uniqueEquipmentStar": null,
+        "parameters": [
+          "10.5%"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "parameters": [
+              "10.5%"
+            ]
+          },
+          {
+            "level": 10,
+            "parameters": [
+              "15%"
+            ]
+          },
+          {
+            "level": 20,
+            "parameters": [
+              "20%"
+            ]
+          },
+          {
+            "level": 30,
+            "parameters": [
+              "25%"
+            ]
+          },
+          {
+            "level": 40,
+            "parameters": [
+              "30%"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Strong Will",
+    "unlockLevel": 20,
+    "unlockRank": 0,
+    "maxLevel": 40,
+    "slot": 4,
+    "type": "passive-skill",
+    "damage": null,
+    "starTiers": [
+      {
+        "skillStar": 0,
+        "unlockHeroStar": 0,
+        "uniqueEquipmentStar": null,
+        "parameters": [
+          "3.1%"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "parameters": [
+              "3.1%"
+            ]
+          },
+          {
+            "level": 10,
+            "parameters": [
+              "3.8%"
+            ]
+          },
+          {
+            "level": 20,
+            "parameters": [
+              "4.5%"
+            ]
+          },
+          {
+            "level": 30,
+            "parameters": [
+              "5.2%"
+            ]
+          },
+          {
+            "level": 40,
+            "parameters": [
+              "6%"
+            ]
+          }
+        ]
+      },
+      {
+        "skillStar": 1,
+        "unlockHeroStar": 20,
+        "uniqueEquipmentStar": null,
+        "parameters": [
+          "3.7%"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "parameters": [
+              "3.7%"
+            ]
+          },
+          {
+            "level": 10,
+            "parameters": [
+              "4.3%"
+            ]
+          },
+          {
+            "level": 20,
+            "parameters": [
+              "5.1%"
+            ]
+          },
+          {
+            "level": 30,
+            "parameters": [
+              "5.8%"
+            ]
+          },
+          {
+            "level": 40,
+            "parameters": [
+              "6.6%"
+            ]
+          }
+        ]
+      },
+      {
+        "skillStar": 2,
+        "unlockHeroStar": 45,
+        "uniqueEquipmentStar": null,
+        "parameters": [
+          "4.6%"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "parameters": [
+              "4.6%"
+            ]
+          },
+          {
+            "level": 10,
+            "parameters": [
+              "5.2%"
+            ]
+          },
+          {
+            "level": 20,
+            "parameters": [
+              "6%"
+            ]
+          },
+          {
+            "level": 30,
+            "parameters": [
+              "6.8%"
+            ]
+          },
+          {
+            "level": 40,
+            "parameters": [
+              "7.5%"
+            ]
+          }
+        ]
+      },
+      {
+        "skillStar": 3,
+        "unlockHeroStar": 50,
+        "uniqueEquipmentStar": null,
+        "parameters": [
+          "6.1%"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "parameters": [
+              "6.1%"
+            ]
+          },
+          {
+            "level": 10,
+            "parameters": [
+              "6.8%"
+            ]
+          },
+          {
+            "level": 20,
+            "parameters": [
+              "7.5%"
+            ]
+          },
+          {
+            "level": 30,
+            "parameters": [
+              "8.2%"
+            ]
+          },
+          {
+            "level": 40,
+            "parameters": [
+              "9%"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Tenacity",
+    "unlockLevel": 30,
+    "unlockRank": 40,
+    "maxLevel": 1,
+    "slot": 5,
+    "type": "support-skill",
+    "damage": null,
+    "starTiers": [
+      {
+        "skillStar": 0,
+        "unlockHeroStar": 40,
+        "uniqueEquipmentStar": null,
+        "parameters": [],
+        "levels": []
+      }
+    ]
+  }
+];
