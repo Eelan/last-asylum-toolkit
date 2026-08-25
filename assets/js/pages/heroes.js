@@ -8,7 +8,9 @@ function renderHeroCard(hero, trackedIds) {
   const isTracked = trackedIds.has(hero.id);
   return `<article class="catalog-hero">
     <div class="catalog-hero-identity">
-      ${hero.image ? `<img class="hero-portrait" src="${hero.image}" alt="">` : `<span class="hero-portrait hero-portrait-placeholder">${icon('user-round')}</span>`}
+      <span class="hero-portrait-shell rarity-frame-${hero.rarity}">
+        ${hero.image ? `<img class="hero-portrait" src="${hero.image}" alt="">` : `<span class="hero-portrait hero-portrait-placeholder">${icon('user-round')}</span>`}
+      </span>
       <div><span class="rarity-badge rarity-${hero.rarity}">${hero.rarity.toUpperCase()}</span><h3>${hero.name}</h3></div>
     </div>
     <button class="${isTracked ? 'catalog-added' : 'primary-btn'}" type="button" data-catalog-id="${hero.id}" ${isTracked ? 'disabled' : ''}>
