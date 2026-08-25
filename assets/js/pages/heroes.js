@@ -4,7 +4,7 @@ import { getLanguage, translate } from '../core/i18n.js';
 import { addCatalogHero, getTrackedHeroes } from '../core/heroes.js';
 import { renderPageHeader } from '../core/ui.js';
 
-const LOCALIZED_HEROES = { fr: new Set(['arthur', 'harper', 'marlena']) };
+const LOCALIZED_HEROES = { fr: new Set(['arthur', 'celia', 'harper', 'joker', 'marlena']) };
 
 function renderHeroCard(hero, trackedIds) {
   const isTracked = trackedIds.has(hero.id);
@@ -44,7 +44,7 @@ function renderLocalizedSkill(localizedSkill) {
 }
 
 function renderHeroSkill(skill, localizedSkill) {
-  return `<article class="hero-skill"><span class="hero-skill-slot">${icon('sparkles')}</span><div class="hero-skill-content"><strong>${localizedSkill?.name || skill.name}</strong><span>${localizedSkill?.type || translate(`hero_skill_${skill.type.replaceAll('-', '_')}`)}</span>
+  return `<article class="hero-skill"><span class="hero-skill-slot">${skill.icon ? `<img src="${skill.icon}" alt="">` : icon('sparkles')}</span><div class="hero-skill-content"><strong>${localizedSkill?.name || skill.name}</strong><span>${localizedSkill?.type || translate(`hero_skill_${skill.type.replaceAll('-', '_')}`)}</span>
     <div class="hero-skill-details"><small>${translate('hero_unlock_level')} ${skill.unlockLevel}</small><small>${translate('hero_skill_max_level')} ${skill.maxLevel}</small>${skill.damage ? `<small>${translate(`hero_damage_${skill.damage}`)}</small>` : ''}<small>${translate('hero_skill_slot')} ${skill.slot}</small></div>
     ${renderLocalizedSkill(localizedSkill)}
     <details class="skill-progression"><summary>${translate('hero_view_progression')} (${skill.starTiers.length})</summary>${skill.starTiers.map(renderSkillTier).join('')}</details>

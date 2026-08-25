@@ -2,6 +2,7 @@
 export default [
   {
     "name": "Battle Shield",
+    "icon": "assets/images/heroes/skills/arthur-battle-shield.png",
     "unlockLevel": 1,
     "unlockRank": 0,
     "maxLevel": 40,
@@ -173,6 +174,7 @@ export default [
   },
   {
     "name": "Earthshattering",
+    "icon": "assets/images/heroes/skills/arthur-earthshattering.png",
     "unlockLevel": 5,
     "unlockRank": 0,
     "maxLevel": 40,
@@ -368,6 +370,7 @@ export default [
   },
   {
     "name": "Rock Solid",
+    "icon": "assets/images/heroes/skills/arthur-rock-solid.png",
     "unlockLevel": 10,
     "unlockRank": 0,
     "maxLevel": 40,
@@ -539,6 +542,7 @@ export default [
   },
   {
     "name": "Strong Will",
+    "icon": "assets/images/heroes/skills/arthur-strong-will.png",
     "unlockLevel": 20,
     "unlockRank": 0,
     "maxLevel": 40,
@@ -710,6 +714,7 @@ export default [
   },
   {
     "name": "Tenacity",
+    "icon": "assets/images/heroes/skills/arthur-tenacity-ii.png",
     "unlockLevel": 30,
     "unlockRank": 40,
     "maxLevel": 1,
