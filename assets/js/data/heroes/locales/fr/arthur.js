@@ -1,13 +1,9 @@
-// Transcribed from in-game French screenshots supplied by the player on 2026-08-25.
 export default {
-  source: 'in-game-screenshots',
   skills: [{
     slot: 1,
     name: 'Bouclier de Bataille',
     type: 'Attaque automatique',
     damage: 'DGT physiques',
-    observedLevel: 10,
-    observedSkillStars: 2,
     description: "Assène un coup de bouclier, infligeant 300.0% de DGT Physiques d'ATQ à un ennemi unique.",
     upgrades: [
       { text: 'Inflige 40 % de dégâts additionnels.' },
@@ -20,8 +16,6 @@ export default {
     type: 'Compétence Ultime',
     damage: 'DGT physiques',
     cooldownSeconds: 7,
-    observedLevel: 10,
-    observedSkillStars: 2,
     description: "Assène un coup de bouclier au sol, infligeant 844.5% de DGT physiques d'ATQ aux ennemis à portée, et réduisant les DGT physiques subis par les alliés à portée de 20.0% pendant 5 s.",
     upgrades: [
       { text: 'Réduction des DGT physiques augmentée de 3 %.' },
@@ -33,8 +27,6 @@ export default {
     name: 'Inébranlable',
     type: 'Compétence Active',
     cooldownSeconds: 5,
-    observedLevel: 10,
-    observedSkillStars: 1,
     description: "Confère un bouclier équivalent à 9.0% des PV max actuels, absorbant 50 % des dégâts subis, d'une durée de 3 s.",
     upgrades: [
       { text: 'Effet du bouclier augmenté de 20 %.' },
@@ -45,8 +37,6 @@ export default {
     slot: 4,
     name: 'Volonté de fer',
     type: 'Compétence Passive',
-    observedLevel: 10,
-    observedSkillStars: 1,
     description: 'En combat, réduit tous les dégâts reçus par les héros tanks alliés de 4.35%.',
     upgrades: [
       { text: 'Effet augmenté de 0,6 %.' },
@@ -57,8 +47,6 @@ export default {
     slot: 5,
     name: 'Ténacité',
     type: 'Compétence de soutien',
-    observedLevel: 1,
-    observedSkillStars: 0,
     description: 'ATQ, PV et DÉF +20 % ; vitesse de temps de recharge des compétences +10 %.',
     unlockHeroLevel: 30,
     unlockHeroStars: 8,

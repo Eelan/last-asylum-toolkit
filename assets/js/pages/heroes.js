@@ -37,9 +37,7 @@ function renderSkillTier(tier) {
 
 function renderLocalizedSkill(localizedSkill) {
   if (!localizedSkill) return '';
-  const observations = [`${translate('level_abbr')} ${localizedSkill.observedLevel}`, `${localizedSkill.observedSkillStars} ${translate('hero_skill_stars_short')}`];
-  if (localizedSkill.cooldownSeconds) observations.push(`${translate('hero_cooldown')} ${localizedSkill.cooldownSeconds} s`);
-  return `<section class="localized-skill"><strong class="localized-skill-label">${translate('hero_in_game_observation')}</strong><div class="localized-skill-observations">${observations.map(value => `<small>${value}</small>`).join('')}</div><p>${localizedSkill.description}</p>
+  return `<section class="localized-skill">${localizedSkill.cooldownSeconds ? `<small class="localized-skill-cooldown">${translate('hero_cooldown')} ${localizedSkill.cooldownSeconds} s</small>` : ''}<p>${localizedSkill.description}</p>
     ${localizedSkill.upgrades.length ? `<ul>${localizedSkill.upgrades.map(upgrade => `<li>${upgrade.text}${upgrade.unlockHeroStars ? ` <span>(${translate('hero_unlock_at')} ${upgrade.unlockHeroStars}★)</span>` : ''}</li>`).join('')}</ul>` : ''}
     ${localizedSkill.unlockHeroLevel ? `<p class="localized-skill-unlock">${translate('hero_unlock_at')} ${translate('level_abbr')} ${localizedSkill.unlockHeroLevel} · ${localizedSkill.unlockHeroStars}★</p>` : ''}
   </section>`;

@@ -1,13 +1,9 @@
-// Transcribed from in-game French screenshots supplied by the player on 2026-08-25.
 export default {
-  source: 'in-game-screenshots',
   skills: [{
     slot: 1,
     name: 'Bulle',
     type: 'Attaque Automatique',
     damage: 'DGT énergétiques',
-    observedLevel: 1,
-    observedSkillStars: 0,
     description: "Joue de la flûte pour créer des bulles, infligeant 87.15% de DGT énergétiques d'ATQ à un ennemi unique.",
     upgrades: [
       { text: 'Inflige 40 % de dégâts additionnels.', unlockHeroStars: 1 },
@@ -19,8 +15,6 @@ export default {
     name: 'Son de flûte de guerre',
     type: 'Compétence Ultime',
     cooldownSeconds: 14,
-    observedLevel: 1,
-    observedSkillStars: 0,
     description: "Harper joue de la flûte de guerre pour inspirer ses alliés, augmentant l'ATQ de tous les héros alliés de 15.375% pendant 5 s.",
     upgrades: [
       { text: "Après l'incantation, augmente les DGT énergétiques infligés par tous les alliés de 4,5 % pendant 7 s.", unlockHeroStars: 2 },
@@ -32,8 +26,6 @@ export default {
     name: 'Bulle vitale',
     type: 'Compétence Active',
     cooldownSeconds: 5,
-    observedLevel: 1,
-    observedSkillStars: 0,
     description: "Harper crée une bulle, réduisant les dégâts subis par l'allié ayant le moins de PV de 8.2% pendant 4 s.",
     upgrades: [
       { text: "L'effet augmente de 1,6%.", unlockHeroStars: 3 },
@@ -44,8 +36,6 @@ export default {
     slot: 4,
     name: 'Hymne du guerrier',
     type: 'Compétence Passive',
-    observedLevel: 1,
-    observedSkillStars: 0,
     description: "En combat, augmente l'ATQ de tous les héros guerriers alliés de 6.15%.",
     upgrades: [
       { text: 'Effet augmenté de 1,2 %.', unlockHeroStars: 4 },
@@ -56,8 +46,6 @@ export default {
     slot: 5,
     name: 'Ténacité',
     type: 'Compétence de soutien',
-    observedLevel: 1,
-    observedSkillStars: 0,
     description: 'ATQ, PV et DÉF +20 % ; vitesse de temps de recharge des compétences +10 %.',
     unlockHeroLevel: 30,
     unlockHeroStars: 8,
