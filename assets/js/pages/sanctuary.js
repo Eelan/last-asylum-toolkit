@@ -3,6 +3,23 @@ import { formatDuration, formatNumber, translate } from '../core/i18n.js';
 import { renderPageHeader } from '../core/ui.js';
 import { calculateSanctuaryProgression } from '../domain/sanctuary.js';
 
+const CURRENT_LEVEL_STORAGE_KEY = 'lat-sanctuary-current-level';
+
+function getStoredCurrentLevel(maximum) {
+  try {
+    const storedLevel = Number(localStorage.getItem(CURRENT_LEVEL_STORAGE_KEY));
+    return Number.isInteger(storedLevel) && storedLevel >= 1 && storedLevel < maximum ? storedLevel : null;
+  } catch (error) {
+    return null;
+  }
+}
+
+function setStoredCurrentLevel(level) {
+  try {
+    localStorage.setItem(CURRENT_LEVEL_STORAGE_KEY, level);
+  } catch (error) {}
+}
+
 function formatPrerequisites(prerequisites) {
   if (!prerequisites.length) return '—';
   return prerequisites
@@ -43,6 +60,8 @@ export function renderSanctuaryPage(tool) {
 
   const currentInput = $('#sanctuary-current');
   const targetInput = $('#sanctuary-target');
+  const storedCurrentLevel = getStoredCurrentLevel(+targetInput.value);
+  if (storedCurrentLevel !== null) currentInput.value = storedCurrentLevel;
 
   const updateRange = changedInput => {
     if (changedInput === currentInput && +currentInput.value >= +targetInput.value) {
@@ -82,6 +101,10 @@ export function renderSanctuaryPage(tool) {
     </tr>`).join('');
   };
 
-  [currentInput, targetInput].forEach(input => input.addEventListener('input', () => calculate(input)));
+  currentInput.addEventListener('input', () => {
+    calculate(currentInput);
+    setStoredCurrentLevel(currentInput.value);
+  });
+  targetInput.addEventListener('input', () => calculate(targetInput));
   calculate();
 }
