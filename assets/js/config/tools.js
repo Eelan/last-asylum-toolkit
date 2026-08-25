@@ -1,6 +1,8 @@
 export const TOOLS = [{
   id: 'stocks', icon: 'package-open', title: 'stocks_title', desc: 'stocks_desc', ready: true, category: 'quick_access'
 }, {
+  id: 'my-heroes', icon: 'users-round', title: 'my_heroes_title', desc: 'my_heroes_desc', ready: true, category: 'heroes'
+}, {
   id: 'antitoxin', icon: 'biohazard', title: 'anti_title', desc: 'anti_desc', ready: true, category: 'heroes'
 }, {
   id: 'shards', icon: 'gem', title: 'shard_title', desc: 'shard_desc', ready: true, category: 'heroes'
