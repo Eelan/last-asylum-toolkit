@@ -16,18 +16,32 @@ import { renderWeekPage } from './pages/week.js';
 
 const NAV_CATEGORIES = ['development', 'heroes', 'alliance', 'information'];
 
+/**
+ * Returns ready tools in the same category and display order as the sidebar.
+ * The tool catalogue remains the single source of ordering within each category.
+ */
+function getNavigationTools() {
+  const readyTools = TOOLS.filter(tool => tool.ready);
+  const quickAccess = readyTools.filter(tool => tool.category === 'quick_access');
+  const categorizedTools = NAV_CATEGORIES.flatMap(category =>
+    readyTools.filter(tool => tool.category === category)
+  );
+
+  return [...quickAccess, ...categorizedTools];
+}
+
 function renderNavLink(tool) {
   return `<a class="nav-link" data-route="${tool.id}" href="#/${tool.id}">${icon(tool.icon)}<span>${translate(tool.title)}</span></a>`;
 }
 
 function renderNav() {
-  const readyTools = TOOLS.filter(tool => tool.ready);
-  const quickAccess = readyTools.filter(tool => tool.category === 'quick_access');
+  const navigationTools = getNavigationTools();
+  const quickAccess = navigationTools.filter(tool => tool.category === 'quick_access');
   $('#main-nav').innerHTML = `
   <a class="nav-link" data-route="home" href="#/">${icon('house')}<span>${translate('home')}</span></a>
   ${quickAccess.map(renderNavLink).join('')}
   ${NAV_CATEGORIES.map(category => {
-    const categoryTools = readyTools.filter(tool => tool.category === category);
+    const categoryTools = navigationTools.filter(tool => tool.category === category);
     if (!categoryTools.length) return '';
     return `<div class="nav-group-title">${translate(`category_${category}`)}</div>${categoryTools.map(renderNavLink).join('')}`;
   }).join('')}
@@ -48,7 +62,7 @@ function renderHome() {
   <h1>${translate('tagline')}</h1>
   <p>${translate('subtitle')}</p>
  </section>
- <section class="tools-grid">${TOOLS.filter(tool => tool.ready).map(renderToolCard).join('')}</section>`;
+ <section class="tools-grid">${getNavigationTools().map(renderToolCard).join('')}</section>`;
   $('#breadcrumb').textContent = translate('home');
 }
 
