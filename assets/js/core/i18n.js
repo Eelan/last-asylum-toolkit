@@ -30,6 +30,10 @@ export function setLanguage(language) {
   localStorage.setItem('lat-lang', currentLanguage);
 }
 
+export function getLanguage() {
+  return currentLanguage;
+}
+
 export function applyStaticI18n() {
   document.documentElement.lang = currentLanguage;
   $$('[data-i18n]').forEach(element => element.textContent = translate(element.dataset.i18n));

@@ -1,8 +1,10 @@
 import { GAME_DATA } from '../data.js';
 import { $, $$, icon } from '../core/dom.js';
-import { translate } from '../core/i18n.js';
+import { getLanguage, translate } from '../core/i18n.js';
 import { addCatalogHero, getTrackedHeroes } from '../core/heroes.js';
 import { renderPageHeader } from '../core/ui.js';
+
+const LOCALIZED_HEROES = { fr: new Set(['arthur', 'harper', 'marlena']) };
 
 function renderHeroCard(hero, trackedIds) {
   const isTracked = trackedIds.has(hero.id);
@@ -33,14 +35,25 @@ function renderSkillTier(tier) {
   </section>`;
 }
 
-function renderHeroSkill(skill) {
-  return `<article class="hero-skill"><span class="hero-skill-slot">${icon('sparkles')}</span><div class="hero-skill-content"><strong>${skill.name}</strong><span>${translate(`hero_skill_${skill.type.replaceAll('-', '_')}`)}</span>
+function renderLocalizedSkill(localizedSkill) {
+  if (!localizedSkill) return '';
+  const observations = [`${translate('level_abbr')} ${localizedSkill.observedLevel}`, `${localizedSkill.observedSkillStars} ${translate('hero_skill_stars_short')}`];
+  if (localizedSkill.cooldownSeconds) observations.push(`${translate('hero_cooldown')} ${localizedSkill.cooldownSeconds} s`);
+  return `<section class="localized-skill"><strong class="localized-skill-label">${translate('hero_in_game_observation')}</strong><div class="localized-skill-observations">${observations.map(value => `<small>${value}</small>`).join('')}</div><p>${localizedSkill.description}</p>
+    ${localizedSkill.upgrades.length ? `<ul>${localizedSkill.upgrades.map(upgrade => `<li>${upgrade.text}${upgrade.unlockHeroStars ? ` <span>(${translate('hero_unlock_at')} ${upgrade.unlockHeroStars}★)</span>` : ''}</li>`).join('')}</ul>` : ''}
+    ${localizedSkill.unlockHeroLevel ? `<p class="localized-skill-unlock">${translate('hero_unlock_at')} ${translate('level_abbr')} ${localizedSkill.unlockHeroLevel} · ${localizedSkill.unlockHeroStars}★</p>` : ''}
+  </section>`;
+}
+
+function renderHeroSkill(skill, localizedSkill) {
+  return `<article class="hero-skill"><span class="hero-skill-slot">${icon('sparkles')}</span><div class="hero-skill-content"><strong>${localizedSkill?.name || skill.name}</strong><span>${localizedSkill?.type || translate(`hero_skill_${skill.type.replaceAll('-', '_')}`)}</span>
     <div class="hero-skill-details"><small>${translate('hero_unlock_level')} ${skill.unlockLevel}</small><small>${translate('hero_skill_max_level')} ${skill.maxLevel}</small>${skill.damage ? `<small>${translate(`hero_damage_${skill.damage}`)}</small>` : ''}<small>${translate('hero_skill_slot')} ${skill.slot}</small></div>
+    ${renderLocalizedSkill(localizedSkill)}
     <details class="skill-progression"><summary>${translate('hero_view_progression')} (${skill.starTiers.length})</summary>${skill.starTiers.map(renderSkillTier).join('')}</details>
   </div></article>`;
 }
 
-function renderHeroProfile(hero, trackedIds, skills) {
+function renderHeroProfile(hero, trackedIds, skills, localizedProfile) {
   const profile = GAME_DATA.heroProfiles[hero.id];
   const isTracked = trackedIds.has(hero.id);
   return `<a class="back-link hero-profile-back" href="#/heroes">${icon('arrow-left')} ${translate('heroes_list_title')}</a>
@@ -60,7 +73,7 @@ function renderHeroProfile(hero, trackedIds, skills) {
       </div>
       <p class="hero-counter-note">${icon('info')} ${translate('hero_counter_rule')}</p>
       <section class="hero-skills"><h3>${translate('hero_skills')}</h3><div class="hero-skills-grid">
-        ${skills.map(renderHeroSkill).join('')}
+        ${skills.map(skill => renderHeroSkill(skill, localizedProfile?.skills.find(candidate => candidate.slot === skill.slot))).join('')}
       </div></section>
       <a class="hero-profile-source back-link" href="https://lastasylumdatabase.com/heroes/${hero.id}" target="_blank" rel="noreferrer">${icon('external-link')} ${translate('hero_profile_source')}</a>
     </section>`;
@@ -76,8 +89,12 @@ export async function renderHeroesPage(tool) {
     $('#view').innerHTML = renderPageHeader(tool) + `<section class="panel hero-profile-loading">${icon('loader-circle')} ${translate('hero_profile_loading')}</section>`;
     lucide.createIcons();
     const { default: skills } = await import(`../data/heroes/skills/${selectedHero.id}.js`);
+    const language = getLanguage();
+    const localizedProfile = LOCALIZED_HEROES[language]?.has(selectedHero.id)
+      ? (await import(`../data/heroes/locales/${language}/${selectedHero.id}.js`)).default
+      : null;
     if (location.hash !== requestedHash) return;
-    $('#view').innerHTML = renderPageHeader(tool) + renderHeroProfile(selectedHero, trackedIds, skills);
+    $('#view').innerHTML = renderPageHeader(tool) + renderHeroProfile(selectedHero, trackedIds, skills, localizedProfile);
     $('#profile-add-hero').addEventListener('click', () => {
       addCatalogHero(selectedHero);
       renderHeroesPage(tool);
