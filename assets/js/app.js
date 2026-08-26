@@ -16,7 +16,7 @@ import { renderWeekPage } from './pages/week.js';
 
 // #region Navigation and shared pages
 
-const NAV_CATEGORIES = ['development', 'heroes', 'alliance', 'information'];
+const NAV_CATEGORIES = ['personal', 'development', 'heroes', 'alliance', 'information'];
 
 /**
  * Returns ready tools in the same category and display order as the sidebar.
@@ -24,12 +24,11 @@ const NAV_CATEGORIES = ['development', 'heroes', 'alliance', 'information'];
  */
 function getNavigationTools() {
   const readyTools = TOOLS.filter(tool => tool.ready);
-  const quickAccess = readyTools.filter(tool => tool.category === 'quick_access');
   const categorizedTools = NAV_CATEGORIES.flatMap(category =>
     readyTools.filter(tool => tool.category === category)
   );
 
-  return [...quickAccess, ...categorizedTools];
+  return categorizedTools;
 }
 
 function renderNavLink(tool) {
@@ -38,10 +37,8 @@ function renderNavLink(tool) {
 
 function renderNav() {
   const navigationTools = getNavigationTools();
-  const quickAccess = navigationTools.filter(tool => tool.category === 'quick_access');
   $('#main-nav').innerHTML = `
   <a class="nav-link" data-route="home" href="#/">${icon('house')}<span>${translate('home')}</span></a>
-  ${quickAccess.map(renderNavLink).join('')}
   ${NAV_CATEGORIES.map(category => {
     const categoryTools = navigationTools.filter(tool => tool.category === category);
     if (!categoryTools.length) return '';

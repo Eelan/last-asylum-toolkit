@@ -1,9 +1,9 @@
 export const TOOLS = [{
-  id: 'stocks', icon: 'package-open', title: 'stocks_title', desc: 'stocks_desc', ready: true, category: 'quick_access'
+  id: 'stocks', icon: 'package-open', title: 'stocks_title', desc: 'stocks_desc', ready: true, category: 'personal'
 }, {
   id: 'heroes', icon: 'list', title: 'heroes_list_title', desc: 'heroes_list_desc', ready: true, category: 'heroes'
 }, {
-  id: 'my-heroes', icon: 'users-round', title: 'my_heroes_title', desc: 'my_heroes_desc', ready: true, category: 'heroes'
+  id: 'my-heroes', icon: 'users-round', title: 'my_heroes_title', desc: 'my_heroes_desc', ready: true, category: 'personal'
 }, {
   id: 'antitoxin', icon: 'biohazard', title: 'anti_title', desc: 'anti_desc', ready: true, category: 'heroes'
 }, {

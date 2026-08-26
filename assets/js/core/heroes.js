@@ -1,8 +1,6 @@
 import { GAME_DATA } from '../data.js';
 
 const HEROES_STORAGE_KEY = 'lat-my-heroes';
-const VALID_RARITIES = ['ur', 'ssr', 'sr'];
-
 function normalizeLevel(value) {
   const maxLevel = Math.max(...Object.keys(GAME_DATA.antitoxin).map(Number));
   return Math.min(maxLevel, Math.max(1, Number(value) || 1));
@@ -16,21 +14,22 @@ function findCatalogHero(hero) {
 
 function normalizeHero(hero) {
   const catalogHero = findCatalogHero(hero);
+  if (!catalogHero) return null;
   return {
     id: String(hero.id),
-    catalogId: catalogHero?.id || null,
-    name: catalogHero?.name || String(hero.name || ''),
-    rarity: catalogHero?.rarity || (VALID_RARITIES.includes(hero.rarity) ? hero.rarity : 'ur'),
+    catalogId: catalogHero.id,
+    name: catalogHero.name,
+    rarity: catalogHero.rarity,
     current: normalizeLevel(hero.current),
     target: normalizeLevel(hero.target)
   };
 }
 
-/** Reads locally tracked heroes and migrates matching free-text names to catalogue ids in memory. */
+/** Reads catalogue heroes and migrates matching legacy free-text names in memory. */
 export function getTrackedHeroes() {
   try {
     const heroes = JSON.parse(localStorage.getItem(HEROES_STORAGE_KEY) || '[]');
-    return Array.isArray(heroes) ? heroes.filter(hero => hero && hero.id).map(normalizeHero) : [];
+    return Array.isArray(heroes) ? heroes.filter(hero => hero && hero.id).map(normalizeHero).filter(Boolean) : [];
   } catch (error) {
     return [];
   }
@@ -42,7 +41,7 @@ export function saveTrackedHeroes(heroes) {
   } catch (error) {}
 }
 
-export function createTrackedHero(catalogHero = null) {
+export function createTrackedHero(catalogHero) {
   return {
     id: `hero-${Date.now()}-${Math.random().toString(16).slice(2)}`,
     catalogId: catalogHero?.id || null,
