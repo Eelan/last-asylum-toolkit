@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://last-asylum-toolkit.github.io/schemas/game-dataset.schema.json",
+  "title": "Last Asylum versioned game dataset",
+  "type": "object",
+  "required": ["schemaVersion", "id", "source", "semantics", "data"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "schemaVersion": { "const": 1 },
+    "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "source": {
+      "type": "object",
+      "required": ["name", "type", "status", "verifiedOn"],
+      "properties": {
+        "name": { "type": "string" },
+        "url": { "type": ["string", "null"], "format": "uri" },
+        "type": { "enum": ["in-game", "official", "community"] },
+        "status": { "enum": ["partial", "complete"] },
+        "verifiedOn": { "type": ["string", "null"], "format": "date" },
+        "note": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "semantics": {
+      "type": "object",
+      "required": ["valueMode"],
+      "properties": {
+        "valueMode": { "enum": ["at-level", "upgrade-to-level", "upgrade-from-level", "mixed", "lookup"] },
+        "note": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "data": {}
+  },
+  "additionalProperties": false
+}

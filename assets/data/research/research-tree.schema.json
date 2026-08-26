@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://last-asylum-toolkit.github.io/schemas/research-tree.schema.json",
+  "title": "Last Asylum research tree",
+  "type": "object",
+  "required": ["schemaVersion", "id", "source", "semantics", "nodes", "researches"],
+  "properties": {
+    "schemaVersion": { "type": "integer", "minimum": 1 },
+    "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "nameKey": { "type": "string" },
+    "source": {
+      "type": "object",
+      "required": ["name", "url", "type", "status", "verifiedOn"],
+      "properties": {
+        "name": { "type": "string" },
+        "url": { "type": ["string", "null"] },
+        "type": { "enum": ["in-game", "official", "community"] },
+        "status": { "enum": ["partial", "complete"] },
+        "verifiedOn": { "type": ["string", "null"], "format": "date" },
+        "note": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "semantics": {
+      "type": "object",
+      "required": ["valueMode", "note"],
+      "properties": {
+        "valueMode": { "const": "mixed" },
+        "note": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "nodes": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/node" }
+    },
+    "researches": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/research" }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "node": {
+      "type": "object",
+      "required": ["id", "position", "researchIds"],
+      "properties": {
+        "id": { "type": "string" },
+        "position": { "type": "integer", "minimum": 1 },
+        "researchIds": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string" },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "research": {
+      "type": "object",
+      "required": ["nodeId", "nameKey", "sourceNameFr", "category", "maxLevel", "effect", "levels"],
+      "properties": {
+        "nodeId": { "type": "string" },
+        "nameKey": { "type": "string" },
+        "descriptionKey": { "type": ["string", "null"] },
+        "sourceNameFr": { "type": "string" },
+        "sourceDescriptionFr": { "type": ["string", "null"] },
+        "category": { "type": "string" },
+        "maxLevel": { "type": "integer", "minimum": 1 },
+        "effect": {
+          "type": "object",
+          "required": ["target", "unit", "valueMode"],
+          "properties": {
+            "target": { "type": "string" },
+            "unit": { "enum": ["percent", "count"] },
+            "valueMode": { "const": "total-at-level" }
+          },
+          "additionalProperties": false
+        },
+        "levels": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/level" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "level": {
+      "type": "object",
+      "required": ["level", "effectAtLevel", "powerAtLevel", "upgradeCost", "durationSeconds", "prerequisites"],
+      "properties": {
+        "level": { "type": "integer", "minimum": 1 },
+        "effectAtLevel": { "type": "number" },
+        "powerAtLevel": { "type": "integer", "minimum": 0 },
+        "upgradeCost": {
+          "oneOf": [
+            { "type": "null" },
+            {
+              "type": "object",
+              "additionalProperties": { "type": "integer", "minimum": 0 }
+            }
+          ]
+        },
+        "durationSeconds": { "type": ["integer", "null"], "minimum": 0 },
+        "prerequisites": {
+          "oneOf": [
+            { "type": "null" },
+            {
+              "type": "array",
+              "items": { "$ref": "#/$defs/prerequisite" }
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "prerequisite": {
+      "type": "object",
+      "required": ["type", "id", "minimumLevel"],
+      "properties": {
+        "type": { "enum": ["research", "building", "player-level", "other"] },
+        "id": { "type": "string" },
+        "minimumLevel": { "type": "integer", "minimum": 1 }
+      },
+      "additionalProperties": false
+    }
+  }
+}

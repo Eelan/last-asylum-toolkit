@@ -1,0 +1,549 @@
+{
+  "$schema": "../../game-dataset.schema.json",
+  "schemaVersion": 1,
+  "id": "hero-skills-kafa",
+  "source": {
+    "name": "Last Asylum Database",
+    "url": "https://lastasylumdatabase.com/heroes",
+    "type": "community",
+    "status": "complete",
+    "verifiedOn": "2026-08-25"
+  },
+  "semantics": {
+    "valueMode": "at-level",
+    "note": "Skill parameters are total values at the stated skill level and star tier; they replace lower-level values."
+  },
+  "data": [
+    {
+      "name": "Coffee",
+      "unlockLevel": 1,
+      "unlockRank": 0,
+      "maxLevel": 40,
+      "slot": 1,
+      "type": "auto-attack",
+      "damage": "physical",
+      "starTiers": [
+        {
+          "skillStar": 0,
+          "unlockHeroStar": 0,
+          "uniqueEquipmentStar": null,
+          "parameters": [
+            "69.3%"
+          ],
+          "levels": [
+            {
+              "level": 1,
+              "parameters": [
+                "69.3%"
+              ]
+            },
+            {
+              "level": 10,
+              "parameters": [
+                "99%"
+              ]
+            },
+            {
+              "level": 20,
+              "parameters": [
+                "132%"
+              ]
+            },
+            {
+              "level": 30,
+              "parameters": [
+                "165%"
+              ]
+            },
+            {
+              "level": 40,
+              "parameters": [
+                "198%"
+              ]
+            }
+          ]
+        },
+        {
+          "skillStar": 1,
+          "unlockHeroStar": 5,
+          "uniqueEquipmentStar": null,
+          "parameters": [
+            "79.7%"
+          ],
+          "levels": [
+            {
+              "level": 1,
+              "parameters": [
+                "79.7%"
+              ]
+            },
+            {
+              "level": 10,
+              "parameters": [
+                "113.8%"
+              ]
+            },
+            {
+              "level": 20,
+              "parameters": [
+                "151.8%"
+              ]
+            },
+            {
+              "level": 30,
+              "parameters": [
+                "189.7%"
+              ]
+            },
+            {
+              "level": 40,
+              "parameters": [
+                "227.7%"
+              ]
+            }
+          ]
+        },
+        {
+          "skillStar": 2,
+          "unlockHeroStar": 25,
+          "uniqueEquipmentStar": null,
+          "parameters": [
+            "97%"
+          ],
+          "levels": [
+            {
+              "level": 1,
+              "parameters": [
+                "97%"
+              ]
+            },
+            {
+              "level": 10,
+              "parameters": [
+                "138.6%"
+              ]
+            },
+            {
+              "level": 20,
+              "parameters": [
+                "184.8%"
+              ]
+            },
+            {
+              "level": 30,
+              "parameters": [
+                "231%"
+              ]
+            },
+            {
+              "level": 40,
+              "parameters": [
+                "277.2%"
+              ]
+            }
+          ]
+        },
+        {
+          "skillStar": 3,
+          "unlockHeroStar": 50,
+          "uniqueEquipmentStar": null,
+          "parameters": [
+            "124.7%"
+          ],
+          "levels": [
+            {
+              "level": 1,
+              "parameters": [
+                "124.7%"
+              ]
+            },
+            {
+              "level": 10,
+              "parameters": [
+                "178.2%"
+              ]
+            },
+            {
+              "level": 20,
+              "parameters": [
+                "237.6%"
+              ]
+            },
+            {
+              "level": 30,
+              "parameters": [
+                "297%"
+              ]
+            },
+            {
+              "level": 40,
+              "parameters": [
+                "356.4%"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Love Infusion",
+      "unlockLevel": 5,
+      "unlockRank": 0,
+      "maxLevel": 40,
+      "slot": 2,
+      "type": "ultimate-skill",
+      "damage": "physical",
+      "starTiers": [
+        {
+          "skillStar": 0,
+          "unlockHeroStar": 0,
+          "uniqueEquipmentStar": null,
+          "parameters": [
+            "284.8%"
+          ],
+          "levels": [
+            {
+              "level": 1,
+              "parameters": [
+                "284.8%"
+              ]
+            },
+            {
+              "level": 10,
+              "parameters": [
+                "406.8%"
+              ]
+            },
+            {
+              "level": 20,
+              "parameters": [
+                "542.4%"
+              ]
+            },
+            {
+              "level": 30,
+              "parameters": [
+                "678%"
+              ]
+            },
+            {
+              "level": 40,
+              "parameters": [
+                "813.6%"
+              ]
+            }
+          ]
+        },
+        {
+          "skillStar": 1,
+          "unlockHeroStar": 10,
+          "uniqueEquipmentStar": null,
+          "parameters": [
+            "327.5%"
+          ],
+          "levels": [
+            {
+              "level": 1,
+              "parameters": [
+                "327.5%"
+              ]
+            },
+            {
+              "level": 10,
+              "parameters": [
+                "467.8%"
+              ]
+            },
+            {
+              "level": 20,
+              "parameters": [
+                "623.8%"
+              ]
+            },
+            {
+              "level": 30,
+              "parameters": [
+                "779.7%"
+              ]
+            },
+            {
+              "level": 40,
+              "parameters": [
+                "935.6%"
+              ]
+            }
+          ]
+        },
+        {
+          "skillStar": 2,
+          "unlockHeroStar": 30,
+          "uniqueEquipmentStar": null,
+          "parameters": [
+            "398.7%"
+          ],
+          "levels": [
+            {
+              "level": 1,
+              "parameters": [
+                "398.7%"
+              ]
+            },
+            {
+              "level": 10,
+              "parameters": [
+                "569.5%"
+              ]
+            },
+            {
+              "level": 20,
+              "parameters": [
+                "759.4%"
+              ]
+            },
+            {
+              "level": 30,
+              "parameters": [
+                "949.2%"
+              ]
+            },
+            {
+              "level": 40,
+              "parameters": [
+                "1139%"
+              ]
+            }
+          ]
+        },
+        {
+          "skillStar": 3,
+          "unlockHeroStar": 50,
+          "uniqueEquipmentStar": null,
+          "parameters": [
+            "512.6%"
+          ],
+          "levels": [
+            {
+              "level": 1,
+              "parameters": [
+                "512.6%"
+              ]
+            },
+            {
+              "level": 10,
+              "parameters": [
+                "732.2%"
+              ]
+            },
+            {
+              "level": 20,
+              "parameters": [
+                "976.3%"
+              ]
+            },
+            {
+              "level": 30,
+              "parameters": [
+                "1220.4%"
+              ]
+            },
+            {
+              "level": 40,
+              "parameters": [
+                "1464.5%"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Double Expresso",
+      "unlockLevel": 10,
+      "unlockRank": 0,
+      "maxLevel": 40,
+      "slot": 3,
+      "type": "active-skill",
+      "damage": "physical",
+      "starTiers": [
+        {
+          "skillStar": 0,
+          "unlockHeroStar": 0,
+          "uniqueEquipmentStar": null,
+          "parameters": [
+            "210%"
+          ],
+          "levels": [
+            {
+              "level": 1,
+              "parameters": [
+                "210%"
+              ]
+            },
+            {
+              "level": 10,
+              "parameters": [
+                "300%"
+              ]
+            },
+            {
+              "level": 20,
+              "parameters": [
+                "400%"
+              ]
+            },
+            {
+              "level": 30,
+              "parameters": [
+                "500%"
+              ]
+            },
+            {
+              "level": 40,
+              "parameters": [
+                "600%"
+              ]
+            }
+          ]
+        },
+        {
+          "skillStar": 1,
+          "unlockHeroStar": 15,
+          "uniqueEquipmentStar": null,
+          "parameters": [
+            "241.5%"
+          ],
+          "levels": [
+            {
+              "level": 1,
+              "parameters": [
+                "241.5%"
+              ]
+            },
+            {
+              "level": 10,
+              "parameters": [
+                "345%"
+              ]
+            },
+            {
+              "level": 20,
+              "parameters": [
+                "460%"
+              ]
+            },
+            {
+              "level": 30,
+              "parameters": [
+                "575%"
+              ]
+            },
+            {
+              "level": 40,
+              "parameters": [
+                "690%"
+              ]
+            }
+          ]
+        },
+        {
+          "skillStar": 2,
+          "unlockHeroStar": 35,
+          "uniqueEquipmentStar": null,
+          "parameters": [
+            "294%"
+          ],
+          "levels": [
+            {
+              "level": 1,
+              "parameters": [
+                "294%"
+              ]
+            },
+            {
+              "level": 10,
+              "parameters": [
+                "420%"
+              ]
+            },
+            {
+              "level": 20,
+              "parameters": [
+                "560%"
+              ]
+            },
+            {
+              "level": 30,
+              "parameters": [
+                "700%"
+              ]
+            },
+            {
+              "level": 40,
+              "parameters": [
+                "840%"
+              ]
+            }
+          ]
+        },
+        {
+          "skillStar": 3,
+          "unlockHeroStar": 50,
+          "uniqueEquipmentStar": null,
+          "parameters": [
+            "378%"
+          ],
+          "levels": [
+            {
+              "level": 1,
+              "parameters": [
+                "378%"
+              ]
+            },
+            {
+              "level": 10,
+              "parameters": [
+                "540%"
+              ]
+            },
+            {
+              "level": 20,
+              "parameters": [
+                "720%"
+              ]
+            },
+            {
+              "level": 30,
+              "parameters": [
+                "900%"
+              ]
+            },
+            {
+              "level": 40,
+              "parameters": [
+                "1080%"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Unyielding",
+      "unlockLevel": 30,
+      "unlockRank": 40,
+      "maxLevel": 40,
+      "slot": 4,
+      "type": "support-skill",
+      "damage": null,
+      "starTiers": [
+        {
+          "skillStar": 0,
+          "unlockHeroStar": 40,
+          "uniqueEquipmentStar": null,
+          "parameters": [],
+          "levels": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1329 @@
+{
+  "$schema": "./research-tree.schema.json",
+  "schemaVersion": 1,
+  "id": "economy",
+  "nameKey": "research.tree.economy",
+  "source": {
+    "name": "Relevé en jeu fourni par le contributeur",
+    "url": null,
+    "type": "in-game",
+    "status": "partial",
+    "verifiedOn": "2026-08-26",
+    "note": "Transcription directe du jeu fournie par le contributeur ; coûts, durées et prérequis restent à relever."
+  },
+  "semantics": {
+    "valueMode": "mixed",
+    "note": "effectAtLevel et powerAtLevel sont les valeurs totales au niveau atteint ; upgradeCost, durationSeconds et prerequisites décrivent le passage vers ce niveau."
+  },
+  "nodes": [
+    {
+      "id": "economy-node-1",
+      "position": 1,
+      "researchIds": [
+        "grain-production-1",
+        "wood-production-1",
+        "herb-production-1"
+      ]
+    },
+    {
+      "id": "economy-node-2",
+      "position": 2,
+      "researchIds": [
+        "grain-gathering-1",
+        "wood-gathering-1",
+        "herb-gathering-1"
+      ]
+    },
+    {
+      "id": "economy-node-3",
+      "position": 3,
+      "researchIds": [
+        "additional-farmland"
+      ]
+    },
+    {
+      "id": "economy-node-4",
+      "position": 4,
+      "researchIds": [
+        "grain-production-2",
+        "wood-production-2",
+        "herb-production-2"
+      ]
+    },
+    {
+      "id": "economy-node-5",
+      "position": 5,
+      "researchIds": [
+        "grain-gathering-2",
+        "wood-gathering-2",
+        "herb-gathering-2"
+      ]
+    },
+    {
+      "id": "economy-node-6",
+      "position": 6,
+      "researchIds": [
+        "additional-sawmill"
+      ]
+    },
+    {
+      "id": "economy-node-7",
+      "position": 7,
+      "researchIds": [
+        "grain-production-3",
+        "wood-production-3",
+        "herb-production-3"
+      ]
+    },
+    {
+      "id": "economy-node-8",
+      "position": 8,
+      "researchIds": [
+        "grain-gathering-3",
+        "wood-gathering-3",
+        "herb-gathering-3"
+      ]
+    },
+    {
+      "id": "economy-node-9",
+      "position": 9,
+      "researchIds": [
+        "grain-protection-1",
+        "wood-protection-1"
+      ]
+    },
+    {
+      "id": "economy-node-10",
+      "position": 10,
+      "researchIds": [
+        "herb-protection-1"
+      ]
+    }
+  ],
+  "researches": {
+    "grain-production-1": {
+      "nodeId": "economy-node-1",
+      "nameKey": "research.grainProduction1.name",
+      "descriptionKey": "research.grainProduction1.description",
+      "sourceNameFr": "Production de Céréales I",
+      "sourceDescriptionFr": "Production de Céréales",
+      "category": "grain-production",
+      "maxLevel": 5,
+      "effect": {
+        "target": "grain-production",
+        "unit": "percent",
+        "valueMode": "total-at-level"
+      },
+      "levels": [
+        {
+          "level": 1,
+          "effectAtLevel": 2,
+          "powerAtLevel": 120,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 2,
+          "effectAtLevel": 4,
+          "powerAtLevel": 220,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 3,
+          "effectAtLevel": 6,
+          "powerAtLevel": 410,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 4,
+          "effectAtLevel": 8,
+          "powerAtLevel": 810,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 5,
+          "effectAtLevel": 10,
+          "powerAtLevel": 1410,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        }
+      ]
+    },
+    "wood-production-1": {
+      "nodeId": "economy-node-1",
+      "nameKey": "research.woodProduction1.name",
+      "descriptionKey": "research.woodProduction1.description",
+      "sourceNameFr": "Production de bois I",
+      "sourceDescriptionFr": "Production de bois",
+      "category": "wood-production",
+      "maxLevel": 5,
+      "effect": {
+        "target": "wood-production",
+        "unit": "percent",
+        "valueMode": "total-at-level"
+      },
+      "levels": [
+        {
+          "level": 1,
+          "effectAtLevel": 2,
+          "powerAtLevel": 120,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 2,
+          "effectAtLevel": 4,
+          "powerAtLevel": 210,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 3,
+          "effectAtLevel": 6,
+          "powerAtLevel": 420,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 4,
+          "effectAtLevel": 8,
+          "powerAtLevel": 820,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 5,
+          "effectAtLevel": 10,
+          "powerAtLevel": 1420,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        }
+      ]
+    },
+    "herb-production-1": {
+      "nodeId": "economy-node-1",
+      "nameKey": "research.herbProduction1.name",
+      "descriptionKey": "research.herbProduction1.description",
+      "sourceNameFr": "Production d'herbes I",
+      "sourceDescriptionFr": "Production d'herbes",
+      "category": "herb-production",
+      "maxLevel": 5,
+      "effect": {
+        "target": "herb-production",
+        "unit": "percent",
+        "valueMode": "total-at-level"
+      },
+      "levels": [
+        {
+          "level": 1,
+          "effectAtLevel": 2,
+          "powerAtLevel": 130,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 2,
+          "effectAtLevel": 4,
+          "powerAtLevel": 320,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 3,
+          "effectAtLevel": 6,
+          "powerAtLevel": 710,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 4,
+          "effectAtLevel": 8,
+          "powerAtLevel": 1320,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 5,
+          "effectAtLevel": 10,
+          "powerAtLevel": 2220,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        }
+      ]
+    },
+    "grain-gathering-1": {
+      "nodeId": "economy-node-2",
+      "nameKey": "research.grainGathering1.name",
+      "descriptionKey": "research.grainGathering1.description",
+      "sourceNameFr": "Récolte de céréales I",
+      "sourceDescriptionFr": "Vitesse de collecte de Céréales",
+      "category": "grain-gathering-speed",
+      "maxLevel": 5,
+      "effect": {
+        "target": "grain-gathering-speed",
+        "unit": "percent",
+        "valueMode": "total-at-level"
+      },
+      "levels": [
+        {
+          "level": 1,
+          "effectAtLevel": 1,
+          "powerAtLevel": 210,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 2,
+          "effectAtLevel": 2,
+          "powerAtLevel": 620,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 3,
+          "effectAtLevel": 3,
+          "powerAtLevel": 1220,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 4,
+          "effectAtLevel": 4,
+          "powerAtLevel": 2110,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 5,
+          "effectAtLevel": 5,
+          "powerAtLevel": 3810,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        }
+      ]
+    },
+    "wood-gathering-1": {
+      "nodeId": "economy-node-2",
+      "nameKey": "research.woodGathering1.name",
+      "descriptionKey": "research.woodGathering1.description",
+      "sourceNameFr": "Collecte de bois I",
+      "sourceDescriptionFr": "Vitesse de collecte de Bois",
+      "category": "wood-gathering-speed",
+      "maxLevel": 5,
+      "effect": {
+        "target": "wood-gathering-speed",
+        "unit": "percent",
+        "valueMode": "total-at-level"
+      },
+      "levels": [
+        {
+          "level": 1,
+          "effectAtLevel": 1,
+          "powerAtLevel": 220,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 2,
+          "effectAtLevel": 2,
+          "powerAtLevel": 620,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 3,
+          "effectAtLevel": 3,
+          "powerAtLevel": 1210,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 4,
+          "effectAtLevel": 4,
+          "powerAtLevel": 2120,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 5,
+          "effectAtLevel": 5,
+          "powerAtLevel": 3820,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        }
+      ]
+    },
+    "herb-gathering-1": {
+      "nodeId": "economy-node-2",
+      "nameKey": "research.herbGathering1.name",
+      "descriptionKey": "research.herbGathering1.description",
+      "sourceNameFr": "Collecte d'herbes I",
+      "sourceDescriptionFr": "Vitesse de collecte d'Herbe",
+      "category": "herb-gathering-speed",
+      "maxLevel": 5,
+      "effect": {
+        "target": "herb-gathering-speed",
+        "unit": "percent",
+        "valueMode": "total-at-level"
+      },
+      "levels": [
+        {
+          "level": 1,
+          "effectAtLevel": 1,
+          "powerAtLevel": 410,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 2,
+          "effectAtLevel": 2,
+          "powerAtLevel": 1020,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 3,
+          "effectAtLevel": 3,
+          "powerAtLevel": 1920,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 4,
+          "effectAtLevel": 4,
+          "powerAtLevel": 3610,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 5,
+          "effectAtLevel": 5,
+          "powerAtLevel": 5720,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        }
+      ]
+    },
+    "additional-farmland": {
+      "nodeId": "economy-node-3",
+      "nameKey": "research.additionalFarmland.name",
+      "descriptionKey": "research.additionalFarmland.description",
+      "sourceNameFr": "Terres agricoles supplémentaires",
+      "sourceDescriptionFr": "Limite de ferme",
+      "category": "farm-limit",
+      "maxLevel": 1,
+      "effect": {
+        "target": "farm-limit",
+        "unit": "count",
+        "valueMode": "total-at-level"
+      },
+      "levels": [
+        {
+          "level": 1,
+          "effectAtLevel": 1,
+          "powerAtLevel": 1330,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        }
+      ]
+    },
+    "grain-production-2": {
+      "nodeId": "economy-node-4",
+      "nameKey": "research.grainProduction2.name",
+      "descriptionKey": "research.grainProduction2.description",
+      "sourceNameFr": "Production de Céréales II",
+      "sourceDescriptionFr": "Production de Céréales",
+      "category": "grain-production",
+      "maxLevel": 5,
+      "effect": {
+        "target": "grain-production",
+        "unit": "percent",
+        "valueMode": "total-at-level"
+      },
+      "levels": [
+        {
+          "level": 1,
+          "effectAtLevel": 2,
+          "powerAtLevel": 620,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 2,
+          "effectAtLevel": 4,
+          "powerAtLevel": 1520,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 3,
+          "effectAtLevel": 6,
+          "powerAtLevel": 3220,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 4,
+          "effectAtLevel": 8,
+          "powerAtLevel": 5310,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 5,
+          "effectAtLevel": 10,
+          "powerAtLevel": 8620,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        }
+      ]
+    },
+    "wood-production-2": {
+      "nodeId": "economy-node-4",
+      "nameKey": "research.woodProduction2.name",
+      "descriptionKey": "research.woodProduction2.description",
+      "sourceNameFr": "Production de bois II",
+      "sourceDescriptionFr": "Production de bois",
+      "category": "wood-production",
+      "maxLevel": 5,
+      "effect": {
+        "target": "wood-production",
+        "unit": "percent",
+        "valueMode": "total-at-level"
+      },
+      "levels": [
+        {
+          "level": 1,
+          "effectAtLevel": 2,
+          "powerAtLevel": 620,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 2,
+          "effectAtLevel": 4,
+          "powerAtLevel": 1510,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 3,
+          "effectAtLevel": 6,
+          "powerAtLevel": 3210,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 4,
+          "effectAtLevel": 8,
+          "powerAtLevel": 5310,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 5,
+          "effectAtLevel": 10,
+          "powerAtLevel": 8620,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        }
+      ]
+    },
+    "herb-production-2": {
+      "nodeId": "economy-node-4",
+      "nameKey": "research.herbProduction2.name",
+      "descriptionKey": "research.herbProduction2.description",
+      "sourceNameFr": "Production d'herbes II",
+      "sourceDescriptionFr": "Production d'herbes",
+      "category": "herb-production",
+      "maxLevel": 5,
+      "effect": {
+        "target": "herb-production",
+        "unit": "percent",
+        "valueMode": "total-at-level"
+      },
+      "levels": [
+        {
+          "level": 1,
+          "effectAtLevel": 2,
+          "powerAtLevel": 810,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 2,
+          "effectAtLevel": 4,
+          "powerAtLevel": 2120,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 3,
+          "effectAtLevel": 6,
+          "powerAtLevel": 3910,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 4,
+          "effectAtLevel": 8,
+          "powerAtLevel": 6420,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 5,
+          "effectAtLevel": 10,
+          "powerAtLevel": 10220,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        }
+      ]
+    },
+    "grain-gathering-2": {
+      "nodeId": "economy-node-5",
+      "nameKey": "research.grainGathering2.name",
+      "descriptionKey": "research.grainGathering2.description",
+      "sourceNameFr": "Récolte de céréales II",
+      "sourceDescriptionFr": "Vitesse de collecte de Céréales",
+      "category": "grain-gathering-speed",
+      "maxLevel": 5,
+      "effect": {
+        "target": "grain-gathering-speed",
+        "unit": "percent",
+        "valueMode": "total-at-level"
+      },
+      "levels": [
+        {
+          "level": 1,
+          "effectAtLevel": 1,
+          "powerAtLevel": 810,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 2,
+          "effectAtLevel": 2,
+          "powerAtLevel": 2110,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 3,
+          "effectAtLevel": 3,
+          "powerAtLevel": 3920,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 4,
+          "effectAtLevel": 4,
+          "powerAtLevel": 6420,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 5,
+          "effectAtLevel": 5,
+          "powerAtLevel": 10210,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        }
+      ]
+    },
+    "wood-gathering-2": {
+      "nodeId": "economy-node-5",
+      "nameKey": "research.woodGathering2.name",
+      "descriptionKey": "research.woodGathering2.description",
+      "sourceNameFr": "Récolte de bois II",
+      "sourceDescriptionFr": "Vitesse de collecte de Bois",
+      "category": "wood-gathering-speed",
+      "maxLevel": 5,
+      "effect": {
+        "target": "wood-gathering-speed",
+        "unit": "percent",
+        "valueMode": "total-at-level"
+      },
+      "levels": [
+        {
+          "level": 1,
+          "effectAtLevel": 1,
+          "powerAtLevel": 810,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 2,
+          "effectAtLevel": 2,
+          "powerAtLevel": 2130,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 3,
+          "effectAtLevel": 3,
+          "powerAtLevel": 3920,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 4,
+          "effectAtLevel": 4,
+          "powerAtLevel": 6410,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 5,
+          "effectAtLevel": 5,
+          "powerAtLevel": 10210,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        }
+      ]
+    },
+    "herb-gathering-2": {
+      "nodeId": "economy-node-5",
+      "nameKey": "research.herbGathering2.name",
+      "descriptionKey": "research.herbGathering2.description",
+      "sourceNameFr": "Récolte d'herbes II",
+      "sourceDescriptionFr": "Vitesse de collecte d'Herbe",
+      "category": "herb-gathering-speed",
+      "maxLevel": 5,
+      "effect": {
+        "target": "herb-gathering-speed",
+        "unit": "percent",
+        "valueMode": "total-at-level"
+      },
+      "levels": [
+        {
+          "level": 1,
+          "effectAtLevel": 1,
+          "powerAtLevel": 910,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 2,
+          "effectAtLevel": 2,
+          "powerAtLevel": 2610,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 3,
+          "effectAtLevel": 3,
+          "powerAtLevel": 4720,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 4,
+          "effectAtLevel": 4,
+          "powerAtLevel": 8020,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 5,
+          "effectAtLevel": 5,
+          "powerAtLevel": 13010,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        }
+      ]
+    },
+    "additional-sawmill": {
+      "nodeId": "economy-node-6",
+      "nameKey": "research.additionalSawmill.name",
+      "descriptionKey": "research.additionalSawmill.description",
+      "sourceNameFr": "Scierie supplémentaire",
+      "sourceDescriptionFr": "Limite de Scierie",
+      "category": "sawmill-limit",
+      "maxLevel": 1,
+      "effect": {
+        "target": "sawmill-limit",
+        "unit": "count",
+        "valueMode": "total-at-level"
+      },
+      "levels": [
+        {
+          "level": 1,
+          "effectAtLevel": 1,
+          "powerAtLevel": 1330,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        }
+      ]
+    },
+    "grain-production-3": {
+      "nodeId": "economy-node-7",
+      "nameKey": "research.grainProduction3.name",
+      "descriptionKey": "research.grainProduction3.description",
+      "sourceNameFr": "Production de Céréales III",
+      "sourceDescriptionFr": "Production de Céréales",
+      "category": "grain-production",
+      "maxLevel": 5,
+      "effect": {
+        "target": "grain-production",
+        "unit": "percent",
+        "valueMode": "total-at-level"
+      },
+      "levels": [
+        {
+          "level": 1,
+          "effectAtLevel": 1,
+          "powerAtLevel": 965,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 2,
+          "effectAtLevel": 2,
+          "powerAtLevel": 2325,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 3,
+          "effectAtLevel": 3,
+          "powerAtLevel": 4420,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 4,
+          "effectAtLevel": 4,
+          "powerAtLevel": 7365,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 5,
+          "effectAtLevel": 5,
+          "powerAtLevel": 11715,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        }
+      ]
+    },
+    "wood-production-3": {
+      "nodeId": "economy-node-7",
+      "nameKey": "research.woodProduction3.name",
+      "descriptionKey": "research.woodProduction3.description",
+      "sourceNameFr": "Production de bois III",
+      "sourceDescriptionFr": "Production de bois",
+      "category": "wood-production",
+      "maxLevel": 5,
+      "effect": {
+        "target": "wood-production",
+        "unit": "percent",
+        "valueMode": "total-at-level"
+      },
+      "levels": [
+        {
+          "level": 1,
+          "effectAtLevel": 2,
+          "powerAtLevel": 975,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 2,
+          "effectAtLevel": 4,
+          "powerAtLevel": 2315,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 3,
+          "effectAtLevel": 6,
+          "powerAtLevel": 4410,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 4,
+          "effectAtLevel": 8,
+          "powerAtLevel": 7360,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 5,
+          "effectAtLevel": 10,
+          "powerAtLevel": 11715,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        }
+      ]
+    },
+    "herb-production-3": {
+      "nodeId": "economy-node-7",
+      "nameKey": "research.herbProduction3.name",
+      "descriptionKey": "research.herbProduction3.description",
+      "sourceNameFr": "Production d'herbes III",
+      "sourceDescriptionFr": "Production d'herbes",
+      "category": "herb-production",
+      "maxLevel": 5,
+      "effect": {
+        "target": "herb-production",
+        "unit": "percent",
+        "valueMode": "total-at-level"
+      },
+      "levels": [
+        {
+          "level": 1,
+          "effectAtLevel": 2,
+          "powerAtLevel": 1260,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 2,
+          "effectAtLevel": 4,
+          "powerAtLevel": 2970,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 3,
+          "effectAtLevel": 6,
+          "powerAtLevel": 5510,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 4,
+          "effectAtLevel": 8,
+          "powerAtLevel": 9270,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 5,
+          "effectAtLevel": 10,
+          "powerAtLevel": 14815,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        }
+      ]
+    },
+    "grain-gathering-3": {
+      "nodeId": "economy-node-8",
+      "nameKey": "research.grainGathering3.name",
+      "descriptionKey": "research.grainGathering3.description",
+      "sourceNameFr": "Récolte de céréales III",
+      "sourceDescriptionFr": "Vitesse de collecte de Céréales",
+      "category": "grain-gathering-speed",
+      "maxLevel": 5,
+      "effect": {
+        "target": "grain-gathering-speed",
+        "unit": "percent",
+        "valueMode": "total-at-level"
+      },
+      "levels": [
+        {
+          "level": 1,
+          "effectAtLevel": 1,
+          "powerAtLevel": 1265,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 2,
+          "effectAtLevel": 2,
+          "powerAtLevel": 2965,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 3,
+          "effectAtLevel": 3,
+          "powerAtLevel": 5520,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 4,
+          "effectAtLevel": 4,
+          "powerAtLevel": 9270,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 5,
+          "effectAtLevel": 5,
+          "powerAtLevel": 14815,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        }
+      ]
+    },
+    "wood-gathering-3": {
+      "nodeId": "economy-node-8",
+      "nameKey": "research.woodGathering3.name",
+      "descriptionKey": "research.woodGathering3.description",
+      "sourceNameFr": "Collecte de bois III",
+      "sourceDescriptionFr": "Vitesse de collecte de Bois",
+      "category": "wood-gathering-speed",
+      "maxLevel": 5,
+      "effect": {
+        "target": "wood-gathering-speed",
+        "unit": "percent",
+        "valueMode": "total-at-level"
+      },
+      "levels": [
+        {
+          "level": 1,
+          "effectAtLevel": 1,
+          "powerAtLevel": 1265,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 2,
+          "effectAtLevel": 2,
+          "powerAtLevel": 2965,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 3,
+          "effectAtLevel": 3,
+          "powerAtLevel": 5520,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 4,
+          "effectAtLevel": 4,
+          "powerAtLevel": 9265,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 5,
+          "effectAtLevel": 5,
+          "powerAtLevel": 14810,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        }
+      ]
+    },
+    "herb-gathering-3": {
+      "nodeId": "economy-node-8",
+      "nameKey": "research.herbGathering3.name",
+      "descriptionKey": "research.herbGathering3.description",
+      "sourceNameFr": "Récolte d'herbes III",
+      "sourceDescriptionFr": "Vitesse de collecte d'Herbe",
+      "category": "herb-gathering-speed",
+      "maxLevel": 5,
+      "effect": {
+        "target": "herb-gathering-speed",
+        "unit": "percent",
+        "valueMode": "total-at-level"
+      },
+      "levels": [
+        {
+          "level": 1,
+          "effectAtLevel": 1,
+          "powerAtLevel": 1360,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 2,
+          "effectAtLevel": 2,
+          "powerAtLevel": 3465,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 3,
+          "effectAtLevel": 3,
+          "powerAtLevel": 6415,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 4,
+          "effectAtLevel": 4,
+          "powerAtLevel": 10770,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 5,
+          "effectAtLevel": 5,
+          "powerAtLevel": 17560,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        }
+      ]
+    },
+    "grain-protection-1": {
+      "nodeId": "economy-node-9",
+      "nameKey": "research.grainProtection1.name",
+      "descriptionKey": "research.grainProtection1.description",
+      "sourceNameFr": "Protection des céréales I",
+      "sourceDescriptionFr": "Capacité de protection des céréales",
+      "category": "grain-protection-capacity",
+      "maxLevel": 5,
+      "effect": {
+        "target": "grain-protection-capacity",
+        "unit": "percent",
+        "valueMode": "total-at-level"
+      },
+      "levels": [
+        {
+          "level": 1,
+          "effectAtLevel": 5,
+          "powerAtLevel": 1632,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 2,
+          "effectAtLevel": 10,
+          "powerAtLevel": 4158,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 3,
+          "effectAtLevel": 15,
+          "powerAtLevel": 7968,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 4,
+          "effectAtLevel": 20,
+          "powerAtLevel": 12924,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 5,
+          "effectAtLevel": 25,
+          "powerAtLevel": 21072,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        }
+      ]
+    },
+    "wood-protection-1": {
+      "nodeId": "economy-node-9",
+      "nameKey": "research.woodProtection1.name",
+      "descriptionKey": "research.woodProtection1.description",
+      "sourceNameFr": "Protection du bois I",
+      "sourceDescriptionFr": "Capacité de protection du bois",
+      "category": "wood-protection-capacity",
+      "maxLevel": 5,
+      "effect": {
+        "target": "wood-protection-capacity",
+        "unit": "percent",
+        "valueMode": "total-at-level"
+      },
+      "levels": [
+        {
+          "level": 1,
+          "effectAtLevel": 5,
+          "powerAtLevel": 1632,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 2,
+          "effectAtLevel": 10,
+          "powerAtLevel": 4158,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 3,
+          "effectAtLevel": 15,
+          "powerAtLevel": 7968,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 4,
+          "effectAtLevel": 20,
+          "powerAtLevel": 12924,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 5,
+          "effectAtLevel": 25,
+          "powerAtLevel": 21072,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        }
+      ]
+    },
+    "herb-protection-1": {
+      "nodeId": "economy-node-10",
+      "nameKey": "research.herbProtection1.name",
+      "descriptionKey": "research.herbProtection1.description",
+      "sourceNameFr": "Protection des herbes I",
+      "sourceDescriptionFr": "Capacité de protection des herbes",
+      "category": "herb-protection-capacity",
+      "maxLevel": 5,
+      "effect": {
+        "target": "herb-protection-capacity",
+        "unit": "percent",
+        "valueMode": "total-at-level"
+      },
+      "levels": [
+        {
+          "level": 1,
+          "effectAtLevel": 5,
+          "powerAtLevel": 2100,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 2,
+          "effectAtLevel": 10,
+          "powerAtLevel": 5600,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 3,
+          "effectAtLevel": 15,
+          "powerAtLevel": 9600,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 4,
+          "effectAtLevel": 20,
+          "powerAtLevel": 15400,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 5,
+          "effectAtLevel": 25,
+          "powerAtLevel": 25100,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        }
+      ]
+    }
+  }
+}
