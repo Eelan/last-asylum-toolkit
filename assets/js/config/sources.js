@@ -28,5 +28,10 @@ export const DATA_SOURCES = [{
   name: 'Last Asylum Plague',
   url: 'https://lastasylumplague.com/events/alliance-duel/',
   description: 'source_alliance_duel',
-  verified: '2026-08-23'
+  verified: '2026-08-28'
+}, {
+  name: 'Reddit — Bright-Yellow-974',
+  url: 'https://www.reddit.com/r/LastAsylumPlague/comments/1sj5ane/alliance_duel_day_by_day_guide/',
+  description: 'source_alliance_duel_guide',
+  verified: '2026-08-28'
 }];
