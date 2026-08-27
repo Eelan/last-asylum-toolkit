@@ -9,7 +9,7 @@
     "type": "in-game",
     "status": "partial",
     "verifiedOn": "2026-08-26",
-    "note": "Transcription directe du jeu fournie par le contributeur ; coûts, durées et prérequis restent à relever."
+    "note": "Transcription directe du jeu fournie par le contributeur. Chaque palier applique le prérequis observé : un point dans chaque recherche du palier précédent. Les exceptions, coûts et durées restent à confirmer."
   },
   "semantics": {
     "valueMode": "mixed",
