@@ -1,0 +1,25 @@
+{
+  "$schema": "../game-dataset.schema.json",
+  "schemaVersion": 1,
+  "id": "alliance-duel",
+  "source": {
+    "name": "Last Asylum Plague",
+    "url": "https://lastasylumplague.com/events/alliance-duel/",
+    "type": "community",
+    "status": "complete",
+    "verifiedOn": "2026-08-23"
+  },
+  "semantics": {
+    "valueMode": "lookup",
+    "note": "Base Alliance Duel scoring constants; event multipliers are applied separately."
+  },
+  "data": {
+    "antitoxinUnit": 660,
+    "antitoxinPoints": 1,
+    "recruitPoints": 1500,
+    "urShardPoints": 10000,
+    "ssrShardPoints": 3500,
+    "srShardPoints": 1000,
+    "skillBadgePoints": 10
+  }
+}

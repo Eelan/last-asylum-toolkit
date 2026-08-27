@@ -1,0 +1,39 @@
+{
+  "$schema": "../game-dataset.schema.json",
+  "schemaVersion": 1,
+  "id": "skill-badges",
+  "source": {
+    "name": "Last Asylum Plague",
+    "url": "https://lastasylumplague.com/database/heroes-upgrade-requirements-antitoxins-stars-skill-badges/",
+    "type": "community",
+    "status": "complete",
+    "verifiedOn": "2026-08-23"
+  },
+  "semantics": {
+    "valueMode": "upgrade-to-level",
+    "note": "Each value is the Skill Badge cost of reaching the keyed skill level."
+  },
+  "data": {
+    "2": 50,
+    "3": 100,
+    "4": 150,
+    "5": 300,
+    "6": 450,
+    "7": 600,
+    "8": 750,
+    "9": 900,
+    "10": 1200,
+    "11": 1500,
+    "12": 1800,
+    "13": 2100,
+    "14": 2400,
+    "15": 3100,
+    "16": 3800,
+    "17": 4500,
+    "18": 5200,
+    "19": 5900,
+    "20": 6900,
+    "21": 7900,
+    "22": 8900
+  }
+}

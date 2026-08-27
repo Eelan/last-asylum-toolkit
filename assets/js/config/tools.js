@@ -21,6 +21,8 @@ export const TOOLS = [{
 }, {
   id: 'sanctuary', icon: 'castle', title: 'sanctuary_title', desc: 'sanctuary_desc', ready: true, category: 'development'
 }, {
+  id: 'research', icon: 'microscope', title: 'research_title', desc: 'research_desc', ready: false, category: 'development'
+}, {
   id: 'gear', icon: 'shield-check', title: 'gear_title', desc: 'gear_desc', ready: false, category: 'heroes'
 }, {
   id: 'raven', icon: 'bird', title: 'raven_title', desc: 'raven_desc', ready: true, category: 'development'

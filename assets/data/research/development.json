@@ -1,0 +1,335 @@
+{
+  "$schema": "./research-tree.schema.json",
+  "schemaVersion": 1,
+  "id": "development",
+  "nameKey": "research.tree.development",
+  "source": {
+    "name": "Relevé en jeu fourni par le contributeur",
+    "url": null,
+    "type": "in-game",
+    "status": "partial",
+    "verifiedOn": "2026-08-26",
+    "note": "Transcription directe du jeu fournie par le contributeur ; coûts, durées et prérequis restent à relever."
+  },
+  "semantics": {
+    "valueMode": "mixed",
+    "note": "effectAtLevel et powerAtLevel sont les valeurs totales au niveau atteint ; upgradeCost, durationSeconds et prerequisites décrivent le passage vers ce niveau."
+  },
+  "nodes": [
+    { "id": "development-node-1", "position": 1, "researchIds": ["rapid-construction-1"] },
+    { "id": "development-node-2", "position": 2, "researchIds": ["research-improvement-1"] },
+    { "id": "development-node-3", "position": 3, "researchIds": ["barracks-expansion-1", "training-ground-expansion-1", "infirmary-expansion-1"] },
+    { "id": "development-node-4", "position": 4, "researchIds": ["training-specialization-1", "quick-bandage-1"] },
+    { "id": "development-node-5", "position": 5, "researchIds": ["master-builder"] },
+    { "id": "development-node-6", "position": 6, "researchIds": ["rapid-construction-2"] },
+    { "id": "development-node-7", "position": 7, "researchIds": ["barracks-expansion-2", "training-ground-expansion-2", "infirmary-expansion-2"] },
+    { "id": "development-node-8", "position": 8, "researchIds": ["training-specialization-2", "quick-bandage-2"] },
+    { "id": "development-node-9", "position": 9, "researchIds": ["research-improvement-2"] },
+    { "id": "development-node-10", "position": 10, "researchIds": ["training-specialization-3", "quick-bandage-3"] },
+    { "id": "development-node-11", "position": 11, "researchIds": ["additional-training-ground"] }
+  ],
+  "researches": {
+    "rapid-construction-1": {
+      "nodeId": "development-node-1",
+      "nameKey": "research.rapidConstruction1.name",
+      "descriptionKey": "research.rapidConstruction1.description",
+      "sourceNameFr": "Construction Rapide I",
+      "sourceDescriptionFr": "Vitesse de construction",
+      "category": "construction-speed",
+      "maxLevel": 5,
+      "effect": { "target": "construction-speed", "unit": "percent", "valueMode": "total-at-level" },
+      "levels": [
+        { "level": 1, "effectAtLevel": 1, "powerAtLevel": 120, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 2, "effectAtLevel": 2, "powerAtLevel": 210, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 3, "effectAtLevel": 3, "powerAtLevel": 320, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 4, "effectAtLevel": 4, "powerAtLevel": 510, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 5, "effectAtLevel": 5, "powerAtLevel": 710, "upgradeCost": null, "durationSeconds": null, "prerequisites": null }
+      ]
+    },
+    "research-improvement-1": {
+      "nodeId": "development-node-2",
+      "nameKey": "research.researchImprovement1.name",
+      "descriptionKey": "research.researchImprovement1.description",
+      "sourceNameFr": "Recherche Amélioration I",
+      "sourceDescriptionFr": "Vitesse de recherche",
+      "category": "research-speed",
+      "maxLevel": 5,
+      "effect": { "target": "research-speed", "unit": "percent", "valueMode": "total-at-level" },
+      "levels": [
+        { "level": 1, "effectAtLevel": 2, "powerAtLevel": 210, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 2, "effectAtLevel": 4, "powerAtLevel": 420, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 3, "effectAtLevel": 6, "powerAtLevel": 810, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 4, "effectAtLevel": 8, "powerAtLevel": 1310, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 5, "effectAtLevel": 10, "powerAtLevel": 1910, "upgradeCost": null, "durationSeconds": null, "prerequisites": null }
+      ]
+    },
+    "barracks-expansion-1": {
+      "nodeId": "development-node-3",
+      "nameKey": "research.barracksExpansion1.name",
+      "descriptionKey": "research.barracksExpansion1.description",
+      "sourceNameFr": "Extension de Caserne I",
+      "sourceDescriptionFr": "Augmente la capacité en soldats des casernes.",
+      "category": "barracks-capacity",
+      "maxLevel": 5,
+      "effect": { "target": "barracks-soldier-capacity", "unit": "percent", "valueMode": "total-at-level" },
+      "levels": [
+        { "level": 1, "effectAtLevel": 1, "powerAtLevel": 120, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 2, "effectAtLevel": 2, "powerAtLevel": 310, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 3, "effectAtLevel": 3, "powerAtLevel": 520, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 4, "effectAtLevel": 4, "powerAtLevel": 710, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 5, "effectAtLevel": 5, "powerAtLevel": 1110, "upgradeCost": null, "durationSeconds": null, "prerequisites": null }
+      ]
+    },
+    "training-ground-expansion-1": {
+      "nodeId": "development-node-3",
+      "nameKey": "research.trainingGroundExpansion1.name",
+      "descriptionKey": "research.trainingGroundExpansion1.description",
+      "sourceNameFr": "Champ d'entraînement Extension I",
+      "sourceDescriptionFr": "Augmente la capacité d'entraînement",
+      "category": "training-capacity",
+      "maxLevel": 5,
+      "effect": { "target": "training-capacity", "unit": "percent", "valueMode": "total-at-level" },
+      "levels": [
+        { "level": 1, "effectAtLevel": 0.5, "powerAtLevel": 110, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 2, "effectAtLevel": 1, "powerAtLevel": 320, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 3, "effectAtLevel": 1.5, "powerAtLevel": 520, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 4, "effectAtLevel": 2, "powerAtLevel": 720, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 5, "effectAtLevel": 2.5, "powerAtLevel": 1120, "upgradeCost": null, "durationSeconds": null, "prerequisites": null }
+      ]
+    },
+    "infirmary-expansion-1": {
+      "nodeId": "development-node-3",
+      "nameKey": "research.infirmaryExpansion1.name",
+      "descriptionKey": "research.infirmaryExpansion1.description",
+      "sourceNameFr": "Infirmerie Extension I",
+      "sourceDescriptionFr": "Capacité d'Infirmerie",
+      "category": "infirmary-capacity",
+      "maxLevel": 5,
+      "effect": { "target": "infirmary-capacity", "unit": "percent", "valueMode": "total-at-level" },
+      "levels": [
+        { "level": 1, "effectAtLevel": 1, "powerAtLevel": 110, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 2, "effectAtLevel": 2, "powerAtLevel": 310, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 3, "effectAtLevel": 3, "powerAtLevel": 520, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 4, "effectAtLevel": 4, "powerAtLevel": 710, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 5, "effectAtLevel": 5, "powerAtLevel": 1110, "upgradeCost": null, "durationSeconds": null, "prerequisites": null }
+      ]
+    },
+    "training-specialization-1": {
+      "nodeId": "development-node-4",
+      "nameKey": "research.trainingSpecialization1.name",
+      "descriptionKey": "research.trainingSpecialization1.description",
+      "sourceNameFr": "Spécialisation d'entraînement I",
+      "sourceDescriptionFr": "Augmente la vitesse d'entraînement",
+      "category": "training-speed",
+      "maxLevel": 5,
+      "effect": { "target": "training-speed", "unit": "percent", "valueMode": "total-at-level" },
+      "levels": [
+        { "level": 1, "effectAtLevel": 2, "powerAtLevel": 210, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 2, "effectAtLevel": 4, "powerAtLevel": 420, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 3, "effectAtLevel": 6, "powerAtLevel": 820, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 4, "effectAtLevel": 8, "powerAtLevel": 1320, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 5, "effectAtLevel": 10, "powerAtLevel": 1920, "upgradeCost": null, "durationSeconds": null, "prerequisites": null }
+      ]
+    },
+    "quick-bandage-1": {
+      "nodeId": "development-node-4",
+      "nameKey": "research.quickBandage1.name",
+      "descriptionKey": "research.quickBandage1.description",
+      "sourceNameFr": "Pansement Rapide I",
+      "sourceDescriptionFr": "Augmente la vitesse de soin",
+      "category": "healing-speed",
+      "maxLevel": 5,
+      "effect": { "target": "healing-speed", "unit": "percent", "valueMode": "total-at-level" },
+      "levels": [
+        { "level": 1, "effectAtLevel": 2, "powerAtLevel": 210, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 2, "effectAtLevel": 4, "powerAtLevel": 410, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 3, "effectAtLevel": 6, "powerAtLevel": 820, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 4, "effectAtLevel": 8, "powerAtLevel": 1310, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 5, "effectAtLevel": 10, "powerAtLevel": 1910, "upgradeCost": null, "durationSeconds": null, "prerequisites": null }
+      ]
+    },
+    "master-builder": {
+      "nodeId": "development-node-5",
+      "nameKey": "research.masterBuilder.name",
+      "descriptionKey": "research.masterBuilder.description",
+      "sourceNameFr": "Maître Bâtisseur",
+      "sourceDescriptionFr": "Coût de construction (ressources)",
+      "category": "construction-cost",
+      "maxLevel": 5,
+      "effect": { "target": "construction-resource-cost", "unit": "percent", "valueMode": "total-at-level" },
+      "levels": [
+        { "level": 1, "effectAtLevel": -1, "powerAtLevel": 210, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 2, "effectAtLevel": -2, "powerAtLevel": 710, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 3, "effectAtLevel": -3, "powerAtLevel": 1530, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 4, "effectAtLevel": -4, "powerAtLevel": 2820, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 5, "effectAtLevel": -5, "powerAtLevel": 4620, "upgradeCost": null, "durationSeconds": null, "prerequisites": null }
+      ]
+    },
+    "rapid-construction-2": {
+      "nodeId": "development-node-6",
+      "nameKey": "research.rapidConstruction2.name",
+      "descriptionKey": "research.rapidConstruction2.description",
+      "sourceNameFr": "Construction Rapide II",
+      "sourceDescriptionFr": "Vitesse de construction",
+      "category": "construction-speed",
+      "maxLevel": 5,
+      "effect": { "target": "construction-speed", "unit": "percent", "valueMode": "total-at-level" },
+      "levels": [
+        { "level": 1, "effectAtLevel": 1, "powerAtLevel": 520, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 2, "effectAtLevel": 2, "powerAtLevel": 1110, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 3, "effectAtLevel": 3, "powerAtLevel": 1910, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 4, "effectAtLevel": 4, "powerAtLevel": 2820, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 5, "effectAtLevel": 5, "powerAtLevel": 4110, "upgradeCost": null, "durationSeconds": null, "prerequisites": null }
+      ]
+    },
+    "barracks-expansion-2": {
+      "nodeId": "development-node-7",
+      "nameKey": "research.barracksExpansion2.name",
+      "descriptionKey": "research.barracksExpansion2.description",
+      "sourceNameFr": "Extension de Caserne II",
+      "sourceDescriptionFr": "Augmente la capacité en soldats des casernes.",
+      "category": "barracks-capacity",
+      "maxLevel": 5,
+      "effect": { "target": "barracks-soldier-capacity", "unit": "percent", "valueMode": "total-at-level" },
+      "levels": [
+        { "level": 1, "effectAtLevel": 1, "powerAtLevel": 820, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 2, "effectAtLevel": 2, "powerAtLevel": 1720, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 3, "effectAtLevel": 3, "powerAtLevel": 3020, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 4, "effectAtLevel": 4, "powerAtLevel": 4720, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 5, "effectAtLevel": 5, "powerAtLevel": 6520, "upgradeCost": null, "durationSeconds": null, "prerequisites": null }
+      ]
+    },
+    "training-ground-expansion-2": {
+      "nodeId": "development-node-7",
+      "nameKey": "research.trainingGroundExpansion2.name",
+      "descriptionKey": "research.trainingGroundExpansion2.description",
+      "sourceNameFr": "Extension de champ d'entraînement II",
+      "sourceDescriptionFr": "Augmente la capacité d'entraînement",
+      "category": "training-capacity",
+      "maxLevel": 5,
+      "effect": { "target": "training-capacity", "unit": "percent", "valueMode": "total-at-level" },
+      "levels": [
+        { "level": 1, "effectAtLevel": 0.5, "powerAtLevel": 820, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 2, "effectAtLevel": 1, "powerAtLevel": 1720, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 3, "effectAtLevel": 1.5, "powerAtLevel": 3020, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 4, "effectAtLevel": 2, "powerAtLevel": 4720, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 5, "effectAtLevel": 2.5, "powerAtLevel": 6520, "upgradeCost": null, "durationSeconds": null, "prerequisites": null }
+      ]
+    },
+    "infirmary-expansion-2": {
+      "nodeId": "development-node-7",
+      "nameKey": "research.infirmaryExpansion2.name",
+      "descriptionKey": "research.infirmaryExpansion2.description",
+      "sourceNameFr": "Extension d'infirmerie II",
+      "sourceDescriptionFr": "Capacité d'infirmerie",
+      "category": "infirmary-capacity",
+      "maxLevel": 5,
+      "effect": { "target": "infirmary-capacity", "unit": "percent", "valueMode": "total-at-level" },
+      "levels": [
+        { "level": 1, "effectAtLevel": 1, "powerAtLevel": 820, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 2, "effectAtLevel": 2, "powerAtLevel": 1720, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 3, "effectAtLevel": 3, "powerAtLevel": 3020, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 4, "effectAtLevel": 4, "powerAtLevel": 4720, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 5, "effectAtLevel": 5, "powerAtLevel": 6520, "upgradeCost": null, "durationSeconds": null, "prerequisites": null }
+      ]
+    },
+    "training-specialization-2": {
+      "nodeId": "development-node-8",
+      "nameKey": "research.trainingSpecialization2.name",
+      "descriptionKey": "research.trainingSpecialization2.description",
+      "sourceNameFr": "Spécialisation d'entraînement II",
+      "sourceDescriptionFr": "Augmente la vitesse d'entraînement",
+      "category": "training-speed",
+      "maxLevel": 5,
+      "effect": { "target": "training-speed", "unit": "percent", "valueMode": "total-at-level" },
+      "levels": [
+        { "level": 1, "effectAtLevel": 1, "powerAtLevel": 920, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 2, "effectAtLevel": 2, "powerAtLevel": 2210, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 3, "effectAtLevel": 3, "powerAtLevel": 3920, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 4, "effectAtLevel": 4, "powerAtLevel": 5710, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 5, "effectAtLevel": 5, "powerAtLevel": 7810, "upgradeCost": null, "durationSeconds": null, "prerequisites": null }
+      ]
+    },
+    "quick-bandage-2": {
+      "nodeId": "development-node-8",
+      "nameKey": "research.quickBandage2.name",
+      "descriptionKey": "research.quickBandage2.description",
+      "sourceNameFr": "Pansement Rapide II",
+      "sourceDescriptionFr": "Augmente la vitesse de soin",
+      "category": "healing-speed",
+      "maxLevel": 5,
+      "effect": { "target": "healing-speed", "unit": "percent", "valueMode": "total-at-level" },
+      "levels": [
+        { "level": 1, "effectAtLevel": 1, "powerAtLevel": 920, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 2, "effectAtLevel": 2, "powerAtLevel": 2210, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 3, "effectAtLevel": 3, "powerAtLevel": 3920, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 4, "effectAtLevel": 4, "powerAtLevel": 5710, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 5, "effectAtLevel": 5, "powerAtLevel": 7810, "upgradeCost": null, "durationSeconds": null, "prerequisites": null }
+      ]
+    },
+    "research-improvement-2": {
+      "nodeId": "development-node-9",
+      "nameKey": "research.researchImprovement2.name",
+      "descriptionKey": "research.researchImprovement2.description",
+      "sourceNameFr": "Amélioration de recherche II",
+      "sourceDescriptionFr": "Vitesse de recherche",
+      "category": "research-speed",
+      "maxLevel": 5,
+      "effect": { "target": "research-speed", "unit": "percent", "valueMode": "total-at-level" },
+      "levels": [
+        { "level": 1, "effectAtLevel": 2, "powerAtLevel": 1320, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 2, "effectAtLevel": 4, "powerAtLevel": 3020, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 3, "effectAtLevel": 6, "powerAtLevel": 4810, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 4, "effectAtLevel": 8, "powerAtLevel": 6910, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 5, "effectAtLevel": 10, "powerAtLevel": 9410, "upgradeCost": null, "durationSeconds": null, "prerequisites": null }
+      ]
+    },
+    "training-specialization-3": {
+      "nodeId": "development-node-10",
+      "nameKey": "research.trainingSpecialization3.name",
+      "descriptionKey": "research.trainingSpecialization3.description",
+      "sourceNameFr": "Spécialisation d'entraînement III",
+      "sourceDescriptionFr": "Augmente la vitesse d'entraînement",
+      "category": "training-speed",
+      "maxLevel": 5,
+      "effect": { "target": "training-speed", "unit": "percent", "valueMode": "total-at-level" },
+      "levels": [
+        { "level": 1, "effectAtLevel": 1, "powerAtLevel": 1720, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 2, "effectAtLevel": 2, "powerAtLevel": 3810, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 3, "effectAtLevel": 3, "powerAtLevel": 7120, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 4, "effectAtLevel": 4, "powerAtLevel": 12130, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 5, "effectAtLevel": 5, "powerAtLevel": 19410, "upgradeCost": null, "durationSeconds": null, "prerequisites": null }
+      ]
+    },
+    "quick-bandage-3": {
+      "nodeId": "development-node-10",
+      "nameKey": "research.quickBandage3.name",
+      "descriptionKey": "research.quickBandage3.description",
+      "sourceNameFr": "Bandage Rapide III",
+      "sourceDescriptionFr": "Augmente la vitesse de soin",
+      "category": "healing-speed",
+      "maxLevel": 5,
+      "effect": { "target": "healing-speed", "unit": "percent", "valueMode": "total-at-level" },
+      "levels": [
+        { "level": 1, "effectAtLevel": 1, "powerAtLevel": 1710, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 2, "effectAtLevel": 2, "powerAtLevel": 3820, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 3, "effectAtLevel": 3, "powerAtLevel": 7130, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 4, "effectAtLevel": 4, "powerAtLevel": 12120, "upgradeCost": null, "durationSeconds": null, "prerequisites": null },
+        { "level": 5, "effectAtLevel": 5, "powerAtLevel": 19420, "upgradeCost": null, "durationSeconds": null, "prerequisites": null }
+      ]
+    },
+    "additional-training-ground": {
+      "nodeId": "development-node-11",
+      "nameKey": "research.additionalTrainingGround.name",
+      "descriptionKey": "research.additionalTrainingGround.description",
+      "sourceNameFr": "Champ d'entraînement Supplémentaire",
+      "sourceDescriptionFr": "Limite de Champ d'entraînement",
+      "category": "training-ground-limit",
+      "maxLevel": 1,
+      "effect": { "target": "training-ground-limit", "unit": "count", "valueMode": "total-at-level" },
+      "levels": [
+        { "level": 1, "effectAtLevel": 1, "powerAtLevel": 1710, "upgradeCost": null, "durationSeconds": null, "prerequisites": null }
+      ]
+    }
+  }
+}

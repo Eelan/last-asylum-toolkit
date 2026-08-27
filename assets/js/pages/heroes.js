@@ -2,6 +2,7 @@ import { GAME_DATA } from '../data.js';
 import { $, $$, icon } from '../core/dom.js';
 import { getLanguage, translate } from '../core/i18n.js';
 import { addCatalogHero, getTrackedHeroes } from '../core/heroes.js';
+import { loadDataset } from '../core/datasets.js';
 import { renderPageHeader } from '../core/ui.js';
 
 const LOCALIZED_HEROES = { fr: new Set(['arthur', 'celia', 'harper', 'joker', 'marlena']) };
@@ -86,7 +87,7 @@ export async function renderHeroesPage(tool) {
     const requestedHash = location.hash;
     $('#view').innerHTML = renderPageHeader(tool) + `<section class="panel hero-profile-loading">${icon('loader-circle')} ${translate('hero_profile_loading')}</section>`;
     lucide.createIcons();
-    const { default: skills } = await import(`../data/heroes/skills/${selectedHero.id}.js`);
+    const skills = await loadDataset(`../../data/heroes/skills/${selectedHero.id}.json`);
     const language = getLanguage();
     const localizedProfile = LOCALIZED_HEROES[language]?.has(selectedHero.id)
       ? (await import(`../data/heroes/locales/${language}/${selectedHero.id}.js`)).default

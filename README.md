@@ -44,9 +44,22 @@ Add a new language object and a new language button in `index.html`.
 - `assets/js/core/`: shared DOM, translation and storage helpers
 - `assets/js/domain/`: pure game calculations without DOM access
 - `assets/js/pages/`: one renderer and its business logic per tool page
-- `assets/js/data.js`: game progression datasets
+- `assets/data/`: versioned JSON game datasets and schemas
+- `assets/js/data.js`: compatibility adapter loading shared JSON datasets
 
 The application uses native ES modules and still requires no build step.
+
+## Data validation
+
+Run the repository validator after changing a dataset:
+
+```bash
+python3 scripts/validate_data.py
+```
+
+The validator parses every JSON file, checks the regular and research schemas, verifies research-tree references and confirms that every hero has a catalogue entry, profile and skill dataset.
+
+The product roadmap is maintained in [`docs/ROADMAP.md`](docs/ROADMAP.md).
 
 ### Code documentation conventions
 
