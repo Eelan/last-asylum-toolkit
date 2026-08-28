@@ -7,11 +7,12 @@
     "url": "https://lastasylumplague.com/events/alliance-duel/",
     "type": "community",
     "status": "complete",
-    "verifiedOn": "2026-08-23"
+    "verifiedOn": "2026-08-28",
+    "note": "Scoring table and event timing cross-checked with the community day-by-day guide linked on the Sources page. Advice remains community guidance and should be checked against the current in-game event."
   },
   "semantics": {
     "valueMode": "lookup",
-    "note": "Base Alliance Duel scoring constants; event multipliers are applied separately."
+    "note": "Base points are awarded per activity unit. Event and research multipliers are applied separately. Phase advice is non-numeric community guidance."
   },
   "data": {
     "antitoxinUnit": 660,
@@ -20,6 +21,133 @@
     "urShardPoints": 10000,
     "ssrShardPoints": 3500,
     "srShardPoints": 1000,
-    "skillBadgePoints": 10
+    "skillBadgePoints": 10,
+    "resetUtcHour": 0,
+    "phases": [
+      {
+        "id": "raven",
+        "weekday": 1,
+        "titleKey": "duel_phase_raven",
+        "summaryKey": "duel_phase_raven_summary",
+        "useKeys": ["duel_use_raven_resources", "duel_use_stamina", "duel_use_falcon_quests"],
+        "saveKeys": ["duel_save_construction"],
+        "prepareKeys": ["duel_prepare_gathering", "duel_prepare_falcon"],
+        "tipKeys": ["duel_tip_raven_battle", "duel_tip_rallies"],
+        "activities": [
+          { "labelKey": "duel_activity_pack_diamond", "quantity": 1, "points": 30 },
+          { "labelKey": "duel_activity_stamina", "quantity": 1, "points": 150 },
+          { "labelKey": "duel_activity_falcon_quest", "quantity": 1, "points": 10000 },
+          { "labelKey": "duel_activity_antitoxin", "quantity": 660, "points": 1 },
+          { "labelKey": "duel_activity_grain", "quantity": 100, "points": 5 },
+          { "labelKey": "duel_activity_timber", "quantity": 100, "points": 5 },
+          { "labelKey": "duel_activity_herbs", "quantity": 60, "points": 5 },
+          { "labelKey": "duel_activity_raven_fruit", "quantity": 1, "points": 3 },
+          { "labelKey": "duel_activity_raven_essence", "quantity": 1, "points": 2500 }
+        ]
+      },
+      {
+        "id": "construction",
+        "weekday": 2,
+        "titleKey": "duel_phase_construction",
+        "summaryKey": "duel_phase_construction_summary",
+        "useKeys": ["duel_use_ready_buildings", "duel_use_construction_resources", "duel_use_ur_missions"],
+        "saveKeys": ["duel_save_research"],
+        "prepareKeys": ["duel_prepare_buildings"],
+        "tipKeys": ["duel_tip_claim_building"],
+        "noticeKeys": ["duel_notice_claim_community"],
+        "activities": [
+          { "labelKey": "duel_activity_pack_diamond", "quantity": 1, "points": 30 },
+          { "labelKey": "duel_activity_construction_speedup", "quantity": 1, "points": 50 },
+          { "labelKey": "duel_activity_building_might", "quantity": 1, "points": 10 },
+          { "labelKey": "duel_activity_ur_covert", "quantity": 1, "points": 75000 },
+          { "labelKey": "duel_activity_ur_caravan", "quantity": 1, "points": 100000 },
+          { "labelKey": "duel_activity_survivor_recruit", "quantity": 1, "points": 1500 }
+        ]
+      },
+      {
+        "id": "tech",
+        "weekday": 3,
+        "titleKey": "duel_phase_tech",
+        "summaryKey": "duel_phase_tech_summary",
+        "useKeys": ["duel_use_ready_research", "duel_use_research_resources", "duel_use_raven_chests"],
+        "saveKeys": ["duel_save_hero_resources"],
+        "prepareKeys": ["duel_prepare_research", "duel_prepare_falcon"],
+        "tipKeys": ["duel_tip_high_chests"],
+        "noticeKeys": ["duel_notice_personal_research", "duel_notice_claim_community"],
+        "activities": [
+          { "labelKey": "duel_activity_pack_diamond", "quantity": 1, "points": 30 },
+          { "labelKey": "duel_activity_falcon_quest", "quantity": 1, "points": 10000 },
+          { "labelKey": "duel_activity_research_speedup", "quantity": 1, "points": 50 },
+          { "labelKey": "duel_activity_study_scroll", "quantity": 1, "points": 300 },
+          { "labelKey": "duel_activity_tech_might", "quantity": 1, "points": 10 }
+        ],
+        "levelTable": { "labelKey": "duel_activity_raven_chest", "pointsByLevel": [1100, 3300, 10000, 30000, 90000, 270000, 810000] }
+      },
+      {
+        "id": "hero",
+        "weekday": 4,
+        "titleKey": "duel_phase_hero",
+        "summaryKey": "duel_phase_hero_summary",
+        "useKeys": ["duel_use_hero_resources", "duel_use_main_team"],
+        "saveKeys": ["duel_save_training"],
+        "prepareKeys": ["duel_prepare_hero_resources"],
+        "tipKeys": ["duel_tip_hero_battle"],
+        "activities": [
+          { "labelKey": "duel_activity_pack_diamond", "quantity": 1, "points": 30 },
+          { "labelKey": "duel_activity_antitoxin", "quantity": 660, "points": 1 },
+          { "labelKey": "duel_activity_hero_recruit", "quantity": 1, "points": 1500 },
+          { "labelKey": "duel_activity_ur_shard", "quantity": 1, "points": 10000 },
+          { "labelKey": "duel_activity_ssr_shard", "quantity": 1, "points": 3500 },
+          { "labelKey": "duel_activity_sr_shard", "quantity": 1, "points": 1000 },
+          { "labelKey": "duel_activity_skill_badge", "quantity": 1, "points": 10 }
+        ]
+      },
+      {
+        "id": "preparation",
+        "weekday": 5,
+        "titleKey": "duel_phase_preparation",
+        "summaryKey": "duel_phase_preparation_summary",
+        "useKeys": ["duel_use_ready_troops", "duel_use_training", "duel_use_falcon_quests"],
+        "saveKeys": ["duel_save_healing"],
+        "prepareKeys": ["duel_prepare_troops", "duel_prepare_falcon"],
+        "tipKeys": ["duel_tip_promote_troops", "duel_tip_survival_training"],
+        "noticeKeys": ["duel_notice_claim_community"],
+        "activities": [
+          { "labelKey": "duel_activity_pack_diamond", "quantity": 1, "points": 30 },
+          { "labelKey": "duel_activity_falcon_quest", "quantity": 1, "points": 10000 },
+          { "labelKey": "duel_activity_construction_speedup", "quantity": 1, "points": 50 },
+          { "labelKey": "duel_activity_building_might", "quantity": 1, "points": 10 },
+          { "labelKey": "duel_activity_research_speedup", "quantity": 1, "points": 50 },
+          { "labelKey": "duel_activity_tech_might", "quantity": 1, "points": 10 },
+          { "labelKey": "duel_activity_training_speedup", "quantity": 1, "points": 50 }
+        ],
+        "levelTable": { "labelKey": "duel_activity_train_soldier", "pointsByLevel": [20, 30, 40, 50, 60, 70, 80, 90, 100, 110] }
+      },
+      {
+        "id": "raid",
+        "weekday": 6,
+        "titleKey": "duel_phase_raid",
+        "summaryKey": "duel_phase_raid_summary",
+        "useKeys": ["duel_use_ur_missions", "duel_use_combat_resources"],
+        "saveKeys": ["duel_save_non_urgent"],
+        "prepareKeys": ["duel_prepare_shield", "duel_prepare_coordination"],
+        "tipKeys": ["duel_tip_matched_enemy", "duel_tip_shield"],
+        "noticeKeys": ["duel_notice_early_servers"],
+        "activities": [
+          { "labelKey": "duel_activity_pack_diamond", "quantity": 1, "points": 30 },
+          { "labelKey": "duel_activity_ur_covert", "quantity": 1, "points": 75000 },
+          { "labelKey": "duel_activity_ur_caravan", "quantity": 1, "points": 100000 },
+          { "labelKey": "duel_activity_construction_speedup", "quantity": 1, "points": 50 },
+          { "labelKey": "duel_activity_research_speedup", "quantity": 1, "points": 50 },
+          { "labelKey": "duel_activity_training_speedup", "quantity": 1, "points": 50 },
+          { "labelKey": "duel_activity_healing_speedup", "quantity": 1, "points": 50 }
+        ],
+        "combatTables": [
+          { "labelKey": "duel_activity_matched_soldier_defeated", "pointsByLevel": [10, 15, 20, 25, 30, 35, 40, 45, 50, 55] },
+          { "labelKey": "duel_activity_soldier_defeated", "pointsByLevel": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11] },
+          { "labelKey": "duel_activity_soldier_lost", "pointsByLevel": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11] }
+        ]
+      }
+    ]
   }
 }
