@@ -106,16 +106,42 @@ export async function renderHeroesPage(tool) {
     <section class="panel hero-catalog">
       <div class="catalog-toolbar">
         <label><span>${translate('search')}</span><input id="hero-search" type="search" placeholder="${translate('hero_search_placeholder')}"></label>
-        <label><span>${translate('hero_rarity')}</span><select id="hero-filter"><option value="">${translate('all')}</option><option value="ur">UR</option><option value="ssr">SSR</option><option value="sr">SR</option></select></label>
+        <div class="hero-filter-group" role="group" aria-label="${translate('hero_rarity')}">
+          <span class="hero-filter-label">${translate('hero_rarity')}</span><div class="hero-filter-buttons">
+          <button class="hero-filter-btn rarity-ur active" type="button" data-filter-type="rarity" data-filter-value="">${translate('all')}</button>
+          <button class="hero-filter-btn rarity-ur" type="button" data-filter-type="rarity" data-filter-value="ur">UR</button>
+          <button class="hero-filter-btn rarity-ssr" type="button" data-filter-type="rarity" data-filter-value="ssr">SSR</button>
+          <button class="hero-filter-btn rarity-sr" type="button" data-filter-type="rarity" data-filter-value="sr">SR</button>
+          </div>
+        </div>
+        <div class="hero-filter-group" role="group" aria-label="${translate('hero_faction')}">
+          <span class="hero-filter-label">${translate('hero_faction')}</span><div class="hero-filter-buttons">
+          <button class="hero-filter-btn active" type="button" data-filter-type="faction" data-filter-value="">${translate('all')}</button>
+          <button class="hero-filter-btn" type="button" data-filter-type="faction" data-filter-value="warrior">${translate('hero_faction_warrior')}</button>
+          <button class="hero-filter-btn" type="button" data-filter-type="faction" data-filter-value="ranger">${translate('hero_faction_ranger')}</button>
+          <button class="hero-filter-btn" type="button" data-filter-type="faction" data-filter-value="warlock">${translate('hero_faction_warlock')}</button>
+          </div>
+        </div>
+        <div class="hero-filter-group" role="group" aria-label="${translate('hero_role')}">
+          <span class="hero-filter-label">${translate('hero_role')}</span><div class="hero-filter-buttons">
+          <button class="hero-filter-btn active" type="button" data-filter-type="role" data-filter-value="">${translate('all')}</button>
+          <button class="hero-filter-btn" type="button" data-filter-type="role" data-filter-value="tank">${translate('hero_role_tank')}</button>
+          <button class="hero-filter-btn" type="button" data-filter-type="role" data-filter-value="carry">${translate('hero_role_carry')}</button>
+          <button class="hero-filter-btn" type="button" data-filter-type="role" data-filter-value="support">${translate('hero_role_support')}</button>
+          </div>
+        </div>
       </div>
       <div class="hero-catalog-grid" id="hero-catalog-grid"></div>
     </section>`;
 
+  const selectedFilters = { rarity: '', faction: '', role: '' };
   const renderCards = () => {
     const query = $('#hero-search').value.trim().toLocaleLowerCase();
-    const rarity = $('#hero-filter').value;
     const heroes = GAME_DATA.heroes.filter(hero =>
-      (!rarity || hero.rarity === rarity) && (!query || hero.name.toLocaleLowerCase().includes(query))
+      (!selectedFilters.rarity || hero.rarity === selectedFilters.rarity)
+      && (!selectedFilters.faction || hero.faction === selectedFilters.faction)
+      && (!selectedFilters.role || hero.role === selectedFilters.role)
+      && (!query || hero.name.toLocaleLowerCase().includes(query))
     );
     $('#hero-catalog-grid').innerHTML = heroes.length
       ? heroes.map(hero => renderHeroCard(hero, trackedIds)).join('')
@@ -131,6 +157,11 @@ export async function renderHeroesPage(tool) {
   };
 
   $('#hero-search').addEventListener('input', renderCards);
-  $('#hero-filter').addEventListener('change', renderCards);
+  $$('.hero-filter-btn').forEach(button => button.addEventListener('click', () => {
+    const filterType = button.dataset.filterType;
+    selectedFilters[filterType] = button.dataset.filterValue;
+    $$(`[data-filter-type="${filterType}"]`).forEach(candidate => candidate.classList.toggle('active', candidate === button));
+    renderCards();
+  }));
   renderCards();
 }

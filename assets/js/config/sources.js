@@ -20,6 +20,11 @@ export const DATA_SOURCES = [{
   description: 'source_heroes_catalog',
   verified: '2026-08-25'
 }, {
+  name: 'Last Asylum Database',
+  url: 'https://lastasylumdatabase.com/science',
+  description: 'source_research_catalog',
+  verified: '2026-08-26'
+}, {
   name: 'Last Asylum Plague',
   url: 'https://lastasylumplague.com/database/heroes-upgrade-requirements-antitoxins-stars-skill-badges/',
   description: 'source_hero_progression',
