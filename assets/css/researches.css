@@ -371,20 +371,59 @@
   color: var(--research-complete);
 }
 
-/* Selected research */
+/* Research modal */
+
+.research-modal {
+  width: min(560px, calc(100vw - 32px));
+  max-height: min(680px, calc(100dvh - 32px));
+  padding: 0;
+  overflow: auto;
+  border: 1px solid rgba(147, 225, 248, .45);
+  border-radius: 18px;
+  background: #071a30;
+  color: var(--text);
+  box-shadow: 0 24px 56px rgba(0, 0, 0, .58);
+}
+
+.research-modal::backdrop {
+  background: rgba(0, 9, 20, .76);
+  backdrop-filter: blur(3px);
+}
 
 .research-detail-card {
   position: relative;
-  z-index: 1;
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   gap: 14px;
-  margin-top: 6px;
-  padding: 14px 16px;
-  border: 1px solid rgba(147, 225, 248, .2);
-  border-radius: 14px;
-  background: rgba(3, 18, 34, .6);
+  padding: 22px;
+  background: radial-gradient(circle at top right, rgba(82, 196, 230, .15), transparent 42%), rgba(3, 18, 34, .9);
+}
+
+.research-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid rgba(147, 225, 248, .32);
+  border-radius: 50%;
+  background: rgba(3, 18, 34, .55);
+  color: var(--research-sky);
+}
+
+.research-modal-close:hover,
+.research-modal-close:focus-visible {
+  border-color: var(--research-sky);
+  background: rgba(93, 198, 231, .22);
+}
+
+.research-modal-close svg {
+  width: 17px;
+  height: 17px;
 }
 
 .research-detail-icon {
@@ -429,13 +468,48 @@
   font-size: .75rem;
 }
 
-.research-detail-card > strong {
+.research-level-controls {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  align-items: center;
+  gap: 8px;
+}
+
+.research-level-controls > button {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid rgba(147, 225, 248, .45);
+  border-radius: 50%;
+  background: rgba(93, 198, 231, .16);
+  color: var(--research-sky);
+}
+
+.research-level-controls > button:hover:not(:disabled),
+.research-level-controls > button:focus-visible:not(:disabled) {
+  border-color: var(--research-sky);
+  background: rgba(93, 198, 231, .32);
+}
+
+.research-level-controls > button:disabled {
+  cursor: not-allowed;
+  opacity: .42;
+}
+
+.research-level-controls > button svg {
+  width: 17px;
+  height: 17px;
+}
+
+.research-level-controls > strong {
   color: var(--research-sky);
   font-size: 1.15rem;
   text-align: right;
 }
 
-.research-detail-card > strong small {
+.research-level-controls > strong small {
   display: block;
   margin-bottom: 2px;
   color: var(--muted);
@@ -530,10 +604,11 @@
 
   .research-detail-card {
     grid-template-columns: auto minmax(0, 1fr);
+    padding: 20px 18px;
   }
 
-  .research-detail-card > strong {
-    grid-column: 2;
-    text-align: left;
+  .research-level-controls {
+    grid-column: 1 / -1;
+    justify-self: center;
   }
 }

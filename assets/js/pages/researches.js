@@ -122,24 +122,32 @@ function renderResearchNode(tree, research, selectedResearchId) {
   const state = getResearchState(tree, research);
   const complete = state === 'complete';
   const locked = state === 'locked';
-  const actionLabel = locked ? translate('research_locked') : translate('research_click_to_upgrade');
-  return `<button class="research-node game-tree-node ${state} ${research.id === selectedResearchId ? 'selected' : ''}" type="button" data-research-upgrade="${research.id}" title="${research.sourceNameFr} — ${actionLabel}" aria-label="${research.sourceNameFr}, ${level}/${research.maxLevel}. ${actionLabel}" aria-disabled="${locked}">
+  const actionLabel = translate('research_click_to_select');
+  return `<button class="research-node game-tree-node ${state} ${research.id === selectedResearchId ? 'selected' : ''}" type="button" data-research-select="${research.id}" title="${research.sourceNameFr} — ${actionLabel}" aria-label="${research.sourceNameFr}, ${level}/${research.maxLevel}. ${actionLabel}">
     <span class="research-node-icon">${icon(locked ? 'lock-keyhole' : (complete ? 'badge-check' : (RESEARCH_NODE_ICONS[research.category] || 'flask-conical')))}</span>
     <span class="research-node-content"><strong>${research.sourceNameFr}</strong><small>${research.sourceDescriptionFr || ''}</small></span>
     <span class="research-node-level">${level}/${research.maxLevel}</span>
   </button>`;
 }
 
-function renderResearchDetail(tree, researchId) {
+function renderResearchModal(tree, researchId) {
   const research = { id: researchId, ...tree.researches[researchId] };
   const level = getResearchLevel(tree.id, research);
   const unmetPrerequisites = getUnmetResearchPrerequisites(tree, research);
   const prerequisites = unmetPrerequisites.length ? `<p class="research-prerequisites"><strong>${translate('research_requires')}</strong>${unmetPrerequisites.map(prerequisite => `${getPrerequisiteLabel(tree, prerequisite)} (${prerequisite.minimumLevel})`).join(', ')}</p>` : '';
-  return `<aside class="research-detail-card">
+  const canIncrease = level < research.maxLevel && !unmetPrerequisites.length;
+  return `<dialog class="research-modal" data-research-modal aria-labelledby="research-modal-title">
+    <aside class="research-detail-card">
+    <button class="research-modal-close" type="button" data-research-close aria-label="${translate('research_close_modal')}" title="${translate('research_close_modal')}">${icon('x')}</button>
     <span class="research-detail-icon">${icon(RESEARCH_NODE_ICONS[research.category] || 'flask-conical')}</span>
-    <div><span class="kicker">${translate('research_selected')}</span><h4>${research.sourceNameFr}</h4><p>${research.sourceDescriptionFr || ''}</p>${prerequisites}</div>
-    <strong><small>${translate('research_level')}</small>${level}/${research.maxLevel}</strong>
-  </aside>`;
+    <div><span class="kicker">${translate('research_selected')}</span><h4 id="research-modal-title">${research.sourceNameFr}</h4><p>${research.sourceDescriptionFr || ''}</p>${prerequisites}</div>
+    <div class="research-level-controls" aria-label="${translate('research_level_controls')}">
+      <button type="button" data-research-adjust="decrease" aria-label="${translate('research_decrease_level')}" title="${translate('research_decrease_level')}" ${level === 0 ? 'disabled' : ''}>${icon('minus')}</button>
+      <strong><small>${translate('research_level')}</small>${level}/${research.maxLevel}</strong>
+      <button type="button" data-research-adjust="increase" aria-label="${translate('research_increase_level')}" title="${translate('research_increase_level')}" ${canIncrease ? '' : 'disabled'}>${icon('plus')}</button>
+    </div>
+    </aside>
+  </dialog>`;
 }
 
 function renderResearchTree(tree, selectedResearchId) {
@@ -161,8 +169,7 @@ function renderResearchTree(tree, selectedResearchId) {
     <div class="research-tree-head"><div><span class="kicker">${translate('research_progress')}</span><h3>${getTreeTitle(tree)}</h3></div><strong>${progress.percent}%</strong></div>
     <div class="research-progress"><span style="width:${progress.percent}%"></span></div>
     <div class="research-tree-viewport"><div class="research-tree-canvas"><div class="research-game-tree">${treeMarkup}</div></div></div>
-    ${renderResearchDetail(tree, selectedResearchId)}
-    <p class="research-click-hint">${icon('mouse-pointer-click')} ${translate('research_click_to_upgrade')}</p>
+    <p class="research-click-hint">${icon('mouse-pointer-click')} ${translate('research_click_to_select')}</p>
     <p class="form-note">${translate('research_tree_verified')}</p>
   </section>`;
 }
@@ -177,31 +184,46 @@ export function renderResearchesPage(tool) {
 
   Promise.all(RESEARCH_TREES.map(item => loadJsonDocument(item.path))).then(trees => {
     let selectedId = trees[0].id;
-    let selectedResearchId = trees[0].nodes[0].researchIds[0];
+    let selectedResearchId = null;
 
     const render = () => {
       const selectedTree = trees.find(tree => tree.id === selectedId);
       $('#view').innerHTML = renderPageHeader(tool) + `<section class="research-overview research-experience">
         <p class="sources-intro">${translate('researches_intro')}</p>
         <div class="research-grid">${trees.map(tree => renderResearchCard(tree, selectedId)).join('')}</div>
-      </section>${renderResearchTree(selectedTree, selectedResearchId)}`;
+      </section>${renderResearchTree(selectedTree, selectedResearchId)}${selectedResearchId ? renderResearchModal(selectedTree, selectedResearchId) : ''}`;
 
       $$('[data-research-category]').forEach(button => button.addEventListener('click', () => {
         selectedId = button.dataset.researchCategory;
-        selectedResearchId = trees.find(tree => tree.id === selectedId).nodes[0].researchIds[0];
+        selectedResearchId = null;
         render();
       }));
-      $$('[data-research-upgrade]').forEach(node => node.addEventListener('click', () => {
-        const research = selectedTree.researches[node.dataset.researchUpgrade];
-        const researchWithId = { id: node.dataset.researchUpgrade, ...research };
-        if (!getUnmetResearchPrerequisites(selectedTree, researchWithId).length) {
-          const nextLevel = Math.min(research.maxLevel, getResearchLevel(selectedTree.id, researchWithId) + 1);
-          setResearchLevel(selectedTree.id, node.dataset.researchUpgrade, nextLevel);
-        }
-        selectedResearchId = node.dataset.researchUpgrade;
+      $$('[data-research-select]').forEach(node => node.addEventListener('click', () => {
+        selectedResearchId = node.dataset.researchSelect;
         render();
+      }));
+      $$('[data-research-adjust]').forEach(button => button.addEventListener('click', () => {
+        const research = { id: selectedResearchId, ...selectedTree.researches[selectedResearchId] };
+        const currentLevel = getResearchLevel(selectedTree.id, research);
+        const levelChange = button.dataset.researchAdjust === 'increase' ? 1 : -1;
+        const nextLevel = Math.min(research.maxLevel, Math.max(0, currentLevel + levelChange));
+
+        if (levelChange < 0 || !getUnmetResearchPrerequisites(selectedTree, research).length) {
+          setResearchLevel(selectedTree.id, selectedResearchId, nextLevel);
+          render();
+        }
       }));
       lucide.createIcons();
+
+      const modal = $('[data-research-modal]');
+      if (modal) {
+        modal.showModal();
+        modal.addEventListener('close', () => { selectedResearchId = null; });
+        modal.addEventListener('click', event => {
+          if (event.target === modal) modal.close();
+        });
+      }
+      $('[data-research-close]')?.addEventListener('click', () => modal.close());
     };
 
     render();
