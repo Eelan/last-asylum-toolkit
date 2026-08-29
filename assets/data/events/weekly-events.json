@@ -8,26 +8,65 @@
     "type": "in-game",
     "status": "partial",
     "verifiedOn": "2026-08-29",
-    "note": "Weekly occurrences observed in game and reported by the contributor on 2026-08-29. More events will be added as they are observed."
+    "note": "Weekly occurrences observed in game and reported by the contributor on 2026-08-29. Crystal Cluster Valley and Elixir Scramble have confirmed server-time windows. More events will be added as they are observed."
   },
   "semantics": {
     "valueMode": "lookup",
-    "note": "weekday uses JavaScript numbering (Sunday = 0). hour and minute are recurring browser-local wall-clock values, not game-server time."
+    "note": "weekday uses JavaScript numbering (Sunday = 0). timeMode identifies whether hour and minute use game-server or browser-local wall-clock time. durationMinutes is the event window length when known."
   },
   "data": [
+    {
+      "id": "elixir-scramble",
+      "nameKey": "event_elixir_scramble",
+      "weekday": 5,
+      "hour": 18,
+      "minute": 0,
+      "durationMinutes": 30,
+      "timeMode": "server"
+    },
     {
       "id": "kingdom-war",
       "nameKey": "event_kingdom_war",
       "weekday": 6,
       "hour": 16,
-      "minute": 0
+      "minute": 0,
+      "timeMode": "local"
     },
     {
       "id": "crystal-cluster-valley",
       "nameKey": "event_crystal_cluster_valley",
       "weekday": 0,
-      "hour": 6,
-      "minute": 0
+      "hour": 2,
+      "minute": 0,
+      "durationMinutes": 30,
+      "timeMode": "server"
+    },
+    {
+      "id": "crystal-cluster-valley",
+      "nameKey": "event_crystal_cluster_valley",
+      "weekday": 0,
+      "hour": 9,
+      "minute": 0,
+      "durationMinutes": 30,
+      "timeMode": "server"
+    },
+    {
+      "id": "crystal-cluster-valley",
+      "nameKey": "event_crystal_cluster_valley",
+      "weekday": 0,
+      "hour": 18,
+      "minute": 0,
+      "durationMinutes": 30,
+      "timeMode": "server"
+    },
+    {
+      "id": "crystal-cluster-valley",
+      "nameKey": "event_crystal_cluster_valley",
+      "weekday": 0,
+      "hour": 23,
+      "minute": 0,
+      "durationMinutes": 30,
+      "timeMode": "server"
     }
   ]
 }

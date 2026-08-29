@@ -1,14 +1,33 @@
 import { $, icon } from '../core/dom.js';
 import { loadDataset } from '../core/datasets.js';
 import { getLanguage, translate } from '../core/i18n.js';
-import { formatClockTime, getClockMode, getServerDate } from '../core/time.js';
+import { formatClockTime, getAbsoluteDateFromServerDate, getClockMode, getServerDate } from '../core/time.js';
 import { renderPageHeader } from '../core/ui.js';
 
 function getNextOccurrence(event, now) {
+  if (event.timeMode === 'server') {
+    const serverNow = getServerDate(now);
+    const serverOccurrence = new Date(serverNow);
+    serverOccurrence.setUTCHours(event.hour, event.minute, 0, 0);
+    let daysUntilEvent = (event.weekday - serverNow.getUTCDay() + 7) % 7;
+    serverOccurrence.setUTCDate(serverOccurrence.getUTCDate() + daysUntilEvent);
+
+    let occurrence = getAbsoluteDateFromServerDate(serverOccurrence);
+    const occurrenceEnd = new Date(occurrence.getTime() + (event.durationMinutes || 0) * 60_000);
+    const hasPassed = event.durationMinutes ? occurrenceEnd <= now : occurrence <= now;
+    if (daysUntilEvent === 0 && hasPassed) {
+      serverOccurrence.setUTCDate(serverOccurrence.getUTCDate() + 7);
+      occurrence = getAbsoluteDateFromServerDate(serverOccurrence);
+    }
+    return occurrence;
+  }
+
   const occurrence = new Date(now);
   occurrence.setHours(event.hour, event.minute, 0, 0);
   let daysUntilEvent = (event.weekday - now.getDay() + 7) % 7;
-  if (daysUntilEvent === 0 && occurrence <= now) daysUntilEvent = 7;
+  const occurrenceEnd = new Date(occurrence.getTime() + (event.durationMinutes || 0) * 60_000);
+  const hasPassed = event.durationMinutes ? occurrenceEnd <= now : occurrence <= now;
+  if (daysUntilEvent === 0 && hasPassed) daysUntilEvent = 7;
   occurrence.setDate(occurrence.getDate() + daysUntilEvent);
   return occurrence;
 }
@@ -33,7 +52,11 @@ function formatEventWeekday(occurrence, mode, locale) {
 
 function renderEventCard({ event, occurrence }, mode, locale, nextTimestamp) {
   const date = formatEventDate(occurrence, mode, locale);
-  const time = formatClockTime(occurrence, mode, locale, false);
+  const occurrenceEnd = new Date(occurrence.getTime() + (event.durationMinutes || 0) * 60_000);
+  const startTime = formatClockTime(occurrence, mode, locale, false);
+  const time = event.durationMinutes
+    ? `${startTime}–${formatClockTime(occurrenceEnd, mode, locale, false)}`
+    : startTime;
   const isNext = occurrence.getTime() === nextTimestamp;
 
   return `<article class="weekly-event-card ${isNext ? 'next' : ''}">

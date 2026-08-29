@@ -31,16 +31,35 @@ function formatEndTime(timestamp) {
   return new Intl.DateTimeFormat(locale, { dateStyle: 'short', timeStyle: 'short' }).format(new Date(timestamp));
 }
 
-function getDefaultEndValue(minutes = 60) {
-  const date = new Date(Date.now() + minutes * 60 * 1000);
+function getLocalDateTimeValue(date) {
   const localDate = new Date(date.getTime() - date.getTimezoneOffset() * 60 * 1000);
   return localDate.toISOString().slice(0, 16);
+}
+
+const TIMER_PRESETS = [
+  { minutes: 1, labelKey: 'timer_preset_1m' },
+  { minutes: 15, labelKey: 'timer_preset_15m' },
+  { minutes: 60, labelKey: 'timer_preset_1h' },
+  { minutes: 240, labelKey: 'timer_preset_4h' },
+  { minutes: 1440, labelKey: 'timer_preset_1d' }
+];
+
+const TIMER_TYPES = [
+  { id: 'other', icon: 'bell' },
+  { id: 'research', icon: 'flask-conical' },
+  { id: 'construction', icon: 'hammer' },
+  { id: 'training', icon: 'shield' },
+  { id: 'builder', icon: 'crown' }
+];
+
+function renderTimerTypeButtons(selectedType) {
+  return TIMER_TYPES.map(type => `<button class="timer-type-button ${type.id === selectedType ? 'selected' : ''}" type="button" data-timer-type="${type.id}" aria-pressed="${type.id === selectedType}">${icon(type.icon)}<span>${translate(`timer_type_${type.id}`)}</span></button>`).join('');
 }
 
 function renderReminder(reminder) {
   const finished = reminder.endAt <= Date.now();
   return `<article class="timer-card ${finished ? 'finished' : ''}" data-reminder-id="${reminder.id}">
-   <div class="timer-card-icon">${icon(reminder.type === 'research' ? 'flask-conical' : reminder.type === 'construction' ? 'hammer' : reminder.type === 'builder' ? 'hard-hat' : reminder.type === 'training' ? 'shield' : 'bell')}</div>
+   <div class="timer-card-icon">${icon(TIMER_TYPES.find(type => type.id === reminder.type)?.icon || 'bell')}</div>
    <div class="timer-card-content"><span>${translate(`timer_type_${reminder.type}`)}</span><strong>${escapeHtml(reminder.title)}</strong><small>${translate('timer_ends_at')} ${formatEndTime(reminder.endAt)}</small></div>
    <time data-timer-remaining="${reminder.endAt}">${formatRemaining(reminder.endAt - Date.now())}</time>
    <div class="timer-actions">${finished ? `<button type="button" data-timer-snooze="5">${translate('timer_snooze_5')}</button><button type="button" data-timer-snooze="15">${translate('timer_snooze_15')}</button>` : ''}<button type="button" data-timer-remove aria-label="${translate('timer_delete')}">${icon('trash-2')}</button></div>
@@ -50,6 +69,7 @@ function renderReminder(reminder) {
 export function renderTimersPage(tool) {
   cleanupActiveTimers();
   let refreshInterval;
+  let selectedType = 'other';
 
   const renderList = () => {
     const reminders = getReminders().sort((left, right) => left.endAt - right.endAt);
@@ -62,17 +82,17 @@ export function renderTimersPage(tool) {
   };
 
   $('#view').innerHTML = renderPageHeader(tool) + `
-   <div class="calc-grid timers-layout"><section class="panel"><form id="timer-form">
+   <section class="panel timers-layout"><form id="timer-form">
     <div class="form-grid">
      <label class="full"><span>${translate('timer_name')}</span><input id="timer-name" maxlength="80" required placeholder="${translate('timer_name_placeholder')}"></label>
-     <label><span>${translate('timer_type')}</span><select id="timer-type"><option value="research">${translate('timer_type_research')}</option><option value="construction">${translate('timer_type_construction')}</option><option value="builder">${translate('timer_type_builder')}</option><option value="training">${translate('timer_type_training')}</option><option value="other">${translate('timer_type_other')}</option></select></label>
-     <label><span>${translate('timer_end')}</span><input id="timer-end" type="datetime-local" required value="${getDefaultEndValue()}"></label>
+     <div class="full timer-type-field"><span>${translate('timer_type')}</span><div class="timer-type-buttons" role="group" aria-label="${translate('timer_type')}">${renderTimerTypeButtons(selectedType)}</div></div>
+     <label class="full"><span>${translate('timer_end')}</span><input id="timer-end" type="datetime-local" required></label>
     </div>
-    <div class="timer-presets"><span>${translate('timer_quick_add')}</span>${[15, 30, 60, 240].map(minutes => `<button type="button" data-timer-preset="${minutes}">+${minutes < 60 ? `${minutes} ${translate('minute_short')}` : `${minutes / 60} ${translate('hour_short')}`}</button>`).join('')}</div>
+    <div class="timer-presets"><span>${translate('timer_quick_add')}</span>${TIMER_PRESETS.map(preset => `<button type="button" data-timer-preset="${preset.minutes}">${translate(preset.labelKey)}</button>`).join('')}</div>
     <button class="primary-btn timer-submit" type="submit">${icon('bell-plus')} ${translate('timer_create')}</button>
    </form></section>
-   <section class="panel timer-notification-panel"><span class="tool-icon">${icon('bell-ring')}</span><h3>${translate('timer_notifications')}</h3><p>${translate('timer_notification_help')}</p><button id="enable-notifications" class="primary-btn" type="button">${translate('timer_enable_notifications')}</button><p class="form-note">${translate('timer_browser_limit')}</p></section></div>
-   <section class="timers-list" id="timers-list"></section>`;
+   <section class="timers-list" id="timers-list"></section>
+   <section class="panel timer-notification-panel"><span class="tool-icon">${icon('bell-ring')}</span><h3>${translate('timer_notifications')}</h3><p>${translate('timer_notification_help')}</p><button id="enable-notifications" class="primary-btn" type="button">${translate('timer_enable_notifications')}</button><p class="form-note">${translate('timer_browser_limit')}</p></section>`;
 
   $('#timer-form').addEventListener('submit', event => {
     event.preventDefault();
@@ -83,13 +103,26 @@ export function renderTimersPage(tool) {
       $('#timer-end').reportValidity();
       return;
     }
-    addReminder({ id: crypto.randomUUID?.() || `${Date.now()}-${Math.random()}`, title, type: $('#timer-type').value, endAt, notified: false });
+    addReminder({ id: crypto.randomUUID?.() || `${Date.now()}-${Math.random()}`, title, type: selectedType, endAt, notified: false });
     $('#timer-name').value = '';
-    $('#timer-end').value = getDefaultEndValue();
+    $('#timer-end').value = '';
   });
+  $$('[data-timer-type]').forEach(button => button.addEventListener('click', () => {
+    selectedType = button.dataset.timerType;
+    $$('[data-timer-type]').forEach(typeButton => {
+      const selected = typeButton.dataset.timerType === selectedType;
+      typeButton.classList.toggle('selected', selected);
+      typeButton.setAttribute('aria-pressed', String(selected));
+    });
+  }));
   $$('[data-timer-preset]').forEach(button => button.addEventListener('click', () => {
-    $('#timer-end').setCustomValidity('');
-    $('#timer-end').value = getDefaultEndValue(Number(button.dataset.timerPreset));
+    const endInput = $('#timer-end');
+    const currentEnd = new Date(endInput.value).getTime();
+    const nextWholeMinute = Math.ceil(Date.now() / 60_000) * 60_000;
+    const baseTimestamp = Number.isFinite(currentEnd) && currentEnd >= nextWholeMinute ? currentEnd : nextWholeMinute;
+    const nextEnd = new Date(baseTimestamp + Number(button.dataset.timerPreset) * 60_000);
+    endInput.setCustomValidity('');
+    endInput.value = getLocalDateTimeValue(nextEnd);
   }));
   $('#timer-end').addEventListener('input', () => $('#timer-end').setCustomValidity(''));
   $('#enable-notifications').addEventListener('click', async () => {
