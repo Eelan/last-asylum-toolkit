@@ -1,9 +1,12 @@
 import { TOOLS } from './config/tools.js';
 import { $, $$, icon } from './core/dom.js';
-import { applyStaticI18n, setLanguage, translate } from './core/i18n.js';
+import { applyStaticI18n, getLanguage, setLanguage, translate } from './core/i18n.js';
+import { formatClockTime, getClockMode, setClockMode } from './core/time.js';
+import { checkDueReminders } from './core/reminders.js';
 import { renderPageHeader } from './core/ui.js';
 import { renderAntitoxinPage } from './pages/antitoxin.js';
 import { renderDuelPage } from './pages/duel.js';
+import { renderEventsPage } from './pages/events.js';
 import { renderFragmentsPage } from './pages/fragments.js';
 import { renderHeroesPage } from './pages/heroes.js';
 import { renderMyHeroesPage } from './pages/my-heroes.js';
@@ -13,11 +16,28 @@ import { renderSanctuaryPage } from './pages/sanctuary.js';
 import { renderSkillsPage } from './pages/skills.js';
 import { renderSourcesPage } from './pages/sources.js';
 import { renderStocksPage } from './pages/stocks.js';
+import { renderTimersPage } from './pages/timers.js';
 import { renderWeekPage } from './pages/week.js';
 
 // #region Navigation and shared pages
 
 const NAV_CATEGORIES = ['personal', 'development', 'heroes', 'alliance', 'information'];
+let clockMode = getClockMode();
+
+/** Updates the shared clock using the fixed game-server offset or the browser timezone. */
+function updateClock() {
+  const serverMode = clockMode === 'server';
+  const locale = getLanguage() === 'fr' ? 'fr-FR' : 'en-GB';
+  const now = new Date();
+  $('#clock-label').textContent = translate(serverMode ? 'server_time' : 'local_time');
+  $('#clock-time').textContent = formatClockTime(now, clockMode, locale);
+  $('#clock-zone').textContent = serverMode ? 'UTC−02:00' : (Intl.DateTimeFormat().resolvedOptions().timeZone || translate('clock_local_short'));
+  $$('[data-clock-mode]').forEach(button => {
+    const active = button.dataset.clockMode === clockMode;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-pressed', String(active));
+  });
+}
 
 /**
  * Returns ready tools in the same category and display order as the sidebar.
@@ -76,6 +96,7 @@ function renderComingSoonPage(tool) {
 
 /** Page renderers indexed by the route identifiers declared in config/tools.js. */
 const PAGE_RENDERERS = {
+  timers: renderTimersPage,
   stocks: renderStocksPage,
   researches: renderResearchesPage,
   heroes: renderHeroesPage,
@@ -85,6 +106,7 @@ const PAGE_RENDERERS = {
   skills: renderSkillsPage,
   duel: renderDuelPage,
   week: renderWeekPage,
+  events: renderEventsPage,
   sources: renderSourcesPage,
   raven: renderRavenPage,
   sanctuary: renderSanctuaryPage
@@ -94,6 +116,7 @@ function renderRoute() {
   const route = (location.hash.replace(/^#\//, '') || 'home').split('/')[0];
   renderNav();
   applyStaticI18n();
+  updateClock();
 
   if (route === 'home') {
     renderHome();
@@ -121,8 +144,28 @@ $$('.flag-btn').forEach(button => button.addEventListener('click', () => {
   setLanguage(button.dataset.lang);
   renderRoute();
 }));
+$$('[data-clock-mode]').forEach(button => button.addEventListener('click', () => {
+  clockMode = button.dataset.clockMode;
+  setClockMode(clockMode);
+  renderRoute();
+}));
 $('#mobile-menu').addEventListener('click', () => $('.sidebar').classList.toggle('open'));
 window.addEventListener('hashchange', renderRoute);
 renderRoute();
+setInterval(updateClock, 1000);
+const notifyReminder = reminder => {
+  const title = translate('timer_notification_title');
+  if ('Notification' in window && Notification.permission === 'granted') {
+    try {
+      new Notification(title, { body: reminder.title });
+    } catch (error) {
+      window.alert(`${title}\n${reminder.title}`);
+    }
+  } else {
+    window.alert(`${title}\n${reminder.title}`);
+  }
+};
+checkDueReminders(notifyReminder);
+setInterval(() => checkDueReminders(notifyReminder), 1000);
 
 // #endregion

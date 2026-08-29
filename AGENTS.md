@@ -90,6 +90,7 @@ All user-facing text must come from `assets/js/i18n.js`; avoid hard-coded French
 - Reuse the existing panels, form grids, result cards and responsive table styles before adding new CSS.
 - Render the common tool heading with `renderPageHeader` from `assets/js/core/ui.js`.
 - Use Lucide icons through the shared `icon()` helper.
+- Every displayed clock time, date or weekday whose value depends on timezone must follow the application-wide Server/Local switch. Read the current mode with `getClockMode()` and use the helpers in `assets/js/core/time.js`; switching modes must rerender all affected values consistently.
 - Preserve mobile behavior and horizontal scrolling for wide tables.
 - A calculator must handle an invalid or reversed range without displaying misleading totals.
 
@@ -104,5 +105,6 @@ Before handing off a change:
 5. Confirm that new stock fields use the shared storage service and the intended resource key.
 6. Inspect `git status --short` and preserve unrelated user changes.
 7. For calculation changes, test at least one normal range, one boundary value and one invalid/reversed range.
+8. For pages displaying timezone-dependent values, verify both Server and Local modes, including any date or weekday rollover caused by conversion.
 
 Do not commit unless the user asks for a commit. When asked, use a concise conventional commit message and keep unrelated changes out of the commit.

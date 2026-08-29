@@ -7,12 +7,12 @@
     "url": "https://lastasylumplague.com/events/alliance-duel/",
     "type": "community",
     "status": "complete",
-    "verifiedOn": "2026-08-28",
-    "note": "Scoring table and event timing cross-checked with the community day-by-day guide linked on the Sources page. Advice remains community guidance and should be checked against the current in-game event."
+    "verifiedOn": "2026-08-29",
+    "note": "Scoring table and phase advice cross-checked with the community guides linked on the Sources page. The 00:00 server-time Duel reset and four-hour Survival Battle rotation anchored at Monday 00:00 server time were confirmed in game by the contributor on 2026-08-29. Advice remains community guidance and should be checked against the current in-game events."
   },
   "semantics": {
     "valueMode": "lookup",
-    "note": "Base points are awarded per activity unit. Event and research multipliers are applied separately. Phase advice is non-numeric community guidance."
+    "note": "Base points are awarded per activity unit. resetServerHour is expressed in fixed game-server time (UTC-2). Survival Battle windows are four-hour server-time slots and restart with the Hero theme every Monday at 00:00 server time; the UI converts them to local time. Event and research multipliers are applied separately; overlap advice is community guidance."
   },
   "data": {
     "antitoxinUnit": 660,
@@ -22,7 +22,13 @@
     "ssrShardPoints": 3500,
     "srShardPoints": 1000,
     "skillBadgePoints": 10,
-    "resetUtcHour": 0,
+    "resetServerHour": 0,
+    "survivalBattleSchedule": {
+      "resetWeekday": 1,
+      "resetServerHour": 0,
+      "windowDurationHours": 4,
+      "themeIds": ["hero", "build", "training", "research", "raven"]
+    },
     "phases": [
       {
         "id": "raven",
@@ -33,6 +39,12 @@
         "saveKeys": ["duel_save_construction"],
         "prepareKeys": ["duel_prepare_gathering", "duel_prepare_falcon"],
         "tipKeys": ["duel_tip_raven_battle", "duel_tip_rallies"],
+        "survivalBattle": {
+          "themeId": "raven",
+          "themeKey": "survival_theme_raven",
+          "overlapKeys": ["survival_overlap_raven_resources", "survival_overlap_raven_stamina"],
+          "strategyKeys": ["survival_strategy_wait_window", "survival_strategy_raven_antitoxin"]
+        },
         "activities": [
           { "labelKey": "duel_activity_pack_diamond", "quantity": 1, "points": 30 },
           { "labelKey": "duel_activity_stamina", "quantity": 1, "points": 150 },
@@ -55,6 +67,12 @@
         "prepareKeys": ["duel_prepare_buildings"],
         "tipKeys": ["duel_tip_claim_building"],
         "noticeKeys": ["duel_notice_claim_community"],
+        "survivalBattle": {
+          "themeId": "build",
+          "themeKey": "survival_theme_build",
+          "overlapKeys": ["survival_overlap_build_claim", "survival_overlap_build_speedups"],
+          "strategyKeys": ["survival_strategy_wait_window", "survival_strategy_build_limit"]
+        },
         "activities": [
           { "labelKey": "duel_activity_pack_diamond", "quantity": 1, "points": 30 },
           { "labelKey": "duel_activity_construction_speedup", "quantity": 1, "points": 50 },
@@ -74,6 +92,12 @@
         "prepareKeys": ["duel_prepare_research", "duel_prepare_falcon"],
         "tipKeys": ["duel_tip_high_chests"],
         "noticeKeys": ["duel_notice_personal_research", "duel_notice_claim_community"],
+        "survivalBattle": {
+          "themeId": "research",
+          "themeKey": "survival_theme_research",
+          "overlapKeys": ["survival_overlap_research_claim", "survival_overlap_research_speedups"],
+          "strategyKeys": ["survival_strategy_wait_window", "survival_strategy_chests_outside"]
+        },
         "activities": [
           { "labelKey": "duel_activity_pack_diamond", "quantity": 1, "points": 30 },
           { "labelKey": "duel_activity_falcon_quest", "quantity": 1, "points": 10000 },
@@ -92,6 +116,12 @@
         "saveKeys": ["duel_save_training"],
         "prepareKeys": ["duel_prepare_hero_resources"],
         "tipKeys": ["duel_tip_hero_battle"],
+        "survivalBattle": {
+          "themeId": "hero",
+          "themeKey": "survival_theme_hero",
+          "overlapKeys": ["survival_overlap_hero_recruit", "survival_overlap_hero_growth"],
+          "strategyKeys": ["survival_strategy_wait_window", "survival_strategy_hero_batches"]
+        },
         "activities": [
           { "labelKey": "duel_activity_pack_diamond", "quantity": 1, "points": 30 },
           { "labelKey": "duel_activity_antitoxin", "quantity": 660, "points": 1 },
@@ -112,6 +142,12 @@
         "prepareKeys": ["duel_prepare_troops", "duel_prepare_falcon"],
         "tipKeys": ["duel_tip_promote_troops", "duel_tip_survival_training"],
         "noticeKeys": ["duel_notice_claim_community"],
+        "survivalBattle": {
+          "themeId": "training",
+          "themeKey": "survival_theme_training",
+          "overlapKeys": ["survival_overlap_training_troops", "survival_overlap_training_speedups"],
+          "strategyKeys": ["survival_strategy_wait_window", "survival_strategy_promote_troops"]
+        },
         "activities": [
           { "labelKey": "duel_activity_pack_diamond", "quantity": 1, "points": 30 },
           { "labelKey": "duel_activity_falcon_quest", "quantity": 1, "points": 10000 },
@@ -133,6 +169,12 @@
         "prepareKeys": ["duel_prepare_shield", "duel_prepare_coordination"],
         "tipKeys": ["duel_tip_matched_enemy", "duel_tip_shield"],
         "noticeKeys": ["duel_notice_early_servers"],
+        "survivalBattle": {
+          "themeId": null,
+          "themeKey": "survival_theme_variable",
+          "overlapKeys": ["survival_overlap_raid_calendar"],
+          "strategyKeys": ["survival_strategy_raid_safety", "survival_strategy_no_forced_spend"]
+        },
         "activities": [
           { "labelKey": "duel_activity_pack_diamond", "quantity": 1, "points": 30 },
           { "labelKey": "duel_activity_ur_covert", "quantity": 1, "points": 75000 },

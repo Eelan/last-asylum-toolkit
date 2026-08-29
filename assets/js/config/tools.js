@@ -1,4 +1,6 @@
 export const TOOLS = [{
+  id: 'timers', icon: 'timer', title: 'timers_title', desc: 'timers_desc', ready: true, category: 'personal'
+}, {
   id: 'stocks', icon: 'package-open', title: 'stocks_title', desc: 'stocks_desc', ready: true, category: 'personal'
 }, {
   id: 'researches', icon: 'flask-conical', title: 'researches_title', desc: 'researches_desc', ready: true, category: 'personal'
@@ -16,6 +18,8 @@ export const TOOLS = [{
   id: 'duel', icon: 'swords', title: 'duel_title', desc: 'duel_desc', ready: true, category: 'alliance'
 }, {
   id: 'week', icon: 'calendar-days', title: 'week_title', desc: 'week_desc', ready: true, category: 'alliance'
+}, {
+  id: 'events', icon: 'calendar-clock', title: 'events_title', desc: 'events_desc', ready: true, category: 'alliance'
 }, {
   id: 'sources', icon: 'book-open', title: 'sources_title', desc: 'sources_desc', ready: true, category: 'information'
 }, {

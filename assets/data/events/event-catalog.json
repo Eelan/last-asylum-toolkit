@@ -1,0 +1,83 @@
+{
+  "$schema": "../game-dataset.schema.json",
+  "schemaVersion": 1,
+  "id": "event-catalog",
+  "source": {
+    "name": "Last Asylum public event guides",
+    "url": "https://lastasylumplague.com/events/alliance-duel/",
+    "type": "community",
+    "status": "partial",
+    "verifiedOn": "2026-08-29",
+    "note": "Mechanics and broad recurrence were cross-checked against current public guides. Exact slots may depend on server age, event rotation, alliance registration, or officer selection and therefore remain marked for in-game verification."
+  },
+  "semantics": {
+    "valueMode": "lookup",
+    "note": "confidence describes the public evidence for the listed recurrence: confirmed, probable, or check-in-game. It does not promote unverified times into the weekly calendar."
+  },
+  "data": [
+    {
+      "id": "alliance-duel",
+      "nameKey": "event_alliance_duel",
+      "summaryKey": "event_alliance_duel_summary",
+      "scheduleKey": "event_alliance_duel_schedule",
+      "confidence": "confirmed",
+      "sourceUrl": "https://lastasylumplague.com/events/alliance-duel/"
+    },
+    {
+      "id": "survival-battle",
+      "nameKey": "survival_battle",
+      "summaryKey": "event_survival_battle_summary",
+      "scheduleKey": "event_survival_battle_schedule",
+      "confidence": "confirmed",
+      "sourceUrl": "https://www.reddit.com/r/LastAsylumPlague/comments/1tgfewa/alliance_duel_and_survival_battle_scheduel/"
+    },
+    {
+      "id": "demon-king",
+      "nameKey": "event_demon_king",
+      "summaryKey": "event_demon_king_summary",
+      "scheduleKey": "event_demon_king_schedule",
+      "confidence": "confirmed",
+      "sourceUrl": "https://lastasylumguides.com/2026/05/16/demon-king-event/"
+    },
+    {
+      "id": "elixir-scramble",
+      "nameKey": "event_elixir_scramble",
+      "summaryKey": "event_elixir_scramble_summary",
+      "scheduleKey": "event_elixir_scramble_schedule",
+      "confidence": "probable",
+      "sourceUrl": "https://www.packsify.com/blogs/last-asylum-plague-elixir-scramble-strategy"
+    },
+    {
+      "id": "crystal-cluster-valley",
+      "nameKey": "event_crystal_cluster_valley",
+      "summaryKey": "event_crystal_cluster_valley_summary",
+      "scheduleKey": "event_crystal_cluster_valley_schedule",
+      "confidence": "probable",
+      "sourceUrl": "https://www.lootbar.com/blog/fr/last-asylum-plague-guide-to-crystal-cluster.html"
+    },
+    {
+      "id": "kingdom-war",
+      "nameKey": "event_kingdom_war",
+      "summaryKey": "event_kingdom_war_summary",
+      "scheduleKey": "event_kingdom_war_schedule",
+      "confidence": "check-in-game",
+      "sourceUrl": "https://lastasylumguides.com/2026/08/24/kingdom-war-kvk-event-guide/"
+    },
+    {
+      "id": "cheese-trap",
+      "nameKey": "event_cheese_trap",
+      "summaryKey": "event_cheese_trap_summary",
+      "scheduleKey": "event_cheese_trap_schedule",
+      "confidence": "check-in-game",
+      "sourceUrl": "https://www.lootbar.com/blog/en/last-asylum-plague-cheese-trap-guide.html"
+    },
+    {
+      "id": "canyon-conquest",
+      "nameKey": "event_canyon_conquest",
+      "summaryKey": "event_canyon_conquest_summary",
+      "scheduleKey": "event_canyon_conquest_schedule",
+      "confidence": "check-in-game",
+      "sourceUrl": "https://www.reddit.com/r/LastAsylumPlague/comments/1v2e5wf/do_you_know_if_events_come_out_always_on_same_days/"
+    }
+  ]
+}

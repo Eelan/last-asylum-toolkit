@@ -25,13 +25,22 @@
     <header class="topbar">
       <button class="mobile-menu" id="mobile-menu" aria-label="Menu"><i data-lucide="menu"></i></button>
       <div class="breadcrumb" id="breadcrumb">Accueil</div>
-      <div class="lang-switch" aria-label="Language">
-        <button class="flag-btn" data-lang="fr" title="Français" aria-label="Français">
-          <svg viewBox="0 0 3 2" aria-hidden="true"><rect width="1" height="2" x="0" fill="#0055A4"/><rect width="1" height="2" x="1" fill="#fff"/><rect width="1" height="2" x="2" fill="#EF4135"/></svg>
-        </button>
-        <button class="flag-btn" data-lang="en" title="English" aria-label="English">
-          <svg viewBox="0 0 60 30" aria-hidden="true"><clipPath id="ukclip"><path d="M0 0v30h60V0z"/></clipPath><g clip-path="url(#ukclip)"><path d="M0 0v30h60V0z" fill="#012169"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" stroke="#C8102E" stroke-width="3.6"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/></g></svg>
-        </button>
+      <div class="topbar-actions">
+        <div class="clock-switch" role="group" data-i18n-aria-label="clock_switch_label">
+          <div class="clock-value"><span id="clock-label"></span><time id="clock-time">--:--:--</time><small id="clock-zone"></small></div>
+          <div class="clock-modes">
+            <button type="button" data-clock-mode="server" data-i18n="clock_server_short" data-i18n-title="server_time" data-i18n-aria-label="server_time">Serveur</button>
+            <button type="button" data-clock-mode="local" data-i18n="clock_local_short" data-i18n-title="local_time" data-i18n-aria-label="local_time">Local</button>
+          </div>
+        </div>
+        <div class="lang-switch" aria-label="Language">
+          <button class="flag-btn" data-lang="fr" title="Français" aria-label="Français">
+            <svg viewBox="0 0 3 2" aria-hidden="true"><rect width="1" height="2" x="0" fill="#0055A4"/><rect width="1" height="2" x="1" fill="#fff"/><rect width="1" height="2" x="2" fill="#EF4135"/></svg>
+          </button>
+          <button class="flag-btn" data-lang="en" title="English" aria-label="English">
+            <svg viewBox="0 0 60 30" aria-hidden="true"><clipPath id="ukclip"><path d="M0 0v30h60V0z"/></clipPath><g clip-path="url(#ukclip)"><path d="M0 0v30h60V0z" fill="#012169"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" stroke="#C8102E" stroke-width="3.6"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/></g></svg>
+          </button>
+        </div>
       </div>
     </header>
     <main id="view" class="view"></main>

@@ -1,0 +1,33 @@
+{
+  "$schema": "../game-dataset.schema.json",
+  "schemaVersion": 1,
+  "id": "weekly-events",
+  "source": {
+    "name": "In-game event calendar",
+    "url": null,
+    "type": "in-game",
+    "status": "partial",
+    "verifiedOn": "2026-08-29",
+    "note": "Weekly occurrences observed in game and reported by the contributor on 2026-08-29. More events will be added as they are observed."
+  },
+  "semantics": {
+    "valueMode": "lookup",
+    "note": "weekday uses JavaScript numbering (Sunday = 0). hour and minute are recurring browser-local wall-clock values, not game-server time."
+  },
+  "data": [
+    {
+      "id": "kingdom-war",
+      "nameKey": "event_kingdom_war",
+      "weekday": 6,
+      "hour": 16,
+      "minute": 0
+    },
+    {
+      "id": "crystal-cluster-valley",
+      "nameKey": "event_crystal_cluster_valley",
+      "weekday": 0,
+      "hour": 6,
+      "minute": 0
+    }
+  ]
+}

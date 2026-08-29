@@ -37,5 +37,7 @@ export function getLanguage() {
 export function applyStaticI18n() {
   document.documentElement.lang = currentLanguage;
   $$('[data-i18n]').forEach(element => element.textContent = translate(element.dataset.i18n));
+  $$('[data-i18n-title]').forEach(element => element.title = translate(element.dataset.i18nTitle));
+  $$('[data-i18n-aria-label]').forEach(element => element.setAttribute('aria-label', translate(element.dataset.i18nAriaLabel)));
   $$('.flag-btn').forEach(button => button.classList.toggle('active', button.dataset.lang === currentLanguage));
 }

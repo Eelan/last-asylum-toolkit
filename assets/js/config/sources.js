@@ -39,4 +39,14 @@ export const DATA_SOURCES = [{
   url: 'https://www.reddit.com/r/LastAsylumPlague/comments/1sj5ane/alliance_duel_day_by_day_guide/',
   description: 'source_alliance_duel_guide',
   verified: '2026-08-28'
+}, {
+  name: 'Reddit — lothaer',
+  url: 'https://www.reddit.com/r/LastAsylumPlague/comments/1tgfewa/alliance_duel_and_survival_battle_scheduel/',
+  description: 'source_duel_survival_schedule',
+  verified: '2026-08-29'
+}, {
+  name: 'Reddit — KorpezGaming',
+  url: 'https://www.reddit.com/r/LastAsylumPlague/comments/1v0cog5/efficient_way_to_get_60k_free_skill_badges_every/',
+  description: 'source_survival_battle_strategy',
+  verified: '2026-08-29'
 }];
