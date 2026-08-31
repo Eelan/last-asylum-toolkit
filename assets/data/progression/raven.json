@@ -7,11 +7,12 @@
     "url": "https://lastasylumdatabase.com/raven",
     "type": "community",
     "status": "complete",
-    "verifiedOn": "2026-08-23"
+    "verifiedOn": "2026-08-31",
+    "note": "The five-phase Essence milestone rule was confirmed in game by the contributor on 2026-08-31."
   },
   "semantics": {
     "valueMode": "upgrade-from-level",
-    "note": "Rows are [fromLevel, toLevel, Raven Fruit cost, Raven Essence cost]; costs apply to each upgrade starting within the inclusive band."
+    "note": "Rows are [fromLevel, toLevel, Raven Fruit cost, Raven Essence cost per phase]; costs apply to each upgrade starting within the inclusive band. An upgrade with a non-zero Essence value has five phases, each charged at the listed Essence cost."
   },
   "data": [
     [
