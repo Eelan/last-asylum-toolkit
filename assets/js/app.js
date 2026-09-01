@@ -22,6 +22,7 @@ import { renderWeekPage } from './pages/week.js';
 // #region Navigation and shared pages
 
 const NAV_CATEGORIES = ['personal', 'development', 'heroes', 'alliance', 'information'];
+const SITE_SECTIONS = ['tools', 'guides'];
 let clockMode = getClockMode();
 
 /** Updates the shared clock using the fixed game-server offset or the browser timezone. */
@@ -43,8 +44,8 @@ function updateClock() {
  * Returns ready tools in the same category and display order as the sidebar.
  * The tool catalogue remains the single source of ordering within each category.
  */
-function getNavigationTools() {
-  const readyTools = TOOLS.filter(tool => tool.ready);
+function getNavigationTools(section) {
+  const readyTools = TOOLS.filter(tool => tool.ready && tool.section === section);
   const categorizedTools = NAV_CATEGORIES.flatMap(category =>
     readyTools.filter(tool => tool.category === category)
   );
@@ -56,10 +57,10 @@ function renderNavLink(tool) {
   return `<a class="nav-link" data-route="${tool.id}" href="#/${tool.id}">${icon(tool.icon)}<span>${translate(tool.title)}</span></a>`;
 }
 
-function renderNav() {
-  const navigationTools = getNavigationTools();
+function renderNav(section) {
+  const navigationTools = getNavigationTools(section);
   $('#main-nav').innerHTML = `
-  <a class="nav-link" data-route="home" href="#/">${icon('house')}<span>${translate('home')}</span></a>
+  <a class="nav-link" data-route="${section}" href="#/${section}">${icon('house')}<span>${translate(`section_${section}`)}</span></a>
   ${NAV_CATEGORIES.map(category => {
     const categoryTools = navigationTools.filter(tool => tool.category === category);
     if (!categoryTools.length) return '';
@@ -76,14 +77,25 @@ function renderToolCard(tool) {
  </a>`;
 }
 
-function renderHome() {
+function renderHome(section) {
   $('#view').innerHTML = `<section class="hero-panel">
-  <span class="kicker">${translate('tools')}</span>
-  <h1>${translate('tagline')}</h1>
-  <p>${translate('subtitle')}</p>
+  <span class="kicker">${translate(`section_${section}`)}</span>
+  <h1>${translate(`section_${section}_title`)}</h1>
+  <p>${translate(`section_${section}_subtitle`)}</p>
  </section>
- <section class="tools-grid">${getNavigationTools().map(renderToolCard).join('')}</section>`;
-  $('#breadcrumb').textContent = translate('home');
+ <section class="tools-grid">${getNavigationTools(section).map(renderToolCard).join('')}</section>`;
+  $('#breadcrumb').textContent = translate(`section_${section}`);
+}
+
+function renderSectionTabs(section) {
+  let tabs = $('.section-tabs');
+  if (!tabs) {
+    tabs = document.createElement('nav');
+    tabs.className = 'section-tabs';
+    tabs.setAttribute('aria-label', translate('section_navigation'));
+    $('.topbar').insertBefore(tabs, $('.topbar-actions'));
+  }
+  tabs.innerHTML = SITE_SECTIONS.map(candidate => `<a href="#/${candidate}" class="section-tab${candidate === section ? ' active' : ''}" aria-current="${candidate === section ? 'page' : 'false'}">${icon(candidate === 'tools' ? 'wrench' : 'book-open-text')}<span>${translate(`section_${candidate}`)}</span></a>`).join('');
 }
 
 function renderComingSoonPage(tool) {
@@ -114,14 +126,17 @@ const PAGE_RENDERERS = {
 
 function renderRoute() {
   const route = (location.hash.replace(/^#\//, '') || 'home').split('/')[0];
-  renderNav();
+  const routedTool = TOOLS.find(candidate => candidate.id === route);
+  const section = SITE_SECTIONS.includes(route) ? route : (routedTool?.section || 'tools');
+  renderNav(section);
+  renderSectionTabs(section);
   applyStaticI18n();
   updateClock();
 
-  if (route === 'home') {
-    renderHome();
+  if (route === 'home' || SITE_SECTIONS.includes(route)) {
+    renderHome(section);
   } else {
-    const tool = TOOLS.find(candidate => candidate.id === route);
+    const tool = routedTool;
     if (!tool) {
       location.hash = '#/';
       return;
@@ -131,7 +146,7 @@ function renderRoute() {
     else PAGE_RENDERERS[route]?.(tool);
   }
 
-  $$('.nav-link').forEach(link => link.classList.toggle('active', link.dataset.route === route));
+  $$('.nav-link').forEach(link => link.classList.toggle('active', link.dataset.route === route || (route === 'home' && link.dataset.route === 'tools')));
   lucide.createIcons();
   $('.sidebar').classList.remove('open');
 }

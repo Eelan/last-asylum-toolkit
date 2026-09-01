@@ -27,8 +27,9 @@ export function renderResourceLabel(resource, label) {
 
 /** Builds the shared heading displayed above every tool page. */
 export function renderPageHeader(tool) {
+  const section = tool.section === 'guides' ? 'guides' : 'tools';
   return `<div class="page-head">
   <div class="page-title"><span class="tool-icon">${icon(tool.icon)}</span><div><h2>${translate(tool.title)}</h2><p>${translate(tool.desc)}</p></div></div>
-  <a class="back-link" href="#/">${icon('arrow-left')} ${translate('back')}</a>
+  <a class="back-link" href="#/${section}">${icon('arrow-left')} ${translate(`back_${section}`)}</a>
  </div>`;
 }
