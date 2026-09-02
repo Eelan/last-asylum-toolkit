@@ -1,0 +1,27 @@
+@import "./tokens.css";
+@import "./themes.css";
+@import "./base.css";
+@import "./layout.css";
+@import "./components.css";
+@import "./pages/home.css";
+@import "./pages/sanctuary.css";
+@import "./pages/raven.css";
+@import "./pages/duel.css";
+@import "./pages/sources.css";
+@import "./pages/heroes.css";
+@import "./pages/timers.css";
+@import "./pages/events.css";
+@import "./pages/researches.css";
+
+body {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+/* Preserve the existing clock appearance now that its trigger is a native button. */
+button.clock-value {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+}

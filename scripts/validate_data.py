@@ -11,7 +11,7 @@ except ImportError as error:
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA_DIRECTORY = ROOT / "assets" / "data"
+DATA_DIRECTORY = ROOT / "public" / "data"
 
 
 def read_json(path):

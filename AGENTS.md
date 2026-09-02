@@ -2,43 +2,55 @@
 
 ## Project overview
 
-This repository is a static, bilingual single-page application for **Last Asylum: Plague**.
-It is deployed directly to GitHub Pages and has no package manager, bundler, framework, or build step.
-
-Preserve that simplicity unless the user explicitly requests a tooling change.
+This repository is a bilingual Svelte 5 application for **Last Asylum: Plague**.
+Vite builds the web application for GitHub Pages. Tauri 2 wraps the same frontend
+for desktop and future Android builds. Use npm and the committed lockfile.
 
 ## Architecture
 
 ```text
-index.html
-assets/
-├── css/app.css
-├── data/               # Versioned JSON game datasets and their schemas
-└── js/
-    ├── app.js          # Bootstrap, navigation and hash routing
-    ├── data.js         # Async adapter exposing JSON datasets to the application
-    ├── i18n.js         # French and English translations
-    ├── config/         # Tool catalogue and application configuration
-    ├── core/           # Shared DOM, i18n, storage and UI helpers
-    ├── domain/         # Pure game calculations without DOM access
-    └── pages/          # One module per tool page
+src/
+├── main.ts                  # Svelte bootstrap
+├── App.svelte               # Application shell, hash routing and global timers
+├── pages/                   # One Svelte component per tool
+├── styles/                  # Existing design tokens and responsive CSS
+└── lib/
+    ├── components/          # Shared Svelte controls
+    ├── config/              # Tool catalogue, lazy pages and icon registry
+    ├── domain/              # Pure calculations, independent of DOM and Tauri
+    ├── core/                # Data, time, stock and account services
+    ├── state/               # Shared reactive preferences
+    ├── platform/            # Persistence and native/browser boundaries
+    ├── i18n/                # French and English translations
+    └── data.js              # Shared dataset compatibility adapter
+public/
+├── data/                    # Versioned JSON and schemas
+└── assets/images/           # Bundled game artwork
+src-tauri/
+├── src/lib.rs               # Shared native and mobile entry point
+├── src/main.rs              # Desktop entry point
+├── capabilities/            # Explicit native permissions
+└── tauri.conf.json
 ```
 
-- Use native ES modules with relative `.js` imports.
-- Keep `app.js` limited to application-level navigation and routing.
-- Put page markup, event listeners and page-specific persistence in `assets/js/pages/<page>.js`.
-- Put game rules and reusable calculations in pure functions under `assets/js/domain/`.
-- Put reusable behavior in `assets/js/core/` only after it is shared by multiple pages.
-- Register visible and planned tools in `assets/js/config/tools.js`.
+- Use Svelte 5 components for page markup and events; do not restore imperative HTML renderers.
+- Keep application navigation in `App.svelte`; preserve existing hash routes for GitHub Pages.
+- Use relative module imports with explicit extensions. TypeScript is configured for new typed services; retained JavaScript domain modules remain supported.
+- Put reusable game calculations in `src/lib/domain/`, without DOM or native APIs.
+- Put page-specific behavior in `src/pages/`; extract shared controls into `src/lib/components/`.
+- Keep native calls behind `src/lib/platform/`. Web builds must work without Tauri.
+- Register tools in `src/lib/config/tools.js` and lazy page components in `src/lib/config/pages.ts`.
 - Tools with `ready: false` must remain hidden from navigation and the home dashboard.
+- Follow the official Tauri layout: native setup in `src-tauri/src/lib.rs`, desktop entry in `main.rs`.
+- Keep frontend and native lockfiles. Do not introduce a server or SSR without an explicit request.
 
 ## Data and game rules
 
-- Keep static game values as JSON sources of truth under `assets/data/`, not inside page renderers or JavaScript modules.
+- Keep static game values as JSON sources of truth under `public/data/`, not inside page renderers or JavaScript modules.
 - Give each regular dataset a versioned envelope containing `schemaVersion`, `id`, `source`, `semantics`, and `data`. Specialized datasets may use a dedicated schema but must retain equivalent version and source metadata.
-- Validate regular datasets against `assets/data/game-dataset.schema.json`; add a specialized schema when a domain needs a stronger contract.
-- Keep `assets/js/data.js` as the compatibility adapter for shared datasets and use `loadDataset` for page-specific lazy loading.
-- Use stable English kebab-case dataset and entity IDs. Keep user-facing French and English text in `assets/js/i18n.js` or the existing locale modules.
+- Validate regular datasets against `public/data/game-dataset.schema.json`; add a specialized schema when a domain needs a stronger contract.
+- Keep `src/lib/data.js` as the compatibility adapter for shared datasets and use `loadDataset` for page-specific lazy loading.
+- Use stable English kebab-case dataset and entity IDs. Keep user-facing French and English text in `src/lib/i18n/translations.js` or the existing locale modules.
 - Add a short comment when a compact data format is not self-explanatory.
 - Preserve the source meaning: distinguish per-level cost from cumulative cost and current-level cost from next-level cost.
 - Declare those meanings in the dataset `semantics` object. Prefer explicit names such as `effectAtLevel`, `powerAtLevel`, and `upgradeCost` for newly structured records.
@@ -64,12 +76,12 @@ Use these established terms consistently:
 - Omni Shard → **Fragment Omni**
 
 Do not translate internal route names, DOM IDs, storage keys, or JavaScript identifiers solely for display purposes.
-All user-facing text must come from `assets/js/i18n.js`; avoid hard-coded French or English strings in page modules.
+All user-facing text must come from `src/lib/i18n/translations.js`; avoid hard-coded French or English strings in page modules.
 
 ## Stocks and local storage
 
-- Account-wide stocks are shared across pages through `assets/js/core/storage.js`.
-- Use `bindPersistentStocks`, `getStoredStock`, and `setStoredStock`; do not access stock keys directly in page modules.
+- Account-wide stocks are shared across pages through `src/lib/core/storage.js`.
+- Use `StockField.svelte`, `getStoredStock`, and `setStoredStock`; do not access stock keys directly in page components. All storage I/O goes through `src/lib/platform/storage.ts`.
 - Stock keys use the `lat-stock-<resource>` namespace.
 - Planner preferences that are not stocks may use their own `lat-<feature>-<setting>` namespace.
 - Preserve existing local data when renaming a key by adding a migration in `LEGACY_STOCKS`.
@@ -88,23 +100,24 @@ All user-facing text must come from `assets/js/i18n.js`; avoid hard-coded French
 ## UI conventions
 
 - Reuse the existing panels, form grids, result cards and responsive table styles before adding new CSS.
-- Render the common tool heading with `renderPageHeader` from `assets/js/core/ui.js`.
-- Use Lucide icons through the shared `icon()` helper.
-- Every displayed clock time, date or weekday whose value depends on timezone must follow the application-wide Server/Local switch. Read the current mode with `getClockMode()` and use the helpers in `assets/js/core/time.js`; switching modes must rerender all affected values consistently.
+- Render the common tool heading with `PageHeader.svelte` (owned by the application shell).
+- Use Lucide icons through `Icon.svelte` and its explicit import registry. Keep icons bundled for offline use.
+- Every displayed clock time, date or weekday whose value depends on timezone must follow the application-wide Server/Local switch. Read the current mode with `getClockMode()` and use the helpers in `src/lib/core/time.js`; switching modes must rerender all affected values consistently.
 - Preserve mobile behavior and horizontal scrolling for wide tables.
 - A calculator must handle an invalid or reversed range without displaying misleading totals.
 
 ## Verification
 
-Before handing off a change:
+Before handing off a change, run `npm run verify` (install the Playwright Chromium browser first) and inspect the results:
 
 1. Run `git diff --check`.
 2. Verify that every relative ES-module import resolves to an existing file.
-3. Verify that every `translate('key')` used by the application exists in both French and English.
-4. Parse every JSON dataset and validate every regular dataset against `assets/data/game-dataset.schema.json` or its specialized schema.
+3. Verify that every `translate('key')` / `$t('key')` exists in both French and English.
+4. Parse every JSON dataset and validate every regular dataset against `public/data/game-dataset.schema.json` or its specialized schema.
 5. Confirm that new stock fields use the shared storage service and the intended resource key.
 6. Inspect `git status --short` and preserve unrelated user changes.
 7. For calculation changes, test at least one normal range, one boundary value and one invalid/reversed range.
-8. For pages displaying timezone-dependent values, verify both Server and Local modes, including any date or weekday rollover caused by conversion.
+8. Run `npm run check` and `npm run build`; run a Rust check when the native toolchain is available.
+9. For pages displaying timezone-dependent values, verify both Server and Local modes, including any date or weekday rollover caused by conversion.
 
 Do not commit unless the user asks for a commit. When asked, use a concise conventional commit message and keep unrelated changes out of the commit.
