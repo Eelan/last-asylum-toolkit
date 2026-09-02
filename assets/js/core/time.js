@@ -2,7 +2,7 @@ const CLOCK_MODE_KEY = 'lat-clock-mode';
 export const SERVER_UTC_OFFSET_HOURS = -2;
 
 export function getClockMode() {
-  return localStorage.getItem(CLOCK_MODE_KEY) === 'local' ? 'local' : 'server';
+  return localStorage.getItem(CLOCK_MODE_KEY) === 'server' ? 'server' : 'local';
 }
 
 export function setClockMode(mode) {

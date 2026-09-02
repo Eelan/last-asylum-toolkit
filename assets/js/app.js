@@ -33,11 +33,17 @@ function updateClock() {
   $('#clock-label').textContent = translate(serverMode ? 'server_time' : 'local_time');
   $('#clock-time').textContent = formatClockTime(now, clockMode, locale);
   $('#clock-zone').textContent = serverMode ? 'UTC−02:00' : (Intl.DateTimeFormat().resolvedOptions().timeZone || translate('clock_local_short'));
+  $('.clock-value').setAttribute('aria-label', translate('clock_switch_label'));
   $$('[data-clock-mode]').forEach(button => {
     const active = button.dataset.clockMode === clockMode;
     button.classList.toggle('active', active);
     button.setAttribute('aria-pressed', String(active));
   });
+  $('.clock-switch').setAttribute('aria-expanded', String($('.clock-switch').classList.contains('open')));
+}
+
+function usesCompactTopbar() {
+  return window.matchMedia('(max-width: 520px)').matches;
 }
 
 /**
@@ -128,6 +134,7 @@ function renderRoute() {
   const route = (location.hash.replace(/^#\//, '') || 'home').split('/')[0];
   const routedTool = TOOLS.find(candidate => candidate.id === route);
   const section = SITE_SECTIONS.includes(route) ? route : (routedTool?.section || 'tools');
+  document.body.dataset.section = section;
   renderNav(section);
   renderSectionTabs(section);
   applyStaticI18n();
@@ -155,15 +162,44 @@ function renderRoute() {
 
 // #region Application bootstrap
 
+$('.lang-switch').setAttribute('aria-expanded', 'false');
 $$('.flag-btn').forEach(button => button.addEventListener('click', () => {
+  const languageSwitch = $('.lang-switch');
+  if (usesCompactTopbar() && button.dataset.lang === getLanguage()) {
+    languageSwitch.classList.toggle('open');
+    languageSwitch.setAttribute('aria-expanded', String(languageSwitch.classList.contains('open')));
+    return;
+  }
   setLanguage(button.dataset.lang);
+  languageSwitch.classList.remove('open');
+  languageSwitch.setAttribute('aria-expanded', 'false');
   renderRoute();
 }));
 $$('[data-clock-mode]').forEach(button => button.addEventListener('click', () => {
   clockMode = button.dataset.clockMode;
   setClockMode(clockMode);
+  $('.clock-switch').classList.remove('open');
   renderRoute();
 }));
+$('.clock-value').setAttribute('role', 'button');
+$('.clock-value').setAttribute('tabindex', '0');
+$('.clock-value').addEventListener('click', () => {
+  if (!usesCompactTopbar()) return;
+  $('.clock-switch').classList.toggle('open');
+  updateClock();
+});
+$('.clock-value').addEventListener('keydown', event => {
+  if (!usesCompactTopbar() || !['Enter', ' '].includes(event.key)) return;
+  event.preventDefault();
+  $('.clock-value').click();
+});
+document.addEventListener('click', event => {
+  if (!usesCompactTopbar()) return;
+  const languageSwitch = $('.lang-switch');
+  const clockSwitch = $('.clock-switch');
+  if (!languageSwitch.contains(event.target)) languageSwitch.classList.remove('open');
+  if (!clockSwitch.contains(event.target)) clockSwitch.classList.remove('open');
+});
 $('#mobile-menu').addEventListener('click', () => $('.sidebar').classList.toggle('open'));
 window.addEventListener('hashchange', renderRoute);
 renderRoute();

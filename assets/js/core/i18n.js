@@ -1,7 +1,7 @@
 import { $$ } from './dom.js';
 import { TRANSLATIONS } from '../i18n.js';
 
-let currentLanguage = localStorage.getItem('lat-lang') || (navigator.language?.startsWith('fr') ? 'fr' : 'en');
+let currentLanguage = localStorage.getItem('lat-lang') || 'fr';
 
 export function translate(key) {
   return TRANSLATIONS[currentLanguage]?.[key] ?? TRANSLATIONS.fr[key] ?? key;
