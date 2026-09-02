@@ -1,0 +1,17 @@
+/* themes — shared tokens and original cascade order preserved. */
+
+body[data-section="tools"] {
+  --accent:#e6a341;
+  --accent-rgb:230,163,65;
+  --accent2:#cc642a;
+  --brand-icon-background:linear-gradient(145deg,#332316,#191f22);
+  --hero-panel-background:linear-gradient(135deg,rgba(31,45,52,.96),rgba(15,23,27,.98));
+}
+
+body[data-section="guides"] {
+  --accent:#b58cff;
+  --accent-rgb:181,140,255;
+  --accent2:#7d5bd6;
+  --brand-icon-background:linear-gradient(145deg,#302449,#1d1b28);
+  --hero-panel-background:linear-gradient(135deg,rgba(50,38,73,.96),rgba(20,19,31,.98));
+}

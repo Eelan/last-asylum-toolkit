@@ -1,0 +1,426 @@
+/* Page: duel — shared tokens and original cascade order preserved. */
+
+.duel-inputs {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:13px;
+}
+
+.duel-week-intro {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+}
+
+.duel-week-intro h3 {
+  margin:7px 0 6px;
+}
+
+.duel-week-intro p {
+  max-width:720px;
+  margin:0;
+  color:var(--muted);
+  font-size:.84rem;
+  line-height:1.55;
+}
+
+.duel-reset {
+  flex:0 0 auto;
+  padding:12px 15px;
+  border:1px solid rgba(var(--accent-rgb),.22);
+  border-radius:12px;
+  background:rgba(var(--accent-rgb),.06);
+  text-align:right;
+}
+
+.duel-reset span,
+.duel-reset strong,
+.duel-reset small {
+  display:block;
+}
+
+.duel-reset span {
+  color:var(--muted);
+  font-size:.68rem;
+}
+
+.duel-reset strong {
+  margin-top:3px;
+  color:var(--accent);
+  font-size:1.15rem;
+  font-variant-numeric:tabular-nums;
+}
+
+.duel-reset small {
+  margin-top:2px;
+  color:#65747a;
+  font-size:.62rem;
+}
+
+.duel-week-strip {
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:7px;
+  margin:14px 0;
+}
+
+.duel-week-card {
+  min-width:0;
+  padding:11px 9px;
+  border:1px solid var(--line);
+  border-radius:11px;
+  background:var(--surface);
+  color:var(--text);
+  text-align:left;
+}
+
+.duel-week-card span,
+.duel-week-card strong {
+  display:block;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.duel-week-card span {
+  color:var(--muted);
+  font-size:.65rem;
+}
+
+.duel-week-card strong {
+  margin-top:3px;
+  font-size:.75rem;
+  white-space:nowrap;
+}
+
+.duel-week-card:hover,
+.duel-week-card.today {
+  border-color:rgba(var(--accent-rgb),.55);
+  background:rgba(var(--accent-rgb),.07);
+}
+
+.duel-week-card.today strong {
+  color:var(--accent);
+}
+
+.duel-week-card.preparation {
+  border-style:dashed;
+}
+
+.duel-guide {
+  display:grid;
+  gap:10px;
+}
+
+.duel-guide>div {
+  scroll-margin-top:82px;
+}
+
+.duel-day {
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:linear-gradient(180deg,var(--surface2),var(--surface));
+  box-shadow:var(--shadow);
+  scroll-margin-top:82px;
+}
+
+.duel-day.today {
+  border-color:rgba(var(--accent-rgb),.55);
+  box-shadow:0 0 0 2px rgba(var(--accent-rgb),.07),var(--shadow);
+}
+
+.duel-day.preparation {
+  border-style:dashed;
+}
+
+.duel-day summary {
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:17px;
+  cursor:pointer;
+  list-style:none;
+}
+
+.duel-day summary::-webkit-details-marker {
+  display:none;
+}
+
+.duel-day summary::after {
+  content:'+';
+  margin-left:auto;
+  color:var(--accent);
+  font-size:1.3rem;
+}
+
+.duel-day[open] summary::after {
+  content:'−';
+}
+
+.duel-day-number {
+  flex:0 0 auto;
+  padding:5px 8px;
+  border-radius:999px;
+  background:rgba(var(--accent-rgb),.09);
+  color:var(--accent);
+  font-size:.65rem;
+  font-weight:850;
+  text-transform:uppercase;
+}
+
+.duel-day-title {
+  min-width:0;
+}
+
+.duel-day-title strong,
+.duel-day-title small {
+  display:block;
+}
+
+.duel-day-title small {
+  margin-top:3px;
+  color:var(--muted);
+  font-size:.73rem;
+}
+
+.duel-today-badge {
+  margin-left:auto;
+  color:var(--good);
+  font-size:.7rem;
+  font-weight:800;
+}
+
+.duel-day:has(.duel-today-badge) summary::after {
+  margin-left:0;
+}
+
+.duel-day-content {
+  padding:0 17px 18px;
+  border-top:1px solid var(--line);
+}
+
+.duel-guidance-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-top:16px;
+}
+
+.duel-guidance-grid section,
+.duel-tips {
+  padding:14px;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:11px;
+  background:rgba(0,0,0,.13);
+}
+
+.duel-day h4 {
+  margin:0 0 8px;
+  color:var(--accent);
+  font-size:.72rem;
+  text-transform:uppercase;
+  letter-spacing:.07em;
+}
+
+.duel-day ul {
+  margin:0;
+  padding-left:18px;
+  color:var(--muted);
+  font-size:.77rem;
+  line-height:1.5;
+}
+
+.duel-day li+li {
+  margin-top:5px;
+}
+
+.duel-tips {
+  margin-top:10px;
+}
+
+.duel-notice {
+  margin:10px 0 0;
+  padding:11px 13px;
+  border-left:3px solid var(--accent);
+  border-radius:0 9px 9px 0;
+  background:rgba(var(--accent-rgb),.055);
+  color:var(--muted);
+  font-size:.75rem;
+  line-height:1.5;
+}
+
+.duel-scoring {
+  margin-top:18px;
+}
+
+.duel-scoring table {
+  min-width:520px;
+}
+
+.duel-scoring th:nth-child(n+2),
+.duel-scoring td:nth-child(n+2) {
+  text-align:right;
+}
+
+.duel-level-table {
+  margin-top:12px;
+}
+
+.duel-level-table table {
+  min-width:680px;
+}
+
+.duel-level-table th,
+.duel-level-table td {
+  padding:8px 10px;
+  text-align:right;
+}
+
+.duel-level-table th:first-child,
+.duel-level-table td:first-child {
+  text-align:left;
+  white-space:nowrap;
+}
+
+.duel-source-note {
+  text-align:center;
+}
+
+.duel-source-note a {
+  color:var(--accent);
+}
+
+.survival-calendar-note {
+  margin-top:10px!important;
+  padding-left:11px;
+  border-left:2px solid var(--good);
+  color:var(--text)!important;
+}
+
+.survival-current {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  width:max-content;
+  max-width:100%;
+  margin-top:12px;
+  padding:8px 10px;
+  border:1px solid rgba(94,203,138,.2);
+  border-radius:9px;
+  background:rgba(94,203,138,.05);
+  font-size:.72rem;
+}
+
+.survival-current span {
+  color:var(--muted);
+}
+
+.survival-current strong {
+  color:var(--good);
+}
+
+.survival-current time {
+  font-variant-numeric:tabular-nums;
+}
+
+.survival-current small {
+  color:#65747a;
+}
+
+.survival-synergy {
+  margin-top:10px;
+  padding:15px;
+  border:1px solid rgba(94,203,138,.22);
+  border-radius:11px;
+  background:rgba(94,203,138,.055);
+}
+
+.survival-synergy-head {
+  display:flex;
+  align-items:center;
+  gap:9px;
+  margin-bottom:12px;
+}
+
+.survival-synergy-head span {
+  padding:4px 7px;
+  border-radius:999px;
+  background:rgba(94,203,138,.12);
+  color:var(--good);
+  font-size:.64rem;
+  font-weight:850;
+  text-transform:uppercase;
+}
+
+.survival-synergy-head strong {
+  font-size:.82rem;
+}
+
+.survival-synergy-head time {
+  margin-left:auto;
+  color:var(--good);
+  font-size:.74rem;
+  font-weight:800;
+  font-variant-numeric:tabular-nums;
+}
+
+.survival-synergy-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+.survival-synergy h4 {
+  color:var(--good);
+}
+
+@media(max-width:780px) {
+  .duel-week-strip {
+    grid-template-columns:repeat(4,1fr);
+  }
+
+  .duel-guidance-grid,
+    .survival-synergy-grid {
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:520px) {
+  .duel-inputs {
+    grid-template-columns:1fr;
+  }
+
+  .duel-week-intro {
+    display:block;
+  }
+
+  .duel-reset {
+    margin-top:15px;
+    text-align:left;
+  }
+
+  .duel-week-strip {
+    display:flex;
+    overflow-x:auto;
+    padding-bottom:4px;
+  }
+
+  .duel-week-card {
+    flex:0 0 115px;
+  }
+
+  .duel-day summary {
+    align-items:flex-start;
+    flex-wrap:wrap;
+  }
+
+  .duel-day-title {
+    flex:1;
+  }
+
+  .duel-today-badge {
+    order:3;
+    margin-left:0;
+  }
+}

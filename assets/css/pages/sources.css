@@ -1,0 +1,72 @@
+/* Page: sources — shared tokens and original cascade order preserved. */
+
+.sources-intro {
+  margin:0 0 18px;
+  color:var(--muted);
+  line-height:1.6;
+}
+
+.sources-list {
+  display:grid;
+  gap:10px;
+}
+
+.source-card {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  padding:16px;
+  border:1px solid var(--line);
+  border-radius:13px;
+  background:rgba(0,0,0,.13);
+}
+
+.source-card h3 {
+  margin:0 0 5px;
+  font-size:.92rem;
+}
+
+.source-card p {
+  margin:0;
+  color:var(--muted);
+  font-size:.78rem;
+  line-height:1.5;
+}
+
+.source-card span {
+  display:block;
+  margin-top:7px;
+  color:#65747a;
+  font-size:.68rem;
+}
+
+.source-card a {
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  flex:0 0 auto;
+  color:var(--accent);
+  font-size:.75rem;
+  font-weight:800;
+  text-decoration:none;
+}
+
+.source-card a:hover {
+  text-decoration:underline;
+}
+
+.source-card a svg {
+  width:14px;
+  height:14px;
+}
+
+@media(max-width:520px) {
+  .source-card {
+    display:block;
+  }
+
+  .source-card a {
+    margin-top:13px;
+  }
+}

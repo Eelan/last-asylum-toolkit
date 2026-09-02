@@ -1,0 +1,16 @@
+/* Page: raven — shared tokens and original cascade order preserved. */
+
+.raven-rule-note {
+  margin:15px 0 0;
+  padding:10px 12px;
+  border-left:3px solid var(--accent);
+  border-radius:0 9px 9px 0;
+  background:rgba(var(--accent-rgb),.055);
+  color:var(--muted);
+  font-size:.75rem;
+  line-height:1.5;
+}
+
+.raven-table {
+  min-width:850px;
+}

@@ -1,0 +1,55 @@
+/* Page: sanctuary — shared tokens and original cascade order preserved. */
+
+.sanctuary-level-picker {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-height:250px;
+}
+
+.sanctuary-level-values {
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:20px;
+  margin-bottom:24px;
+}
+
+.sanctuary-level-values>div:last-child {
+  text-align:right;
+}
+
+.sanctuary-level-values>div>span {
+  display:block;
+  color:var(--muted);
+  font-size:.76rem;
+  margin-bottom:4px;
+}
+
+.sanctuary-level-values strong {
+  font-size:1.35rem;
+  color:var(--text);
+}
+
+.sanctuary-level-values strong span {
+  color:var(--muted);
+  font-size:.72em;
+}
+
+.sanctuary-totals {
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:9px;
+}
+
+.sanctuary-table th:last-child,
+.sanctuary-table td:last-child {
+  text-align:left;
+  min-width:280px;
+}
+
+@media(max-width:780px) {
+  .sanctuary-totals {
+    grid-template-columns:repeat(2,1fr);
+  }
+}

@@ -1,0 +1,21 @@
+/* tokens — shared tokens and original cascade order preserved. */
+
+:root {
+  --bg:#0b1013;
+  --bg2:#10171b;
+  --surface:#141d22;
+  --surface2:#1a252b;
+  --surface3:#202d34;
+  --text:#f4f1e8;
+  --muted:#98a5aa;
+  --line:rgba(255,255,255,.08);
+  --accent:#e6a341;
+  --accent-rgb:230,163,65;
+  --accent2:#cc642a;
+  --good:#5ecb8a;
+  --danger:#d96858;
+  --brand-icon-background:linear-gradient(145deg,#332316,#191f22);
+  --hero-panel-background:linear-gradient(135deg,rgba(31,45,52,.96),rgba(15,23,27,.98));
+  --radius:18px;
+  --shadow:0 14px 45px rgba(0,0,0,.22);
+}

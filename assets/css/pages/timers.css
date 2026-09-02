@@ -1,0 +1,266 @@
+/* Page: timers — shared tokens and original cascade order preserved. */
+
+.timers-layout {
+  align-items:stretch;
+}
+
+.timer-notification-panel {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.timer-notification-panel .tool-icon {
+  margin-bottom:12px;
+}
+
+.timer-notification-panel h3 {
+  margin:0 0 7px;
+}
+
+.timer-notification-panel p:not(.form-note) {
+  margin:0 0 15px;
+  color:var(--muted);
+  font-size:.8rem;
+  line-height:1.5;
+}
+
+.timer-notification-panel .primary-btn {
+  align-self:flex-start;
+  border:0;
+}
+
+.timer-type-field>span {
+  display:block;
+  margin-bottom:7px;
+  color:var(--muted);
+  font-size:.72rem;
+}
+
+.timer-type-buttons {
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:8px;
+}
+
+.timer-type-button {
+  display:flex;
+  min-width:0;
+  min-height:72px;
+  padding:9px 6px;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:7px;
+  border:1px solid var(--line);
+  border-radius:11px;
+  background:#0f171b;
+  color:var(--muted);
+  font-size:.68rem;
+  text-align:center;
+}
+
+.timer-type-button svg {
+  width:21px;
+  height:21px;
+}
+
+.timer-type-button:hover {
+  border-color:var(--accent);
+  color:var(--accent);
+}
+
+.timer-type-button.selected {
+  border-color:var(--accent);
+  background:rgba(var(--accent-rgb),.11);
+  box-shadow:0 0 0 2px rgba(var(--accent-rgb),.08);
+  color:var(--accent);
+}
+
+.timer-presets {
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:14px;
+}
+
+.timer-presets>span {
+  margin-right:3px;
+  color:var(--muted);
+  font-size:.72rem;
+}
+
+.timer-presets button,
+.timer-actions button {
+  padding:6px 9px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:#0f171b;
+  color:var(--muted);
+  font-size:.7rem;
+}
+
+.timer-presets button:hover,
+.timer-actions button:hover {
+  border-color:var(--accent);
+  color:var(--accent);
+}
+
+.timer-submit {
+  margin-top:17px;
+  border:0;
+}
+
+.timers-list {
+  display:grid;
+  gap:10px;
+  margin-top:16px;
+}
+
+.timer-card {
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto auto;
+  align-items:center;
+  gap:13px;
+  padding:15px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:linear-gradient(180deg,var(--surface2),var(--surface));
+  box-shadow:var(--shadow);
+}
+
+.timer-card.finished {
+  border-color:rgba(var(--accent-rgb),.42);
+}
+
+.timer-card-icon {
+  display:grid;
+  place-items:center;
+  width:42px;
+  height:42px;
+  border-radius:11px;
+  background:rgba(var(--accent-rgb),.09);
+  color:var(--accent);
+}
+
+.timer-card-icon svg {
+  width:20px;
+}
+
+.timer-card-content span,
+.timer-card-content strong,
+.timer-card-content small {
+  display:block;
+}
+
+.timer-card-content span {
+  color:var(--accent);
+  font-size:.63rem;
+  text-transform:uppercase;
+}
+
+.timer-card-content strong {
+  margin-top:3px;
+}
+
+.timer-card-content small {
+  margin-top:4px;
+  color:var(--muted);
+  font-size:.68rem;
+}
+
+.timer-card>time {
+  color:var(--good);
+  font-size:1rem;
+  font-weight:850;
+  font-variant-numeric:tabular-nums;
+  white-space:nowrap;
+}
+
+.timer-card.finished>time {
+  color:var(--accent);
+}
+
+.timer-actions {
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+
+.timer-actions button {
+  white-space:nowrap;
+}
+
+.timer-actions [data-timer-remove] {
+  display:grid;
+  place-items:center;
+  width:30px;
+  height:30px;
+  padding:0;
+  border-radius:8px;
+  color:var(--danger);
+}
+
+.timer-actions svg {
+  width:14px;
+}
+
+.timers-empty {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:35px;
+  border:1px dashed var(--line);
+  border-radius:14px;
+  color:var(--muted);
+  text-align:center;
+}
+
+.timers-empty svg {
+  width:28px;
+  margin-bottom:10px;
+}
+
+.timers-empty strong {
+  color:var(--text);
+}
+
+.timers-empty span {
+  margin-top:5px;
+  font-size:.75rem;
+}
+
+@media(max-width:700px) {
+  .timer-type-buttons {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .timer-type-button:first-child {
+    grid-column:1/-1;
+    min-height:58px;
+  }
+}
+
+@media(max-width:620px) {
+  .timer-card {
+    grid-template-columns:auto 1fr;
+  }
+
+  .timer-card>time {
+    grid-column:1/-1;
+  }
+
+  .timer-actions {
+    grid-column:1/-1;
+    justify-content:flex-end;
+  }
+}
+
+.timers-layout {
+  display:block;
+}
+
+.timer-notification-panel {
+  margin-top:16px;
+}

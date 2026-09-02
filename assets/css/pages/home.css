@@ -1,0 +1,125 @@
+/* Page: home — shared tokens and original cascade order preserved. */
+
+.hero-panel {
+  position:relative;
+  overflow:hidden;
+  padding:42px;
+  border:1px solid var(--line);
+  border-radius:25px;
+  background:var(--hero-panel-background);
+  box-shadow:var(--shadow);
+}
+
+.hero-panel::after {
+  content:"";
+  position:absolute;
+  width:320px;
+  height:320px;
+  border-radius:50%;
+  right:-90px;
+  top:-130px;
+  background:radial-gradient(circle,rgba(var(--accent-rgb),.22),transparent 65%);
+  pointer-events:none;
+}
+
+.hero-panel p {
+  max-width:700px;
+  color:var(--muted);
+  font-size:1.02rem;
+  margin:0;
+}
+
+.tools-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  margin-top:28px;
+}
+
+.tool-card {
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  min-height:215px;
+  padding:20px;
+  border:1px solid var(--line);
+  border-radius:17px;
+  text-decoration:none;
+  background:linear-gradient(180deg,var(--surface2),var(--surface));
+  transition:.18s ease;
+  overflow:hidden;
+}
+
+.tool-card::after {
+  content:"";
+  position:absolute;
+  width:150px;
+  height:150px;
+  right:-70px;
+  bottom:-70px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(var(--accent-rgb),.08),transparent 68%);
+}
+
+.tool-card:hover {
+  transform:translateY(-3px);
+  border-color:rgba(var(--accent-rgb),.36);
+  box-shadow:0 16px 35px rgba(0,0,0,.20);
+}
+
+.tool-card h3 {
+  font-size:1rem;
+  margin:0 0 7px;
+}
+
+.tool-card p {
+  color:var(--muted);
+  font-size:.78rem;
+  line-height:1.5;
+  margin:0;
+}
+
+.tool-open {
+  margin-top:auto;
+  padding-top:17px;
+  color:var(--accent);
+  font-size:.75rem;
+  font-weight:800;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.tool-open svg {
+  width:14px;
+  height:14px;
+}
+
+.badge-soon {
+  position:absolute;
+  right:12px;
+  top:12px;
+  background:rgba(var(--accent-rgb),.10);
+  border:1px solid rgba(var(--accent-rgb),.22);
+  color:var(--accent);
+  border-radius:999px;
+  padding:4px 8px;
+  font-size:.64rem;
+  font-weight:800;
+}
+
+@media(max-width:1050px) {
+  .tools-grid {
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:520px) {
+  .hero-panel {
+    padding:26px 22px;
+  }
+
+  .tools-grid {
+    grid-template-columns:1fr;
+  }
+}
