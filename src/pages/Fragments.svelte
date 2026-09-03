@@ -18,6 +18,7 @@
       omniStock: parseNumber(omni)
     })
   );
+  const stockIncrements = [1, 10, 50, 100].map((value) => ({ value, label: String(value) }));
 </script>
 
 <div class="calc-grid">
@@ -42,12 +43,24 @@
         id="star-specific-stock"
         resource="hero-specific-shards"
         label={$t('specific_shards_stock')}
+        increments={stockIncrements}
         bind:value={specific}
+        addLabel={$t('stocks_add')}
+        removeLabel={$t('stocks_remove')}
+        resetLabel={$t('stocks_reset')}
+        resetConfirmLabel={$t('stocks_reset_confirm')}
+        quick
       /><StockField
         id="star-omni-stock"
         resource={rarity + '-omni-shards'}
         label={$t('omni_shards_stock')}
+        increments={stockIncrements}
         bind:value={omni}
+        addLabel={$t('stocks_add')}
+        removeLabel={$t('stocks_remove')}
+        resetLabel={$t('stocks_reset')}
+        resetConfirmLabel={$t('stocks_reset_confirm')}
+        quick
       />
     </div>
   </section>

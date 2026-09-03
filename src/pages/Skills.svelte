@@ -10,6 +10,7 @@
     stock = $state('0');
   const max = Math.max(...Object.keys(GAME_DATA.skills).map(Number));
   let result = $derived(calculateSkillProgression(current, target, parseNumber(stock)));
+  const stockIncrements = [1, 5, 10, 50].map((value) => ({ value: value * 1_000, label: `${value}k` }));
 </script>
 
 <div class="calc-grid">
@@ -20,7 +21,19 @@
         label={$t('skill_target')}
         {max}
         bind:value={target}
-      /><StockField id="skill-stock" resource="skill-badges" label={$t('stock')} bind:value={stock} full />
+      /><StockField
+        id="skill-stock"
+        resource="skill-badges"
+        label={$t('stock')}
+        increments={stockIncrements}
+        bind:value={stock}
+        addLabel={$t('stocks_add')}
+        removeLabel={$t('stocks_remove')}
+        resetLabel={$t('stocks_reset')}
+        resetConfirmLabel={$t('stocks_reset_confirm')}
+        quick
+        full
+      />
     </div>
   </section>
   <section class="panel result-panel">

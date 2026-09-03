@@ -12,6 +12,7 @@
 @import "./pages/timers.css";
 @import "./pages/events.css";
 @import "./pages/researches.css";
+@import "./pages/stocks.css";
 
 body {
   padding-top: env(safe-area-inset-top);

@@ -10,6 +10,7 @@
     stock = $state('0');
   const max = Math.max(...Object.keys(GAME_DATA.antitoxin).map(Number));
   let result = $derived(calculateAntitoxinProgression(current, target));
+  const stockIncrements = [1, 10, 50, 100].map((value) => ({ value: value * 1_000_000, label: `${value}M` }));
 </script>
 
 <div class="calc-grid">
@@ -20,7 +21,19 @@
         label={$t('target')}
         {max}
         bind:value={target}
-      /><StockField id="anti-stock" resource="antitoxin" label={$t('stock')} bind:value={stock} full />
+      /><StockField
+        id="anti-stock"
+        resource="antitoxin"
+        label={$t('stock')}
+        increments={stockIncrements}
+        bind:value={stock}
+        addLabel={$t('stocks_add')}
+        removeLabel={$t('stocks_remove')}
+        resetLabel={$t('stocks_reset')}
+        resetConfirmLabel={$t('stocks_reset_confirm')}
+        quick
+        full
+      />
     </div>
     <div class="quick-actions">
       {#each [[80, 85], [85, 90], [90, 95], [95, 100]] as range}<button

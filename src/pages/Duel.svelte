@@ -5,13 +5,16 @@
   import StockField from '../lib/components/StockField.svelte';
   import ResourceLabel from '../lib/components/ResourceLabel.svelte';
   import { readPreference, writePreference } from '../lib/platform/storage.ts';
+  const standardIncrements = [1, 10, 50, 100].map((value) => ({ value, label: String(value) }));
+  const antitoxinIncrements = [1, 10, 50, 100].map((value) => ({ value: value * 1_000_000, label: `${value}M` }));
+  const badgeIncrements = [1, 5, 10, 50].map((value) => ({ value: value * 1_000, label: `${value}k` }));
   const fields = [
-    ['antitoxin', 'antitoxin', 'antitoxin', 'd-a'],
-    ['recruits', 'recruitments', 'recruits', 'd-r'],
-    ['ur', 'ur-omni-shards', 'ur_omni_shards', 'd-u'],
-    ['ssr', 'ssr-omni-shards', 'ssr_omni_shards', 'd-s'],
-    ['sr', 'sr-omni-shards', 'sr_omni_shards', 'd-sr'],
-    ['badges', 'skill-badges', 'skill_badges', 'd-b']
+    ['antitoxin', 'antitoxin', 'antitoxin', 'd-a', antitoxinIncrements],
+    ['recruits', 'recruitments', 'recruits', 'd-r', standardIncrements],
+    ['ur', 'ur-omni-shards', 'ur_omni_shards', 'd-u', standardIncrements],
+    ['ssr', 'ssr-omni-shards', 'ssr_omni_shards', 'd-s', standardIncrements],
+    ['sr', 'sr-omni-shards', 'sr_omni_shards', 'd-sr', standardIncrements],
+    ['badges', 'skill-badges', 'skill_badges', 'd-b', badgeIncrements]
   ];
   let stocks = $state({ antitoxin: '0', recruits: '0', ur: '0', ssr: '0', sr: '0', badges: '0' });
   let target = $state(readPreference('lat-duel-target', '0'));
@@ -42,11 +45,17 @@
           bind:value={bonus}
           oninput={(event) => writePreference('lat-duel-research-bonus', event.currentTarget.value)}
         /></label
-      >{#each fields as [key, resource, label, id]}<StockField
+      >{#each fields as [key, resource, label, id, increments]}<StockField
           {id}
           {resource}
           label={$t(label)}
+          {increments}
           bind:value={stocks[key]}
+          addLabel={$t('stocks_add')}
+          removeLabel={$t('stocks_remove')}
+          resetLabel={$t('stocks_reset')}
+          resetConfirmLabel={$t('stocks_reset_confirm')}
+          quick
         />{/each}
     </div>
   </section>

@@ -11,6 +11,8 @@
     essence = $state('0');
   let hasPhases = $derived(getRavenUpgradeCost(current).phaseCount > 0 && target > current);
   let result = $derived(calculateRavenProgression(current, target, hasPhases ? completed : 0));
+  const fruitIncrements = [1, 5, 10, 50].map((value) => ({ value: value * 1_000, label: `${value}k` }));
+  const essenceIncrements = [1, 10, 50, 100].map((value) => ({ value, label: String(value) }));
 </script>
 
 <div class="calc-grid">
@@ -31,12 +33,24 @@
         id="raven-fruit-stock"
         resource="raven-fruit"
         label={$t('raven_fruit_stock')}
+        increments={fruitIncrements}
         bind:value={fruit}
+        addLabel={$t('stocks_add')}
+        removeLabel={$t('stocks_remove')}
+        resetLabel={$t('stocks_reset')}
+        resetConfirmLabel={$t('stocks_reset_confirm')}
+        quick
       /><StockField
         id="raven-essence-stock"
         resource="raven-essence"
         label={$t('raven_essence_stock')}
+        increments={essenceIncrements}
         bind:value={essence}
+        addLabel={$t('stocks_add')}
+        removeLabel={$t('stocks_remove')}
+        resetLabel={$t('stocks_reset')}
+        resetConfirmLabel={$t('stocks_reset_confirm')}
+        quick
       />
     </div>
     <p class="raven-rule-note">{$t('raven_phase_rule')}</p>
