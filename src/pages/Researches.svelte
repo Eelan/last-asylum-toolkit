@@ -17,6 +17,7 @@
   const data = Promise.all(RESEARCH_TREES.map((item) => loadJsonDocument(item.path)));
   let selectedId = $state('development'),
     selectedResearchId = $state(null),
+    mobileTreeOpen = $state(false),
     revision = $state(0);
   function title(tree) {
     return $t(RESEARCH_TREES.find((item) => item.id === tree.id)?.title || tree.nameKey);
@@ -36,7 +37,7 @@
 {#await data}<section class="panel"><p class="form-note">{$t('research_loading')}</p></section>{:then trees}
   {@const tree = trees.find((tree) => tree.id === selectedId)}
   {#key revision}
-    <section class="research-overview research-experience">
+    <section class="research-overview research-experience" class:mobile-tree-open={mobileTreeOpen}>
       <p class="sources-intro">{$t('researches_intro')}</p>
       <div class="research-grid">
         {#each trees as candidate}{@const progress = getTreeProgress(candidate)}<button
@@ -45,6 +46,7 @@
             onclick={() => {
               selectedId = candidate.id;
               selectedResearchId = null;
+              mobileTreeOpen = true;
             }}
             ><span class="research-card-icon"
               ><Icon name={RESEARCH_TREES.find((item) => item.id === candidate.id).icon} /></span
@@ -55,7 +57,17 @@
       </div>
     </section>
     {@const progress = getTreeProgress(tree)}{@const nodes = getOrderedNodes(tree)}
-    <section class="panel research-tree-panel research-experience">
+    <section
+      class="panel research-tree-panel research-experience"
+      class:mobile-tree-open={mobileTreeOpen}
+    >
+      <button
+        class="research-mobile-back"
+        onclick={() => {
+          selectedResearchId = null;
+          mobileTreeOpen = false;
+        }}
+      ><Icon name="arrow-left" /> {$t('research_back_to_categories')}</button>
       <div class="research-tree-head">
         <div>
           <span class="kicker">{$t('research_progress')}</span>

@@ -724,6 +724,10 @@
     linear-gradient(160deg, #0d2541, #071426 72%);
 }
 
+.research-mobile-back {
+  display: none;
+}
+
 .research-experience.research-tree-panel::before {
   background-image: radial-gradient(rgba(206, 244, 255, .44) 1px, transparent 1.5px);
   background-size: 38px 38px;
@@ -776,6 +780,8 @@
 }
 
 .research-experience .research-tree-canvas {
+  --research-node-size: 116px;
+  --research-node-gap: clamp(92px, 14vw, 170px);
   min-width: 720px;
   margin: 0;
   padding: 12px 14px 20px;
@@ -789,8 +795,8 @@
 }
 
 .research-experience .research-tree-tier {
-  min-height: 116px;
-  gap: clamp(92px, 14vw, 170px);
+  min-height: var(--research-node-size);
+  gap: var(--research-node-gap);
 }
 
 .research-experience .research-tree-tier::before,
@@ -842,12 +848,12 @@
 
 .research-experience .research-tree-connector.from-2 .research-connector-parent-rail,
 .research-experience .research-tree-connector.to-2 .research-connector-child-rail {
-  width: calc(116px + clamp(92px, 14vw, 170px));
+  width: calc(var(--research-node-size) + var(--research-node-gap));
 }
 
 .research-experience .research-tree-connector.from-3 .research-connector-parent-rail,
 .research-experience .research-tree-connector.to-3 .research-connector-child-rail {
-  width: calc(232px + clamp(184px, 28vw, 340px));
+  width: calc(var(--research-node-size) + var(--research-node-gap) + var(--research-node-size) + var(--research-node-gap));
 }
 
 .research-experience .research-tree-connector.from-2 .research-connector-parent-rail,
@@ -872,16 +878,16 @@
 .research-experience .research-tree-node-slot {
   position: relative;
   z-index: 1;
-  width: 116px;
-  height: 116px;
-  flex: 0 0 116px;
+  width: var(--research-node-size);
+  height: var(--research-node-size);
+  flex: 0 0 var(--research-node-size);
 }
 
 .research-experience .research-tree-node-slot::after {
   content: "";
   position: absolute;
   z-index: -1;
-  top: 116px;
+  top: var(--research-node-size);
   left: 50%;
   width: 2px;
   height: 12px;
@@ -918,9 +924,9 @@
  * unwanted light and dark points at the two tips of a hexagon. */
 
 .research-experience .game-tree-node {
-  width: 116px;
-  min-height: 116px;
-  height: 116px;
+  width: var(--research-node-size);
+  min-height: var(--research-node-size);
+  height: var(--research-node-size);
   padding: 15px 16px 10px;
   border: 0;
   outline: 0;
@@ -1161,22 +1167,93 @@
   }
 
   .research-experience .research-tree-canvas {
-    min-width: 660px;
+    --research-node-size: clamp(88px, 15vw, 116px);
+    --research-node-gap: clamp(32px, 8vw, 62px);
+    width: 100%;
+    min-width: 0;
+    padding-inline: 8px;
   }
 }
 
 @media (max-width: 520px) {
+  @keyframes research-mobile-list-in {
+    from {
+      opacity: 0;
+      transform: translateX(-12px);
+    }
+  }
+
+  @keyframes research-mobile-tree-in {
+    from {
+      opacity: 0;
+      transform: translateX(18px);
+    }
+  }
+
+  .research-experience.research-overview {
+    animation: research-mobile-list-in .22s ease-out;
+  }
+
+  .research-experience.research-overview.mobile-tree-open {
+    display: none;
+  }
+
+  .research-experience.research-tree-panel {
+    display: none;
+  }
+
+  .research-experience.research-tree-panel.mobile-tree-open {
+    display: block;
+    animation: research-mobile-tree-in .25s ease-out;
+  }
+
+  .research-mobile-back {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin: -4px 0 18px;
+    padding: 7px 10px;
+    border: 1px solid rgba(164, 239, 255, .28);
+    border-radius: 9px;
+    background: rgba(47, 126, 165, .16);
+    color: var(--research-sky);
+    font: inherit;
+    font-size: .78rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .research-mobile-back:is(:hover, :focus-visible) {
+    border-color: var(--research-sky);
+    background: rgba(64, 157, 197, .25);
+  }
+
+  .research-mobile-back svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .research-experience.research-overview,
+    .research-experience.research-tree-panel.mobile-tree-open {
+      animation: none;
+    }
+  }
+
   .research-experience .research-tree-head h3 {
     font-size: 1.18rem;
   }
 
   .research-experience .research-tree-canvas {
-    min-width: 600px;
+    --research-node-size: clamp(64px, 22vw, 88px);
+    --research-node-gap: clamp(8px, 3vw, 16px);
+    padding: 10px 2px 18px;
   }
 
   .research-experience .research-tree-tier {
-    min-height: 94px;
-    gap: 62px;
+    min-height: var(--research-node-size);
   }
 
   .research-experience .research-tree-connector {
@@ -1197,42 +1274,36 @@
     bottom: 10px;
   }
 
-  .research-experience .research-tree-connector.from-2 .research-connector-parent-rail,
-  .research-experience .research-tree-connector.to-2 .research-connector-child-rail {
-    width: 156px;
-  }
-
-  .research-experience .research-tree-connector.from-3 .research-connector-parent-rail,
-  .research-experience .research-tree-connector.to-3 .research-connector-child-rail {
-    width: 312px;
-  }
-
   .research-experience .game-tree-node {
-    width: 94px;
-    min-height: 94px;
-    height: 94px;
-    padding: 11px 14px 7px;
+    width: var(--research-node-size);
+    min-height: var(--research-node-size);
+    height: var(--research-node-size);
+    padding: 9px 10px 6px;
   }
 
   .research-experience .research-tree-node-slot {
-    width: 94px;
-    height: 94px;
-    flex-basis: 94px;
+    width: var(--research-node-size);
+    height: var(--research-node-size);
+    flex-basis: var(--research-node-size);
   }
 
   .research-experience .research-tree-node-slot::after {
-    top: 94px;
+    top: var(--research-node-size);
   }
 
 
   .research-experience .research-node-icon {
-    width: 42px;
-    height: 42px;
+    width: clamp(34px, 10vw, 42px);
+    height: clamp(34px, 10vw, 42px);
   }
 
   .research-experience .research-node-icon svg {
-    width: 29px;
-    height: 29px;
+    width: clamp(23px, 7vw, 29px);
+    height: clamp(23px, 7vw, 29px);
+  }
+
+  .research-experience .research-tree-viewport {
+    overflow-x: hidden;
   }
 
   .research-detail-card {
