@@ -12,7 +12,15 @@
     essence = $state('0'),
     duelBonus = $state(Math.min(150, Math.max(0, parseNumber(readPreference('lat-raven-duel-points-bonus', '100')))));
   let hasPhases = $derived(getRavenUpgradeCost(current).phaseCount > 0 && target > current);
-  let currentPhase = $derived(completed + 1);
+  let currentPhase = $derived(completed);
+  let previousCurrent = $state(Number(current));
+  $effect(() => {
+    const currentLevel = Number(current);
+    if (currentLevel === previousCurrent) return;
+    target = Math.min((Math.floor(currentLevel / 5) + 1) * 5, 250);
+    completed = 0;
+    previousCurrent = currentLevel;
+  });
   let result = $derived(calculateRavenProgression(current, target, hasPhases ? completed : 0));
   let eventPoints = $derived(calculateRavenEventPoints({
     fruit: result.fruit,
@@ -45,14 +53,14 @@
         bind:value={target}
       />
       <div class="full raven-phase-picker" id="raven-phase-field" hidden={!hasPhases}>
-        <div class="raven-phase-picker-head"><span>{$t('raven_completed_phases')}</span><strong>{$t('raven_phase')} {currentPhase} / 5</strong></div>
+        <div class="raven-phase-picker-head"><span>{$t('raven_completed_phases')}</span><div><strong>{$t('raven_phase')} {currentPhase} / 5</strong><button type="button" class="raven-phase-reset" disabled={completed === 0} onclick={() => (completed = 0)}>{$t('raven_phase_reset')}</button></div></div>
         <div class="raven-phase-segments" role="group" aria-label={$t('raven_completed_phases')}>
           {#each [1, 2, 3, 4, 5] as phase}<button
               type="button"
               class:complete={phase <= currentPhase}
               aria-pressed={phase === currentPhase}
               aria-label={`${$t('raven_phase')} ${phase} / 5`}
-              onclick={() => (completed = phase - 1)}
+              onclick={() => (completed = phase)}
             ></button>{/each}
         </div>
         <small class="field-hint">{$t('raven_phase_bar_hint')}</small>
