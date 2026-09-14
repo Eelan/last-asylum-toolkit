@@ -49,6 +49,7 @@
       <LevelField id="raven-current" label={$t('current')} max={250} bind:value={current} /><LevelField
         id="raven-target"
         label={$t('target')}
+        min={Number(current)}
         max={250}
         bind:value={target}
       />
