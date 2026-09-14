@@ -1,0 +1,123 @@
+.translation-review-intro {
+  margin-top:0;
+}
+
+.translation-review-controls {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(180px,.3fr);
+  gap:13px;
+  margin-top:18px;
+}
+
+.translation-review-count {
+  margin:16px 0 10px;
+  color:var(--muted);
+  font-size:.76rem;
+}
+
+.translation-table th,
+.translation-table td {
+  vertical-align:top;
+  text-align:left;
+  white-space:pre-wrap;
+}
+
+.translation-table th:last-child,
+.translation-table td:last-child {
+  min-width:130px;
+}
+
+.translation-table code {
+  color:var(--accent);
+  font-size:.72rem;
+}
+
+.translation-table .missing {
+  color:var(--danger);
+  font-style:italic;
+}
+
+.translation-status {
+  border:1px solid rgba(217,104,88,.42);
+  border-radius:999px;
+  background:rgba(217,104,88,.1);
+  color:var(--danger);
+  padding:6px 9px;
+  font-size:.72rem;
+  font-weight:750;
+  white-space:nowrap;
+}
+
+.translation-status.verified {
+  border-color:rgba(94,203,138,.42);
+  background:rgba(94,203,138,.1);
+  color:var(--good);
+}
+
+.translation-empty {
+  color:var(--muted);
+  text-align:center !important;
+}
+
+@media(max-width:520px) {
+  .translation-review-controls {
+    grid-template-columns:1fr;
+  }
+}
+.translation-tabs {
+  display:flex;
+  gap:8px;
+  margin-top:18px;
+}
+
+.translation-tabs button,
+.translation-edit {
+  border:1px solid var(--line);
+  border-radius:9px;
+  background:#0f171b;
+  color:var(--muted);
+  padding:8px 11px;
+  font-size:.74rem;
+}
+
+.translation-tabs button.active {
+  border-color:var(--accent);
+  background:rgba(var(--accent-rgb),.1);
+  color:var(--accent);
+}
+
+.translation-actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+}
+
+.translation-edit {
+  color:var(--text);
+}
+
+.translation-editor td {
+  background:rgba(0,0,0,.12);
+}
+
+.translation-editor-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:13px;
+}
+
+.translation-editor textarea {
+  width:100%;
+  min-height:92px;
+  resize:vertical;
+  padding:12px 13px;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:10px;
+  background:#0d1519;
+  color:var(--text);
+  font:inherit;
+}
+
+@media(max-width:520px) {
+  .translation-editor-grid { grid-template-columns:1fr; }
+}

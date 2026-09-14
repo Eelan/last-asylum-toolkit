@@ -1,4 +1,6 @@
 export const TOOLS = [{
+  id: 'admin', icon: 'badge-check', title: 'admin_translations_title', desc: 'admin_translations_desc', ready: true, hidden: true, category: 'information', section: 'tools'
+}, {
   id: 'timers', icon: 'timer', title: 'timers_title', desc: 'timers_desc', ready: true, category: 'personal', section: 'tools'
 }, {
   id: 'stocks', icon: 'package-open', title: 'stocks_title', desc: 'stocks_desc', ready: true, category: 'personal', section: 'tools'

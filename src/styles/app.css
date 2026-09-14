@@ -13,6 +13,7 @@
 @import "./pages/events.css";
 @import "./pages/researches.css";
 @import "./pages/stocks.css";
+@import "./pages/admin-translations.css";
 
 body {
   padding-top: env(safe-area-inset-top);

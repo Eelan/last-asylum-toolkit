@@ -24,7 +24,7 @@
   let section = $derived(sections.includes(route) ? route : tool?.section || 'tools');
   let navigation = $derived(
     categories.flatMap((category) =>
-      TOOLS.filter((tool) => tool.ready && tool.section === section && tool.category === category)
+      TOOLS.filter((tool) => tool.ready && !tool.hidden && tool.section === section && tool.category === category)
     )
   );
   let page = $derived(ready && tool?.ready && pages[route] ? pages[route]() : null);

@@ -1,5 +1,6 @@
 /** Lazy page modules keep each tool separate from application navigation. */
 export const pages = {
+  admin: () => import('../../pages/AdminTranslations.svelte'),
   antitoxin: () => import('../../pages/Antitoxin.svelte'),
   skills: () => import('../../pages/Skills.svelte'),
   stocks: () => import('../../pages/Stocks.svelte'),
