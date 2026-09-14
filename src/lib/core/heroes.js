@@ -22,7 +22,8 @@ function normalizeHero(hero) {
     name: catalogHero.name,
     rarity: catalogHero.rarity,
     current: normalizeLevel(hero.current),
-    target: normalizeLevel(hero.target)
+    target: normalizeLevel(hero.target),
+    power: typeof hero.power === 'number' && Number.isFinite(hero.power) && hero.power >= 0 ? hero.power : null
   };
 }
 
@@ -49,7 +50,8 @@ export function createTrackedHero(catalogHero) {
     name: catalogHero?.name || '',
     rarity: catalogHero?.rarity || 'ur',
     current: 1,
-    target: 1
+    target: 1,
+    power: null
   };
 }
 

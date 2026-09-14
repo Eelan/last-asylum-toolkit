@@ -1,4 +1,5 @@
 <script>
+  import AdjustmentButtons from './AdjustmentButtons.svelte';
   import { getStoredStock, parseNumber, setStoredStock } from '../core/storage.js';
   import ResourceLabel from './ResourceLabel.svelte';
   let {
@@ -17,7 +18,6 @@
   } = $props();
   let resetPending = $state(false);
   let editPreviousValue = $state(null);
-  let adjustmentMode = $state('add');
 
   $effect(() => {
     value = getStoredStock(resource) ?? '0';
@@ -31,11 +31,6 @@
     setStoredStock(resource, value);
     onstockchange?.({ resource, previousValue, nextValue: parseNumber(value) });
     resetPending = false;
-  }
-
-  function adjustStock(amount) {
-    const direction = adjustmentMode === 'add' ? 1 : -1;
-    updateStock(parseNumber(value) + direction * amount);
   }
 
   function resetStock() {
@@ -72,29 +67,7 @@
       }}
     />
     <div class="quick-stock-actions">
-      <div class="stock-mode" role="group" aria-label={`${addLabel} / ${removeLabel}`}>
-        <button
-          type="button"
-          class:active={adjustmentMode === 'add'}
-          aria-pressed={adjustmentMode === 'add'}
-          aria-label={addLabel}
-          title={addLabel}
-          onclick={() => (adjustmentMode = 'add')}>+</button
-        >
-        <button
-          type="button"
-          class:active={adjustmentMode === 'remove'}
-          aria-pressed={adjustmentMode === 'remove'}
-          aria-label={removeLabel}
-          title={removeLabel}
-          onclick={() => (adjustmentMode = 'remove')}>−</button
-        >
-      </div>
-      {#each increments as increment}
-        <button type="button" class="stock-increment" onclick={() => adjustStock(increment.value)}>
-          {adjustmentMode === 'add' ? '+' : '−'}{increment.label}
-        </button>
-      {/each}
+      <AdjustmentButtons {increments} {addLabel} {removeLabel} onadjust={(amount) => updateStock(parseNumber(value) + amount)} />
       <button
         type="button"
         class:pending={resetPending}
