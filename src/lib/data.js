@@ -11,6 +11,7 @@ const [
   stars,
   skills,
   duel,
+  ravenEventPoints,
   heroes,
   heroProfiles
 ] = await Promise.all([
@@ -20,6 +21,7 @@ const [
   loadDataset('data/progression/hero-stars.json'),
   loadDataset('data/progression/skill-badges.json'),
   loadDataset('data/events/alliance-duel.json'),
+  loadDataset('data/events/raven-event-points.json'),
   loadDataset('data/heroes/catalog.json'),
   loadDataset('data/heroes/profiles.json')
 ]);
@@ -32,6 +34,7 @@ Object.assign(GAME_DATA, {
   raven,
   stars,
   skills,
-  duel
+  duel,
+  ravenEventPoints
 });
 }

@@ -5,7 +5,7 @@ import { GAME_DATA } from '../src/lib/data.js';
 import { calculateAntitoxinProgression } from '../src/lib/domain/antitoxin.js';
 import { calculateSkillProgression } from '../src/lib/domain/skills.js';
 import { calculateFragmentUpgrade } from '../src/lib/domain/fragments.js';
-import { calculateRavenProgression, getRavenUpgradeCost } from '../src/lib/domain/raven.js';
+import { calculateRavenEventPoints, calculateRavenProgression, getRavenUpgradeCost } from '../src/lib/domain/raven.js';
 import { calculateSanctuaryProgression } from '../src/lib/domain/sanctuary.js';
 import { calculateDuelPlan } from '../src/lib/domain/duel.js';
 
@@ -15,7 +15,8 @@ for (const [key, path] of Object.entries({
   stars: 'progression/hero-stars',
   raven: 'progression/raven',
   sanctuary: 'progression/sanctuary',
-  duel: 'events/alliance-duel'
+  duel: 'events/alliance-duel',
+  ravenEventPoints: 'events/raven-event-points'
 })) {
   GAME_DATA[key] = JSON.parse(await readFile(new URL(`../public/data/${path}.json`, import.meta.url))).data;
 }
@@ -60,6 +61,16 @@ test('Corbeau: completed phases apply only to the first upgrade', () => {
   assert.equal(full.fruit, partial.fruit);
   assert.equal(calculateRavenProgression(249, 250).levels.length, 1);
   assert.equal(calculateRavenProgression(250, 1).valid, false);
+});
+test('Corbeau: event points use confirmed Survival and Alliance Duel rules', () => {
+  const result = calculateRavenEventPoints({ fruit: 10, essence: 1, duelBonus: 100 });
+  assert.equal(result.survivalBattlePoints, 1);
+  assert.equal(result.allianceDuelBasePoints, 2530);
+  assert.equal(result.allianceDuelPoints, 5060);
+  assert.equal(result.allianceDuelFruitPoints, 6);
+  assert.equal(result.allianceDuelEssencePoints, 5000);
+  assert.equal(calculateRavenEventPoints({ fruit: 9, essence: 0 }).survivalBattlePoints, 0);
+  assert.equal(calculateRavenEventPoints({ fruit: -1, essence: -1 }).allianceDuelPoints, 0);
 });
 test('Sanctuary totals retain costs and replacement power semantics', () => {
   const result = calculateSanctuaryProgression(1, 30);
