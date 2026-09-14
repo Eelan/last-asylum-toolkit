@@ -1,10 +1,32 @@
 import { readPreference, writePreference } from '../platform/storage.ts';
 import { TRANSLATIONS } from '../i18n/translations.js';
 
+const overridesStorageKey = 'lat-translation-overrides';
 let currentLanguage = readPreference('lat-lang') || 'fr';
+let overrides = readOverrides();
+
+function readOverrides() {
+  try {
+    const saved = JSON.parse(readPreference(overridesStorageKey, '{}') || '{}');
+    return saved && typeof saved === 'object' && !Array.isArray(saved) ? saved : {};
+  } catch {
+    return {};
+  }
+}
+
+/** Returns the locally edited value when available, otherwise the bundled translation. */
+export function getTranslationValue(language, key) {
+  return overrides[language]?.[key] ?? TRANSLATIONS[language]?.[key];
+}
+
+/** Saves an administrator edit locally; bundled translation files remain unchanged. */
+export function setTranslationOverride(language, key, value) {
+  overrides = { ...overrides, [language]: { ...overrides[language], [key]: value } };
+  writePreference(overridesStorageKey, JSON.stringify(overrides));
+}
 
 export function translate(key) {
-  return TRANSLATIONS[currentLanguage]?.[key] ?? TRANSLATIONS.fr[key] ?? key;
+  return getTranslationValue(currentLanguage, key) ?? getTranslationValue('fr', key) ?? key;
 }
 
 export function formatNumber(value) {

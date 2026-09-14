@@ -2,6 +2,33 @@ import { GAME_DATA } from '../data.js';
 
 export const RAVEN_ESSENCE_PHASES = 5;
 
+/** Calculates event points from the Corbeau resources consumed by a valid upgrade plan. */
+export function calculateRavenEventPoints({ fruit, essence, duelBonus = 0 }) {
+  const consumedFruit = Math.max(0, Number(fruit) || 0);
+  const consumedEssence = Math.max(0, Number(essence) || 0);
+  const bonus = Math.max(0, Number(duelBonus) || 0);
+  const { allianceDuel, survivalBattle } = GAME_DATA.ravenEventPoints;
+  const multiplier = 1 + bonus / 100;
+  const allianceDuelFruitBasePoints = allianceDuel.ravenFruit.points / allianceDuel.ravenFruit.unit;
+  const allianceDuelEssenceBasePoints = allianceDuel.ravenEssence.points / allianceDuel.ravenEssence.unit;
+  const duelBasePoints = consumedFruit / allianceDuel.ravenFruit.unit * allianceDuel.ravenFruit.points
+    + consumedEssence / allianceDuel.ravenEssence.unit * allianceDuel.ravenEssence.points;
+  const survivalBattlePoints = Math.floor(consumedFruit / survivalBattle.ravenFruit.unit)
+    * survivalBattle.ravenFruit.points;
+
+  return {
+    allianceDuelBasePoints: Math.floor(duelBasePoints),
+    allianceDuelPoints: Math.floor(duelBasePoints * multiplier),
+    allianceDuelFruitBasePoints,
+    allianceDuelFruitPoints: Math.floor(allianceDuelFruitBasePoints * multiplier),
+    allianceDuelEssenceBasePoints,
+    allianceDuelEssencePoints: Math.floor(allianceDuelEssenceBasePoints * multiplier),
+    survivalBattlePoints,
+    survivalBattleFruitUnit: survivalBattle.ravenFruit.unit,
+    survivalBattleFruitPoints: survivalBattle.ravenFruit.points
+  };
+}
+
 /** Returns the cost of upgrading from the supplied Corbeau level. */
 export function getRavenUpgradeCost(level) {
   const band = GAME_DATA.raven.find(([from, to]) => level >= from && level <= to);

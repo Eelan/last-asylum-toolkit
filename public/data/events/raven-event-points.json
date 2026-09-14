@@ -1,0 +1,27 @@
+{
+  "$schema": "../game-dataset.schema.json",
+  "schemaVersion": 1,
+  "id": "raven-event-points",
+  "source": {
+    "name": "Relevés en jeu fournis par le contributeur",
+    "url": null,
+    "type": "in-game",
+    "status": "partial",
+    "verifiedOn": "2026-09-07",
+    "note": "Duel d’Alliance : 3 points par Fruit du corbeau et 2 500 points par Essence, avant bonus. Combat de Survie : 1 point de phase par tranche complète de 10 Fruits consommés. Les points d’Essence du Combat de Survie restent à confirmer."
+  },
+  "semantics": {
+    "valueMode": "lookup",
+    "note": "allianceDuel contient les points de base par ressource consommée ; le bonus personnel est appliqué dans l’interface. survivalBattle compte uniquement les ressources dont le barème est confirmé."
+  },
+  "data": {
+    "allianceDuel": {
+      "ravenFruit": { "unit": 1, "points": 3 },
+      "ravenEssence": { "unit": 1, "points": 2500 }
+    },
+    "survivalBattle": {
+      "ravenFruit": { "unit": 10, "points": 1 },
+      "ravenEssence": null
+    }
+  }
+}

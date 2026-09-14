@@ -14,7 +14,7 @@ test('Every ready route loads without JavaScript errors or missing bundled asset
     await expect(page.locator('.page-head h2')).toBeVisible();
     await expect(page.locator('#view [aria-busy]')).toHaveCount(0);
     await expect(page.locator('#view > :not(.page-head)').first()).toBeVisible();
-    await expect(page.locator('#view')).not.toContainText('Impossible de charger');
+    await expect(page.locator('#view .error-message')).toHaveCount(0);
   }
   expect(errors).toEqual([]);
 });
