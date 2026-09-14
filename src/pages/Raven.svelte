@@ -13,7 +13,7 @@
     duelBonus = $state(Math.min(150, Math.max(0, parseNumber(readPreference('lat-raven-duel-points-bonus', '100')))));
   let hasPhases = $derived(getRavenUpgradeCost(current).phaseCount > 0 && target > current);
   let currentPhase = $derived(completed);
-  let previousCurrent = $state(Number(current));
+  let previousCurrent = $state(1);
   $effect(() => {
     const currentLevel = Number(current);
     if (currentLevel === previousCurrent) return;
