@@ -1,0 +1,5859 @@
+{
+  "$schema": "../game-dataset.schema.json",
+  "schemaVersion": 1,
+  "id": "buildings",
+  "source": {
+    "name": "Last Asylum: Plague Wiki",
+    "url": "https://wiki-last-asylum.com/en/wiki/buildings",
+    "type": "community",
+    "status": "partial",
+    "verifiedOn": "2026-08-31",
+    "note": "Wiki game version 1.0.87. Building pages provide only reference levels for most upgradeable buildings. Displayed costs and times may be rounded; durationMinutesApprox is approximate."
+  },
+  "semantics": {
+    "valueMode": "mixed",
+    "note": "unlocksAt is the Sanctuary level for placing the first copy. baseMaxCopies excludes research-unlocked extra copies. effectsAtLevel and powerAtLevel describe the level reached. upgradeCost and durationMinutesApprox describe reaching that level; null means unavailable or not precise. Non-Sanctuary upgradeable buildings have reference levels only; do not interpolate or sum their sample costs."
+  },
+  "data": [
+    {
+      "id": "sanctuary",
+      "name": "Sanctuary",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 1
+      },
+      "baseMaxCopies": 1,
+      "maxLevel": 30,
+      "effectTypes": ["hero-level-cap", "hero-hp", "hero-atk", "hero-def"],
+      "levelCoverage": "complete",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {
+            "hero-level-cap": {
+              "value": 5,
+              "unit": "count"
+            },
+            "hero-hp": {
+              "value": 1600,
+              "unit": "count"
+            },
+            "hero-atk": {
+              "value": 25,
+              "unit": "count"
+            },
+            "hero-def": {
+              "value": 25,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 900,
+          "upgradeCost": {
+            "grain": 29,
+            "timber": 29,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 2,
+          "effectsAtLevel": {
+            "hero-level-cap": {
+              "value": 5,
+              "unit": "count"
+            },
+            "hero-hp": {
+              "value": 3300,
+              "unit": "count"
+            },
+            "hero-atk": {
+              "value": 48,
+              "unit": "count"
+            },
+            "hero-def": {
+              "value": 48,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 1600,
+          "upgradeCost": {
+            "grain": 32,
+            "timber": 32,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 3,
+          "effectsAtLevel": {
+            "hero-level-cap": {
+              "value": 5,
+              "unit": "count"
+            },
+            "hero-hp": {
+              "value": 5000,
+              "unit": "count"
+            },
+            "hero-atk": {
+              "value": 70,
+              "unit": "count"
+            },
+            "hero-def": {
+              "value": 70,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 2500,
+          "upgradeCost": {
+            "grain": 983,
+            "timber": 983,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 4,
+          "effectsAtLevel": {
+            "hero-level-cap": {
+              "value": 15,
+              "unit": "count"
+            },
+            "hero-hp": {
+              "value": 6600,
+              "unit": "count"
+            },
+            "hero-atk": {
+              "value": 94,
+              "unit": "count"
+            },
+            "hero-def": {
+              "value": 94,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 3400,
+          "upgradeCost": {
+            "grain": 2598,
+            "timber": 2598,
+            "herb": null
+          },
+          "durationMinutesApprox": 5
+        },
+        {
+          "level": 5,
+          "effectsAtLevel": {
+            "hero-level-cap": {
+              "value": 25,
+              "unit": "count"
+            },
+            "hero-hp": {
+              "value": 8300,
+              "unit": "count"
+            },
+            "hero-atk": {
+              "value": 120,
+              "unit": "count"
+            },
+            "hero-def": {
+              "value": 120,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 4400,
+          "upgradeCost": {
+            "grain": 19730,
+            "timber": 19730,
+            "herb": null
+          },
+          "durationMinutesApprox": 10
+        },
+        {
+          "level": 6,
+          "effectsAtLevel": {
+            "hero-level-cap": {
+              "value": 30,
+              "unit": "count"
+            },
+            "hero-hp": {
+              "value": 10100,
+              "unit": "count"
+            },
+            "hero-atk": {
+              "value": 145,
+              "unit": "count"
+            },
+            "hero-def": {
+              "value": 145,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 5300,
+          "upgradeCost": {
+            "grain": 92710,
+            "timber": 92710,
+            "herb": null
+          },
+          "durationMinutesApprox": 34
+        },
+        {
+          "level": 7,
+          "effectsAtLevel": {
+            "hero-level-cap": {
+              "value": 35,
+              "unit": "count"
+            },
+            "hero-hp": {
+              "value": 11700,
+              "unit": "count"
+            },
+            "hero-atk": {
+              "value": 169,
+              "unit": "count"
+            },
+            "hero-def": {
+              "value": 169,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 6200,
+          "upgradeCost": {
+            "grain": 235800,
+            "timber": 235800,
+            "herb": null
+          },
+          "durationMinutesApprox": 90
+        },
+        {
+          "level": 8,
+          "effectsAtLevel": {
+            "hero-level-cap": {
+              "value": 40,
+              "unit": "count"
+            },
+            "hero-hp": {
+              "value": 13400,
+              "unit": "count"
+            },
+            "hero-atk": {
+              "value": 193,
+              "unit": "count"
+            },
+            "hero-def": {
+              "value": 193,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 7000,
+          "upgradeCost": {
+            "grain": 395600,
+            "timber": 395600,
+            "herb": null
+          },
+          "durationMinutesApprox": 181
+        },
+        {
+          "level": 9,
+          "effectsAtLevel": {
+            "hero-level-cap": {
+              "value": 45,
+              "unit": "count"
+            },
+            "hero-hp": {
+              "value": 15100,
+              "unit": "count"
+            },
+            "hero-atk": {
+              "value": 217,
+              "unit": "count"
+            },
+            "hero-def": {
+              "value": 217,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 8300,
+          "upgradeCost": {
+            "grain": 605800,
+            "timber": 605800,
+            "herb": 208700
+          },
+          "durationMinutesApprox": 256
+        },
+        {
+          "level": 10,
+          "effectsAtLevel": {
+            "hero-level-cap": {
+              "value": 50,
+              "unit": "count"
+            },
+            "hero-hp": {
+              "value": 16700,
+              "unit": "count"
+            },
+            "hero-atk": {
+              "value": 241,
+              "unit": "count"
+            },
+            "hero-def": {
+              "value": 241,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 9700,
+          "upgradeCost": {
+            "grain": 748700,
+            "timber": 748700,
+            "herb": 232900
+          },
+          "durationMinutesApprox": 335
+        },
+        {
+          "level": 11,
+          "effectsAtLevel": {
+            "hero-level-cap": {
+              "value": 55,
+              "unit": "count"
+            },
+            "hero-hp": {
+              "value": 18400,
+              "unit": "count"
+            },
+            "hero-atk": {
+              "value": 262,
+              "unit": "count"
+            },
+            "hero-def": {
+              "value": 262,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 12000,
+          "upgradeCost": {
+            "grain": 1853000,
+            "timber": 1853000,
+            "herb": 601800
+          },
+          "durationMinutesApprox": 434
+        },
+        {
+          "level": 12,
+          "effectsAtLevel": {
+            "hero-level-cap": {
+              "value": 60,
+              "unit": "count"
+            },
+            "hero-hp": {
+              "value": 20200,
+              "unit": "count"
+            },
+            "hero-atk": {
+              "value": 288,
+              "unit": "count"
+            },
+            "hero-def": {
+              "value": 288,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 14900,
+          "upgradeCost": {
+            "grain": 3104000,
+            "timber": 3104000,
+            "herb": 959000
+          },
+          "durationMinutesApprox": 564
+        },
+        {
+          "level": 13,
+          "effectsAtLevel": {
+            "hero-level-cap": {
+              "value": 65,
+              "unit": "count"
+            },
+            "hero-hp": {
+              "value": 21800,
+              "unit": "count"
+            },
+            "hero-atk": {
+              "value": 310,
+              "unit": "count"
+            },
+            "hero-def": {
+              "value": 310,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 17700,
+          "upgradeCost": {
+            "grain": 3519000,
+            "timber": 3519000,
+            "herb": 1082000
+          },
+          "durationMinutesApprox": 733
+        },
+        {
+          "level": 14,
+          "effectsAtLevel": {
+            "hero-level-cap": {
+              "value": 70,
+              "unit": "count"
+            },
+            "hero-hp": {
+              "value": 23500,
+              "unit": "count"
+            },
+            "hero-atk": {
+              "value": 336,
+              "unit": "count"
+            },
+            "hero-def": {
+              "value": 336,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 21200,
+          "upgradeCost": {
+            "grain": 4913000,
+            "timber": 4913000,
+            "herb": 1645000
+          },
+          "durationMinutesApprox": 953
+        },
+        {
+          "level": 15,
+          "effectsAtLevel": {
+            "hero-level-cap": {
+              "value": 75,
+              "unit": "count"
+            },
+            "hero-hp": {
+              "value": 25200,
+              "unit": "count"
+            },
+            "hero-atk": {
+              "value": 358,
+              "unit": "count"
+            },
+            "hero-def": {
+              "value": 358,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 25600,
+          "upgradeCost": {
+            "grain": 6474000,
+            "timber": 6474000,
+            "herb": 2290000
+          },
+          "durationMinutesApprox": 1335
+        },
+        {
+          "level": 16,
+          "effectsAtLevel": {
+            "hero-level-cap": {
+              "value": 80,
+              "unit": "count"
+            },
+            "hero-hp": {
+              "value": 26800,
+              "unit": "count"
+            },
+            "hero-atk": {
+              "value": 386,
+              "unit": "count"
+            },
+            "hero-def": {
+              "value": 386,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 30900,
+          "upgradeCost": {
+            "grain": 11900000,
+            "timber": 11900000,
+            "herb": 3970000
+          },
+          "durationMinutesApprox": 1860
+        },
+        {
+          "level": 17,
+          "effectsAtLevel": {
+            "hero-level-cap": {
+              "value": 85,
+              "unit": "count"
+            },
+            "hero-hp": {
+              "value": 28500,
+              "unit": "count"
+            },
+            "hero-atk": {
+              "value": 407,
+              "unit": "count"
+            },
+            "hero-def": {
+              "value": 407,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 37400,
+          "upgradeCost": {
+            "grain": 16670000,
+            "timber": 16670000,
+            "herb": 5138000
+          },
+          "durationMinutesApprox": 2580
+        },
+        {
+          "level": 18,
+          "effectsAtLevel": {
+            "hero-level-cap": {
+              "value": 90,
+              "unit": "count"
+            },
+            "hero-hp": {
+              "value": 30200,
+              "unit": "count"
+            },
+            "hero-atk": {
+              "value": 431,
+              "unit": "count"
+            },
+            "hero-def": {
+              "value": 431,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 45700,
+          "upgradeCost": {
+            "grain": 28220000,
+            "timber": 28220000,
+            "herb": 9329000
+          },
+          "durationMinutesApprox": 3660
+        },
+        {
+          "level": 19,
+          "effectsAtLevel": {
+            "hero-level-cap": {
+              "value": 95,
+              "unit": "count"
+            },
+            "hero-hp": {
+              "value": 31900,
+              "unit": "count"
+            },
+            "hero-atk": {
+              "value": 456,
+              "unit": "count"
+            },
+            "hero-def": {
+              "value": 456,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 54900,
+          "upgradeCost": {
+            "grain": 32710000,
+            "timber": 32710000,
+            "herb": 11340000
+          },
+          "durationMinutesApprox": 5100
+        },
+        {
+          "level": 20,
+          "effectsAtLevel": {
+            "hero-level-cap": {
+              "value": 100,
+              "unit": "count"
+            },
+            "hero-hp": {
+              "value": 33600,
+              "unit": "count"
+            },
+            "hero-atk": {
+              "value": 479,
+              "unit": "count"
+            },
+            "hero-def": {
+              "value": 479,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 67300,
+          "upgradeCost": {
+            "grain": 60030000,
+            "timber": 60030000,
+            "herb": 18410000
+          },
+          "durationMinutesApprox": 7140
+        },
+        {
+          "level": 21,
+          "effectsAtLevel": {
+            "hero-level-cap": {
+              "value": 105,
+              "unit": "count"
+            },
+            "hero-hp": {
+              "value": 35300,
+              "unit": "count"
+            },
+            "hero-atk": {
+              "value": 504,
+              "unit": "count"
+            },
+            "hero-def": {
+              "value": 504,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 81500,
+          "upgradeCost": {
+            "grain": 85450000,
+            "timber": 85450000,
+            "herb": 27640000
+          },
+          "durationMinutesApprox": 9600
+        },
+        {
+          "level": 22,
+          "effectsAtLevel": {
+            "hero-level-cap": {
+              "value": 110,
+              "unit": "count"
+            },
+            "hero-hp": {
+              "value": 36900,
+              "unit": "count"
+            },
+            "hero-atk": {
+              "value": 528,
+              "unit": "count"
+            },
+            "hero-def": {
+              "value": 528,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 98300,
+          "upgradeCost": {
+            "grain": 111200000,
+            "timber": 111200000,
+            "herb": 36660000
+          },
+          "durationMinutesApprox": 12480
+        },
+        {
+          "level": 23,
+          "effectsAtLevel": {
+            "hero-level-cap": {
+              "value": 115,
+              "unit": "count"
+            },
+            "hero-hp": {
+              "value": 38600,
+              "unit": "count"
+            },
+            "hero-atk": {
+              "value": 554,
+              "unit": "count"
+            },
+            "hero-def": {
+              "value": 554,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 116700,
+          "upgradeCost": {
+            "grain": 145200000,
+            "timber": 145200000,
+            "herb": 42760000
+          },
+          "durationMinutesApprox": 16200
+        },
+        {
+          "level": 24,
+          "effectsAtLevel": {
+            "hero-level-cap": {
+              "value": 120,
+              "unit": "count"
+            },
+            "hero-hp": {
+              "value": 40400,
+              "unit": "count"
+            },
+            "hero-atk": {
+              "value": 579,
+              "unit": "count"
+            },
+            "hero-def": {
+              "value": 579,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 137300,
+          "upgradeCost": {
+            "grain": 171200000,
+            "timber": 171200000,
+            "herb": 56250000
+          },
+          "durationMinutesApprox": 22740
+        },
+        {
+          "level": 25,
+          "effectsAtLevel": {
+            "hero-level-cap": {
+              "value": 125,
+              "unit": "count"
+            },
+            "hero-hp": {
+              "value": 42000,
+              "unit": "count"
+            },
+            "hero-atk": {
+              "value": 603,
+              "unit": "count"
+            },
+            "hero-def": {
+              "value": 603,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 164400,
+          "upgradeCost": {
+            "grain": 277900000,
+            "timber": 277900000,
+            "herb": 97530000
+          },
+          "durationMinutesApprox": 31860
+        },
+        {
+          "level": 26,
+          "effectsAtLevel": {
+            "hero-level-cap": {
+              "value": 130,
+              "unit": "count"
+            },
+            "hero-hp": {
+              "value": 43700,
+              "unit": "count"
+            },
+            "hero-atk": {
+              "value": 624,
+              "unit": "count"
+            },
+            "hero-def": {
+              "value": 624,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 195900,
+          "upgradeCost": {
+            "grain": 386800000,
+            "timber": 386800000,
+            "herb": 123500000
+          },
+          "durationMinutesApprox": 44580
+        },
+        {
+          "level": 27,
+          "effectsAtLevel": {
+            "hero-level-cap": {
+              "value": 135,
+              "unit": "count"
+            },
+            "hero-hp": {
+              "value": 45400,
+              "unit": "count"
+            },
+            "hero-atk": {
+              "value": 647,
+              "unit": "count"
+            },
+            "hero-def": {
+              "value": 647,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 232300,
+          "upgradeCost": {
+            "grain": 548000000,
+            "timber": 548000000,
+            "herb": 168600000
+          },
+          "durationMinutesApprox": 62400
+        },
+        {
+          "level": 28,
+          "effectsAtLevel": {
+            "hero-level-cap": {
+              "value": 140,
+              "unit": "count"
+            },
+            "hero-hp": {
+              "value": 47000,
+              "unit": "count"
+            },
+            "hero-atk": {
+              "value": 674,
+              "unit": "count"
+            },
+            "hero-def": {
+              "value": 674,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 275200,
+          "upgradeCost": {
+            "grain": 731100000,
+            "timber": 731100000,
+            "herb": 236500000
+          },
+          "durationMinutesApprox": 87420
+        },
+        {
+          "level": 29,
+          "effectsAtLevel": {
+            "hero-level-cap": {
+              "value": 145,
+              "unit": "count"
+            },
+            "hero-hp": {
+              "value": 48700,
+              "unit": "count"
+            },
+            "hero-atk": {
+              "value": 695,
+              "unit": "count"
+            },
+            "hero-def": {
+              "value": 695,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 325300,
+          "upgradeCost": {
+            "grain": 1047000000,
+            "timber": 1047000000,
+            "herb": 316400000
+          },
+          "durationMinutesApprox": 113640
+        },
+        {
+          "level": 30,
+          "effectsAtLevel": {
+            "hero-level-cap": {
+              "value": 150,
+              "unit": "count"
+            },
+            "hero-hp": {
+              "value": 50500,
+              "unit": "count"
+            },
+            "hero-atk": {
+              "value": 723,
+              "unit": "count"
+            },
+            "hero-def": {
+              "value": 723,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 384300,
+          "upgradeCost": {
+            "grain": 1356000000,
+            "timber": 1356000000,
+            "herb": 441300000
+          },
+          "durationMinutesApprox": 147720
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-sanctuary",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "farm",
+      "name": "Farm",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 1
+      },
+      "baseMaxCopies": 4,
+      "maxLevel": 30,
+      "effectTypes": ["output-hour", "max-production-time"],
+      "levelCoverage": "reference-levels",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {
+            "output-hour": {
+              "value": 144,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 210,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 500,
+          "upgradeCost": null,
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 5,
+          "effectsAtLevel": {
+            "output-hour": {
+              "value": 5827,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 520,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 2800,
+          "upgradeCost": {
+            "grain": 1761,
+            "timber": 5284,
+            "herb": null
+          },
+          "durationMinutesApprox": 3
+        },
+        {
+          "level": 10,
+          "effectsAtLevel": {
+            "output-hour": {
+              "value": 11630,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 560,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 5800,
+          "upgradeCost": {
+            "grain": 31080,
+            "timber": 93240,
+            "herb": 20580
+          },
+          "durationMinutesApprox": 45
+        },
+        {
+          "level": 15,
+          "effectsAtLevel": {
+            "output-hour": {
+              "value": 17443,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 600,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 10600,
+          "upgradeCost": {
+            "grain": 301100,
+            "timber": 892900,
+            "herb": 176100
+          },
+          "durationMinutesApprox": 166
+        },
+        {
+          "level": 20,
+          "effectsAtLevel": {
+            "output-hour": {
+              "value": 23252,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 640,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 23000,
+          "upgradeCost": {
+            "grain": 2549000,
+            "timber": 7646000,
+            "herb": 1644000
+          },
+          "durationMinutesApprox": 897
+        },
+        {
+          "level": 25,
+          "effectsAtLevel": {
+            "output-hour": {
+              "value": 28345,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 680,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 51000,
+          "upgradeCost": {
+            "grain": 12060000,
+            "timber": 36170000,
+            "herb": 7351000
+          },
+          "durationMinutesApprox": 3960
+        },
+        {
+          "level": 30,
+          "effectsAtLevel": {
+            "output-hour": {
+              "value": 34158,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 720,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 115100,
+          "upgradeCost": {
+            "grain": 57920000,
+            "timber": 173700000,
+            "herb": 37730000
+          },
+          "durationMinutesApprox": 18420
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-farm",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "lumberyard",
+      "name": "Lumberyard",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 1
+      },
+      "baseMaxCopies": 4,
+      "maxLevel": 30,
+      "effectTypes": ["output-hour", "max-production-time"],
+      "levelCoverage": "reference-levels",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {
+            "output-hour": {
+              "value": 144,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 210,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 400,
+          "upgradeCost": {
+            "grain": 5,
+            "timber": null,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 5,
+          "effectsAtLevel": {
+            "output-hour": {
+              "value": 5827,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 520,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 2800,
+          "upgradeCost": {
+            "grain": 5107,
+            "timber": 1702,
+            "herb": null
+          },
+          "durationMinutesApprox": 3
+        },
+        {
+          "level": 10,
+          "effectsAtLevel": {
+            "output-hour": {
+              "value": 11630,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 560,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 5900,
+          "upgradeCost": {
+            "grain": 91770,
+            "timber": 30590,
+            "herb": 20270
+          },
+          "durationMinutesApprox": 45
+        },
+        {
+          "level": 15,
+          "effectsAtLevel": {
+            "output-hour": {
+              "value": 17443,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 600,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 10800,
+          "upgradeCost": {
+            "grain": 878000,
+            "timber": 296100,
+            "herb": 182600
+          },
+          "durationMinutesApprox": 166
+        },
+        {
+          "level": 20,
+          "effectsAtLevel": {
+            "output-hour": {
+              "value": 23252,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 640,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 22900,
+          "upgradeCost": {
+            "grain": 7533000,
+            "timber": 2511000,
+            "herb": 1668000
+          },
+          "durationMinutesApprox": 897
+        },
+        {
+          "level": 25,
+          "effectsAtLevel": {
+            "output-hour": {
+              "value": 28345,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 680,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 50900,
+          "upgradeCost": {
+            "grain": 36230000,
+            "timber": 12080000,
+            "herb": 7385000
+          },
+          "durationMinutesApprox": 3960
+        },
+        {
+          "level": 30,
+          "effectsAtLevel": {
+            "output-hour": {
+              "value": 34158,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 720,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 115300,
+          "upgradeCost": {
+            "grain": 187600000,
+            "timber": 62530000,
+            "herb": 39900000
+          },
+          "durationMinutesApprox": 18420
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-lumberyard",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "herb-garden",
+      "name": "Herb Garden",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 1
+      },
+      "baseMaxCopies": 4,
+      "maxLevel": 30,
+      "effectTypes": ["output-hour", "max-production-time"],
+      "levelCoverage": "reference-levels",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {
+            "output-hour": {
+              "value": 72,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 210,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 600,
+          "upgradeCost": {
+            "grain": 8,
+            "timber": 8,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 5,
+          "effectsAtLevel": {
+            "output-hour": {
+              "value": 3669,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 520,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 2900,
+          "upgradeCost": {
+            "grain": 3469,
+            "timber": 3469,
+            "herb": null
+          },
+          "durationMinutesApprox": 3
+        },
+        {
+          "level": 10,
+          "effectsAtLevel": {
+            "output-hour": {
+              "value": 7319,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 560,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 5900,
+          "upgradeCost": {
+            "grain": 62390,
+            "timber": 62390,
+            "herb": 19170
+          },
+          "durationMinutesApprox": 45
+        },
+        {
+          "level": 15,
+          "effectsAtLevel": {
+            "output-hour": {
+              "value": 10960,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 600,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 10600,
+          "upgradeCost": {
+            "grain": 572600,
+            "timber": 572600,
+            "herb": 172400
+          },
+          "durationMinutesApprox": 166
+        },
+        {
+          "level": 20,
+          "effectsAtLevel": {
+            "output-hour": {
+              "value": 14613,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 640,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 22900,
+          "upgradeCost": {
+            "grain": 5050000,
+            "timber": 5050000,
+            "herb": 1531000
+          },
+          "durationMinutesApprox": 897
+        },
+        {
+          "level": 25,
+          "effectsAtLevel": {
+            "output-hour": {
+              "value": 18263,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 680,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 50800,
+          "upgradeCost": {
+            "grain": 22830000,
+            "timber": 22830000,
+            "herb": 7328000
+          },
+          "durationMinutesApprox": 3960
+        },
+        {
+          "level": 30,
+          "effectsAtLevel": {
+            "output-hour": {
+              "value": 21912,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 720,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 114900,
+          "upgradeCost": {
+            "grain": 121200000,
+            "timber": 121200000,
+            "herb": 38510000
+          },
+          "durationMinutesApprox": 18420
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-herb-garden",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "residence",
+      "name": "Residence",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 1
+      },
+      "baseMaxCopies": 1,
+      "maxLevel": 1,
+      "effectTypes": [],
+      "levelCoverage": "complete",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {},
+          "powerAtLevel": 100,
+          "upgradeCost": {
+            "grain": 480,
+            "timber": 360,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-residence",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "temple",
+      "name": "Temple",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 1
+      },
+      "baseMaxCopies": 1,
+      "maxLevel": 1,
+      "effectTypes": [],
+      "levelCoverage": "complete",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {},
+          "powerAtLevel": 500,
+          "upgradeCost": {
+            "grain": 12,
+            "timber": 9,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-temple",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "hall-of-honor",
+      "name": "Hall of Honor",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 1
+      },
+      "baseMaxCopies": 1,
+      "maxLevel": 1,
+      "effectTypes": [],
+      "levelCoverage": "complete",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {},
+          "powerAtLevel": 500,
+          "upgradeCost": {
+            "grain": 12,
+            "timber": 9,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-hall-of-honor",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "soldier-s-rest",
+      "name": "Soldier's Rest",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 1
+      },
+      "baseMaxCopies": 1,
+      "maxLevel": 30,
+      "effectTypes": ["troop-reception-rate", "troop-reception-capacity", "rest-cooldown", "help-accepted"],
+      "levelCoverage": "reference-levels",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {
+            "troop-reception-rate": {
+              "value": 18,
+              "unit": "percent"
+            },
+            "troop-reception-capacity": {
+              "value": 400,
+              "unit": "count"
+            },
+            "rest-cooldown": {
+              "value": 216000,
+              "unit": "second"
+            },
+            "help-accepted": {
+              "value": 5,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 500,
+          "upgradeCost": {
+            "grain": 10,
+            "timber": 10,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 5,
+          "effectsAtLevel": {
+            "troop-reception-rate": {
+              "value": 22,
+              "unit": "percent"
+            },
+            "troop-reception-capacity": {
+              "value": 600,
+              "unit": "count"
+            },
+            "rest-cooldown": {
+              "value": 212400,
+              "unit": "second"
+            },
+            "help-accepted": {
+              "value": 5,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 2500,
+          "upgradeCost": {
+            "grain": 14112,
+            "timber": 14112,
+            "herb": null
+          },
+          "durationMinutesApprox": 10
+        },
+        {
+          "level": 10,
+          "effectsAtLevel": {
+            "troop-reception-rate": {
+              "value": 27,
+              "unit": "percent"
+            },
+            "troop-reception-capacity": {
+              "value": 850,
+              "unit": "count"
+            },
+            "rest-cooldown": {
+              "value": 205200,
+              "unit": "second"
+            },
+            "help-accepted": {
+              "value": 6,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 6100,
+          "upgradeCost": {
+            "grain": 368890,
+            "timber": 368890,
+            "herb": 59820
+          },
+          "durationMinutesApprox": 250
+        },
+        {
+          "level": 15,
+          "effectsAtLevel": {
+            "troop-reception-rate": {
+              "value": 32,
+              "unit": "percent"
+            },
+            "troop-reception-capacity": {
+              "value": 1100,
+              "unit": "count"
+            },
+            "rest-cooldown": {
+              "value": 198000,
+              "unit": "second"
+            },
+            "help-accepted": {
+              "value": 7,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 16800,
+          "upgradeCost": {
+            "grain": 3369400,
+            "timber": 3369400,
+            "herb": 545050
+          },
+          "durationMinutesApprox": 1001
+        },
+        {
+          "level": 20,
+          "effectsAtLevel": {
+            "troop-reception-rate": {
+              "value": 37,
+              "unit": "percent"
+            },
+            "troop-reception-capacity": {
+              "value": 1350,
+              "unit": "count"
+            },
+            "rest-cooldown": {
+              "value": 190800,
+              "unit": "second"
+            },
+            "help-accepted": {
+              "value": 8,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 45200,
+          "upgradeCost": {
+            "grain": 30300000,
+            "timber": 30300000,
+            "herb": 4848000
+          },
+          "durationMinutesApprox": 5340
+        },
+        {
+          "level": 25,
+          "effectsAtLevel": {
+            "troop-reception-rate": {
+              "value": 40,
+              "unit": "percent"
+            },
+            "troop-reception-capacity": {
+              "value": 1675,
+              "unit": "count"
+            },
+            "rest-cooldown": {
+              "value": 183600,
+              "unit": "second"
+            },
+            "help-accepted": {
+              "value": 9,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 110500,
+          "upgradeCost": {
+            "grain": 139300000,
+            "timber": 139300000,
+            "herb": 22885000
+          },
+          "durationMinutesApprox": 23880
+        },
+        {
+          "level": 30,
+          "effectsAtLevel": {
+            "troop-reception-rate": {
+              "value": 40,
+              "unit": "percent"
+            },
+            "troop-reception-capacity": {
+              "value": 2000,
+              "unit": "count"
+            },
+            "rest-cooldown": {
+              "value": 172800,
+              "unit": "second"
+            },
+            "help-accepted": {
+              "value": 10,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 260000,
+          "upgradeCost": {
+            "grain": 717840000,
+            "timber": 717840000,
+            "herb": 119640000
+          },
+          "durationMinutesApprox": 110820
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-soldier-s-rest",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "granary",
+      "name": "Granary",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 3
+      },
+      "baseMaxCopies": 1,
+      "maxLevel": 30,
+      "effectTypes": ["protected-resource"],
+      "levelCoverage": "reference-levels",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {
+            "protected-resource": {
+              "value": 1087,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 700,
+          "upgradeCost": {
+            "grain": 4,
+            "timber": 14,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 5,
+          "effectsAtLevel": {
+            "protected-resource": {
+              "value": 13615,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 3500,
+          "upgradeCost": {
+            "grain": 6901,
+            "timber": 20300,
+            "herb": null
+          },
+          "durationMinutesApprox": 10
+        },
+        {
+          "level": 10,
+          "effectsAtLevel": {
+            "protected-resource": {
+              "value": 180176,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 7500,
+          "upgradeCost": {
+            "grain": 183300,
+            "timber": 540300,
+            "herb": 176700
+          },
+          "durationMinutesApprox": 258
+        },
+        {
+          "level": 15,
+          "effectsAtLevel": {
+            "protected-resource": {
+              "value": 1440194,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 19500,
+          "upgradeCost": {
+            "grain": 1743000,
+            "timber": 5228000,
+            "herb": 1613000
+          },
+          "durationMinutesApprox": 1001
+        },
+        {
+          "level": 20,
+          "effectsAtLevel": {
+            "protected-resource": {
+              "value": 9900166,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 50400,
+          "upgradeCost": {
+            "grain": 15380000,
+            "timber": 46140000,
+            "herb": 13690000
+          },
+          "durationMinutesApprox": 5340
+        },
+        {
+          "level": 25,
+          "effectsAtLevel": {
+            "protected-resource": {
+              "value": 36000138,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 122600,
+          "upgradeCost": {
+            "grain": 74480000,
+            "timber": 227600000,
+            "herb": 68300000
+          },
+          "durationMinutesApprox": 23880
+        },
+        {
+          "level": 30,
+          "effectsAtLevel": {
+            "protected-resource": {
+              "value": 225000183,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 287500,
+          "upgradeCost": {
+            "grain": 344600000,
+            "timber": 1053000000,
+            "herb": 342800000
+          },
+          "durationMinutesApprox": 110820
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-granary",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "lumber-depot",
+      "name": "Lumber Depot",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 3
+      },
+      "baseMaxCopies": 1,
+      "maxLevel": 30,
+      "effectTypes": ["protected-resource"],
+      "levelCoverage": "reference-levels",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {
+            "protected-resource": {
+              "value": 1087,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 600,
+          "upgradeCost": {
+            "grain": 14,
+            "timber": 4,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 5,
+          "effectsAtLevel": {
+            "protected-resource": {
+              "value": 13615,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 3500,
+          "upgradeCost": {
+            "grain": 19370,
+            "timber": 6585,
+            "herb": null
+          },
+          "durationMinutesApprox": 10
+        },
+        {
+          "level": 10,
+          "effectsAtLevel": {
+            "protected-resource": {
+              "value": 180176,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 7500,
+          "upgradeCost": {
+            "grain": 546000,
+            "timber": 185200,
+            "herb": 178400
+          },
+          "durationMinutesApprox": 258
+        },
+        {
+          "level": 15,
+          "effectsAtLevel": {
+            "protected-resource": {
+              "value": 1440194,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 19600,
+          "upgradeCost": {
+            "grain": 5127000,
+            "timber": 1709000,
+            "herb": 1531000
+          },
+          "durationMinutesApprox": 1001
+        },
+        {
+          "level": 20,
+          "effectsAtLevel": {
+            "protected-resource": {
+              "value": 9900166,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 50600,
+          "upgradeCost": {
+            "grain": 43810000,
+            "timber": 14600000,
+            "herb": 14240000
+          },
+          "durationMinutesApprox": 5340
+        },
+        {
+          "level": 25,
+          "effectsAtLevel": {
+            "protected-resource": {
+              "value": 36000138,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 122700,
+          "upgradeCost": {
+            "grain": 218300000,
+            "timber": 71430000,
+            "herb": 71180000
+          },
+          "durationMinutesApprox": 23880
+        },
+        {
+          "level": 30,
+          "effectsAtLevel": {
+            "protected-resource": {
+              "value": 225000183,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 287300,
+          "upgradeCost": {
+            "grain": 1121000000,
+            "timber": 366900000,
+            "herb": 346900000
+          },
+          "durationMinutesApprox": 110820
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-lumber-depot",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "herb-storage",
+      "name": "Herb Storage",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 3
+      },
+      "baseMaxCopies": 1,
+      "maxLevel": 30,
+      "effectTypes": ["protected-resource"],
+      "levelCoverage": "reference-levels",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {
+            "protected-resource": {
+              "value": 497,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 700,
+          "upgradeCost": {
+            "grain": 9,
+            "timber": 9,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 5,
+          "effectsAtLevel": {
+            "protected-resource": {
+              "value": 4657,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 3400,
+          "upgradeCost": {
+            "grain": 13430,
+            "timber": 13430,
+            "herb": null
+          },
+          "durationMinutesApprox": 10
+        },
+        {
+          "level": 10,
+          "effectsAtLevel": {
+            "protected-resource": {
+              "value": 60168,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 7500,
+          "upgradeCost": {
+            "grain": 373400,
+            "timber": 373400,
+            "herb": 186600
+          },
+          "durationMinutesApprox": 264
+        },
+        {
+          "level": 15,
+          "effectsAtLevel": {
+            "protected-resource": {
+              "value": 480152,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 19400,
+          "upgradeCost": {
+            "grain": 3468000,
+            "timber": 3468000,
+            "herb": 1620000
+          },
+          "durationMinutesApprox": 1001
+        },
+        {
+          "level": 20,
+          "effectsAtLevel": {
+            "protected-resource": {
+              "value": 3300174,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 50500,
+          "upgradeCost": {
+            "grain": 29150000,
+            "timber": 29150000,
+            "herb": 14550000
+          },
+          "durationMinutesApprox": 5340
+        },
+        {
+          "level": 25,
+          "effectsAtLevel": {
+            "protected-resource": {
+              "value": 12000115,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 122300,
+          "upgradeCost": {
+            "grain": 138000000,
+            "timber": 138000000,
+            "herb": 65560000
+          },
+          "durationMinutesApprox": 23880
+        },
+        {
+          "level": 30,
+          "effectsAtLevel": {
+            "protected-resource": {
+              "value": 75000118,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 287000,
+          "upgradeCost": {
+            "grain": 699600000,
+            "timber": 699600000,
+            "herb": 363100000
+          },
+          "durationMinutesApprox": 110820
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-herb-storage",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "builder-s-hut",
+      "name": "Builder's Hut",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 3
+      },
+      "baseMaxCopies": 1,
+      "maxLevel": 30,
+      "effectTypes": ["free-speedup-time"],
+      "levelCoverage": "reference-levels",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {
+            "free-speedup-time": null
+          },
+          "powerAtLevel": 400,
+          "upgradeCost": {
+            "grain": 7,
+            "timber": 7,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 5,
+          "effectsAtLevel": {
+            "free-speedup-time": {
+              "value": 1,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 2400,
+          "upgradeCost": {
+            "grain": 6909,
+            "timber": 20320,
+            "herb": null
+          },
+          "durationMinutesApprox": 10
+        },
+        {
+          "level": 10,
+          "effectsAtLevel": {
+            "free-speedup-time": {
+              "value": 5,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 5600,
+          "upgradeCost": {
+            "grain": 125500,
+            "timber": 386800,
+            "herb": 40240
+          },
+          "durationMinutesApprox": 172
+        },
+        {
+          "level": 15,
+          "effectsAtLevel": {
+            "free-speedup-time": {
+              "value": 10,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 14200,
+          "upgradeCost": {
+            "grain": 1077000,
+            "timber": 3329000,
+            "herb": 361700
+          },
+          "durationMinutesApprox": 667
+        },
+        {
+          "level": 20,
+          "effectsAtLevel": {
+            "free-speedup-time": {
+              "value": 15,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 37100,
+          "upgradeCost": {
+            "grain": 10470000,
+            "timber": 31400000,
+            "herb": 3172000
+          },
+          "durationMinutesApprox": 3540
+        },
+        {
+          "level": 25,
+          "effectsAtLevel": {
+            "free-speedup-time": {
+              "value": 20,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 89900,
+          "upgradeCost": {
+            "grain": 49620000,
+            "timber": 144700000,
+            "herb": 15650000
+          },
+          "durationMinutesApprox": 15900
+        },
+        {
+          "level": 30,
+          "effectsAtLevel": {
+            "free-speedup-time": {
+              "value": 30,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 210700,
+          "upgradeCost": {
+            "grain": 247200000,
+            "timber": 741600000,
+            "herb": 80350000
+          },
+          "durationMinutesApprox": 73860
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-builder-s-hut",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "walls",
+      "name": "Walls",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 4
+      },
+      "baseMaxCopies": 1,
+      "maxLevel": 30,
+      "effectTypes": ["city-def", "wall-def-decay-rate-decrease", "wall-def-recovery-speed-increase"],
+      "levelCoverage": "reference-levels",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {
+            "city-def": {
+              "value": 10000,
+              "unit": "count"
+            },
+            "wall-def-decay-rate-decrease": {
+              "value": 1,
+              "unit": "percent"
+            },
+            "wall-def-recovery-speed-increase": {
+              "value": 1,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 400,
+          "upgradeCost": {
+            "grain": 9,
+            "timber": 29,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 5,
+          "effectsAtLevel": {
+            "city-def": {
+              "value": 10000,
+              "unit": "count"
+            },
+            "wall-def-decay-rate-decrease": {
+              "value": 5,
+              "unit": "percent"
+            },
+            "wall-def-recovery-speed-increase": {
+              "value": 5,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 3000,
+          "upgradeCost": {
+            "grain": 6848,
+            "timber": 20140,
+            "herb": null
+          },
+          "durationMinutesApprox": 10
+        },
+        {
+          "level": 10,
+          "effectsAtLevel": {
+            "city-def": {
+              "value": 10000,
+              "unit": "count"
+            },
+            "wall-def-decay-rate-decrease": {
+              "value": 10,
+              "unit": "percent"
+            },
+            "wall-def-recovery-speed-increase": {
+              "value": 10,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 7300,
+          "upgradeCost": {
+            "grain": 253200,
+            "timber": 759700,
+            "herb": 163300
+          },
+          "durationMinutesApprox": 335
+        },
+        {
+          "level": 15,
+          "effectsAtLevel": {
+            "city-def": {
+              "value": 10000,
+              "unit": "count"
+            },
+            "wall-def-decay-rate-decrease": {
+              "value": 15,
+              "unit": "percent"
+            },
+            "wall-def-recovery-speed-increase": {
+              "value": 15,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 20100,
+          "upgradeCost": {
+            "grain": 2204000,
+            "timber": 6516000,
+            "herb": 1520000
+          },
+          "durationMinutesApprox": 1335
+        },
+        {
+          "level": 20,
+          "effectsAtLevel": {
+            "city-def": {
+              "value": 10000,
+              "unit": "count"
+            },
+            "wall-def-decay-rate-decrease": {
+              "value": 20,
+              "unit": "percent"
+            },
+            "wall-def-recovery-speed-increase": {
+              "value": 20,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 54000,
+          "upgradeCost": {
+            "grain": 20020000,
+            "timber": 60050000,
+            "herb": 12970000
+          },
+          "durationMinutesApprox": 7140
+        },
+        {
+          "level": 25,
+          "effectsAtLevel": {
+            "city-def": {
+              "value": 10000,
+              "unit": "count"
+            },
+            "wall-def-decay-rate-decrease": {
+              "value": 25,
+              "unit": "percent"
+            },
+            "wall-def-recovery-speed-increase": {
+              "value": 25,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 133300,
+          "upgradeCost": {
+            "grain": 96280000,
+            "timber": 290800000,
+            "herb": 64600000
+          },
+          "durationMinutesApprox": 31860
+        },
+        {
+          "level": 30,
+          "effectsAtLevel": {
+            "city-def": {
+              "value": 10000,
+              "unit": "count"
+            },
+            "wall-def-decay-rate-decrease": {
+              "value": 30,
+              "unit": "percent"
+            },
+            "wall-def-recovery-speed-increase": {
+              "value": 30,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 313300,
+          "upgradeCost": {
+            "grain": 499700000,
+            "timber": 1457000000,
+            "herb": 312400000
+          },
+          "durationMinutesApprox": 147720
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-walls",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "gear-workshop",
+      "name": "Gear Workshop",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 4
+      },
+      "baseMaxCopies": 1,
+      "maxLevel": 30,
+      "effectTypes": [],
+      "levelCoverage": "reference-levels",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {},
+          "powerAtLevel": 500,
+          "upgradeCost": {
+            "grain": 29,
+            "timber": 89,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 5,
+          "effectsAtLevel": {},
+          "powerAtLevel": 2400,
+          "upgradeCost": {
+            "grain": 6738,
+            "timber": 19820,
+            "herb": null
+          },
+          "durationMinutesApprox": 11
+        },
+        {
+          "level": 10,
+          "effectsAtLevel": {},
+          "powerAtLevel": 6300,
+          "upgradeCost": {
+            "grain": 219300,
+            "timber": 647900,
+            "herb": 71870
+          },
+          "durationMinutesApprox": 300
+        },
+        {
+          "level": 15,
+          "effectsAtLevel": {},
+          "powerAtLevel": 17800,
+          "upgradeCost": {
+            "grain": 1983000,
+            "timber": 5950000,
+            "herb": 625700
+          },
+          "durationMinutesApprox": 1168
+        },
+        {
+          "level": 20,
+          "effectsAtLevel": {},
+          "powerAtLevel": 47700,
+          "upgradeCost": {
+            "grain": 16190000,
+            "timber": 49540000,
+            "herb": 5794000
+          },
+          "durationMinutesApprox": 6240
+        },
+        {
+          "level": 25,
+          "effectsAtLevel": {},
+          "powerAtLevel": 117800,
+          "upgradeCost": {
+            "grain": 85460000,
+            "timber": 254300000,
+            "herb": 28040000
+          },
+          "durationMinutesApprox": 27840
+        },
+        {
+          "level": 30,
+          "effectsAtLevel": {},
+          "powerAtLevel": 277600,
+          "upgradeCost": {
+            "grain": 433100000,
+            "timber": 1341000000,
+            "herb": 124400000
+          },
+          "durationMinutesApprox": 129300
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-gear-workshop",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "explorer-s-camp",
+      "name": "Explorer's Camp",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 4
+      },
+      "baseMaxCopies": 1,
+      "maxLevel": 1,
+      "effectTypes": [],
+      "levelCoverage": "complete",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {},
+          "powerAtLevel": 100,
+          "upgradeCost": {
+            "grain": 120,
+            "timber": 120,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-explorer-s-camp",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "tavern",
+      "name": "Tavern",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 4
+      },
+      "baseMaxCopies": 1,
+      "maxLevel": 30,
+      "effectTypes": ["free-hero-recruit-cd", "free-survivor-recruit-cd"],
+      "levelCoverage": "reference-levels",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {
+            "free-hero-recruit-cd": {
+              "value": 259200,
+              "unit": "count"
+            },
+            "free-survivor-recruit-cd": {
+              "value": 259200,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 500,
+          "upgradeCost": {
+            "grain": 29,
+            "timber": 9,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 5,
+          "effectsAtLevel": {
+            "free-hero-recruit-cd": {
+              "value": 244800,
+              "unit": "count"
+            },
+            "free-survivor-recruit-cd": {
+              "value": 244800,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 3400,
+          "upgradeCost": {
+            "grain": 19990,
+            "timber": 6796,
+            "herb": null
+          },
+          "durationMinutesApprox": 10
+        },
+        {
+          "level": 10,
+          "effectsAtLevel": {
+            "free-hero-recruit-cd": {
+              "value": 226800,
+              "unit": "count"
+            },
+            "free-survivor-recruit-cd": {
+              "value": 226800,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 7800,
+          "upgradeCost": {
+            "grain": 662700,
+            "timber": 224300,
+            "herb": 214700
+          },
+          "durationMinutesApprox": 306
+        },
+        {
+          "level": 15,
+          "effectsAtLevel": {
+            "free-hero-recruit-cd": {
+              "value": 208800,
+              "unit": "count"
+            },
+            "free-survivor-recruit-cd": {
+              "value": 208800,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 20400,
+          "upgradeCost": {
+            "grain": 6190000,
+            "timber": 2063000,
+            "herb": 1846000
+          },
+          "durationMinutesApprox": 1168
+        },
+        {
+          "level": 20,
+          "effectsAtLevel": {
+            "free-hero-recruit-cd": {
+              "value": 190800,
+              "unit": "count"
+            },
+            "free-survivor-recruit-cd": {
+              "value": 190800,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 54000,
+          "upgradeCost": {
+            "grain": 54020000,
+            "timber": 17660000,
+            "herb": 16400000
+          },
+          "durationMinutesApprox": 6240
+        },
+        {
+          "level": 25,
+          "effectsAtLevel": {
+            "free-hero-recruit-cd": {
+              "value": 181800,
+              "unit": "count"
+            },
+            "free-survivor-recruit-cd": {
+              "value": 181800,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 131600,
+          "upgradeCost": {
+            "grain": 244000000,
+            "timber": 81990000,
+            "herb": 80260000
+          },
+          "durationMinutesApprox": 27840
+        },
+        {
+          "level": 30,
+          "effectsAtLevel": {
+            "free-hero-recruit-cd": {
+              "value": 172800,
+              "unit": "count"
+            },
+            "free-survivor-recruit-cd": {
+              "value": 172800,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 309500,
+          "upgradeCost": {
+            "grain": 1255000000,
+            "timber": 405400000,
+            "herb": 404400000
+          },
+          "durationMinutesApprox": 129300
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-tavern",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "squad-1",
+      "name": "Squad 1",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 4
+      },
+      "baseMaxCopies": 1,
+      "maxLevel": 30,
+      "effectTypes": ["squad-march-speed-increase"],
+      "levelCoverage": "reference-levels",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {
+            "squad-march-speed-increase": {
+              "value": 0.7,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 400,
+          "upgradeCost": {
+            "grain": 9,
+            "timber": 9,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 5,
+          "effectsAtLevel": {
+            "squad-march-speed-increase": {
+              "value": 2.7,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 2500,
+          "upgradeCost": {
+            "grain": 14440,
+            "timber": 14440,
+            "herb": null
+          },
+          "durationMinutesApprox": 10
+        },
+        {
+          "level": 10,
+          "effectsAtLevel": {
+            "squad-march-speed-increase": {
+              "value": 5.2,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 6100,
+          "upgradeCost": {
+            "grain": 359300,
+            "timber": 359300,
+            "herb": 61410
+          },
+          "durationMinutesApprox": 259
+        },
+        {
+          "level": 15,
+          "effectsAtLevel": {
+            "squad-march-speed-increase": {
+              "value": 7.7,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 16600,
+          "upgradeCost": {
+            "grain": 3535000,
+            "timber": 3535000,
+            "herb": 567100
+          },
+          "durationMinutesApprox": 1001
+        },
+        {
+          "level": 20,
+          "effectsAtLevel": {
+            "squad-march-speed-increase": {
+              "value": 10.1,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 44700,
+          "upgradeCost": {
+            "grain": 29200000,
+            "timber": 29200000,
+            "herb": 5023000
+          },
+          "durationMinutesApprox": 5340
+        },
+        {
+          "level": 25,
+          "effectsAtLevel": {
+            "squad-march-speed-increase": {
+              "value": 12.7,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 109200,
+          "upgradeCost": {
+            "grain": 135500000,
+            "timber": 135500000,
+            "herb": 22310000
+          },
+          "durationMinutesApprox": 23880
+        },
+        {
+          "level": 30,
+          "effectsAtLevel": {
+            "squad-march-speed-increase": {
+              "value": 15.1,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 257400,
+          "upgradeCost": {
+            "grain": 695500000,
+            "timber": 695500000,
+            "herb": 115800000
+          },
+          "durationMinutesApprox": 110820
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-squad-1",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "alliance-hall",
+      "name": "Alliance Hall",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 5
+      },
+      "baseMaxCopies": 1,
+      "maxLevel": 30,
+      "effectTypes": ["alliance-help-count", "alliance-help-duration"],
+      "levelCoverage": "reference-levels",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {
+            "alliance-help-count": {
+              "value": 4,
+              "unit": "count"
+            },
+            "alliance-help-duration": null
+          },
+          "powerAtLevel": 500,
+          "upgradeCost": {
+            "grain": 89,
+            "timber": 29,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 5,
+          "effectsAtLevel": {
+            "alliance-help-count": {
+              "value": 7,
+              "unit": "count"
+            },
+            "alliance-help-duration": null
+          },
+          "powerAtLevel": 3400,
+          "upgradeCost": {
+            "grain": 20840,
+            "timber": 7087,
+            "herb": null
+          },
+          "durationMinutesApprox": 10
+        },
+        {
+          "level": 10,
+          "effectsAtLevel": {
+            "alliance-help-count": {
+              "value": 10,
+              "unit": "count"
+            },
+            "alliance-help-duration": null
+          },
+          "powerAtLevel": 7300,
+          "upgradeCost": {
+            "grain": 383200,
+            "timber": 124300,
+            "herb": 122800
+          },
+          "durationMinutesApprox": 172
+        },
+        {
+          "level": 15,
+          "effectsAtLevel": {
+            "alliance-help-count": {
+              "value": 13,
+              "unit": "count"
+            },
+            "alliance-help-duration": null
+          },
+          "powerAtLevel": 16900,
+          "upgradeCost": {
+            "grain": 3251000,
+            "timber": 1052000,
+            "herb": 1100000
+          },
+          "durationMinutesApprox": 667
+        },
+        {
+          "level": 20,
+          "effectsAtLevel": {
+            "alliance-help-count": {
+              "value": 15,
+              "unit": "count"
+            },
+            "alliance-help-duration": null
+          },
+          "powerAtLevel": 42200,
+          "upgradeCost": {
+            "grain": 29540000,
+            "timber": 9850000,
+            "herb": 9578000
+          },
+          "durationMinutesApprox": 3540
+        },
+        {
+          "level": 25,
+          "effectsAtLevel": {
+            "alliance-help-count": {
+              "value": 17,
+              "unit": "count"
+            },
+            "alliance-help-duration": null
+          },
+          "powerAtLevel": 100700,
+          "upgradeCost": {
+            "grain": 133600000,
+            "timber": 45790000,
+            "herb": 43860000
+          },
+          "durationMinutesApprox": 15900
+        },
+        {
+          "level": 30,
+          "effectsAtLevel": {
+            "alliance-help-count": {
+              "value": 20,
+              "unit": "count"
+            },
+            "alliance-help-duration": null
+          },
+          "powerAtLevel": 235100,
+          "upgradeCost": {
+            "grain": 723200000,
+            "timber": 241100000,
+            "herb": 222400000
+          },
+          "durationMinutesApprox": 73860
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-alliance-hall",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "antitoxin-workshop",
+      "name": "Antitoxin Workshop",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 5
+      },
+      "baseMaxCopies": 5,
+      "maxLevel": 30,
+      "effectTypes": ["antitoxin-output-hour", "max-production-time"],
+      "levelCoverage": "reference-levels",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {
+            "antitoxin-output-hour": {
+              "value": 1556,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 488,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 400,
+          "upgradeCost": {
+            "grain": 9,
+            "timber": 9,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 5,
+          "effectsAtLevel": {
+            "antitoxin-output-hour": {
+              "value": 8095,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 520,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 3000,
+          "upgradeCost": {
+            "grain": 3555,
+            "timber": 3555,
+            "herb": null
+          },
+          "durationMinutesApprox": 5
+        },
+        {
+          "level": 10,
+          "effectsAtLevel": {
+            "antitoxin-output-hour": {
+              "value": 21115,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 560,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 5800,
+          "upgradeCost": {
+            "grain": 62790,
+            "timber": 62790,
+            "herb": 19150
+          },
+          "durationMinutesApprox": 44
+        },
+        {
+          "level": 15,
+          "effectsAtLevel": {
+            "antitoxin-output-hour": {
+              "value": 49249,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 600,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 10500,
+          "upgradeCost": {
+            "grain": 573600,
+            "timber": 573600,
+            "herb": 176500
+          },
+          "durationMinutesApprox": 166
+        },
+        {
+          "level": 20,
+          "effectsAtLevel": {
+            "antitoxin-output-hour": {
+              "value": 108372,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 640,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 22700,
+          "upgradeCost": {
+            "grain": 4876000,
+            "timber": 4876000,
+            "herb": 1628000
+          },
+          "durationMinutesApprox": 897
+        },
+        {
+          "level": 25,
+          "effectsAtLevel": {
+            "antitoxin-output-hour": {
+              "value": 162419,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 680,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 50700,
+          "upgradeCost": {
+            "grain": 24510000,
+            "timber": 24510000,
+            "herb": 7510000
+          },
+          "durationMinutesApprox": 3960
+        },
+        {
+          "level": 30,
+          "effectsAtLevel": {
+            "antitoxin-output-hour": {
+              "value": 259666,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 720,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 114700,
+          "upgradeCost": {
+            "grain": 125500000,
+            "timber": 125500000,
+            "herb": 40560000
+          },
+          "durationMinutesApprox": 18420
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-antitoxin-workshop",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "squad-4",
+      "name": "Squad 4",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 5
+      },
+      "baseMaxCopies": 1,
+      "maxLevel": 30,
+      "effectTypes": ["squad-march-speed-increase"],
+      "levelCoverage": "reference-levels",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {
+            "squad-march-speed-increase": {
+              "value": 0.7,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 400,
+          "upgradeCost": {
+            "grain": 9,
+            "timber": 9,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 5,
+          "effectsAtLevel": {
+            "squad-march-speed-increase": {
+              "value": 2.7,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 2500,
+          "upgradeCost": {
+            "grain": 14400,
+            "timber": 14400,
+            "herb": null
+          },
+          "durationMinutesApprox": 10
+        },
+        {
+          "level": 10,
+          "effectsAtLevel": {
+            "squad-march-speed-increase": {
+              "value": 5.2,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 5900,
+          "upgradeCost": {
+            "grain": 374100,
+            "timber": 374100,
+            "herb": 62640
+          },
+          "durationMinutesApprox": 259
+        },
+        {
+          "level": 15,
+          "effectsAtLevel": {
+            "squad-march-speed-increase": {
+              "value": 7.7,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 16600,
+          "upgradeCost": {
+            "grain": 3565000,
+            "timber": 3565000,
+            "herb": 548600
+          },
+          "durationMinutesApprox": 1001
+        },
+        {
+          "level": 20,
+          "effectsAtLevel": {
+            "squad-march-speed-increase": {
+              "value": 10.1,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 44700,
+          "upgradeCost": {
+            "grain": 29500000,
+            "timber": 29500000,
+            "herb": 4827000
+          },
+          "durationMinutesApprox": 5340
+        },
+        {
+          "level": 25,
+          "effectsAtLevel": {
+            "squad-march-speed-increase": {
+              "value": 12.7,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 109300,
+          "upgradeCost": {
+            "grain": 138800000,
+            "timber": 138800000,
+            "herb": 23640000
+          },
+          "durationMinutesApprox": 23880
+        },
+        {
+          "level": 30,
+          "effectsAtLevel": {
+            "squad-march-speed-increase": {
+              "value": 15.1,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 257500,
+          "upgradeCost": {
+            "grain": 727200000,
+            "timber": 727200000,
+            "herb": 121800000
+          },
+          "durationMinutesApprox": 110820
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-squad-4",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "epigraph-workshop",
+      "name": "Epigraph Workshop",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 5
+      },
+      "baseMaxCopies": 1,
+      "maxLevel": 30,
+      "effectTypes": [],
+      "levelCoverage": "reference-levels",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {},
+          "powerAtLevel": 600,
+          "upgradeCost": {
+            "grain": 10,
+            "timber": 10,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 5,
+          "effectsAtLevel": {},
+          "powerAtLevel": 3500,
+          "upgradeCost": {
+            "grain": 6800,
+            "timber": 6800,
+            "herb": null
+          },
+          "durationMinutesApprox": 5
+        },
+        {
+          "level": 10,
+          "effectsAtLevel": {},
+          "powerAtLevel": 7000,
+          "upgradeCost": {
+            "grain": 120000,
+            "timber": 120000,
+            "herb": 60000
+          },
+          "durationMinutesApprox": 85
+        },
+        {
+          "level": 15,
+          "effectsAtLevel": {},
+          "powerAtLevel": 13900,
+          "upgradeCost": {
+            "grain": 1100000,
+            "timber": 1100000,
+            "herb": 550000
+          },
+          "durationMinutesApprox": 340
+        },
+        {
+          "level": 20,
+          "effectsAtLevel": {},
+          "powerAtLevel": 31800,
+          "upgradeCost": {
+            "grain": 10000000,
+            "timber": 10000000,
+            "herb": 4800000
+          },
+          "durationMinutesApprox": 1800
+        },
+        {
+          "level": 25,
+          "effectsAtLevel": {},
+          "powerAtLevel": 73500,
+          "upgradeCost": {
+            "grain": 48000000,
+            "timber": 48000000,
+            "herb": 23000000
+          },
+          "durationMinutesApprox": 7860
+        },
+        {
+          "level": 30,
+          "effectsAtLevel": {},
+          "powerAtLevel": 168400,
+          "upgradeCost": {
+            "grain": 240000000,
+            "timber": 240000000,
+            "herb": 120000000
+          },
+          "durationMinutesApprox": 36540
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-epigraph-workshop",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "smelting-workshop",
+      "name": "Smelting Workshop",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 5
+      },
+      "baseMaxCopies": 5,
+      "maxLevel": 30,
+      "effectTypes": ["gearstone-output-hour", "max-production-time"],
+      "levelCoverage": "reference-levels",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {
+            "gearstone-output-hour": {
+              "value": 3,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 488,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 700,
+          "upgradeCost": {
+            "grain": 9,
+            "timber": 9,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 5,
+          "effectsAtLevel": {
+            "gearstone-output-hour": {
+              "value": 13,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 520,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 3300,
+          "upgradeCost": {
+            "grain": 6926,
+            "timber": 6926,
+            "herb": null
+          },
+          "durationMinutesApprox": 8
+        },
+        {
+          "level": 10,
+          "effectsAtLevel": {
+            "gearstone-output-hour": {
+              "value": 23,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 560,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 6900,
+          "upgradeCost": {
+            "grain": 118700,
+            "timber": 118700,
+            "herb": 57130
+          },
+          "durationMinutesApprox": 88
+        },
+        {
+          "level": 15,
+          "effectsAtLevel": {
+            "gearstone-output-hour": {
+              "value": 31,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 600,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 13700,
+          "upgradeCost": {
+            "grain": 1048000,
+            "timber": 1048000,
+            "herb": 574500
+          },
+          "durationMinutesApprox": 333
+        },
+        {
+          "level": 20,
+          "effectsAtLevel": {
+            "gearstone-output-hour": {
+              "value": 43,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 640,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 31600,
+          "upgradeCost": {
+            "grain": 9850000,
+            "timber": 9850000,
+            "herb": 4748000
+          },
+          "durationMinutesApprox": 1740
+        },
+        {
+          "level": 25,
+          "effectsAtLevel": {
+            "gearstone-output-hour": {
+              "value": 53,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 680,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 73400,
+          "upgradeCost": {
+            "grain": 45730000,
+            "timber": 45730000,
+            "herb": 24000000
+          },
+          "durationMinutesApprox": 7920
+        },
+        {
+          "level": 30,
+          "effectsAtLevel": {
+            "gearstone-output-hour": {
+              "value": 62,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 720,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 168300,
+          "upgradeCost": {
+            "grain": 242500000,
+            "timber": 242500000,
+            "herb": 125400000
+          },
+          "durationMinutesApprox": 36900
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-smelting-workshop",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "weaving-workshop",
+      "name": "Weaving Workshop",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 5
+      },
+      "baseMaxCopies": 5,
+      "maxLevel": 30,
+      "effectTypes": ["cloth-output-hour", "max-production-time"],
+      "levelCoverage": "reference-levels",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {
+            "cloth-output-hour": {
+              "value": 5,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 488,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 500,
+          "upgradeCost": {
+            "grain": 9,
+            "timber": 9,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 5,
+          "effectsAtLevel": {
+            "cloth-output-hour": {
+              "value": 17,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 520,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 3500,
+          "upgradeCost": {
+            "grain": 7120,
+            "timber": 7120,
+            "herb": null
+          },
+          "durationMinutesApprox": 7
+        },
+        {
+          "level": 10,
+          "effectsAtLevel": {
+            "cloth-output-hour": {
+              "value": 32,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 560,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 6900,
+          "upgradeCost": {
+            "grain": 115600,
+            "timber": 115600,
+            "herb": 61820
+          },
+          "durationMinutesApprox": 88
+        },
+        {
+          "level": 15,
+          "effectsAtLevel": {
+            "cloth-output-hour": {
+              "value": 48,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 600,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 13800,
+          "upgradeCost": {
+            "grain": 1143000,
+            "timber": 1143000,
+            "herb": 525000
+          },
+          "durationMinutesApprox": 333
+        },
+        {
+          "level": 20,
+          "effectsAtLevel": {
+            "cloth-output-hour": {
+              "value": 63,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 640,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 31800,
+          "upgradeCost": {
+            "grain": 9930000,
+            "timber": 9930000,
+            "herb": 4664000
+          },
+          "durationMinutesApprox": 1740
+        },
+        {
+          "level": 25,
+          "effectsAtLevel": {
+            "cloth-output-hour": {
+              "value": 77,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 680,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 73400,
+          "upgradeCost": {
+            "grain": 47290000,
+            "timber": 47290000,
+            "herb": 22050000
+          },
+          "durationMinutesApprox": 7920
+        },
+        {
+          "level": 30,
+          "effectsAtLevel": {
+            "cloth-output-hour": {
+              "value": 91,
+              "unit": "count"
+            },
+            "max-production-time": {
+              "value": 720,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 168200,
+          "upgradeCost": {
+            "grain": 229300000,
+            "timber": 229300000,
+            "herb": 118400000
+          },
+          "durationMinutesApprox": 36900
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-weaving-workshop",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "falcon-tower",
+      "name": "Falcon Tower",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 6
+      },
+      "baseMaxCopies": 1,
+      "maxLevel": 1,
+      "effectTypes": [],
+      "levelCoverage": "complete",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {},
+          "powerAtLevel": 100,
+          "upgradeCost": {
+            "grain": 720,
+            "timber": 720,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-falcon-tower",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "training-grounds",
+      "name": "Training Grounds",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 6
+      },
+      "baseMaxCopies": 3,
+      "maxLevel": 30,
+      "effectTypes": ["training-capacity", "soldier-training-level"],
+      "levelCoverage": "reference-levels",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {
+            "training-capacity": {
+              "value": 33,
+              "unit": "count"
+            },
+            "soldier-training-level": {
+              "value": 1,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 600,
+          "upgradeCost": {
+            "grain": 19,
+            "timber": 19,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 5,
+          "effectsAtLevel": {
+            "training-capacity": {
+              "value": 203,
+              "unit": "count"
+            },
+            "soldier-training-level": {
+              "value": 2,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 3400,
+          "upgradeCost": {
+            "grain": 14520,
+            "timber": 14520,
+            "herb": null
+          },
+          "durationMinutesApprox": 10
+        },
+        {
+          "level": 10,
+          "effectsAtLevel": {
+            "training-capacity": {
+              "value": 371,
+              "unit": "count"
+            },
+            "soldier-training-level": {
+              "value": 4,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 7600,
+          "upgradeCost": {
+            "grain": 365100,
+            "timber": 365100,
+            "herb": 147900
+          },
+          "durationMinutesApprox": 258
+        },
+        {
+          "level": 15,
+          "effectsAtLevel": {
+            "training-capacity": {
+              "value": 425,
+              "unit": "count"
+            },
+            "soldier-training-level": {
+              "value": 5,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 18900,
+          "upgradeCost": {
+            "grain": 3310000,
+            "timber": 3310000,
+            "herb": 1448000
+          },
+          "durationMinutesApprox": 1001
+        },
+        {
+          "level": 20,
+          "effectsAtLevel": {
+            "training-capacity": {
+              "value": 475,
+              "unit": "count"
+            },
+            "soldier-training-level": {
+              "value": 7,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 49400,
+          "upgradeCost": {
+            "grain": 30190000,
+            "timber": 30190000,
+            "herb": 11950000
+          },
+          "durationMinutesApprox": 5340
+        },
+        {
+          "level": 25,
+          "effectsAtLevel": {
+            "training-capacity": {
+              "value": 524,
+              "unit": "count"
+            },
+            "soldier-training-level": {
+              "value": 8,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 119300,
+          "upgradeCost": {
+            "grain": 135500000,
+            "timber": 135500000,
+            "herb": 55450000
+          },
+          "durationMinutesApprox": 23880
+        },
+        {
+          "level": 30,
+          "effectsAtLevel": {
+            "training-capacity": {
+              "value": 573,
+              "unit": "count"
+            },
+            "soldier-training-level": {
+              "value": 10,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 280200,
+          "upgradeCost": {
+            "grain": 684300000,
+            "timber": 684300000,
+            "herb": 303700000
+          },
+          "durationMinutesApprox": 110820
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-training-grounds",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "barracks",
+      "name": "Barracks",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 6
+      },
+      "baseMaxCopies": 3,
+      "maxLevel": 30,
+      "effectTypes": ["troop-capacity"],
+      "levelCoverage": "reference-levels",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {
+            "troop-capacity": {
+              "value": 2027,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 500,
+          "upgradeCost": {
+            "grain": 14,
+            "timber": 4,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 5,
+          "effectsAtLevel": {
+            "troop-capacity": {
+              "value": 3014,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 3400,
+          "upgradeCost": {
+            "grain": 19800,
+            "timber": 6731,
+            "herb": null
+          },
+          "durationMinutesApprox": 13
+        },
+        {
+          "level": 10,
+          "effectsAtLevel": {
+            "troop-capacity": {
+              "value": 4034,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 7100,
+          "upgradeCost": {
+            "grain": 378900,
+            "timber": 122900,
+            "herb": 96500
+          },
+          "durationMinutesApprox": 176
+        },
+        {
+          "level": 15,
+          "effectsAtLevel": {
+            "troop-capacity": {
+              "value": 5025,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 16400,
+          "upgradeCost": {
+            "grain": 3277000,
+            "timber": 1060000,
+            "herb": 934600
+          },
+          "durationMinutesApprox": 667
+        },
+        {
+          "level": 20,
+          "effectsAtLevel": {
+            "troop-capacity": {
+              "value": 6023,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 41300,
+          "upgradeCost": {
+            "grain": 29110000,
+            "timber": 9700000,
+            "herb": 7992000
+          },
+          "durationMinutesApprox": 3540
+        },
+        {
+          "level": 25,
+          "effectsAtLevel": {
+            "troop-capacity": {
+              "value": 7017,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 98800,
+          "upgradeCost": {
+            "grain": 134700000,
+            "timber": 46170000,
+            "herb": 39540000
+          },
+          "durationMinutesApprox": 15900
+        },
+        {
+          "level": 30,
+          "effectsAtLevel": {
+            "troop-capacity": {
+              "value": 8033,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 229600,
+          "upgradeCost": {
+            "grain": 695200000,
+            "timber": 231700000,
+            "herb": 180600000
+          },
+          "durationMinutesApprox": 73860
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-barracks",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "scout-squad",
+      "name": "Scout Squad",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 6
+      },
+      "baseMaxCopies": 3,
+      "maxLevel": 30,
+      "effectTypes": ["scout-squad-movement-speed"],
+      "levelCoverage": "reference-levels",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {
+            "scout-squad-movement-speed": {
+              "value": 1,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 300,
+          "upgradeCost": {
+            "grain": 29,
+            "timber": 29,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 5,
+          "effectsAtLevel": {
+            "scout-squad-movement-speed": {
+              "value": 5,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 1400,
+          "upgradeCost": {
+            "grain": 7126,
+            "timber": 7126,
+            "herb": null
+          },
+          "durationMinutesApprox": 10
+        },
+        {
+          "level": 10,
+          "effectsAtLevel": {
+            "scout-squad-movement-speed": {
+              "value": 10,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 4000,
+          "upgradeCost": {
+            "grain": 196500,
+            "timber": 196500,
+            "herb": 29750
+          },
+          "durationMinutesApprox": 250
+        },
+        {
+          "level": 15,
+          "effectsAtLevel": {
+            "scout-squad-movement-speed": {
+              "value": 15,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 11700,
+          "upgradeCost": {
+            "grain": 1724000,
+            "timber": 1724000,
+            "herb": 274000
+          },
+          "durationMinutesApprox": 1001
+        },
+        {
+          "level": 20,
+          "effectsAtLevel": {
+            "scout-squad-movement-speed": {
+              "value": 20,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 31600,
+          "upgradeCost": {
+            "grain": 15400000,
+            "timber": 15400000,
+            "herb": 2327000
+          },
+          "durationMinutesApprox": 5340
+        },
+        {
+          "level": 25,
+          "effectsAtLevel": {
+            "scout-squad-movement-speed": {
+              "value": 25,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 77600,
+          "upgradeCost": {
+            "grain": 72750000,
+            "timber": 72750000,
+            "herb": 12380000
+          },
+          "durationMinutesApprox": 23880
+        },
+        {
+          "level": 30,
+          "effectsAtLevel": {
+            "scout-squad-movement-speed": {
+              "value": 30,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 182000,
+          "upgradeCost": {
+            "grain": 367400000,
+            "timber": 367400000,
+            "herb": 60270000
+          },
+          "durationMinutesApprox": 110820
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-scout-squad",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "nomad-trader",
+      "name": "Nomad Trader",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 6
+      },
+      "baseMaxCopies": 1,
+      "maxLevel": 1,
+      "effectTypes": [],
+      "levelCoverage": "complete",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {},
+          "powerAtLevel": 100,
+          "upgradeCost": {
+            "grain": 480,
+            "timber": 360,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-nomad-trader",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "infirmary",
+      "name": "Infirmary",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 7
+      },
+      "baseMaxCopies": 3,
+      "maxLevel": 30,
+      "effectTypes": ["infirmary-capacity"],
+      "levelCoverage": "reference-levels",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {
+            "infirmary-capacity": {
+              "value": 677,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 500,
+          "upgradeCost": {
+            "grain": 14,
+            "timber": 4,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 5,
+          "effectsAtLevel": {
+            "infirmary-capacity": {
+              "value": 891,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 3400,
+          "upgradeCost": {
+            "grain": 19280,
+            "timber": 6556,
+            "herb": null
+          },
+          "durationMinutesApprox": 10
+        },
+        {
+          "level": 10,
+          "effectsAtLevel": {
+            "infirmary-capacity": {
+              "value": 1131,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 7400,
+          "upgradeCost": {
+            "grain": 554700,
+            "timber": 188200,
+            "herb": 151700
+          },
+          "durationMinutesApprox": 250
+        },
+        {
+          "level": 15,
+          "effectsAtLevel": {
+            "infirmary-capacity": {
+              "value": 1374,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 18900,
+          "upgradeCost": {
+            "grain": 5096000,
+            "timber": 1699000,
+            "herb": 1422000
+          },
+          "durationMinutesApprox": 1001
+        },
+        {
+          "level": 20,
+          "effectsAtLevel": {
+            "infirmary-capacity": {
+              "value": 1639,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 49200,
+          "upgradeCost": {
+            "grain": 45300000,
+            "timber": 15100000,
+            "herb": 12270000
+          },
+          "durationMinutesApprox": 5340
+        },
+        {
+          "level": 25,
+          "effectsAtLevel": {
+            "infirmary-capacity": {
+              "value": 1835,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 119600,
+          "upgradeCost": {
+            "grain": 216500000,
+            "timber": 70870000,
+            "herb": 57220000
+          },
+          "durationMinutesApprox": 23880
+        },
+        {
+          "level": 30,
+          "effectsAtLevel": {
+            "infirmary-capacity": {
+              "value": 2030,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 280500,
+          "upgradeCost": {
+            "grain": 1104000000,
+            "timber": 361500000,
+            "herb": 296900000
+          },
+          "durationMinutesApprox": 110820
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-infirmary",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "research-lab",
+      "name": "Research Lab",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 7
+      },
+      "baseMaxCopies": 1,
+      "maxLevel": 30,
+      "effectTypes": ["research-speed"],
+      "levelCoverage": "reference-levels",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {
+            "research-speed": {
+              "value": 0.7,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 700,
+          "upgradeCost": {
+            "grain": 89,
+            "timber": 89,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 5,
+          "effectsAtLevel": {
+            "research-speed": {
+              "value": 2.7,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 4400,
+          "upgradeCost": {
+            "grain": 20890,
+            "timber": 20890,
+            "herb": null
+          },
+          "durationMinutesApprox": 10
+        },
+        {
+          "level": 10,
+          "effectsAtLevel": {
+            "research-speed": {
+              "value": 5.2,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 9600,
+          "upgradeCost": {
+            "grain": 634000,
+            "timber": 634000,
+            "herb": 204300
+          },
+          "durationMinutesApprox": 301
+        },
+        {
+          "level": 15,
+          "effectsAtLevel": {
+            "research-speed": {
+              "value": 7.7,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 24200,
+          "upgradeCost": {
+            "grain": 6223000,
+            "timber": 6223000,
+            "herb": 1971000
+          },
+          "durationMinutesApprox": 1168
+        },
+        {
+          "level": 20,
+          "effectsAtLevel": {
+            "research-speed": {
+              "value": 10.1,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 63200,
+          "upgradeCost": {
+            "grain": 49610000,
+            "timber": 49610000,
+            "herb": 16360000
+          },
+          "durationMinutesApprox": 6240
+        },
+        {
+          "level": 25,
+          "effectsAtLevel": {
+            "research-speed": {
+              "value": 12.7,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 153600,
+          "upgradeCost": {
+            "grain": 244100000,
+            "timber": 244100000,
+            "herb": 80370000
+          },
+          "durationMinutesApprox": 27840
+        },
+        {
+          "level": 30,
+          "effectsAtLevel": {
+            "research-speed": {
+              "value": 15.1,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 361000,
+          "upgradeCost": {
+            "grain": 1297000000,
+            "timber": 1297000000,
+            "herb": 390300000
+          },
+          "durationMinutesApprox": 129300
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-research-lab",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "arena",
+      "name": "Arena",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 7
+      },
+      "baseMaxCopies": 1,
+      "maxLevel": 1,
+      "effectTypes": [],
+      "levelCoverage": "complete",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {},
+          "powerAtLevel": 100,
+          "upgradeCost": {
+            "grain": 480,
+            "timber": 360,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-arena",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "raven-nest",
+      "name": "Raven Nest",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 7
+      },
+      "baseMaxCopies": 1,
+      "maxLevel": 1,
+      "effectTypes": [],
+      "levelCoverage": "complete",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {},
+          "powerAtLevel": 100,
+          "upgradeCost": {
+            "grain": 480,
+            "timber": 360,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-raven-nest",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "warrior-statue",
+      "name": "Warrior Statue",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 7
+      },
+      "baseMaxCopies": 1,
+      "maxLevel": 30,
+      "effectTypes": ["warrior-hero-cmd", "warrior-hero-hp", "warrior-hero-atk", "warrior-hero-def"],
+      "levelCoverage": "reference-levels",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {
+            "hp": {
+              "value": 1600,
+              "unit": "count"
+            },
+            "atk": {
+              "value": 25,
+              "unit": "count"
+            },
+            "def": {
+              "value": 25,
+              "unit": "count"
+            },
+            "cmd": {
+              "value": 10,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 600,
+          "upgradeCost": null,
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 5,
+          "effectsAtLevel": {
+            "hp": {
+              "value": 8300,
+              "unit": "count"
+            },
+            "atk": {
+              "value": 120,
+              "unit": "count"
+            },
+            "def": {
+              "value": 120,
+              "unit": "count"
+            },
+            "cmd": {
+              "value": 22,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 2900,
+          "upgradeCost": null,
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 10,
+          "effectsAtLevel": {
+            "hp": {
+              "value": 16700,
+              "unit": "count"
+            },
+            "atk": {
+              "value": 241,
+              "unit": "count"
+            },
+            "def": {
+              "value": 241,
+              "unit": "count"
+            },
+            "cmd": {
+              "value": 37,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 6800,
+          "upgradeCost": null,
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 15,
+          "effectsAtLevel": {
+            "hp": {
+              "value": 33600,
+              "unit": "count"
+            },
+            "atk": {
+              "value": 358,
+              "unit": "count"
+            },
+            "def": {
+              "value": 358,
+              "unit": "count"
+            },
+            "cmd": {
+              "value": 52,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 17900,
+          "upgradeCost": null,
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 20,
+          "effectsAtLevel": {
+            "hp": {
+              "value": 67200,
+              "unit": "count"
+            },
+            "atk": {
+              "value": 479,
+              "unit": "count"
+            },
+            "def": {
+              "value": 479,
+              "unit": "count"
+            },
+            "cmd": {
+              "value": 67,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 47500,
+          "upgradeCost": null,
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 25,
+          "effectsAtLevel": {
+            "hp": {
+              "value": 109300,
+              "unit": "count"
+            },
+            "atk": {
+              "value": 603,
+              "unit": "count"
+            },
+            "def": {
+              "value": 603,
+              "unit": "count"
+            },
+            "cmd": {
+              "value": 82,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 116000,
+          "upgradeCost": null,
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 30,
+          "effectsAtLevel": {
+            "hp": {
+              "value": 151500,
+              "unit": "count"
+            },
+            "atk": {
+              "value": 723,
+              "unit": "count"
+            },
+            "def": {
+              "value": 723,
+              "unit": "count"
+            },
+            "cmd": {
+              "value": 100,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 272400,
+          "upgradeCost": null,
+          "durationMinutesApprox": null
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-warrior-statue",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "squad-2",
+      "name": "Squad 2",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 8
+      },
+      "baseMaxCopies": 1,
+      "maxLevel": 30,
+      "effectTypes": ["squad-march-speed-increase"],
+      "levelCoverage": "reference-levels",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {
+            "squad-march-speed-increase": {
+              "value": 0.7,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 400,
+          "upgradeCost": {
+            "grain": 59,
+            "timber": 59,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 5,
+          "effectsAtLevel": {
+            "squad-march-speed-increase": {
+              "value": 2.7,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 2300,
+          "upgradeCost": {
+            "grain": 14340,
+            "timber": 14340,
+            "herb": null
+          },
+          "durationMinutesApprox": 10
+        },
+        {
+          "level": 10,
+          "effectsAtLevel": {
+            "squad-march-speed-increase": {
+              "value": 5.2,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 6000,
+          "upgradeCost": {
+            "grain": 385400,
+            "timber": 385400,
+            "herb": 59080
+          },
+          "durationMinutesApprox": 259
+        },
+        {
+          "level": 15,
+          "effectsAtLevel": {
+            "squad-march-speed-increase": {
+              "value": 7.7,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 16500,
+          "upgradeCost": {
+            "grain": 3236000,
+            "timber": 3236000,
+            "herb": 545600
+          },
+          "durationMinutesApprox": 1001
+        },
+        {
+          "level": 20,
+          "effectsAtLevel": {
+            "squad-march-speed-increase": {
+              "value": 10.1,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 44600,
+          "upgradeCost": {
+            "grain": 29430000,
+            "timber": 29430000,
+            "herb": 4694000
+          },
+          "durationMinutesApprox": 5340
+        },
+        {
+          "level": 25,
+          "effectsAtLevel": {
+            "squad-march-speed-increase": {
+              "value": 12.7,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 109400,
+          "upgradeCost": {
+            "grain": 136200000,
+            "timber": 136200000,
+            "herb": 22150000
+          },
+          "durationMinutesApprox": 23880
+        },
+        {
+          "level": 30,
+          "effectsAtLevel": {
+            "squad-march-speed-increase": {
+              "value": 15.1,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 257400,
+          "upgradeCost": {
+            "grain": 728800000,
+            "timber": 728800000,
+            "herb": 120800000
+          },
+          "durationMinutesApprox": 110820
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-squad-2",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "curio-hall",
+      "name": "Curio Hall",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 8
+      },
+      "baseMaxCopies": 1,
+      "maxLevel": 1,
+      "effectTypes": [],
+      "levelCoverage": "complete",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {},
+          "powerAtLevel": 200,
+          "upgradeCost": {
+            "grain": 480,
+            "timber": 360,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-curio-hall",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "watchtower",
+      "name": "Watchtower",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 8
+      },
+      "baseMaxCopies": 1,
+      "maxLevel": 30,
+      "effectTypes": ["anti-scout-chance", "anti-scout-hidden-intel", "scout-level"],
+      "levelCoverage": "reference-levels",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {
+            "anti-scout-chance": {
+              "value": 20,
+              "unit": "percent"
+            },
+            "anti-scout-hidden-intel": {
+              "value": 0,
+              "unit": "count"
+            },
+            "scout-level": {
+              "value": 1,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 400,
+          "upgradeCost": {
+            "grain": 12,
+            "timber": 12,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 5,
+          "effectsAtLevel": {
+            "anti-scout-chance": {
+              "value": 1,
+              "unit": "count"
+            },
+            "anti-scout-hidden-intel": {
+              "value": 1,
+              "unit": "count"
+            },
+            "scout-level": {
+              "value": 1,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 2800,
+          "upgradeCost": {
+            "grain": 155100,
+            "timber": 155100,
+            "herb": null
+          },
+          "durationMinutesApprox": 102
+        },
+        {
+          "level": 10,
+          "effectsAtLevel": {
+            "anti-scout-chance": {
+              "value": 1,
+              "unit": "count"
+            },
+            "anti-scout-hidden-intel": {
+              "value": 5,
+              "unit": "count"
+            },
+            "scout-level": {
+              "value": 2,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 9500,
+          "upgradeCost": {
+            "grain": 1036000,
+            "timber": 1036000,
+            "herb": 125600
+          },
+          "durationMinutesApprox": 531
+        },
+        {
+          "level": 15,
+          "effectsAtLevel": {
+            "anti-scout-chance": {
+              "value": 1,
+              "unit": "count"
+            },
+            "anti-scout-hidden-intel": {
+              "value": 5,
+              "unit": "count"
+            },
+            "scout-level": {
+              "value": 7,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 22900,
+          "upgradeCost": {
+            "grain": 5103000,
+            "timber": 5103000,
+            "herb": 642900
+          },
+          "durationMinutesApprox": 1168
+        },
+        {
+          "level": 20,
+          "effectsAtLevel": {
+            "anti-scout-chance": {
+              "value": 1,
+              "unit": "count"
+            },
+            "anti-scout-hidden-intel": {
+              "value": 5,
+              "unit": "count"
+            },
+            "scout-level": {
+              "value": 12,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 56300,
+          "upgradeCost": {
+            "grain": 42230000,
+            "timber": 42230000,
+            "herb": 5683000
+          },
+          "durationMinutesApprox": 6240
+        },
+        {
+          "level": 25,
+          "effectsAtLevel": {
+            "anti-scout-chance": {
+              "value": 1,
+              "unit": "count"
+            },
+            "anti-scout-hidden-intel": {
+              "value": 5,
+              "unit": "count"
+            },
+            "scout-level": {
+              "value": 17,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 133400,
+          "upgradeCost": {
+            "grain": 205100000,
+            "timber": 205100000,
+            "herb": 26360000
+          },
+          "durationMinutesApprox": 27840
+        },
+        {
+          "level": 30,
+          "effectsAtLevel": {
+            "anti-scout-chance": {
+              "value": 1,
+              "unit": "count"
+            },
+            "anti-scout-hidden-intel": {
+              "value": 5,
+              "unit": "count"
+            },
+            "scout-level": {
+              "value": 22,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 311100,
+          "upgradeCost": {
+            "grain": 1052000000,
+            "timber": 1052000000,
+            "herb": 130200000
+          },
+          "durationMinutesApprox": 129300
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-watchtower",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "black-ops",
+      "name": "Black Ops",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 9
+      },
+      "baseMaxCopies": 1,
+      "maxLevel": 1,
+      "effectTypes": [],
+      "levelCoverage": "complete",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {},
+          "powerAtLevel": 100,
+          "upgradeCost": {
+            "grain": 480,
+            "timber": 360,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-black-ops",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "monument",
+      "name": "Monument",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 9
+      },
+      "baseMaxCopies": 1,
+      "maxLevel": 1,
+      "effectTypes": [],
+      "levelCoverage": "complete",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {},
+          "powerAtLevel": 100,
+          "upgradeCost": {
+            "grain": 480,
+            "timber": 360,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-monument",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "2nd-workbench",
+      "name": "2nd Workbench",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 9
+      },
+      "baseMaxCopies": 1,
+      "maxLevel": 30,
+      "effectTypes": ["research-speed"],
+      "levelCoverage": "reference-levels",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {
+            "research-speed": {
+              "value": 0.7,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 900,
+          "upgradeCost": {
+            "grain": 89,
+            "timber": 89,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 5,
+          "effectsAtLevel": {
+            "research-speed": {
+              "value": 2.7,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 4300,
+          "upgradeCost": {
+            "grain": 19230,
+            "timber": 19230,
+            "herb": null
+          },
+          "durationMinutesApprox": 10
+        },
+        {
+          "level": 10,
+          "effectsAtLevel": {
+            "research-speed": {
+              "value": 5.2,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 9700,
+          "upgradeCost": {
+            "grain": 682100,
+            "timber": 682100,
+            "herb": 208800
+          },
+          "durationMinutesApprox": 301
+        },
+        {
+          "level": 15,
+          "effectsAtLevel": {
+            "research-speed": {
+              "value": 7.7,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 24400,
+          "upgradeCost": {
+            "grain": 5892000,
+            "timber": 5892000,
+            "herb": 1948000
+          },
+          "durationMinutesApprox": 1168
+        },
+        {
+          "level": 20,
+          "effectsAtLevel": {
+            "research-speed": {
+              "value": 10.1,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 63300,
+          "upgradeCost": {
+            "grain": 51310000,
+            "timber": 51310000,
+            "herb": 16510000
+          },
+          "durationMinutesApprox": 6240
+        },
+        {
+          "level": 25,
+          "effectsAtLevel": {
+            "research-speed": {
+              "value": 12.7,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 153600,
+          "upgradeCost": {
+            "grain": 259900000,
+            "timber": 259900000,
+            "herb": 82600000
+          },
+          "durationMinutesApprox": 27840
+        },
+        {
+          "level": 30,
+          "effectsAtLevel": {
+            "research-speed": {
+              "value": 15.1,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 361100,
+          "upgradeCost": {
+            "grain": 1360000000,
+            "timber": 1360000000,
+            "herb": 419000000
+          },
+          "durationMinutesApprox": 129300
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-2nd-workbench",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "lord-statue",
+      "name": "Lord Statue",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 10
+      },
+      "baseMaxCopies": 1,
+      "maxLevel": 1,
+      "effectTypes": [],
+      "levelCoverage": "complete",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {},
+          "powerAtLevel": 0,
+          "upgradeCost": {
+            "grain": 12,
+            "timber": 9,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-lord-statue",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "warlock-statue",
+      "name": "Warlock Statue",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 11
+      },
+      "baseMaxCopies": 1,
+      "maxLevel": 30,
+      "effectTypes": ["warlock-hero-cmd", "warlock-hero-hp", "warlock-hero-atk", "warlock-hero-def"],
+      "levelCoverage": "reference-levels",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {
+            "hp": {
+              "value": 1600,
+              "unit": "count"
+            },
+            "atk": {
+              "value": 25,
+              "unit": "count"
+            },
+            "def": {
+              "value": 25,
+              "unit": "count"
+            },
+            "cmd": {
+              "value": 10,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 600,
+          "upgradeCost": null,
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 5,
+          "effectsAtLevel": {
+            "hp": {
+              "value": 8300,
+              "unit": "count"
+            },
+            "atk": {
+              "value": 120,
+              "unit": "count"
+            },
+            "def": {
+              "value": 120,
+              "unit": "count"
+            },
+            "cmd": {
+              "value": 22,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 2900,
+          "upgradeCost": null,
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 10,
+          "effectsAtLevel": {
+            "hp": {
+              "value": 16700,
+              "unit": "count"
+            },
+            "atk": {
+              "value": 241,
+              "unit": "count"
+            },
+            "def": {
+              "value": 241,
+              "unit": "count"
+            },
+            "cmd": {
+              "value": 37,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 6800,
+          "upgradeCost": null,
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 15,
+          "effectsAtLevel": {
+            "hp": {
+              "value": 33600,
+              "unit": "count"
+            },
+            "atk": {
+              "value": 358,
+              "unit": "count"
+            },
+            "def": {
+              "value": 358,
+              "unit": "count"
+            },
+            "cmd": {
+              "value": 52,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 17900,
+          "upgradeCost": null,
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 20,
+          "effectsAtLevel": {
+            "hp": {
+              "value": 67200,
+              "unit": "count"
+            },
+            "atk": {
+              "value": 479,
+              "unit": "count"
+            },
+            "def": {
+              "value": 479,
+              "unit": "count"
+            },
+            "cmd": {
+              "value": 67,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 47500,
+          "upgradeCost": null,
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 25,
+          "effectsAtLevel": {
+            "hp": {
+              "value": 109300,
+              "unit": "count"
+            },
+            "atk": {
+              "value": 603,
+              "unit": "count"
+            },
+            "def": {
+              "value": 603,
+              "unit": "count"
+            },
+            "cmd": {
+              "value": 82,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 116000,
+          "upgradeCost": null,
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 30,
+          "effectsAtLevel": {
+            "hp": {
+              "value": 151500,
+              "unit": "count"
+            },
+            "atk": {
+              "value": 723,
+              "unit": "count"
+            },
+            "def": {
+              "value": 723,
+              "unit": "count"
+            },
+            "cmd": {
+              "value": 100,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 272400,
+          "upgradeCost": null,
+          "durationMinutesApprox": null
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-warlock-statue",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "private-stable",
+      "name": "Private Stable",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 11
+      },
+      "baseMaxCopies": 1,
+      "maxLevel": 1,
+      "effectTypes": [],
+      "levelCoverage": "complete",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {},
+          "powerAtLevel": 500,
+          "upgradeCost": {
+            "grain": 10,
+            "timber": null,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-private-stable",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "alliance-stable",
+      "name": "Alliance Stable",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 11
+      },
+      "baseMaxCopies": 1,
+      "maxLevel": 1,
+      "effectTypes": [],
+      "levelCoverage": "complete",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {},
+          "powerAtLevel": 500,
+          "upgradeCost": {
+            "grain": 12,
+            "timber": 9,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-alliance-stable",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "ranger-statue",
+      "name": "Ranger Statue",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 12
+      },
+      "baseMaxCopies": 1,
+      "maxLevel": 30,
+      "effectTypes": ["ranger-hero-cmd", "ranger-hero-hp", "ranger-hero-atk", "ranger-hero-def"],
+      "levelCoverage": "reference-levels",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {
+            "hp": {
+              "value": 1600,
+              "unit": "count"
+            },
+            "atk": {
+              "value": 25,
+              "unit": "count"
+            },
+            "def": {
+              "value": 25,
+              "unit": "count"
+            },
+            "cmd": {
+              "value": 10,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 600,
+          "upgradeCost": null,
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 5,
+          "effectsAtLevel": {
+            "hp": {
+              "value": 8300,
+              "unit": "count"
+            },
+            "atk": {
+              "value": 120,
+              "unit": "count"
+            },
+            "def": {
+              "value": 120,
+              "unit": "count"
+            },
+            "cmd": {
+              "value": 22,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 2900,
+          "upgradeCost": null,
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 10,
+          "effectsAtLevel": {
+            "hp": {
+              "value": 16700,
+              "unit": "count"
+            },
+            "atk": {
+              "value": 241,
+              "unit": "count"
+            },
+            "def": {
+              "value": 241,
+              "unit": "count"
+            },
+            "cmd": {
+              "value": 37,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 6800,
+          "upgradeCost": null,
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 15,
+          "effectsAtLevel": {
+            "hp": {
+              "value": 33600,
+              "unit": "count"
+            },
+            "atk": {
+              "value": 358,
+              "unit": "count"
+            },
+            "def": {
+              "value": 358,
+              "unit": "count"
+            },
+            "cmd": {
+              "value": 52,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 17900,
+          "upgradeCost": null,
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 20,
+          "effectsAtLevel": {
+            "hp": {
+              "value": 67200,
+              "unit": "count"
+            },
+            "atk": {
+              "value": 479,
+              "unit": "count"
+            },
+            "def": {
+              "value": 479,
+              "unit": "count"
+            },
+            "cmd": {
+              "value": 67,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 47500,
+          "upgradeCost": null,
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 25,
+          "effectsAtLevel": {
+            "hp": {
+              "value": 109300,
+              "unit": "count"
+            },
+            "atk": {
+              "value": 603,
+              "unit": "count"
+            },
+            "def": {
+              "value": 603,
+              "unit": "count"
+            },
+            "cmd": {
+              "value": 82,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 116000,
+          "upgradeCost": null,
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 30,
+          "effectsAtLevel": {
+            "hp": {
+              "value": 151500,
+              "unit": "count"
+            },
+            "atk": {
+              "value": 723,
+              "unit": "count"
+            },
+            "def": {
+              "value": 723,
+              "unit": "count"
+            },
+            "cmd": {
+              "value": 100,
+              "unit": "count"
+            }
+          },
+          "powerAtLevel": 272400,
+          "upgradeCost": null,
+          "durationMinutesApprox": null
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-ranger-statue",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "raven-workshop",
+      "name": "Raven Workshop",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 15
+      },
+      "baseMaxCopies": 1,
+      "maxLevel": 30,
+      "effectTypes": ["raven-gear-chest-production-time", "max-production-time"],
+      "levelCoverage": "reference-levels",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {
+            "raven-gear-chest-production-time": {
+              "value": 25,
+              "unit": "percent"
+            },
+            "max-production-time": {
+              "value": 1440,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 600,
+          "upgradeCost": {
+            "grain": 9,
+            "timber": 9,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 5,
+          "effectsAtLevel": {
+            "raven-gear-chest-production-time": {
+              "value": 25.86,
+              "unit": "percent"
+            },
+            "max-production-time": {
+              "value": 1440,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 3500,
+          "upgradeCost": {
+            "grain": 6761,
+            "timber": 6761,
+            "herb": null
+          },
+          "durationMinutesApprox": 8
+        },
+        {
+          "level": 10,
+          "effectsAtLevel": {
+            "raven-gear-chest-production-time": {
+              "value": 27.03,
+              "unit": "percent"
+            },
+            "max-production-time": {
+              "value": 1440,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 7000,
+          "upgradeCost": {
+            "grain": 122900,
+            "timber": 122900,
+            "herb": 59340
+          },
+          "durationMinutesApprox": 88
+        },
+        {
+          "level": 15,
+          "effectsAtLevel": {
+            "raven-gear-chest-production-time": {
+              "value": 28.3,
+              "unit": "percent"
+            },
+            "max-production-time": {
+              "value": 1440,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 13800,
+          "upgradeCost": {
+            "grain": 1080000,
+            "timber": 1080000,
+            "herb": 561100
+          },
+          "durationMinutesApprox": 333
+        },
+        {
+          "level": 20,
+          "effectsAtLevel": {
+            "raven-gear-chest-production-time": {
+              "value": 29.7,
+              "unit": "percent"
+            },
+            "max-production-time": {
+              "value": 1440,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 31800,
+          "upgradeCost": {
+            "grain": 9510000,
+            "timber": 9510000,
+            "herb": 4600000
+          },
+          "durationMinutesApprox": 1740
+        },
+        {
+          "level": 25,
+          "effectsAtLevel": {
+            "raven-gear-chest-production-time": {
+              "value": 31.25,
+              "unit": "percent"
+            },
+            "max-production-time": {
+              "value": 1440,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 73600,
+          "upgradeCost": {
+            "grain": 50020000,
+            "timber": 50020000,
+            "herb": 23860000
+          },
+          "durationMinutesApprox": 7920
+        },
+        {
+          "level": 30,
+          "effectsAtLevel": {
+            "raven-gear-chest-production-time": {
+              "value": 32.97,
+              "unit": "percent"
+            },
+            "max-production-time": {
+              "value": 1440,
+              "unit": "minute"
+            }
+          },
+          "powerAtLevel": 168200,
+          "upgradeCost": {
+            "grain": 244500000,
+            "timber": 244500000,
+            "herb": 120900000
+          },
+          "durationMinutesApprox": 36900
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-raven-workshop",
+        "verifiedOn": "2026-08-31"
+      }
+    },
+    {
+      "id": "squad-3",
+      "name": "Squad 3",
+      "unlocksAt": {
+        "id": "sanctuary",
+        "minimumLevel": 20
+      },
+      "baseMaxCopies": 1,
+      "maxLevel": 30,
+      "effectTypes": ["squad-march-speed-increase"],
+      "levelCoverage": "reference-levels",
+      "levels": [
+        {
+          "level": 1,
+          "effectsAtLevel": {
+            "squad-march-speed-increase": {
+              "value": 0.7,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 500,
+          "upgradeCost": {
+            "grain": 59,
+            "timber": 59,
+            "herb": null
+          },
+          "durationMinutesApprox": null
+        },
+        {
+          "level": 5,
+          "effectsAtLevel": {
+            "squad-march-speed-increase": {
+              "value": 2.7,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 2500,
+          "upgradeCost": {
+            "grain": 14460,
+            "timber": 14460,
+            "herb": null
+          },
+          "durationMinutesApprox": 10
+        },
+        {
+          "level": 10,
+          "effectsAtLevel": {
+            "squad-march-speed-increase": {
+              "value": 5.2,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 6000,
+          "upgradeCost": {
+            "grain": 374500,
+            "timber": 374500,
+            "herb": 61210
+          },
+          "durationMinutesApprox": 259
+        },
+        {
+          "level": 15,
+          "effectsAtLevel": {
+            "squad-march-speed-increase": {
+              "value": 7.7,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 16500,
+          "upgradeCost": {
+            "grain": 3265000,
+            "timber": 3265000,
+            "herb": 576300
+          },
+          "durationMinutesApprox": 1001
+        },
+        {
+          "level": 20,
+          "effectsAtLevel": {
+            "squad-march-speed-increase": {
+              "value": 10.1,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 44800,
+          "upgradeCost": {
+            "grain": 30820000,
+            "timber": 30820000,
+            "herb": 4951000
+          },
+          "durationMinutesApprox": 5340
+        },
+        {
+          "level": 25,
+          "effectsAtLevel": {
+            "squad-march-speed-increase": {
+              "value": 12.7,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 109200,
+          "upgradeCost": {
+            "grain": 138300000,
+            "timber": 138300000,
+            "herb": 23020000
+          },
+          "durationMinutesApprox": 23880
+        },
+        {
+          "level": 30,
+          "effectsAtLevel": {
+            "squad-march-speed-increase": {
+              "value": 15.1,
+              "unit": "percent"
+            }
+          },
+          "powerAtLevel": 257400,
+          "upgradeCost": {
+            "grain": 740300000,
+            "timber": 740300000,
+            "herb": 120900000
+          },
+          "durationMinutesApprox": 110820
+        }
+      ],
+      "source": {
+        "url": "https://wiki-last-asylum.com/en/wiki/building-squad-3",
+        "verifiedOn": "2026-08-31"
+      }
+    }
+  ]
+}

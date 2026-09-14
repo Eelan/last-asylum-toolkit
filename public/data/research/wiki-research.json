@@ -1,0 +1,344 @@
+{
+  "$schema": "../game-dataset.schema.json",
+  "schemaVersion": 1,
+  "id": "wiki-research",
+  "source": {
+    "name": "Last Asylum: Plague Wiki",
+    "url": "https://wiki-last-asylum.com/en/wiki/research",
+    "type": "community",
+    "status": "partial",
+    "verifiedOn": "2026-08-31",
+    "note": "Game data version 1.0.87. Public wiki pages document only a subset of research nodes and mostly branch totals, not every level's costs, effects, durations, and prerequisites."
+  },
+  "semantics": {
+    "valueMode": "mixed",
+    "note": "effectAtMax is the total effect at maximum level. totalCost is the sum for the named research or branch, never the cost of a single level. upgradeCost, durationSeconds, and prerequisites are null until verified per target level. English source names are not approved French UI translations."
+  },
+  "data": {
+    "translationReview": {
+      "sourceLocale": "en",
+      "status": "pending",
+      "note": "Verify every English source name against the French game UI before adding translation keys or displaying names in the product. No French translations were inferred for this dataset. The wiki itself alternates between Top Rewards and Best Reward for the tier 7-9 unlock."
+    },
+    "tree": {
+      "categoryCount": 18,
+      "nodeCount": 348,
+      "unnamedNodeCount": 69,
+      "unreleasedCategoryCount": 3,
+      "sourceUrl": "https://wiki-last-asylum.com/en/wiki/research"
+    },
+    "documentedCategories": [
+      {
+        "id": "development",
+        "sourceNameEn": "Development",
+        "resourcesPerPowerPoint": 794,
+        "localDataset": "development.json",
+        "sourceUrl": "https://wiki-last-asylum.com/en/wiki/research-priority"
+      },
+      {
+        "id": "economy",
+        "sourceNameEn": "Economy",
+        "resourcesPerPowerPoint": 2640,
+        "localDataset": "economy.json",
+        "sourceUrl": "https://wiki-last-asylum.com/en/wiki/research-priority"
+      },
+      {
+        "id": "soldier",
+        "sourceNameEn": "Soldier",
+        "resourcesPerPowerPoint": 12152,
+        "localDataset": null,
+        "sourceUrl": "https://wiki-last-asylum.com/en/wiki/research-priority"
+      },
+      {
+        "id": "hero",
+        "sourceNameEn": "Hero",
+        "resourcesPerPowerPoint": 18065,
+        "localDataset": null,
+        "sourceUrl": "https://wiki-last-asylum.com/en/wiki/research-priority"
+      },
+      {
+        "id": "alliance-duel",
+        "sourceNameEn": "Alliance Duel",
+        "resourcesPerPowerPoint": null,
+        "localDataset": null,
+        "nodeCount": 14,
+        "totalCost": {
+          "study-scroll": 54110
+        },
+        "sourceUrl": "https://wiki-last-asylum.com/en/wiki/alliance-duel-tech"
+      },
+      {
+        "id": "caravan-transport",
+        "sourceNameEn": "Caravan Transport",
+        "resourcesPerPowerPoint": null,
+        "localDataset": null,
+        "nodeCount": null,
+        "totalCost": {
+          "study-scroll": 81950
+        },
+        "sourceUrl": "https://wiki-last-asylum.com/en/wiki/alliance-duel-tech"
+      }
+    ],
+    "documentedResearches": [
+      {
+        "id": "arena-expert",
+        "sourceNameEn": "Arena Expert",
+        "categoryId": "alliance-duel",
+        "maxLevel": 20,
+        "effectAtMax": {
+          "value": 100,
+          "unit": "percent",
+          "target": "event-points"
+        },
+        "totalCost": {
+          "study-scroll": 3800
+        },
+        "upgradeCost": null,
+        "durationSeconds": null,
+        "prerequisites": null,
+        "sourceUrl": "https://wiki-last-asylum.com/en/wiki/event-points"
+      },
+      {
+        "id": "arena-master",
+        "sourceNameEn": "Arena Master",
+        "categoryId": "alliance-duel",
+        "maxLevel": 10,
+        "effectAtMax": {
+          "value": 50,
+          "unit": "percent",
+          "target": "event-points"
+        },
+        "totalCost": {
+          "study-scroll": 7200
+        },
+        "upgradeCost": null,
+        "durationSeconds": null,
+        "prerequisites": null,
+        "sourceUrl": "https://wiki-last-asylum.com/en/wiki/event-points"
+      },
+      {
+        "id": "falcon-points",
+        "sourceNameEn": "Falcon Points",
+        "categoryId": "alliance-duel",
+        "maxLevel": 10,
+        "effectAtMax": {
+          "value": 50,
+          "unit": "percent",
+          "target": "falcon-quest-points"
+        },
+        "totalCost": {
+          "study-scroll": 1200
+        },
+        "upgradeCost": null,
+        "durationSeconds": null,
+        "prerequisites": null,
+        "sourceUrl": "https://wiki-last-asylum.com/en/wiki/event-points"
+      },
+      {
+        "id": "recruitment-points",
+        "sourceNameEn": "Recruitment Points",
+        "categoryId": "alliance-duel",
+        "maxLevel": 10,
+        "effectAtMax": {
+          "value": 50,
+          "unit": "percent",
+          "target": "hero-recruitment-points"
+        },
+        "totalCost": {
+          "study-scroll": 1200
+        },
+        "upgradeCost": null,
+        "durationSeconds": null,
+        "prerequisites": null,
+        "sourceUrl": "https://wiki-last-asylum.com/en/wiki/event-points"
+      },
+      {
+        "id": "survivor-recruitment-points",
+        "sourceNameEn": "Survivor Recruitment Points",
+        "categoryId": "alliance-duel",
+        "maxLevel": 10,
+        "effectAtMax": {
+          "value": 50,
+          "unit": "percent",
+          "target": "survivor-recruitment-points"
+        },
+        "totalCost": {
+          "study-scroll": 4520
+        },
+        "upgradeCost": null,
+        "durationSeconds": null,
+        "prerequisites": null,
+        "sourceUrl": "https://wiki-last-asylum.com/en/wiki/event-points"
+      },
+      {
+        "id": "training-points",
+        "sourceNameEn": "Training Points",
+        "categoryId": "alliance-duel",
+        "maxLevel": 10,
+        "effectAtMax": {
+          "value": 50,
+          "unit": "percent",
+          "target": "training-points"
+        },
+        "totalCost": {
+          "study-scroll": 6350
+        },
+        "upgradeCost": null,
+        "durationSeconds": null,
+        "prerequisites": null,
+        "sourceUrl": "https://wiki-last-asylum.com/en/wiki/event-points"
+      },
+      {
+        "id": "building-points",
+        "sourceNameEn": "Building Points",
+        "categoryId": "alliance-duel",
+        "maxLevel": 10,
+        "effectAtMax": {
+          "value": 50,
+          "unit": "percent",
+          "target": "building-points"
+        },
+        "totalCost": {
+          "study-scroll": 6350
+        },
+        "upgradeCost": null,
+        "durationSeconds": null,
+        "prerequisites": null,
+        "sourceUrl": "https://wiki-last-asylum.com/en/wiki/event-points"
+      },
+      {
+        "id": "covert-operation-points",
+        "sourceNameEn": "Covert Operation Points",
+        "categoryId": "alliance-duel",
+        "maxLevel": 10,
+        "effectAtMax": {
+          "value": 50,
+          "unit": "percent",
+          "target": "covert-operation-points"
+        },
+        "totalCost": {
+          "study-scroll": 4520
+        },
+        "upgradeCost": null,
+        "durationSeconds": null,
+        "prerequisites": null,
+        "sourceUrl": "https://wiki-last-asylum.com/en/wiki/event-points"
+      },
+      {
+        "id": "super-rewards",
+        "sourceNameEn": "Super Rewards",
+        "categoryId": "alliance-duel",
+        "maxLevel": 1,
+        "effectAtMax": {
+          "value": 1,
+          "unit": "unlock",
+          "target": "alliance-duel-reward-tiers-4-6"
+        },
+        "totalCost": {
+          "study-scroll": 100
+        },
+        "upgradeCost": {
+          "study-scroll": 100
+        },
+        "durationSeconds": null,
+        "prerequisites": null,
+        "sourceUrl": "https://wiki-last-asylum.com/en/wiki/event-points"
+      },
+      {
+        "id": "top-rewards",
+        "sourceNameEn": "Top Rewards",
+        "alternateSourceNameEn": "Best Reward",
+        "categoryId": "alliance-duel",
+        "maxLevel": 1,
+        "effectAtMax": {
+          "value": 1,
+          "unit": "unlock",
+          "target": "alliance-duel-reward-tiers-7-9"
+        },
+        "totalCost": {
+          "study-scroll": 450
+        },
+        "upgradeCost": {
+          "study-scroll": 450
+        },
+        "durationSeconds": null,
+        "prerequisites": null,
+        "sourceUrl": "https://wiki-last-asylum.com/en/wiki/event-points"
+      },
+      {
+        "id": "soldier-level-10",
+        "sourceNameEn": "Lv.10 Soldier",
+        "categoryId": "soldier",
+        "maxLevel": 1,
+        "effectAtMax": {
+          "value": 1,
+          "unit": "unlock",
+          "target": "tier-10-soldiers"
+        },
+        "totalCost": {
+          "grain": 194697000,
+          "timber": 194697000,
+          "herb": 584440000
+        },
+        "upgradeCost": {
+          "grain": 194697000,
+          "timber": 194697000,
+          "herb": 584440000
+        },
+        "powerAtMax": 36810,
+        "durationSeconds": null,
+        "prerequisites": null,
+        "sourceUrl": "https://wiki-last-asylum.com/en/wiki/troops"
+      },
+      {
+        "id": "construction-master",
+        "sourceNameEn": "Construction Master",
+        "categoryId": "economy",
+        "maxLevel": 5,
+        "effectAtMax": {
+          "value": 5,
+          "unit": "percent",
+          "target": "construction-resource-cost-reduction"
+        },
+        "totalCost": null,
+        "upgradeCost": null,
+        "durationSeconds": null,
+        "prerequisites": null,
+        "sourceUrl": "https://wiki-last-asylum.com/en/wiki/research-priority"
+      }
+    ],
+    "documentedUnlocksWithoutVerifiedResearchName": [
+      {
+        "targetId": "farm",
+        "additionalCopies": 1,
+        "researchId": null
+      },
+      {
+        "targetId": "lumberyard",
+        "additionalCopies": 1,
+        "researchId": null
+      },
+      {
+        "targetId": "herb-garden",
+        "additionalCopies": 1,
+        "researchId": null
+      },
+      {
+        "targetId": "training-grounds",
+        "additionalCopies": 1,
+        "researchId": null
+      },
+      {
+        "targetId": "infirmary",
+        "additionalCopies": 1,
+        "researchId": null
+      },
+      {
+        "targetId": "barracks",
+        "additionalCopies": 1,
+        "researchId": null
+      }
+    ],
+    "coverageNote": "Only 10 of the 14 Alliance Duel nodes are named in the public pages used here. Their listed costs total 35,690 Study Scrolls, below the documented 54,110-Scroll branch total. Do not infer the missing four nodes or distribute the remainder across known levels."
+  }
+}

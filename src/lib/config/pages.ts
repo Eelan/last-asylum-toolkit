@@ -6,6 +6,7 @@ export const pages = {
   shards: () => import('../../pages/Fragments.svelte'),
   raven: () => import('../../pages/Raven.svelte'),
   sanctuary: () => import('../../pages/Sanctuary.svelte'),
+  buildings: () => import('../../pages/Buildings.svelte'),
   duel: () => import('../../pages/Duel.svelte'),
   heroes: () => import('../../pages/Heroes.svelte'),
   'my-heroes': () => import('../../pages/MyHeroes.svelte'),
