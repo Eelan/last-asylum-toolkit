@@ -58,7 +58,9 @@ test('Corbeau: completed phases apply only to the first upgrade', () => {
   const full = calculateRavenProgression(first, first + 2);
   const partial = calculateRavenProgression(first, first + 2, 2);
   assert.equal(full.essence - partial.essence, 2 * cost.essencePerPhase);
-  assert.equal(full.fruit, partial.fruit);
+  assert.equal(full.fruit - partial.fruit, 2 * cost.fruit);
+  assert.equal(calculateRavenProgression(5, 6).fruit, 5 * 2250);
+  assert.equal(calculateRavenProgression(5, 6, 4).fruit, 2250);
   assert.equal(calculateRavenProgression(249, 250).levels.length, 1);
   assert.equal(calculateRavenProgression(250, 1).valid, false);
 });

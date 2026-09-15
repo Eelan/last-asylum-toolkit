@@ -12,7 +12,7 @@
   },
   "semantics": {
     "valueMode": "upgrade-from-level",
-    "note": "Rows are [fromLevel, toLevel, Raven Fruit cost, Raven Essence cost per phase]; costs apply to each upgrade starting within the inclusive band. An upgrade with a non-zero Essence value has five phases, each charged at the listed Essence cost."
+    "note": "Rows are [fromLevel, toLevel, Raven Fruit cost, Raven Essence cost per phase]; costs apply to each upgrade starting within the inclusive band. An upgrade with a non-zero Essence value has five phases, each charged at the listed Fruit and Essence costs."
   },
   "data": [
     [

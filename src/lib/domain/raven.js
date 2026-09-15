@@ -61,11 +61,13 @@ export function calculateRavenProgression(current, target, completedPhases = 0) 
       : 0;
     const phasesRemaining = cost.phaseCount - phasesAlreadyCompleted;
     const essenceCost = cost.essencePerPhase * phasesRemaining;
-    fruit += cost.fruit;
+    // Breakthroughs charge both resources at every remaining phase.
+    const fruitCost = cost.phaseCount > 0 ? cost.fruit * phasesRemaining : cost.fruit;
+    fruit += fruitCost;
     essence += essenceCost;
     levels.push({
       level,
-      fruit: cost.fruit,
+      fruit: fruitCost,
       essence: essenceCost,
       essencePerPhase: cost.essencePerPhase,
       phasesRemaining,
