@@ -67,11 +67,12 @@ def main():
     for path in DATA_DIRECTORY.rglob("*.json"):
         if path.name.endswith(".schema.json"):
             continue
-        if path.parent.name == "research":
+        dataset = read_json(path)
+        if dataset.get("$schema", "").endswith("research-tree.schema.json"):
             validate_research_tree(path, research_schema)
             research_count += 1
         else:
-            jsonschema.validate(read_json(path), generic_schema)
+            jsonschema.validate(dataset, generic_schema)
             regular_count += 1
 
     hero_count = validate_hero_coverage()
