@@ -3,431 +3,500 @@
   "schemaVersion": 1,
   "id": "raven",
   "source": {
-    "name": "Last Asylum Database",
-    "url": "https://lastasylumdatabase.com/raven",
+    "name": "Last Asylum Database and Last Asylum Wiki",
+    "url": "https://lastasylumwiki.com/docs/raven-upgrade-costs/",
     "type": "community",
-    "status": "complete",
-    "verifiedOn": "2026-08-31",
-    "note": "The five-phase Essence milestone rule was confirmed in game by the contributor on 2026-08-31."
+    "status": "partial",
+    "verifiedOn": "2026-09-15",
+    "note": "Fruit and Essence costs per action come from Last Asylum Database. Confirmed incremental Fruit costs come from the Last Asylum Wiki table; missing incremental values remain null. The five-phase milestone rule was confirmed in game by the contributor on 2026-08-31."
   },
   "semantics": {
     "valueMode": "upgrade-from-level",
-    "note": "Rows are [fromLevel, toLevel, Raven Fruit cost, Raven Essence cost per phase]; costs apply to each upgrade starting within the inclusive band. An upgrade with a non-zero Essence value has five phases, each charged at the listed Fruit and Essence costs."
+    "note": "Rows are [fromLevel, toLevel, Raven Fruit cost per action or phase, Raven Essence cost per phase, confirmed incremental Raven Fruit cost]. A milestone has five phases, each charged at the listed Fruit and Essence costs. For ordinary levels, incremental cost is the maximum Fruit budget before random critical upgrades skip progress; null means unknown."
   },
   "data": [
     [
       1,
       4,
       1000,
-      0
+      0,
+      4000
     ],
     [
       5,
       5,
       2250,
-      1
+      1,
+      null
     ],
     [
       6,
       9,
       1500,
-      0
+      0,
+      6000
     ],
     [
       10,
       10,
       3000,
-      2
+      2,
+      null
     ],
     [
       11,
       14,
       2000,
-      0
+      0,
+      10000
     ],
     [
       15,
       15,
       3750,
-      4
+      4,
+      null
     ],
     [
       16,
       19,
       3600,
-      0
+      0,
+      18000
     ],
     [
       20,
       20,
       4500,
-      6
+      6,
+      null
     ],
     [
       21,
       24,
       5600,
-      0
+      0,
+      28000
     ],
     [
       25,
       25,
       5250,
-      8
+      8,
+      null
     ],
     [
       26,
       29,
       6000,
-      0
+      0,
+      null
     ],
     [
       30,
       30,
       6000,
-      10
+      10,
+      null
     ],
     [
       31,
       34,
       15000,
-      0
+      0,
+      75000
     ],
     [
       35,
       35,
       7500,
-      12
+      12,
+      null
     ],
     [
       36,
       39,
       15000,
-      0
+      0,
+      75000
     ],
     [
       40,
       40,
       7500,
-      16
+      16,
+      null
     ],
     [
       41,
       44,
       15000,
-      0
+      0,
+      75000
     ],
     [
       45,
       45,
       7500,
-      20
+      20,
+      null
     ],
     [
       46,
       49,
       15000,
-      0
+      0,
+      75000
     ],
     [
       50,
       50,
       7500,
-      24
+      24,
+      null
     ],
     [
       51,
       54,
       22500,
-      0
+      0,
+      135000
     ],
     [
       55,
       55,
       9000,
-      28
+      28,
+      null
     ],
     [
       56,
       59,
       22500,
-      0
+      0,
+      135000
     ],
     [
       60,
       60,
       9000,
-      32
+      32,
+      null
     ],
     [
       61,
       64,
       22500,
-      0
+      0,
+      157500
     ],
     [
       65,
       65,
       9000,
-      36
+      36,
+      null
     ],
     [
       66,
       69,
       22500,
-      0
+      0,
+      157500
     ],
     [
       70,
       70,
       9000,
-      40
+      40,
+      null
     ],
     [
       71,
       74,
       25000,
-      0
+      0,
+      200000
     ],
     [
       75,
       75,
       10500,
-      50
+      50,
+      null
     ],
     [
       76,
       79,
       25000,
-      0
+      0,
+      null
     ],
     [
       80,
       80,
       10500,
-      60
+      60,
+      null
     ],
     [
       81,
       84,
       25000,
-      0
+      0,
+      null
     ],
     [
       85,
       85,
       10500,
-      70
+      70,
+      null
     ],
     [
       86,
       89,
       25000,
-      0
+      0,
+      null
     ],
     [
       90,
       90,
       10500,
-      80
+      80,
+      null
     ],
     [
       91,
       94,
       30000,
-      0
+      0,
+      null
     ],
     [
       95,
       95,
       12000,
-      90
+      90,
+      null
     ],
     [
       96,
       99,
       30000,
-      0
+      0,
+      300000
     ],
     [
       100,
       100,
       12000,
-      100
+      100,
+      null
     ],
     [
       101,
       104,
       30000,
-      0
+      0,
+      null
     ],
     [
       105,
       105,
       15000,
-      120
+      120,
+      null
     ],
     [
       106,
       109,
       30000,
-      0
+      0,
+      375000
     ],
     [
       110,
       110,
       15000,
-      140
+      140,
+      null
     ],
     [
       111,
       114,
       80000,
-      0
+      0,
+      1080800
     ],
     [
       115,
       115,
       36000,
-      160
+      160,
+      null
     ],
     [
       116,
       119,
       80000,
-      0
+      0,
+      null
     ],
     [
       120,
       120,
       36000,
-      200
+      200,
+      null
     ],
     [
       121,
       124,
       82000,
-      0
+      0,
+      null
     ],
     [
       125,
       125,
       42000,
-      300
+      300,
+      null
     ],
     [
       126,
       129,
       82000,
-      0
+      0,
+      null
     ],
     [
       130,
       130,
       42000,
-      400
+      400,
+      null
     ],
     [
       131,
       134,
       92000,
-      0
+      0,
+      null
     ],
     [
       135,
       135,
       48000,
-      600
+      600,
+      null
     ],
     [
       136,
       139,
       92000,
-      0
+      0,
+      null
     ],
     [
       140,
       140,
       48000,
-      800
+      800,
+      null
     ],
     [
       141,
       144,
       105000,
-      0
+      0,
+      null
     ],
     [
       145,
       145,
       60000,
-      1000
+      1000,
+      null
     ],
     [
       146,
       149,
       105000,
-      0
+      0,
+      null
     ],
     [
       150,
       159,
       180000,
-      100
+      100,
+      null
     ],
     [
       160,
       169,
       216000,
-      120
+      120,
+      null
     ],
     [
       170,
       179,
       252000,
-      140
+      140,
+      null
     ],
     [
       180,
       189,
       288000,
-      160
+      160,
+      null
     ],
     [
       190,
       199,
       324000,
-      180
+      180,
+      null
     ],
     [
       200,
       209,
       360000,
-      200
+      200,
+      null
     ],
     [
       210,
       219,
       396000,
-      220
+      220,
+      null
     ],
     [
       220,
       229,
       432000,
-      240
+      240,
+      null
     ],
     [
       230,
       239,
       468000,
-      260
+      260,
+      null
     ],
     [
       240,
       249,
       504000,
-      280
+      280,
+      null
     ]
   ]
 }
