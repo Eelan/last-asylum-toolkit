@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "id": "full-development",
+  "nameKey": "research_category_full-development",
+  "source": {
+    "name": "Relevé en jeu fourni par le contributeur ; Last Asylum Pro",
+    "url": "https://lastasylumpro.com/research-full-development.html",
+    "type": "in-game",
+    "status": "partial",
+    "verifiedOn": "2026-09-15",
+    "note": "Construction research only. Per-level construction speed bonuses supplied by the contributor on 2026-09-15: III = 1, 2, 3, 4, 5%; IV = 2, 4, 6, 8, 10%. Names and maximum levels cross-referenced with the linked community catalogue. Power, costs, durations and tree connections remain unknown."
+  },
+  "semantics": {
+    "valueMode": "mixed",
+    "note": "Effects and power are totals at reached level; null means unknown. The single node groups entries for display only and asserts no prerequisites."
+  },
+  "nodes": [
+    {
+      "id": "full-development-construction",
+      "position": 1,
+      "researchIds": [
+        "rapid-construction-3",
+        "rapid-construction-4"
+      ]
+    }
+  ],
+  "researches": {
+    "rapid-construction-3": {
+      "nodeId": "full-development-construction",
+      "nameKey": "research_rapid_construction_3",
+      "sourceNameFr": "Rapid Construction III",
+      "category": "construction-speed",
+      "maxLevel": 5,
+      "effect": {
+        "target": "construction-speed",
+        "unit": "percent",
+        "valueMode": "total-at-level"
+      },
+      "levels": [
+        {
+          "level": 1,
+          "effectAtLevel": 1,
+          "powerAtLevel": null,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 2,
+          "effectAtLevel": 2,
+          "powerAtLevel": null,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 3,
+          "effectAtLevel": 3,
+          "powerAtLevel": null,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 4,
+          "effectAtLevel": 4,
+          "powerAtLevel": null,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 5,
+          "effectAtLevel": 5,
+          "powerAtLevel": null,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        }
+      ]
+    },
+    "rapid-construction-4": {
+      "nodeId": "full-development-construction",
+      "nameKey": "research_rapid_construction_4",
+      "sourceNameFr": "Rapid Construction IV",
+      "category": "construction-speed",
+      "maxLevel": 5,
+      "effect": {
+        "target": "construction-speed",
+        "unit": "percent",
+        "valueMode": "total-at-level"
+      },
+      "levels": [
+        {
+          "level": 1,
+          "effectAtLevel": 2,
+          "powerAtLevel": null,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 2,
+          "effectAtLevel": 4,
+          "powerAtLevel": null,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 3,
+          "effectAtLevel": 6,
+          "powerAtLevel": null,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 4,
+          "effectAtLevel": 8,
+          "powerAtLevel": null,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 5,
+          "effectAtLevel": 10,
+          "powerAtLevel": null,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        }
+      ]
+    }
+  }
+}

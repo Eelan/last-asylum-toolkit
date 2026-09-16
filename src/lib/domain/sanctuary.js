@@ -1,4 +1,5 @@
 import { GAME_DATA } from '../data.js';
+import constructionBonuses from '../../../public/data/progression/construction-bonuses.json';
 
 function normalizeLevel(row) {
   const [level, power, grain, timber, herb, stars, antitoxinReward, seconds, prerequisites] = row;
@@ -29,4 +30,12 @@ export function calculateSanctuaryProgression(current, target) {
     powerGain: targetPower - currentPower,
     heroLevelCap: target * 5
   };
+}
+
+/** Applies construction-speed bonuses as speed multipliers, never as duration reductions. */
+export function calculateSanctuaryBuildTime(seconds, researchSpeedPercent = 0, builderActive = false, allianceSpeedPercent = 0, vipSpeedPercent = 0) {
+  const builderSpeedPercent = builderActive ? constructionBonuses.data.builderSpeedPercent : 0;
+  const estimatedSeconds = seconds / (1 + (researchSpeedPercent + builderSpeedPercent + allianceSpeedPercent + vipSpeedPercent) / 100);
+  return { baseSeconds: seconds, researchSpeedPercent, builderActive, builderApplied: builderActive, builderSpeedPercent,
+    estimatedSeconds, secondsSaved: Math.max(0, seconds - estimatedSeconds) };
 }

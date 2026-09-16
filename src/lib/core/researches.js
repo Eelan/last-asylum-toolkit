@@ -1,6 +1,8 @@
 import { translate } from './i18n.js';
 import { readPreference, writePreference } from '../platform/storage.ts';
 export const RESEARCH_TREES = [{
+  id: 'full-development', path: 'data/research/full-development.json', icon: 'hammer', title: 'research_category_full-development'
+}, {
   id: 'development', path: 'data/research/development.json', icon: 'hammer', title: 'research_category_development'
 }, {
   id: 'economy', path: 'data/research/economy.json', icon: 'coins', title: 'research_category_economy'
@@ -22,6 +24,13 @@ export function getResearchLevel(treeId, research) {
   } catch (error) {
     return 0;
   }
+}
+
+/** Returns null when the player has not entered this research yet. */
+export function getResearchInputLevel(treeId, research) {
+  const value = readPreference(`lat-research-${treeId}-${research.id}-level`);
+  if (value === null || value === '') return null;
+  return Math.min(research.maxLevel, Math.max(0, Number(value) || 0));
 }
 
 export function setResearchLevel(treeId, researchId, level) {

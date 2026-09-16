@@ -90,8 +90,8 @@
       "required": ["level", "effectAtLevel", "powerAtLevel", "upgradeCost", "durationSeconds", "prerequisites"],
       "properties": {
         "level": { "type": "integer", "minimum": 1 },
-        "effectAtLevel": { "type": "number" },
-        "powerAtLevel": { "type": "integer", "minimum": 0 },
+        "effectAtLevel": { "type": ["number", "null"] },
+        "powerAtLevel": { "type": ["integer", "null"], "minimum": 0 },
         "upgradeCost": {
           "oneOf": [
             { "type": "null" },

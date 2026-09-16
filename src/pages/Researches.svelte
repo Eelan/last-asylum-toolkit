@@ -14,6 +14,8 @@
   import { t } from '../lib/state/preferences.ts';
   import Icon from '../lib/components/Icon.svelte';
   import ResearchModal from '../lib/components/ResearchModal.svelte';
+  import AllianceConstructionResearch from '../lib/components/AllianceConstructionResearch.svelte';
+  import { RESEARCH_BRANCHES, RESEARCH_BRANCH_ICONS } from '../lib/config/researchBranches.js';
   const data = Promise.all(RESEARCH_TREES.map((item) => loadJsonDocument(item.path)));
   let selectedId = $state('development'),
     selectedResearchId = $state(null),
@@ -40,7 +42,9 @@
     <section class="research-overview research-experience" class:mobile-tree-open={mobileTreeOpen}>
       <p class="sources-intro">{$t('researches_intro')}</p>
       <div class="research-grid">
-        {#each trees as candidate}{@const progress = getTreeProgress(candidate)}<button
+        {#each RESEARCH_BRANCHES as branchId}
+          {@const candidate = trees.find(item => item.id === branchId)}
+          {#if candidate}{@const progress = getTreeProgress(candidate)}<button
             class="research-card research-tree-selector"
             class:selected={candidate.id === selectedId}
             onclick={() => {
@@ -49,13 +53,44 @@
               mobileTreeOpen = true;
             }}
             ><span class="research-card-icon"
-              ><Icon name={RESEARCH_TREES.find((item) => item.id === candidate.id).icon} /></span
+              ><Icon name={RESEARCH_BRANCH_ICONS[branchId]} /></span
             ><strong>{progress.percent}%</strong><span>{title(candidate)}</span><small
               >{getTreeResearches(candidate).length} {$t('researches_count')}</small
             ></button
-          >{/each}
+          >
+          {:else}
+            <button class="research-card research-tree-selector research-card-unavailable" disabled>
+              <span class="research-branch-symbol"><Icon name={RESEARCH_BRANCH_ICONS[branchId]} size={28} /></span>
+              <span class="research-branch-caption">
+                <span>{$t('research_category_' + branchId)}</span>
+                <small>{$t('research_branch_under_construction')}</small>
+              </span>
+              <span class="research-branch-construction"><Icon name="construction" size={20} /></span>
+            </button>
+          {/if}
+        {/each}
+        <button
+          class="research-card research-tree-selector"
+          class:selected={selectedId === 'alliance'}
+          onclick={() => {
+            selectedId = 'alliance';
+            selectedResearchId = null;
+            mobileTreeOpen = true;
+          }}
+        >
+          <span class="research-card-icon"><Icon name="users-round" /></span>
+          <span>{$t('alliance_research_title')}</span>
+        </button>
       </div>
     </section>
+    {#if selectedId === 'alliance'}
+      <section class="panel research-tree-panel research-experience" class:mobile-tree-open={mobileTreeOpen}>
+        <button class="research-mobile-back" onclick={() => { mobileTreeOpen = false; }}>
+          <Icon name="arrow-left" /> {$t('research_back_to_categories')}
+        </button>
+        <AllianceConstructionResearch embedded />
+      </section>
+    {:else}
     {@const progress = getTreeProgress(tree)}{@const nodes = getOrderedNodes(tree)}
     <section
       class="panel research-tree-panel research-experience"
@@ -135,8 +170,9 @@
         </div>
       </div>
       <p class="research-click-hint"><Icon name="mouse-pointer-click" /> {$t('research_click_to_select')}</p>
-      <p class="form-note">{$t('research_tree_verified')}</p>
+      <p class="form-note">{$t(tree.id === 'full-development' ? 'research_full_development_partial' : 'research_tree_verified')}</p>
     </section>
+    {/if}
   {/key}
   {#if selectedResearchId}<ResearchModal
       {tree}

@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "id": "alliance",
+  "source": {
+    "name": "Relevé en jeu fourni par le contributeur",
+    "url": null,
+    "type": "in-game",
+    "status": "partial",
+    "verifiedOn": "2026-09-15",
+    "note": "Construction Rapide: +2.5% per level, 10 levels, confirmed by contributor."
+  },
+  "semantics": {
+    "valueMode": "mixed",
+    "note": "effectAtLevel is total construction speed percent at reached level. Costs, duration, power and prerequisites are unknown."
+  },
+  "nodes": [
+    {
+      "id": "alliance-construction",
+      "position": 1,
+      "researchIds": [
+        "rapid-construction"
+      ]
+    }
+  ],
+  "researches": {
+    "rapid-construction": {
+      "nodeId": "alliance-construction",
+      "nameKey": "alliance_rapid_construction",
+      "sourceNameFr": "Construction Rapide",
+      "category": "construction-speed",
+      "maxLevel": 10,
+      "effect": {
+        "target": "construction-speed",
+        "unit": "percent",
+        "valueMode": "total-at-level"
+      },
+      "levels": [
+        {
+          "level": 1,
+          "effectAtLevel": 2.5,
+          "powerAtLevel": null,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 2,
+          "effectAtLevel": 5,
+          "powerAtLevel": null,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 3,
+          "effectAtLevel": 7.5,
+          "powerAtLevel": null,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 4,
+          "effectAtLevel": 10,
+          "powerAtLevel": null,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 5,
+          "effectAtLevel": 12.5,
+          "powerAtLevel": null,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 6,
+          "effectAtLevel": 15,
+          "powerAtLevel": null,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 7,
+          "effectAtLevel": 17.5,
+          "powerAtLevel": null,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 8,
+          "effectAtLevel": 20,
+          "powerAtLevel": null,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 9,
+          "effectAtLevel": 22.5,
+          "powerAtLevel": null,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        },
+        {
+          "level": 10,
+          "effectAtLevel": 25,
+          "powerAtLevel": null,
+          "upgradeCost": null,
+          "durationSeconds": null,
+          "prerequisites": null
+        }
+      ]
+    }
+  }
+}

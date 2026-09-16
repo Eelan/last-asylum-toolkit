@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "id": "construction-bonuses",
+  "source": {
+    "name": "Last Asylum Wiki — court posts and formulas",
+    "url": "https://wiki-last-asylum.com/en/wiki/temple-battle",
+    "type": "community",
+    "status": "complete",
+    "verifiedOn": "2026-09-15"
+  },
+  "semantics": {
+    "valueMode": "mixed",
+    "note": "Builder means the Construction Minister appointment. Speed percentages add to personal research speed; duration = base / (1 + totalSpeedPercent / 100). Formula source: https://wiki-last-asylum.com/en/wiki/formulas. Assumes appointment is active when each planned upgrade starts."
+  },
+  "data": { "builderSpeedPercent": 50 }
+}
