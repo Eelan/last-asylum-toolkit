@@ -233,16 +233,24 @@ label span {
 }
 
 .resource-label img {
+  flex-shrink:0;
   width:28px;
   height:28px;
   object-fit:contain;
   filter:drop-shadow(0 2px 3px rgba(0,0,0,.35));
 }
 
+th .resource-label,
 td .resource-label {
   margin:0;
   color:var(--text);
   white-space:nowrap;
+}
+
+th .resource-label {
+  display:inline-flex;
+  color:inherit;
+  font-size:inherit;
 }
 
 input,
@@ -331,6 +339,11 @@ select:focus {
   display:block;
   color:var(--muted);
   font-size:.7rem;
+}
+
+.stat .resource-label {
+  display:flex;
+  margin-bottom:0;
 }
 
 .stat strong {

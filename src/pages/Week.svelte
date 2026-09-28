@@ -13,6 +13,8 @@
   import { t, number, clockMode, locale } from '../lib/state/preferences.ts';
   import KeyList from '../lib/components/KeyList.svelte';
   import LevelTable from '../lib/components/LevelTable.svelte';
+  import ResourceLabel from '../lib/components/ResourceLabel.svelte';
+  const gatheringResources = { duel_activity_grain: 'grain', duel_activity_timber: 'timber', duel_activity_herbs: 'herb' };
   const duel = GAME_DATA.duel;
   let now = $state(new Date());
   let serverNow = $derived(getServerDate(now));
@@ -150,7 +152,7 @@
                 ></thead
               ><tbody
                 >{#each phase.activities as activity}<tr
-                    ><td>{$t(activity.labelKey)}</td><td>{$number(activity.quantity)}</td><td
+                    ><td>{#if gatheringResources[activity.labelKey]}<ResourceLabel resource={gatheringResources[activity.labelKey]} label={$t(activity.labelKey)} />{:else}{$t(activity.labelKey)}{/if}</td><td>{$number(activity.quantity)}</td><td
                       >{$number(activity.points)}</td
                     ></tr
                   >{/each}</tbody

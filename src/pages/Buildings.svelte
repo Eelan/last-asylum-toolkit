@@ -1,4 +1,5 @@
 <script>
+  import ResourceLabel from '../lib/components/ResourceLabel.svelte';
   import { loadJsonDocument } from '../lib/core/datasets.js';
   import { t, number, duration } from '../lib/state/preferences.ts';
   import Icon from '../lib/components/Icon.svelte';
@@ -87,9 +88,9 @@
               <th>{$t('level')}</th>
               <th>{$t('buildings_effects')}</th>
               <th>{$t('buildings_might')}</th>
-              <th>{$t('grain')}</th>
-              <th>{$t('timber')}</th>
-              <th>{$t('herb')}</th>
+              <th><ResourceLabel resource="grain" label={$t('grain')} /></th>
+              <th><ResourceLabel resource="timber" label={$t('timber')} /></th>
+              <th><ResourceLabel resource="herb" label={$t('herb')} /></th>
               <th>{$t('time')}</th>
             </tr>
           </thead>

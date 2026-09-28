@@ -311,10 +311,10 @@
   overflow-wrap:anywhere;
 }
 
-.sanctuary-table th:last-child,
-.sanctuary-table td:last-child {
+.sanctuary-table th:nth-child(n + 7),
+.sanctuary-table td:nth-child(n + 7) {
   text-align:left;
-  min-width:280px;
+  min-width:160px;
 }
 
 @media(max-width:780px) {

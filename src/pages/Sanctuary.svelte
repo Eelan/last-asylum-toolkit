@@ -1,4 +1,5 @@
 <script>
+  import ResourceLabel from '../lib/components/ResourceLabel.svelte';
   import { calculateSanctuaryProgression } from '../lib/domain/sanctuary.js';
   import { calculateSanctuaryBuildTime } from '../lib/domain/sanctuary.js';
   import { getConstructionResearchSummary } from '../lib/domain/constructionResearch.js';
@@ -153,7 +154,7 @@
     {#each [['grain', 'grain'], ['timber', 'timber'], ['herb', 'herb'], ['stars', 'stars'], ['antitoxinReward', 'antitoxin_reward']] as [key, label]}<div
         class="stat"
       >
-        <span>{$t(label)}</span><strong>{result.valid ? $number(result.totals[key]) : '—'}</strong>
+        <ResourceLabel resource={key} label={$t(label)} /><strong>{result.valid ? $number(result.totals[key]) : '—'}</strong>
       </div>{/each}
   </div>
 </section>
@@ -164,19 +165,19 @@
     <table class="sanctuary-table">
       <thead
         ><tr
-          >{#each ['level', 'grain', 'timber', 'herb', 'stars', 'time', 'prerequisites'] as key}<th
-              >{$t(key)}</th
+          >{#each ['level', 'grain', 'timber', 'herb', 'stars', 'time', 'prerequisite_1', 'prerequisite_2', 'prerequisite_3'] as key}<th
+              >{#if ['grain', 'timber', 'herb'].includes(key)}<ResourceLabel resource={key} label={$t(key)} />{:else}{$t(key)}{/if}</th
             >{/each}</tr
         ></thead
       ><tbody id="sanctuary-body"
         >{#each result.levels as row}<tr
             ><td>{row.level}</td>{#each ['grain', 'timber', 'herb', 'stars'] as key}<td
                 >{$number(row[key])}</td
-              >{/each}<td>{$duration(row.seconds)}</td><td
-              >{row.prerequisites
-                .map(([building, level]) => `${$t('building_' + building)} ${$t('level_abbr')} ${level}`)
-                .join(' · ') || '—'}</td
-            ></tr
+              >{/each}<td>{$duration(row.seconds)}</td>
+              {#each [0, 1, 2] as index}
+                {@const prerequisite = row.prerequisites[index]}
+                <td>{prerequisite ? `${$t('building_' + prerequisite[0])} ${$t('level_abbr')} ${prerequisite[1]}` : '—'}</td>
+              {/each}</tr
           >{/each}</tbody
       >
     </table>
